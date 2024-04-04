@@ -16,9 +16,13 @@ public class Recipe {
     }
 
     @GetMapping("/counter")
-    public int counter()
+    public String counter()
     {
-        return ++counter;
+        return "Counter: " + (++counter);
     }
 
+    @GetMapping("/decCounter")
+    public String decCounter() {
+        return "Counter: " + (--counter);
+    }
 }
