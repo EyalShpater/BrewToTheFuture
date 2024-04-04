@@ -14,4 +14,10 @@ public class Recipe {
         System.out.println("Request number " + counter + " received");
         return "Hello, " + name + "!";
     }
+
+    @GetMapping("/counter")
+    public int counter()
+    {
+        return ++counter;
+    }
 }
