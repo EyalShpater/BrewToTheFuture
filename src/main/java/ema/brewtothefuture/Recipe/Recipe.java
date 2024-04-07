@@ -35,4 +35,10 @@ public class Recipe {
 
         return "Temperature set to " + temp + "°C";
     }
+
+    @GetMapping("/showAttributes")
+    public String showAttributes()
+    {
+        return "Counter: " + counter + "\nTemperature: " + temp + "°C";
+    }
 }
