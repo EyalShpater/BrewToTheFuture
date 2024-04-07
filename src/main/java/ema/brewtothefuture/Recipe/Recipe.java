@@ -1,12 +1,14 @@
 package ema.brewtothefuture.Recipe;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Recipe {
     int counter = 0;
+    double temp = 0;
 
     @GetMapping("/hello")
     public String hello(@RequestParam String name) {
@@ -24,5 +26,13 @@ public class Recipe {
     @GetMapping("/decCounter")
     public String decCounter() {
         return "Counter: " + (--counter);
+    }
+
+    @PostMapping("/temp")
+    public String temp(@RequestParam double temp)
+    {
+        this.temp = temp;
+
+        return "Temperature set to " + temp + "°C";
     }
 }
