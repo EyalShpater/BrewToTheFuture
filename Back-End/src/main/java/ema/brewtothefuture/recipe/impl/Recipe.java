@@ -13,9 +13,6 @@ public class Recipe {
     private List<Ingredient> ingredients;
 
 
-
-
-
     int counter = 0;
     double temp = 0;
 
