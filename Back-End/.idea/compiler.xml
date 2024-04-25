@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="BrewToTheFuture" />
-        <module name="Back-End" />
+        <module name="BrewingSystem" />
+        <module name="social" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Back-End" options="-parameters" />
+      <module name="Back-End" options="" />
       <module name="BrewToTheFuture" options="-parameters" />
+      <module name="BrewingSystem" options="-parameters" />
+      <module name="social" options="-parameters" />
     </option>
   </component>
 </project>
