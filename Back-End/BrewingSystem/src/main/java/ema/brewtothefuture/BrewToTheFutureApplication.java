@@ -10,4 +10,5 @@ public class BrewToTheFutureApplication {
     public static void main(String[] args) {
         SpringApplication.run(BrewToTheFutureApplication.class, args);
     }
+
 }
