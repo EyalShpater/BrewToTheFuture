@@ -1,6 +1,7 @@
 package ema.brewtothefuture.recipe.api;
 
 import ema.brewtothefuture.dto.api.DTOConvertible;
+import ema.brewtothefuture.dto.embedded.BrewStepDTO;
 import ema.brewtothefuture.dto.front.RecipeStepDTO;
 
 public record RecipeStep (
@@ -9,7 +10,7 @@ public record RecipeStep (
         int durationMinutes,
         boolean notifyOnComplete,
         String message
-) implements DTOConvertible<RecipeStepDTO> {
+) implements DTOConvertible<BrewStepDTO> {
     public RecipeStep(RecipeStepDTO dto) {
         this(
                 dto.step_id(),
@@ -21,13 +22,12 @@ public record RecipeStep (
     }
 
     @Override
-    public RecipeStepDTO convertToDTO() {
-        return new RecipeStepDTO(
+    public BrewStepDTO convertToDTO() {
+        return new BrewStepDTO(
                 stepId,
                 temperature,
                 durationMinutes,
-                notifyOnComplete,
-                message
+                notifyOnComplete
         );
     }
 }

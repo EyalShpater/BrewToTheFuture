@@ -9,11 +9,11 @@ import ema.brewtothefuture.recipe.api.Hop;
 import java.util.List;
 
 public interface Brewer {
-    EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber);
+    EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber); // to backend
     void addNewRecipe(RecipeDTO recipe);
     List<FermentableDTO> getFermentables();
     List<Hop> getHops();
     List<YeastDTO> getYeast();
     void addViewedRecipe(int recipeId);
-    void brewRecipe(int recipeId, String userId);
+    void brewRecipe(RecipeDTO recipe, String userId); // from front
 }
