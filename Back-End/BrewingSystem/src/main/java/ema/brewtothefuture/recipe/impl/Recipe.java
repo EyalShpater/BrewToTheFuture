@@ -1,19 +1,17 @@
 package ema.brewtothefuture.recipe.impl;
 
 import ema.brewtothefuture.dto.api.DTOConvertible;
+import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.MetaDataDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.recipe.api.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Recipe implements DTOConvertible<RecipeDTO> {
+public class Recipe /*implements DTOConvertible<RecipeDTO>*/ {
+    private final int recipeId;
     private MetaData metaData;
     private List<RecipeStep> steps;
     private List<Notification> notifications;
@@ -24,8 +22,9 @@ public class Recipe implements DTOConvertible<RecipeDTO> {
     private int votes;
     private int views;
 
-    public Recipe(String id) {
-        this.metaData = new MetaData(id);
+    public Recipe(int recipeId, String authorId) {
+        this.metaData = new MetaData(authorId);
+        this.recipeId = recipeId;
         this.steps = new ArrayList<>();
         this.notifications = new ArrayList<>();
         this.fermentables = new ArrayList<>();
@@ -33,7 +32,8 @@ public class Recipe implements DTOConvertible<RecipeDTO> {
         this.yeast = new ArrayList<>();
     }
 
-    public Recipe(RecipeDTO recipeDTO) {
+    public Recipe(RecipeDTO recipeDTO, int recipeId) {
+        this.recipeId = recipeId;
         this.rating = 0;
         this.votes = 0;
         this.views = 0;
@@ -73,26 +73,36 @@ public class Recipe implements DTOConvertible<RecipeDTO> {
         this.views = views;
     }
 
-    @Override
-    public RecipeDTO convertToDTO() {
-        return new RecipeDTO(
-                new MetaDataDTO(
-                        metaData.authorId(),
-                        metaData.name(),
-                        metaData.method().name(),
-                        metaData.style().name(),
-                        metaData.abv(),
-                        metaData.ibu(),
-                        metaData.originalGravity(),
-                        metaData.finalGravity(),
-                        metaData.color(),
-                        metaData.batchSize()
-                ),
-                steps.stream().map(RecipeStep::convertToDTO).collect(Collectors.toList()),
-                notifications.stream().map(Notification::convertToDTO).collect(Collectors.toList()),
-                fermentables.stream().map(Fermentable::convertToDTO).collect(Collectors.toList()),
-                hops.stream().map(Hop::convertToDTO).collect(Collectors.toList()),
-                yeast.stream().map(Yeast::convertToDTO).collect(Collectors.toList())
+    public EmbeddedRecipeDTO createEmbeddedRecipeDTO(int brewId) {
+        return new EmbeddedRecipeDTO(
+                brewId,
+                recipeId,
+                metaData.name(),
+                metaData.authorId(),
+                steps.stream().map(RecipeStep::convertToDTO).collect(Collectors.toList())
         );
     }
+
+//    @Override
+//    public RecipeDTO convertToDTO() {
+//        return new RecipeDTO(
+//                new MetaDataDTO(
+//                        metaData.authorId(),
+//                        metaData.name(),
+//                        metaData.method().name(),
+//                        metaData.style().name(),
+//                        metaData.abv(),
+//                        metaData.ibu(),
+//                        metaData.originalGravity(),
+//                        metaData.finalGravity(),
+//                        metaData.color(),
+//                        metaData.batchSize()
+//                ),
+//                steps.stream().map(RecipeStep::convertToDTO).collect(Collectors.toList()),
+//                notifications.stream().map(Notification::convertToDTO).collect(Collectors.toList()),
+//                fermentables.stream().map(Fermentable::convertToDTO).collect(Collectors.toList()),
+//                hops.stream().map(Hop::convertToDTO).collect(Collectors.toList()),
+//                yeast.stream().map(Yeast::convertToDTO).collect(Collectors.toList())
+//        );
+//    }
 }
