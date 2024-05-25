@@ -1,5 +1,6 @@
 package ema.brewtothefuture.heat.unit.impl;
 
+import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.heat.unit.api.Brew;
 import ema.brewtothefuture.heat.unit.api.BrewingReport;
 import ema.brewtothefuture.heat.unit.api.FermentationReport;
@@ -42,5 +43,10 @@ public class BrewImpl implements Brew {
     @Override
     public Recipe getRecipe() {
         return recipe;
+    }
+
+    @Override
+    public EmbeddedRecipeDTO getEmbeddedRecipe() {
+        return recipe.createEmbeddedRecipeDTO(brewId);
     }
 }

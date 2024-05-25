@@ -29,6 +29,16 @@ public enum BrewStyle {
         this.styleName = style;
     }
 
+    public static BrewStyle fromString(String name) {
+        for (BrewStyle style : BrewStyle.values()) {
+            if (style.styleName.equalsIgnoreCase(name)) {
+                return style;
+            }
+        }
+
+        throw new IllegalArgumentException("No BrewMethod with name " + name + " found");
+    }
+
     @Override
     public String toString() {
         return styleName;

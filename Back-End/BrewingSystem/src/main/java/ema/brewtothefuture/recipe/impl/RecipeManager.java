@@ -1,5 +1,7 @@
 package ema.brewtothefuture.recipe.impl;
 
+import ema.brewtothefuture.dto.front.RecipeDTO;
+
 import java.util.*;
 
 public class RecipeManager {
@@ -19,7 +21,14 @@ public class RecipeManager {
         return instance;
     }
 
-    public void addRecipe(Recipe recipe) {
-        recipes.put(id++, recipe);
+    public Recipe addRecipe(RecipeDTO recipe) {
+        Recipe newRecipe= new Recipe(recipe, id++);
+        recipes.put(newRecipe.getRecipeId(), newRecipe);
+
+        return newRecipe;
+    }
+
+    public Recipe getRecipe(int recipeId) {
+        return recipes.get(recipeId);
     }
 }

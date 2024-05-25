@@ -8,12 +8,20 @@ import ema.brewtothefuture.recipe.api.Hop;
 
 import java.util.List;
 
-public interface Brewer {
+public interface BrewingSystem {
     EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber); // to backend
-    void addNewRecipe(RecipeDTO recipe);
+
+    int addNewRecipe(RecipeDTO recipe);
+
+    void markBrewingAsFinished(String deviceSerialNumber);
+
     List<FermentableDTO> getFermentables();
+
     List<Hop> getHops();
+
     List<YeastDTO> getYeast();
+
     void addViewedRecipe(int recipeId);
-    void brewRecipe(RecipeDTO recipe, String userId); // from front
+
+    void brewRecipe(int recipeId, String userId); // from front
 }

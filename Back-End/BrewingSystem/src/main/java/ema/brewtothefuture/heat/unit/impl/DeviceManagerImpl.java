@@ -2,11 +2,20 @@ package ema.brewtothefuture.heat.unit.impl;
 
 import ema.brewtothefuture.heat.unit.api.DeviceManager;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class DeviceManagerImpl implements DeviceManager {
-    Map<String, String> userToDevice = new java.util.HashMap<>();
-    Map<String, String> deviceToUser = new java.util.HashMap<>();
+    Map<String, String> userToDevice;
+    Map<String, String> deviceToUser;
+
+    public DeviceManagerImpl() {
+        this.userToDevice = new HashMap<>();
+        this.deviceToUser = new HashMap<>();
+
+        userToDevice.put("ilwejkrfhiuy4o3y4ljkblkdj", "1234");
+        deviceToUser.put("1234", "ilwejkrfhiuy4o3y4ljkblkdj");
+    }
 
     @Override
     public void addDevice(String deviceId, String userId) {

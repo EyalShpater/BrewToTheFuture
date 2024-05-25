@@ -16,4 +16,14 @@ public enum BrewMethod {
     public String toString() {
         return name;
     }
+
+    public static BrewMethod fromString(String name) {
+        for (BrewMethod method : BrewMethod.values()) {
+            if (method.name.equalsIgnoreCase(name)) {
+                return method;
+            }
+        }
+
+        throw new IllegalArgumentException("No BrewMethod with name " + name + " found");
+    }
 }

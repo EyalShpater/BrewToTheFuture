@@ -1,8 +1,6 @@
 package ema.brewtothefuture.recipe.impl;
 
-import ema.brewtothefuture.dto.api.DTOConvertible;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
-import ema.brewtothefuture.dto.front.MetaDataDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.recipe.api.*;
 
@@ -11,16 +9,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Recipe /*implements DTOConvertible<RecipeDTO>*/ {
-    private final int recipeId;
-    private MetaData metaData;
-    private List<RecipeStep> steps;
-    private List<Notification> notifications;
-    private List<Fermentable> fermentables;
-    private List<Hop> hops;
-    private List<Yeast> yeast;
-    private double rating;
-    private int votes;
-    private int views;
+    private final int                recipeId;
+    private       MetaData           metaData;
+    private       List<RecipeStep>   steps;
+    private       List<Notification> notifications;
+    private       List<Fermentable>  fermentables;
+    private       List<Hop>          hops;
+    private       List<Yeast>        yeast;
+    private       double             rating;
+    private       int                votes;
+    private       int                views;
 
     public Recipe(int recipeId, String authorId) {
         this.metaData = new MetaData(authorId);
@@ -37,7 +35,16 @@ public class Recipe /*implements DTOConvertible<RecipeDTO>*/ {
         this.rating = 0;
         this.votes = 0;
         this.views = 0;
-        this.metaData = new MetaData(recipeDTO.meta());
+        this.metaData = new MetaData(recipeDTO.user_id(),
+                recipeDTO.recipe_name(),
+                BrewMethod.fromString(recipeDTO.method()),
+                BrewStyle.fromString(recipeDTO.style()),
+                recipeDTO.abv(), recipeDTO.ibu(),
+                recipeDTO.original_gravity(),
+                recipeDTO.final_gravity(),
+                recipeDTO.color(),
+                recipeDTO.batch_size_liter()
+        );
         this.steps = recipeDTO.recipe().stream().map(RecipeStep::new).collect(Collectors.toList());
         this.notifications = recipeDTO.notifications().stream().map(Notification::new).collect(Collectors.toList());
         this.fermentables = recipeDTO.fermentables().stream().map(Fermentable::new).collect(Collectors.toList());
@@ -74,16 +81,14 @@ public class Recipe /*implements DTOConvertible<RecipeDTO>*/ {
     }
 
     public EmbeddedRecipeDTO createEmbeddedRecipeDTO(int brewId) {
-        return new EmbeddedRecipeDTO(
-                brewId,
-                recipeId,
-                metaData.name(),
-                metaData.authorId(),
-                steps.stream().map(RecipeStep::convertToDTO).collect(Collectors.toList())
-        );
+        return new EmbeddedRecipeDTO(brewId, recipeId, metaData.name(), metaData.authorId(), steps.stream().map(RecipeStep::convertToDTO).collect(Collectors.toList()));
     }
 
-//    @Override
+    public int getRecipeId() {
+        return recipeId;
+    }
+
+    //    @Override
 //    public RecipeDTO convertToDTO() {
 //        return new RecipeDTO(
 //                new MetaDataDTO(
