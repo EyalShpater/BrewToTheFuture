@@ -14,7 +14,6 @@ import ema.brewtothefuture.recipe.impl.Recipe;
 import ema.brewtothefuture.recipe.impl.RecipeManager;
 import ema.brewtothefuture.system.api.BrewingSystem;
 
-import java.net.UnknownServiceException;
 import java.util.List;
 
 public class BrewingSystemImpl implements BrewingSystem {
@@ -48,6 +47,11 @@ public class BrewingSystemImpl implements BrewingSystem {
     }
 
     @Override
+    public List<RecipeDTO> getAllRecipes() {
+        return recipeManager.getAllRecipes();
+    }
+
+    @Override
     public void addViewedRecipe(int recipeId) {
 
     }
@@ -66,6 +70,6 @@ public class BrewingSystemImpl implements BrewingSystem {
     @Override
     public void markBrewingAsFinished(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
-        brewingManager.markBrewed(userId);
+        brewingManager.markHeadOfQueueAsBrewed(userId);
     }
 }

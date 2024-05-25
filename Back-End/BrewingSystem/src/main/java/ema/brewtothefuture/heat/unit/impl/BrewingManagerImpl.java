@@ -56,8 +56,12 @@ public class BrewingManagerImpl implements BrewingManager {
     }
 
     @Override
-    public void markBrewed(String userId) {
-        userIdToBrew.get(userId).remove();
+    public void markHeadOfQueueAsBrewed(String userId) {
+        try {
+            userIdToBrew.get(userId).remove();
+        } catch (NoSuchElementException e) {
+            throw new IllegalArgumentException("No brews for user " + userId);
+        }
     }
 }
 

@@ -88,26 +88,23 @@ public class Recipe /*implements DTOConvertible<RecipeDTO>*/ {
         return recipeId;
     }
 
-    //    @Override
-//    public RecipeDTO convertToDTO() {
-//        return new RecipeDTO(
-//                new MetaDataDTO(
-//                        metaData.authorId(),
-//                        metaData.name(),
-//                        metaData.method().name(),
-//                        metaData.style().name(),
-//                        metaData.abv(),
-//                        metaData.ibu(),
-//                        metaData.originalGravity(),
-//                        metaData.finalGravity(),
-//                        metaData.color(),
-//                        metaData.batchSize()
-//                ),
-//                steps.stream().map(RecipeStep::convertToDTO).collect(Collectors.toList()),
-//                notifications.stream().map(Notification::convertToDTO).collect(Collectors.toList()),
-//                fermentables.stream().map(Fermentable::convertToDTO).collect(Collectors.toList()),
-//                hops.stream().map(Hop::convertToDTO).collect(Collectors.toList()),
-//                yeast.stream().map(Yeast::convertToDTO).collect(Collectors.toList())
-//        );
-//    }
+    public RecipeDTO convertToDTO() {
+        return new RecipeDTO(
+                metaData.authorId(),
+                metaData.name(),
+                metaData.method().toString(),
+                metaData.style().toString(),
+                metaData.abv(),
+                metaData.ibu(),
+                metaData.originalGravity(),
+                metaData.finalGravity(),
+                metaData.color(),
+                metaData.batchSize(),
+                steps.stream().map(RecipeStep::convertToFrontDTO).collect(Collectors.toList()),
+                notifications.stream().map(Notification::convertToDTO).collect(Collectors.toList()),
+                fermentables.stream().map(Fermentable::convertToDTO).collect(Collectors.toList()),
+                hops.stream().map(Hop::convertToDTO).collect(Collectors.toList()),
+                yeast.stream().map(Yeast::convertToDTO).collect(Collectors.toList())
+        );
+    }
 }

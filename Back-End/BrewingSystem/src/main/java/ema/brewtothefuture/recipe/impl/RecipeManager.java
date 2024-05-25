@@ -31,4 +31,13 @@ public class RecipeManager {
     public Recipe getRecipe(int recipeId) {
         return recipes.get(recipeId);
     }
+
+    public List<RecipeDTO> getAllRecipes() {
+        List<RecipeDTO> recipeDTOs = new ArrayList<>();
+        for (Recipe recipe : recipes.values()) {
+            recipeDTOs.add(recipe.convertToDTO());
+        }
+
+        return recipeDTOs;
+    }
 }

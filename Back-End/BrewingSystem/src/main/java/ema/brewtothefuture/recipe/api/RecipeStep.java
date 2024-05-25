@@ -21,6 +21,16 @@ public record RecipeStep (
         );
     }
 
+    public RecipeStepDTO convertToFrontDTO() {
+        return new RecipeStepDTO(
+                stepId,
+                temperature,
+                durationMinutes,
+                notifyOnComplete,
+                message
+        );
+    }
+
     @Override
     public BrewStepDTO convertToDTO() {
         return new BrewStepDTO(

@@ -13,5 +13,5 @@ public interface BrewingManager {
 
     void addRecipeToBrew(int recipeId, String userId);
 
-    void markBrewed(String userId);
+    void markHeadOfQueueAsBrewed(String userId);
 }

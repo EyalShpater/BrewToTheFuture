@@ -21,6 +21,8 @@ public interface BrewingSystem {
 
     List<YeastDTO> getYeast();
 
+    List<RecipeDTO> getAllRecipes();
+
     void addViewedRecipe(int recipeId);
 
     void brewRecipe(int recipeId, String userId); // from front
