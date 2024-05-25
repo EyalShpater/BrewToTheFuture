@@ -22,6 +22,11 @@ public class BrewingSystemController {
         brewingSystem.brewRecipe(recipeId, recipeDTO.user_id());
     }
 
+    @PostMapping("{userId}/api/brew/recipe/{recipeId}")
+    public void brewRecipe(@PathVariable int recipeId, @PathVariable String userId) {
+        brewingSystem.brewRecipe(recipeId, userId);
+    }
+
     @GetMapping("{deviceSerialNumber}/api/embedded/brew/recipe")
     public EmbeddedRecipeDTO getRecipeToBrew(@PathVariable String deviceSerialNumber) {
         return brewingSystem.getRecipeToBrew(deviceSerialNumber);
