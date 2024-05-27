@@ -12,7 +12,6 @@ import {
 } from "react-native";
 import styles from "./CreateRecipe.style";
 import { Picker } from "@react-native-picker/picker";
-// const axios = require("axios");
 import axios from "axios";
 
 const CreateRecipe = () => {
@@ -40,7 +39,7 @@ const CreateRecipe = () => {
   const [hopsDetails, setHopsDetails] = useState([
     {
       id: 0,
-      amount_kg: 0,
+      amount_g: 0,
       time_minutes: 0,
     },
   ]);
@@ -83,7 +82,7 @@ const CreateRecipe = () => {
     setHopsDetails(
       Array.from({ length: value }, () => ({
         id: 0,
-        amount_kg: 0,
+        amount_g: 0,
         time_minutes: 0,
       }))
     );
@@ -437,9 +436,9 @@ const CreateRecipe = () => {
             <Text style={styles.label}>Amount (g):</Text>
             <TextInput
               style={styles.input}
-              value={hopsDetails[index].amount_kg}
+              value={hopsDetails[index].amount_g}
               onChangeText={(text) =>
-                handleHopsChange(index, "amount_kg", parseFloat(text))
+                handleHopsChange(index, "amount_g", parseFloat(text))
               }
             />
           </View>
