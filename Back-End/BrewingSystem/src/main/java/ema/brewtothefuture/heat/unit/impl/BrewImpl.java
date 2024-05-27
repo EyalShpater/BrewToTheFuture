@@ -1,8 +1,8 @@
 package ema.brewtothefuture.heat.unit.impl;
 
+import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.heat.unit.api.Brew;
-import ema.brewtothefuture.heat.unit.api.BrewingReport;
 import ema.brewtothefuture.heat.unit.api.FermentationReport;
 import ema.brewtothefuture.recipe.impl.Recipe;
 
@@ -15,7 +15,7 @@ public class BrewImpl implements Brew {
     private Recipe recipe;
     private int currentStep;
     private List<FermentationReport> fermentationReports;
-    private List<BrewingReport> brewingReports;
+    private List<BrewingReportDTO> brewingReports;
 
     public BrewImpl(int id, String userId, Recipe recipe) {
         this.brewId = id;
@@ -48,5 +48,12 @@ public class BrewImpl implements Brew {
     @Override
     public EmbeddedRecipeDTO getEmbeddedRecipe() {
         return recipe.createEmbeddedRecipeDTO(brewId);
+    }
+
+    @Override
+    public void addBrewingReport(BrewingReportDTO report) {
+        if (report != null) {
+            brewingReports.add(report);
+        }
     }
 }

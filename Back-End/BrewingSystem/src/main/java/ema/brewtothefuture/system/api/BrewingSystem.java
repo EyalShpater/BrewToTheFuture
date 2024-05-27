@@ -1,5 +1,6 @@
 package ema.brewtothefuture.system.api;
 
+import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.FermentableDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
@@ -26,4 +27,6 @@ public interface BrewingSystem {
     void addViewedRecipe(int recipeId);
 
     void brewRecipe(int recipeId, String userId); // from front
+
+    void addBrewingReport(String deviceId, BrewingReportDTO report);
 }

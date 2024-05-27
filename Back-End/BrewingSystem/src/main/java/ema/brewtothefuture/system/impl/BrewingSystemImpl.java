@@ -1,5 +1,6 @@
 package ema.brewtothefuture.system.impl;
 
+import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.FermentableDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
@@ -71,5 +72,11 @@ public class BrewingSystemImpl implements BrewingSystem {
     public void markBrewingAsFinished(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
         brewingManager.markHeadOfQueueAsBrewed(userId);
+    }
+
+    @Override
+    public void addBrewingReport(String deviceId, BrewingReportDTO report) {
+        String userId = deviceManager.getUser(deviceId);
+        brewingManager.getBrew(userId).addBrewingReport(report);
     }
 }

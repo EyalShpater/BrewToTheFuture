@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Recipe /*implements DTOConvertible<RecipeDTO>*/ {
+public class Recipe {
     private final int                recipeId;
     private       MetaData           metaData;
     private       List<RecipeStep>   steps;
@@ -50,6 +50,20 @@ public class Recipe /*implements DTOConvertible<RecipeDTO>*/ {
         this.fermentables = recipeDTO.fermentables().stream().map(Fermentable::new).collect(Collectors.toList());
         this.hops = recipeDTO.hops().stream().map(Hop::new).collect(Collectors.toList());
         this.yeast = recipeDTO.yeast().stream().map(Yeast::new).collect(Collectors.toList());
+
+        addHopsSteps();
+    }
+
+    //todo: complete
+    private void addHopsSteps() {
+        hops.sort((h1, h2) -> h2.getTimeToBrewMinutes() - h1.getTimeToBrewMinutes());
+
+        int maxHopTime = hops.getFirst().getTimeToBrewMinutes();
+        int stepId = steps.getLast().stepId() + 1;
+
+//        for (Hop hop : hops) {
+//            steps.add(new RecipeStep(stepId++, hop.));
+//        }
     }
 
     public String getAuthorId() {
@@ -81,7 +95,15 @@ public class Recipe /*implements DTOConvertible<RecipeDTO>*/ {
     }
 
     public EmbeddedRecipeDTO createEmbeddedRecipeDTO(int brewId) {
-        return new EmbeddedRecipeDTO(brewId, recipeId, metaData.name(), metaData.authorId(), steps.stream().map(RecipeStep::convertToDTO).collect(Collectors.toList()));
+        return new EmbeddedRecipeDTO(
+                brewId,
+                recipeId,
+                metaData.name(),
+                metaData.authorId(),
+                steps
+                        .stream()
+                        .map(RecipeStep::convertToDTO)
+                        .collect(Collectors.toList()));
     }
 
     public int getRecipeId() {

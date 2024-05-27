@@ -1,5 +1,6 @@
 package ema.brewtothefuture.api;
 
+import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.system.api.BrewingSystem;
@@ -16,7 +17,6 @@ public class BrewingSystemController {
 
     @GetMapping("/api/health")
     public String health() {
-        // return random dad joke from array of 3 jokes
         List<String> sentences = List.of(
                 "Why did the scarecrow win an award? Because he was outstanding in his field!",
                 "I'm reading a book on the history of glue. I just can't seem to put it down!",
@@ -61,5 +61,10 @@ public class BrewingSystemController {
     @PutMapping("{deviceSerialNumber}/api/embedded/brew/recipe/marks_as_completed")
     public void markBrewingAsFinished(@PathVariable String deviceSerialNumber) {
         brewingSystem.markBrewingAsFinished(deviceSerialNumber);
+    }
+
+    @PostMapping("{deviceSerialNumber}/api/embedded/report/brewing")
+    public void addBrewingReport(@PathVariable String deviceSerialNumber, @RequestBody BrewingReportDTO report) {
+        brewingSystem.addBrewingReport(deviceSerialNumber, report);
     }
 }
