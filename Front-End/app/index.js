@@ -52,5 +52,3 @@ export default HomeStack;
 // };
 
 // export default Home;
-
-// Eyal has been here :)
