@@ -6,6 +6,7 @@ import java.util.List;
 
 public record RecipeDTO(
         String user_id,
+        int recipe_id,
         String recipe_name,
         String method,
         String style,
