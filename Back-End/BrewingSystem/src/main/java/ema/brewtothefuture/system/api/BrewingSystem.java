@@ -29,4 +29,6 @@ public interface BrewingSystem {
     void brewRecipe(int recipeId, String userId); // from front
 
     void addBrewingReport(String deviceId, BrewingReportDTO report);
+
+    List<BrewingReportDTO> getBrewingReport(String userId, int brewId);
 }

@@ -67,4 +67,10 @@ public class BrewingSystemController {
     public void addBrewingReport(@PathVariable String deviceSerialNumber, @RequestBody BrewingReportDTO report) {
         brewingSystem.addBrewingReport(deviceSerialNumber, report);
     }
+
+    @GetMapping("{userId}/api/brew/data")
+    public List<BrewingReportDTO> getBrewingReport(@PathVariable String userId, @RequestParam int brewId) {
+        System.out.println(userId + " " + brewId);
+        return brewingSystem.getBrewingReport(userId, brewId);
+    }
 }

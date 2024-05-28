@@ -25,7 +25,7 @@ public class BrewingSystemImpl implements BrewingSystem {
     @Override
     public EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
-        Brew brew = brewingManager.getBrew(userId);
+        Brew brew = brewingManager.getBrewInQueue(userId);
 
         return brew != null ?
                 brew.getEmbeddedRecipe() :
@@ -71,12 +71,17 @@ public class BrewingSystemImpl implements BrewingSystem {
     @Override
     public void markBrewingAsFinished(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
-        brewingManager.markHeadOfQueueAsBrewed(userId);
+        brewingManager.markHeadOfQueueAsBrewedInQueue(userId);
     }
 
     @Override
     public void addBrewingReport(String deviceId, BrewingReportDTO report) {
         String userId = deviceManager.getUser(deviceId);
-        brewingManager.getBrew(userId).addBrewingReport(report);
+        brewingManager.getBrewInQueue(userId).addBrewingReport(report);
+    }
+
+    @Override
+    public List<BrewingReportDTO> getBrewingReport(String userId, int brewId) {
+        return brewingManager.getBrewHistory(userId, brewId);
     }
 }

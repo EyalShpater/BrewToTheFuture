@@ -1,5 +1,6 @@
 package ema.brewtothefuture.heat.unit.impl;
 
+import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.heat.unit.api.Brew;
 import ema.brewtothefuture.heat.unit.api.BrewingManager;
 import ema.brewtothefuture.recipe.impl.Recipe;
@@ -8,34 +9,38 @@ import ema.brewtothefuture.recipe.impl.RecipeManager;
 import java.util.*;
 
 public class BrewingManagerImpl implements BrewingManager {
-    private static int                      id            = 1;
-    private final  RecipeManager            recipeManager = RecipeManager.getInstance();
-    private final  Map<String, Queue<Brew>> userIdToBrew  = new HashMap<>();
+    private static int                             id                  = 1;
+    private final  RecipeManager                   recipeManager       = RecipeManager.getInstance();
+    private final  Map<String, Map<Integer, Brew>> userIdToBrewHistory = new HashMap<>();
+    private final  Map<String, Queue<Brew>>        userIdToBrew        = new HashMap<>();
 
     @Override
-    public Brew brewRecipe(String userId) {
-        Recipe toBrew = getRecipe(userId);
+    public Brew brewRecipeInQueue(String userId) {
+        Recipe toBrew = getRecipeInQueue(userId);
+
         return (toBrew == null) ?
                 null :
                 addBrew(userId, toBrew);
     }
 
     @Override
-    public Brew getBrew(String userId) {
+    public Brew getBrewInQueue(String userId) {
         Queue<Brew> queue = userIdToBrew.get(userId);
+
         return (queue == null || queue.isEmpty()) ?
                 null :
                 queue.peek();
     }
 
     @Override
-    public void stopRecipe(int recipeId) {
+    public void stopRecipeInQueue(int recipeId) {
 
     }
 
     @Override
-    public Recipe getRecipe(String userId) {
+    public Recipe getRecipeInQueue(String userId) {
         Queue<Brew> brews = userIdToBrew.get(userId);
+
         return (brews == null || brews.isEmpty()) ?
                 null :
                 brews.peek().getRecipe();
@@ -44,6 +49,8 @@ public class BrewingManagerImpl implements BrewingManager {
     private Brew addBrew(String userId, Recipe recipe) {
         Brew newBrew = new BrewImpl(id++, userId, recipe);
         userIdToBrew.computeIfAbsent(userId, k -> new LinkedList<>()).add(newBrew);
+        userIdToBrewHistory.computeIfAbsent(userId, k -> new HashMap<>())
+                           .put(newBrew.getBrewId(), newBrew);
 
         return newBrew;
     }
@@ -56,12 +63,31 @@ public class BrewingManagerImpl implements BrewingManager {
     }
 
     @Override
-    public void markHeadOfQueueAsBrewed(String userId) {
+    public void markHeadOfQueueAsBrewedInQueue(String userId) {
         try {
-            userIdToBrew.get(userId).remove();
+            Brew brewed = userIdToBrew.get(userId).remove();
+
+            userIdToBrewHistory.computeIfAbsent(userId, k -> new HashMap<>())
+                               .put(brewed.getBrewId(), brewed);
         } catch (NoSuchElementException e) {
             throw new IllegalArgumentException("No brews for user " + userId);
         }
+    }
+
+    @Override
+    public List<BrewingReportDTO> getBrewHistory(String userId, int brewId) {
+        Map<Integer, Brew> brewHistory = userIdToBrewHistory.get(userId);
+
+        if (brewHistory == null) {
+            throw new IllegalArgumentException("User ID: '" + userId + "' does not exist");
+        }
+
+        Brew brew = brewHistory.get(brewId);
+        if (brew == null) {
+            throw new IllegalArgumentException("Brew ID: '" + brewId + "' does not exist");
+        }
+
+        return Collections.unmodifiableList(brew.getReports());
     }
 }
 
