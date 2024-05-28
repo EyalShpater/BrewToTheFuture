@@ -12,8 +12,10 @@ import {
 } from "react-native";
 import styles from "./CreateRecipe.style";
 import { Picker } from "@react-native-picker/picker";
+import axios from "axios";
 
 const CreateRecipe = () => {
+  const userId = "ilwejkrfhiuy4o3y4ljkblkdj";
   const [recipeName, setRecipeName] = useState("");
   const [method, setMethod] = useState("");
   const [style, setStyle] = useState("");
@@ -26,28 +28,51 @@ const CreateRecipe = () => {
   const [fermentables, setFermentables] = useState(0);
   const [isFermentablesPickerVisible, setIsFermentablesPickerVisible] =
     useState(false);
-  const [fermentableDetails, setFermentableDetails] = useState([]);
-  const [hops, setHops] = useState(0);
-  const [isHopsPickerVisible, setIsHopsPickerVisible] = useState(false);
-  const [hopsDetails, setHopsDetails] = useState([]);
-  const [yeast, setYeast] = useState(0);
-  const [isYeastPickerVisible, setIsYeastPickerVisible] = useState(false);
-  const [yeastDetails, setYeastDetails] = useState([]);
-  const [steps, setSteps] = useState([
+  const [fermentableDetails, setFermentableDetails] = useState([
     {
-      id: 1,
-      temperature: "",
-      duration: "",
-      notify: "",
+      id: 0,
+      amount_kg: 0,
     },
   ]);
-  const [notifySwitches, setNotifySwitches] = useState(steps.map(() => false));
+  const [hops, setHops] = useState(0);
+  const [isHopsPickerVisible, setIsHopsPickerVisible] = useState(false);
+  const [hopsDetails, setHopsDetails] = useState([
+    {
+      id: 0,
+      amount_g: 0,
+      time_minutes: 0,
+    },
+  ]);
+  const [yeast, setYeast] = useState(0);
+  const [isYeastPickerVisible, setIsYeastPickerVisible] = useState(false);
+  const [yeastDetails, setYeastDetails] = useState([
+    {
+      id: 0,
+      temperature_celsius: 0,
+    },
+  ]);
+  const [step, setSteps] = useState([
+    {
+      step_id: 1,
+      temperature_celsius: 0.0,
+      duration_minutes: 0.0,
+      notify_on_completion: false,
+      message: "",
+    },
+  ]);
+  const [notifySwitches, setNotifySwitches] = useState(step.map(() => false));
+  const [notifications, setNotifications] = useState([
+    {
+      message: "",
+      send_after_days: 0,
+    },
+  ]);
 
   const handleFermentablesPickerSelect = (value) => {
     setFermentables(value);
     setIsFermentablesPickerVisible(false);
     setFermentableDetails(
-      Array.from({ length: value }, () => ({ grainType: "", amountKg: "" }))
+      Array.from({ length: value }, () => ({ id: 0, amount_kg: 0 }))
     );
   };
 
@@ -56,9 +81,9 @@ const CreateRecipe = () => {
     setIsHopsPickerVisible(false);
     setHopsDetails(
       Array.from({ length: value }, () => ({
-        hopsType: "",
-        amount: "",
-        time: "",
+        id: 0,
+        amount_g: 0,
+        time_minutes: 0,
       }))
     );
   };
@@ -67,10 +92,7 @@ const CreateRecipe = () => {
     setYeast(value);
     setIsYeastPickerVisible(false);
     setYeastDetails(
-      Array.from({ length: value }, () => ({
-        yeastType: "",
-        temperature: "",
-      }))
+      Array.from({ length: value }, () => ({ id: 0, temperature_celsius: 0 }))
     );
   };
 
@@ -96,84 +118,557 @@ const CreateRecipe = () => {
   };
 
   const addStep = () => {
-    const newStepId = steps.length + 1;
+    const newStepId = step.length + 1;
     setSteps([
-      ...steps,
+      ...step,
       {
-        id: newStepId,
-        temperature: "",
-        duration: "",
-        notify: "",
+        step_id: newStepId,
+        temperature_celsius: 0.0,
+        duration_minutes: 0.0,
+        notify_on_completion: false,
+        message: "",
       },
     ]);
   };
 
   const handleStepChange = (id, field, value) => {
-    const updatedSteps = steps.map((step) =>
-      step.id === id ? { ...step, [field]: value } : step
+    const updatedSteps = step.map((step) =>
+      step.step_id === id ? { ...step, [field]: value } : step
     );
     setSteps(updatedSteps);
   };
 
-  const toggleNotifySwitch = (stepId, value) => {
+  const handleNotifySwitchChange = (stepId, value) => {
     const updatedNotifySwitches = [...notifySwitches];
     updatedNotifySwitches[stepId - 1] = value;
-    setNotifySwitches(updatedNotifySwitches);
-  };
 
-  const handleNotifySwitchChange = (stepId, value) => {
-    toggleNotifySwitch(stepId, value);
+    const updatedSteps = step.map((step) =>
+      step.step_id === stepId ? { ...step, notify_on_completion: value } : step
+    );
+    setNotifySwitches(updatedNotifySwitches);
+    setSteps(updatedSteps);
   };
 
   const renderNotifyField = (stepId) => {
     return notifySwitches[stepId - 1] ? (
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Notify when step ends:</Text>
-        <TextInput
-          style={styles.input}
-          value={steps[stepId - 1].notify}
-          onChangeText={(text) => handleStepChange(stepId, "notify", text)}
-        />
+      <View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>What to notify when step ends:</Text>
+          <TextInput
+            style={styles.input}
+            value={step[stepId - 1].message}
+            onChangeText={(text) => {
+              handleStepChange(stepId, "message", text);
+            }}
+          />
+        </View>
       </View>
     ) : null;
   };
 
+  const getRecipeName = () => {
+    return (
+      <View style={{ marginTop: 20 }}>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Recipe name:</Text>
+          <TextInput
+            style={styles.input}
+            value={recipeName}
+            onChangeText={(text) => setRecipeName(text)}
+          />
+        </View>
+      </View>
+    );
+  };
+
+  const getMethod = () => {
+    return (
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Method:</Text>
+        <TextInput
+          style={styles.input}
+          value={method}
+          onChangeText={(text) => setMethod(text)}
+        />
+      </View>
+    );
+  };
+
+  const getStyle = () => {
+    return (
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Style:</Text>
+        <TextInput
+          style={styles.input}
+          value={style}
+          onChangeText={(text) => setStyle(text)}
+        />
+      </View>
+    );
+  };
+
+  const getABV = () => {
+    return (
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>ABV:</Text>
+        <TextInput
+          style={styles.input}
+          value={abv}
+          onChangeText={(text) => setAbv(text)}
+        />
+      </View>
+    );
+  };
+
+  const getIBU = () => {
+    return (
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>IBU:</Text>
+        <TextInput
+          style={styles.input}
+          value={ibu}
+          onChangeText={(text) => setIbu(text)}
+        />
+      </View>
+    );
+  };
+
+  const getOriginalGravity = () => {
+    return (
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Original Gravity:</Text>
+        <TextInput
+          style={styles.input}
+          value={originalGravity}
+          onChangeText={(text) => setOriginalGravity(text)}
+        />
+      </View>
+    );
+  };
+
+  const getFinalGravity = () => {
+    return (
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Final Gravity:</Text>
+        <TextInput
+          style={styles.input}
+          value={finalGravity}
+          onChangeText={(text) => setFinalGravity(text)}
+        />
+      </View>
+    );
+  };
+
+  const getColor = () => {
+    return (
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Color:</Text>
+        <TextInput
+          style={styles.input}
+          value={color}
+          onChangeText={(text) => setColor(text)}
+        />
+      </View>
+    );
+  };
+
+  const getBatchSize = () => {
+    return (
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Batch Size (L):</Text>
+        <TextInput
+          style={styles.input}
+          value={batchSizeLiter}
+          onChangeText={(text) => setBatchSizeLiter(text)}
+        />
+      </View>
+    );
+  };
+
+  const fermentablesPicker = () => {
+    return (
+      <View style={{ marginTop: 2 }}>
+        <TouchableOpacity
+          style={styles.inputContainer}
+          onPress={() => setIsFermentablesPickerVisible(true)}
+        >
+          <Text style={styles.label}>Fermentables:</Text>
+          <TextInput
+            style={styles.input}
+            value={String(fermentables)}
+            editable={false}
+            pointerEvents="none"
+          />
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  const modalForFermentablesPicker = () => {
+    return (
+      <Modal
+        visible={isFermentablesPickerVisible}
+        transparent={true}
+        animationType="slide"
+      >
+        <View style={styles.pickerModal}>
+          <View style={styles.pickerContainer}>
+            <Picker
+              selectedValue={fermentables}
+              onValueChange={(itemValue) =>
+                handleFermentablesPickerSelect(itemValue)
+              }
+              style={styles.picker}
+            >
+              {[...Array(11).keys()].map((item) => (
+                <Picker.Item key={item} label={String(item)} value={item} />
+              ))}
+            </Picker>
+            <Button
+              title="Done"
+              onPress={() => setIsFermentablesPickerVisible(false)}
+            />
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  const getFermentableDetails = () => {
+    if (fermentables > 0) {
+      return fermentableDetails.map((_, index) => (
+        <View key={index} style={{ marginTop: 2 }}>
+          <Text style={[styles.fermentableTitle, styles.underlineText]}>
+            Fermentable {index + 1}:
+          </Text>
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Grain Type:</Text>
+            <TextInput
+              style={styles.input}
+              value={fermentableDetails[index].id}
+              onChangeText={(text) =>
+                handleFermentableChange(index, "id", parseInt(text))
+              }
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Amount (kg):</Text>
+            <TextInput
+              style={styles.input}
+              value={fermentableDetails[index].amount_kg}
+              onChangeText={(text) =>
+                handleFermentableChange(index, "amount_kg", parseFloat(text))
+              }
+            />
+          </View>
+        </View>
+      ));
+    } else {
+      return null;
+    }
+  };
+
+  const hopsPicker = () => {
+    return (
+      <View style={{ marginTop: 2 }}>
+        <TouchableOpacity
+          style={styles.inputContainer}
+          onPress={() => setIsHopsPickerVisible(true)}
+        >
+          <Text style={styles.label}>Hops:</Text>
+          <TextInput
+            style={styles.input}
+            value={String(hops)}
+            editable={false}
+            pointerEvents="none"
+          />
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  const modalForHopsPicker = () => {
+    return (
+      <Modal
+        visible={isHopsPickerVisible}
+        transparent={true}
+        animationType="slide"
+      >
+        <View style={styles.pickerModal}>
+          <View style={styles.pickerContainer}>
+            <Picker
+              selectedValue={hops}
+              onValueChange={(itemValue) => handleHopsPickerSelect(itemValue)}
+              style={styles.picker}
+            >
+              {[...Array(11).keys()].map((item) => (
+                <Picker.Item key={item} label={String(item)} value={item} />
+              ))}
+            </Picker>
+            <Button
+              title="Done"
+              onPress={() => setIsHopsPickerVisible(false)}
+            />
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  const getHopsDetails = () => {
+    if (hops > 0) {
+      return hopsDetails.map((_, index) => (
+        <View key={index} style={{ marginTop: 2 }}>
+          <Text style={[styles.fermentableTitle, styles.underlineText]}>
+            Hops {index + 1}:
+          </Text>
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Hops Type:</Text>
+            <TextInput
+              style={styles.input}
+              value={hopsDetails[index].id}
+              onChangeText={(text) =>
+                handleHopsChange(index, "id", parseInt(text))
+              }
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Amount (g):</Text>
+            <TextInput
+              style={styles.input}
+              value={hopsDetails[index].amount_g}
+              onChangeText={(text) =>
+                handleHopsChange(index, "amount_g", parseFloat(text))
+              }
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Time (minutes):</Text>
+            <TextInput
+              style={styles.input}
+              value={hopsDetails[index].time_minutes}
+              onChangeText={(text) =>
+                handleHopsChange(index, "time_minutes", parseFloat(text))
+              }
+            />
+          </View>
+        </View>
+      ));
+    } else {
+      return null;
+    }
+  };
+
+  const yeastPicker = () => {
+    return (
+      <View style={{ marginTop: 2 }}>
+        <TouchableOpacity
+          style={styles.inputContainer}
+          onPress={() => setIsYeastPickerVisible(true)}
+        >
+          <Text style={styles.label}>Yeast:</Text>
+          <TextInput
+            style={styles.input}
+            value={String(yeast)}
+            editable={false}
+            pointerEvents="none"
+          />
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  const modalForYeastPicker = () => {
+    return (
+      <Modal
+        visible={isYeastPickerVisible}
+        transparent={true}
+        animationType="slide"
+      >
+        <View style={styles.pickerModal}>
+          <View style={styles.pickerContainer}>
+            <Picker
+              selectedValue={yeast}
+              onValueChange={(itemValue) => handleYeastPickerSelect(itemValue)}
+              style={styles.picker}
+            >
+              {[...Array(11).keys()].map((item) => (
+                <Picker.Item key={item} label={String(item)} value={item} />
+              ))}
+            </Picker>
+            <Button
+              title="Done"
+              onPress={() => setIsYeastPickerVisible(false)}
+            />
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  const getYeastDetails = () => {
+    if (yeast > 0) {
+      return yeastDetails.map((_, index) => (
+        <View key={index} style={{ marginTop: 2 }}>
+          <Text style={[styles.fermentableTitle, styles.underlineText]}>
+            Yeast {index + 1}:
+          </Text>
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Yeast Type:</Text>
+            <TextInput
+              style={styles.input}
+              value={yeastDetails[index].id}
+              onChangeText={(text) =>
+                handleYeastChange(index, "id", parseInt(text))
+              }
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Temperature (°C):</Text>
+            <TextInput
+              style={styles.input}
+              value={yeastDetails[index].temperature_celsius}
+              onChangeText={(text) =>
+                handleYeastChange(
+                  index,
+                  "temperature_celsius",
+                  parseFloat(text)
+                )
+              }
+            />
+          </View>
+        </View>
+      ));
+    } else {
+      return null;
+    }
+  };
+
+  const renderSteps = () => {
+    return step.map((step) => (
+      <View key={step.step_id} style={styles.stepContainer}>
+        <Text style={styles.ingredients}>Step {step.step_id}:</Text>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Temperature (°C):</Text>
+          <TextInput
+            style={styles.input}
+            value={step.temperature_celsius}
+            onChangeText={(text) =>
+              handleStepChange(
+                step.step_id,
+                "temperature_celsius",
+                parseFloat(text)
+              )
+            }
+          />
+        </View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Duration (minutes):</Text>
+          <TextInput
+            style={styles.input}
+            value={step.duration_minutes}
+            onChangeText={(text) =>
+              handleStepChange(
+                step.step_id,
+                "duration_minutes",
+                parseFloat(text)
+              )
+            }
+          />
+        </View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Enable Notification:</Text>
+          <Switch
+            value={notifySwitches[step.step_id - 1]}
+            onValueChange={(value) =>
+              handleNotifySwitchChange(step.step_id, value)
+            }
+          />
+        </View>
+        {renderNotifyField(step.step_id)}
+      </View>
+    ));
+  };
+
+  const handleAddNotification = () => {
+    setNotifications([...notifications, { message: "", send_after_days: 0 }]);
+  };
+
+  const handleInputChange = (index, field, value) => {
+    const updatedNotifications = [...notifications];
+    updatedNotifications[index][field] = value;
+    setNotifications(updatedNotifications);
+  };
+
+  const renderNotifications = () => {
+    return notifications.map((notification, index) => (
+      <View key={index} style={styles.stepContainer}>
+        <Text style={[styles.ingredients, { marginBottom: 10 }]}>
+          Message {index + 1}:
+        </Text>
+
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Message:</Text>
+          <TextInput
+            style={styles.input}
+            value={notification.message}
+            onChangeText={(text) => handleInputChange(index, "message", text)}
+          />
+        </View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Number of days to sent after:</Text>
+          <TextInput
+            style={styles.input}
+            value={notification.send_after_days}
+            onChangeText={(text) =>
+              handleInputChange(index, "send_after_days", parseFloat(text))
+            }
+          />
+        </View>
+      </View>
+    ));
+  };
+
   const handleSubmit = async () => {
-    const recipeData = {
-      recipeName,
-      method,
-      style,
-      abv,
-      ibu,
-      originalGravity,
-      finalGravity,
-      color,
-      batchSizeLiter,
-      fermentableDetails,
-      hopsDetails,
-      yeastDetails,
-      steps,
+    const recipe = {
+      user_id: userId,
+      recipe_name: recipeName,
+      method: method,
+      style: style,
+      abv: parseFloat(abv),
+      ibu: parseFloat(ibu),
+      original_gravity: parseFloat(originalGravity),
+      final_gravity: parseFloat(finalGravity),
+      color: parseFloat(color),
+      batch_size_liter: parseFloat(batchSizeLiter),
+      recipe: step,
+      notifications: notifications,
+      fermentables: fermentableDetails,
+      hops: hopsDetails,
+      yeast: yeastDetails,
     };
 
-    try {
-      const response = await fetch("YOUR_API_ENDPOINT", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(recipeData),
-      });
+    const url = "https://brewtothefuture.azurewebsites.net/api/brew/recipe";
 
-      if (response.ok) {
-        // Handle successful response
-        console.log("Recipe submitted successfully");
-      } else {
-        // Handle errors
-        console.error("Error submitting recipe");
+    (async () => {
+      try {
+        const response = await axios.post(url, recipe, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.status === 200) {
+          console.log("Recipe created successfully!");
+          console.log(response.data); // Assuming the response contains data
+        } else {
+          console.error(`Error: ${response.status}`);
+          console.error(response.data); // Might contain error details
+        }
+      } catch (error) {
+        console.error("Error:", error);
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    })();
   };
 
   return (
@@ -185,346 +680,65 @@ const CreateRecipe = () => {
           </Text>
           <Text style={styles.ingredients}>Edit your recipe below:</Text>
           {/* Recipe Name Input */}
-          <View style={{ marginTop: 20 }}>
-            <View style={styles.inputContainer}>
-              <Text style={styles.label}>Recipe name:</Text>
-              <TextInput
-                style={styles.input}
-                value={recipeName}
-                onChangeText={(text) => setRecipeName(text)}
-              />
-            </View>
-          </View>
+          {getRecipeName()}
           {/* Method Input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Method:</Text>
-            <TextInput
-              style={styles.input}
-              value={method}
-              onChangeText={(text) => setMethod(text)}
-            />
-          </View>
+          {getMethod()}
           {/* Style Input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Style:</Text>
-            <TextInput
-              style={styles.input}
-              value={style}
-              onChangeText={(text) => setStyle(text)}
-            />
-          </View>
+          {getStyle()}
           {/* ABV Input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>ABV:</Text>
-            <TextInput
-              style={styles.input}
-              value={abv}
-              onChangeText={(text) => setAbv(text)}
-            />
-          </View>
+          {getABV()}
           {/* IBU Input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>IBU:</Text>
-            <TextInput
-              style={styles.input}
-              value={ibu}
-              onChangeText={(text) => setIbu(text)}
-            />
-          </View>
+          {getIBU()}
           {/* Original Gravity Input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Original Gravity:</Text>
-            <TextInput
-              style={styles.input}
-              value={originalGravity}
-              onChangeText={(text) => setOriginalGravity(text)}
-            />
-          </View>
+          {getOriginalGravity()}
           {/* Final Gravity Input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Final Gravity:</Text>
-            <TextInput
-              style={styles.input}
-              value={finalGravity}
-              onChangeText={(text) => setFinalGravity(text)}
-            />
-          </View>
+          {getFinalGravity()}
           {/* Color Input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Color:</Text>
-            <TextInput
-              style={styles.input}
-              value={color}
-              onChangeText={(text) => setColor(text)}
-            />
-          </View>
+          {getColor()}
           {/* Batch Size Liter Input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Batch Size (L):</Text>
-            <TextInput
-              style={styles.input}
-              value={batchSizeLiter}
-              onChangeText={(text) => setBatchSizeLiter(text)}
-            />
-          </View>
+          {getBatchSize()}
           {/* Fermentables Picker */}
-          <View style={{ marginTop: 2 }}>
-            <TouchableOpacity
-              style={styles.inputContainer}
-              onPress={() => setIsFermentablesPickerVisible(true)}
-            >
-              <Text style={styles.label}>Fermentables:</Text>
-              <TextInput
-                style={styles.input}
-                value={String(fermentables)}
-                editable={false}
-                pointerEvents="none"
-              />
-            </TouchableOpacity>
-          </View>
+          {fermentablesPicker()}
           {/* Modal for Fermentables Picker */}
-          <Modal
-            visible={isFermentablesPickerVisible}
-            transparent={true}
-            animationType="slide"
-          >
-            <View style={styles.pickerModal}>
-              <View style={styles.pickerContainer}>
-                <Picker
-                  selectedValue={fermentables}
-                  onValueChange={(itemValue) =>
-                    handleFermentablesPickerSelect(itemValue)
-                  }
-                  style={styles.picker}
-                >
-                  {[...Array(11).keys()].map((item) => (
-                    <Picker.Item key={item} label={String(item)} value={item} />
-                  ))}
-                </Picker>
-                <Button
-                  title="Done"
-                  onPress={() => setIsFermentablesPickerVisible(false)}
-                />
-              </View>
-            </View>
-          </Modal>
+          {modalForFermentablesPicker()}
           {/* Fermentable Details */}
-          {fermentableDetails.map((_, index) => (
-            <View key={index} style={{ marginTop: 2 }}>
-              <Text style={[styles.fermentableTitle, styles.underlineText]}>
-                Fermentable {index + 1}:
-              </Text>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Grain Type:</Text>
-                <TextInput
-                  style={styles.input}
-                  value={fermentableDetails[index].grainType}
-                  onChangeText={(text) =>
-                    handleFermentableChange(index, "grainType", text)
-                  }
-                />
-              </View>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Amount (kg):</Text>
-                <TextInput
-                  style={styles.input}
-                  value={fermentableDetails[index].amountKg}
-                  onChangeText={(text) =>
-                    handleFermentableChange(index, "amountKg", text)
-                  }
-                />
-              </View>
-            </View>
-          ))}
+          {getFermentableDetails()}
           {/* Hops Picker */}
-          <View style={{ marginTop: 2 }}>
-            <TouchableOpacity
-              style={styles.inputContainer}
-              onPress={() => setIsHopsPickerVisible(true)}
-            >
-              <Text style={styles.label}>Hops:</Text>
-              <TextInput
-                style={styles.input}
-                value={String(hops)}
-                editable={false}
-                pointerEvents="none"
-              />
-            </TouchableOpacity>
-          </View>
+          {hopsPicker()}
           {/* Modal for Hops Picker */}
-          <Modal
-            visible={isHopsPickerVisible}
-            transparent={true}
-            animationType="slide"
-          >
-            <View style={styles.pickerModal}>
-              <View style={styles.pickerContainer}>
-                <Picker
-                  selectedValue={hops}
-                  onValueChange={(itemValue) =>
-                    handleHopsPickerSelect(itemValue)
-                  }
-                  style={styles.picker}
-                >
-                  {[...Array(11).keys()].map((item) => (
-                    <Picker.Item key={item} label={String(item)} value={item} />
-                  ))}
-                </Picker>
-                <Button
-                  title="Done"
-                  onPress={() => setIsHopsPickerVisible(false)}
-                />
-              </View>
-            </View>
-          </Modal>
+          {modalForHopsPicker()}
           {/* Hops Details */}
-          {hopsDetails.map((_, index) => (
-            <View key={index} style={{ marginTop: 2 }}>
-              <Text style={[styles.fermentableTitle, styles.underlineText]}>
-                Hops {index + 1}:
-              </Text>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Hops Type:</Text>
-                <TextInput
-                  style={styles.input}
-                  value={hopsDetails[index].hopsType}
-                  onChangeText={(text) =>
-                    handleHopsChange(index, "hopsType", text)
-                  }
-                />
-              </View>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Amount (g):</Text>
-                <TextInput
-                  style={styles.input}
-                  value={hopsDetails[index].amount}
-                  onChangeText={(text) =>
-                    handleHopsChange(index, "amount", text)
-                  }
-                />
-              </View>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Time (minutes):</Text>
-                <TextInput
-                  style={styles.input}
-                  value={hopsDetails[index].time}
-                  onChangeText={(text) => handleHopsChange(index, "time", text)}
-                />
-              </View>
-            </View>
-          ))}
+          {getHopsDetails()}
           {/* Yeast Picker */}
-          <View style={{ marginTop: 2 }}>
-            <TouchableOpacity
-              style={styles.inputContainer}
-              onPress={() => setIsYeastPickerVisible(true)}
-            >
-              <Text style={styles.label}>Yeast:</Text>
-              <TextInput
-                style={styles.input}
-                value={String(yeast)}
-                editable={false}
-                pointerEvents="none"
-              />
-            </TouchableOpacity>
-          </View>
+          {yeastPicker()}
           {/* Modal for Yeast Picker */}
-          <Modal
-            visible={isYeastPickerVisible}
-            transparent={true}
-            animationType="slide"
-          >
-            <View style={styles.pickerModal}>
-              <View style={styles.pickerContainer}>
-                <Picker
-                  selectedValue={yeast}
-                  onValueChange={(itemValue) =>
-                    handleYeastPickerSelect(itemValue)
-                  }
-                  style={styles.picker}
-                >
-                  {[...Array(11).keys()].map((item) => (
-                    <Picker.Item key={item} label={String(item)} value={item} />
-                  ))}
-                </Picker>
-                <Button
-                  title="Done"
-                  onPress={() => setIsYeastPickerVisible(false)}
-                />
-              </View>
-            </View>
-          </Modal>
+          {modalForYeastPicker()}
 
           {/* Yeast Details */}
-          {yeastDetails.map((_, index) => (
-            <View key={index} style={{ marginTop: 2 }}>
-              <Text style={[styles.fermentableTitle, styles.underlineText]}>
-                Yeast {index + 1}:
-              </Text>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Yeast Type:</Text>
-                <TextInput
-                  style={styles.input}
-                  value={yeastDetails[index].yeastType}
-                  onChangeText={(text) =>
-                    handleYeastChange(index, "yeastType", text)
-                  }
-                />
-              </View>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Temperature (°C):</Text>
-                <TextInput
-                  style={styles.input}
-                  value={yeastDetails[index].temperature}
-                  onChangeText={(text) =>
-                    handleYeastChange(index, "temperature", text)
-                  }
-                />
-              </View>
-            </View>
-          ))}
+          {getYeastDetails()}
           <Text style={styles.ingredients}>
-            Add steps for the brewing process:
+            Add step for the brewing process:
           </Text>
+
           {/* Display steps */}
-          {steps.map((step) => (
-            <View key={step.id} style={styles.stepContainer}>
-              <Text style={styles.ingredients}>Step {step.id}:</Text>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Temperature (°C):</Text>
-                <TextInput
-                  style={styles.input}
-                  value={step.temperature}
-                  onChangeText={(text) =>
-                    handleStepChange(step.id, "temperature", text)
-                  }
-                />
-              </View>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Duration (minutes):</Text>
-                <TextInput
-                  style={styles.input}
-                  value={step.duration}
-                  onChangeText={(text) =>
-                    handleStepChange(step.id, "duration", text)
-                  }
-                />
-              </View>
-              <View style={styles.inputContainer}>
-                <Text style={styles.label}>Enable Notification:</Text>
-                <Switch
-                  value={notifySwitches[step.id - 1]}
-                  onValueChange={(value) =>
-                    handleNotifySwitchChange(step.id, value)
-                  }
-                />
-              </View>
-              {renderNotifyField(step.id)}
-            </View>
-          ))}
-          {/* Add Step Button */}
+          {renderSteps()}
           <TouchableOpacity onPress={addStep} style={styles.addStepButton}>
             <Text style={styles.addStepButtonText}>Add Step</Text>
+          </TouchableOpacity>
+
+          {/* Add Fermentation Button */}
+          <Text style={styles.ingredients}>
+            Add message for the fermentation process:
+          </Text>
+
+          {renderNotifications()}
+          <TouchableOpacity
+            onPress={handleAddNotification}
+            style={styles.addStepButton}
+          >
+            <Text style={styles.addStepButtonText}>
+              Add fermentation message
+            </Text>
           </TouchableOpacity>
 
           {/* Submit Button */}
@@ -536,106 +750,3 @@ const CreateRecipe = () => {
 };
 
 export default CreateRecipe;
-
-// const CreateRecipe = () => {
-//   const [recipeName, setRecipeName] = useState("");
-//   const [stepsAmount, setStepsAmount] = useState(1);
-//   const [steps, setSteps] = useState([]);
-
-//   const handleStepsAmountChange = (value) => {
-//     const numSteps = parseInt(value);
-//     setStepsAmount(numSteps);
-//     setSteps(new Array(numSteps).fill({}));
-//   };
-
-//   const handleStepFieldChange = (index, fieldName, value) => {
-//     const updatedSteps = [...steps];
-//     updatedSteps[index] = {
-//       ...updatedSteps[index],
-//       [fieldName]: value,
-//     };
-//     setSteps(updatedSteps);
-//   };
-
-//   return (
-//     <SafeAreaView style={{ flex: 1, backgroundColor: "#F1F1F1" }}>
-//       <View style={[styles.container, { backgroundColor: "#F1F1F1" }]}>
-//         <Text style={styles.welcomeMessage}>
-//           Let's craft your perfect brew!
-//         </Text>
-//         <Text style={styles.ingredients}>Edit your recipe below:</Text>
-
-//         {/* recipe name */}
-//         <View style={{ marginTop: 20 }}>
-//           <View style={styles.inputContainer}>
-//             <Text style={styles.label}>Recipe name:</Text>
-//             <TextInput
-//               style={styles.input}
-//               value={recipeName}
-//               onChangeText={(text) => setRecipeName(text)}
-//             />
-//           </View>
-//         </View>
-
-//         {/* Steps Amount Picker */}
-//         <View style={styles.inputContainer}>
-//           <Text style={styles.label}>Select steps amount (1-5):</Text>
-//           <Picker
-//             selectedValue={stepsAmount}
-//             style={styles.picker}
-//             onValueChange={(itemValue) => handleStepsAmountChange(itemValue)}
-//           >
-//             {[1, 2, 3, 4, 5].map((number) => (
-//               <Picker.Item key={number} label={String(number)} value={number} />
-//             ))}
-//           </Picker>
-//         </View>
-
-//         {/* Dynamic Step Fields */}
-//         {steps.map((_, index) => (
-//           <View key={index} style={styles.stepContainer}>
-//             <Text style={styles.stepTitle}>Step {index + 1}</Text>
-//             <View style={styles.fieldContainer}>
-//               <Text style={styles.fieldLabel}>Temperature (°C):</Text>
-//               <TextInput
-//                 style={styles.stepInput}
-//                 value={steps[index]?.temperature_celsius}
-//                 onChangeText={(text) =>
-//                   handleStepFieldChange(index, "temperature_celsius", text)
-//                 }
-//               />
-//             </View>
-//             <View style={styles.fieldContainer}>
-//               <Text style={styles.fieldLabel}>Duration (minutes):</Text>
-//               <TextInput
-//                 style={styles.stepInput}
-//                 value={steps[index]?.duration_minutes}
-//                 onChangeText={(text) =>
-//                   handleStepFieldChange(index, "duration_minutes", text)
-//                 }
-//               />
-//             </View>
-//             <View style={styles.fieldContainer}>
-//               <Text style={styles.fieldLabel}>Message:</Text>
-//               <TextInput
-//                 style={styles.stepInput}
-//                 value={steps[index]?.message}
-//                 onChangeText={(text) =>
-//                   handleStepFieldChange(index, "message", text)
-//                 }
-//               />
-//             </View>
-//           </View>
-//         ))}
-
-//         {/* Submit Button */}
-//         <Button
-//           title="Submit"
-//           onPress={() => console.log({ recipeName, steps })}
-//         />
-//       </View>
-//     </SafeAreaView>
-//   );
-// };
-
-// export default CreateRecipe;
