@@ -31,4 +31,8 @@ public interface BrewingSystem {
     void addBrewingReport(String deviceId, BrewingReportDTO report);
 
     List<BrewingReportDTO> getBrewingReport(String userId, int brewId);
+
+    List<String> getBrewingMethods();
+
+    List<String> getBrewingStyle();
 }

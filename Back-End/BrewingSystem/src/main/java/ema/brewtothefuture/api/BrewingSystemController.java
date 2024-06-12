@@ -48,6 +48,16 @@ public class BrewingSystemController {
         return brewingSystem.getAllRecipes();
     }
 
+    @GetMapping("/api/brew/methods")
+    public List<String> getMethods() {
+        return brewingSystem.getBrewingMethods();
+    }
+
+    @GetMapping("/api/brew/styles")
+    public List<String> getStyles() {
+        return brewingSystem.getBrewingStyle();
+    }
+
     @PostMapping("{userId}/api/brew/recipe/{recipeId}")
     public void brewRecipe(@PathVariable int recipeId, @PathVariable String userId) {
         brewingSystem.brewRecipe(recipeId, userId);
