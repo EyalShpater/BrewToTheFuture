@@ -10,11 +10,18 @@ import ema.brewtothefuture.recipe.api.Hop;
 import java.util.List;
 
 public interface BrewingSystem {
-    EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber); // to backend
+    /* Embedded Use Methods*/
 
-    int addNewRecipe(RecipeDTO recipe);
+    EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber);
 
     void markBrewingAsFinished(String deviceSerialNumber);
+
+    void addBrewingReport(String deviceId, BrewingReportDTO report);
+
+
+    /* Frontend Use Methods */
+
+    int addNewRecipe(RecipeDTO recipe);
 
     List<FermentableDTO> getFermentables();
 
@@ -26,9 +33,7 @@ public interface BrewingSystem {
 
     void addViewedRecipe(int recipeId);
 
-    void brewRecipe(int recipeId, String userId); // from front
-
-    void addBrewingReport(String deviceId, BrewingReportDTO report);
+    void brewRecipe(int recipeId, String userId);
 
     List<BrewingReportDTO> getBrewingReport(String userId, int brewId);
 

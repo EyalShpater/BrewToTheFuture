@@ -43,6 +43,16 @@ public class BrewingSystemController {
         brewingSystem.brewRecipe(recipeId, recipeDTO.user_id());
     }
 
+    @PostMapping("/api/brew/recipe/{recipeId}")
+    public void brew(@PathVariable int recipeId, @RequestBody String userId) {
+        brewingSystem.brewRecipe(recipeId, userId);
+    }
+
+    @PostMapping("/api/brew/add_recipe")
+    public void addRecipe(@RequestBody RecipeDTO recipeDTO) {
+        brewingSystem.addNewRecipe(recipeDTO);
+    }
+
     @GetMapping("/api/brew/all_recipes")
     public List<RecipeDTO> getAllRecipes() {
         return brewingSystem.getAllRecipes();
