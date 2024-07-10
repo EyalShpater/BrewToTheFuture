@@ -6,12 +6,10 @@ import {
   Image,
   Modal,
   Text,
-  StyleSheet,
   Dimensions,
   PanResponder,
 } from "react-native";
 import styles from "./screenheader.style";
-//import CreateRecipe from "../../../screens/CreateRecipe";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -58,7 +56,6 @@ const Menu = ({ isVisible, closeMenu }) => {
           style={[styles.menu, { width: windowWidth * 0.5 }]}
           {...panResponder.panHandlers}
         >
-          {/* Start from the middle of the screen */}
           <TouchableOpacity onPress={() => handleNavigation("CreateRecipe")}>
             <Text style={styles.menuText}>Add new recipe</Text>
           </TouchableOpacity>

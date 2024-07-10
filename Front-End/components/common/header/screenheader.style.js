@@ -25,13 +25,10 @@ const styles = StyleSheet.create({
     alignItems: "flex-start", // Align to the left side
   },
   menu: {
-    backgroundColor: COLORS.lightOrange,
-    alignSelf: "flex-start", // Align menu to the left
-    justifyContent: "flex-end", // Align options to the bottom
-    //borderTopLeftRadius: 30, // Rounded top left corner
-    //borderTopRightRadius: 30, // Rounded top right corner
-    //borderBottomLeftRadius: 30, // Rounded bottom left corner
-    paddingVertical: 350, // Add padding
+    backgroundColor: COLORS.menuColor,
+    alignSelf: "flex-start",
+    justifyContent: "flex-end",
+    paddingVertical: 350,
     minHeight: windowHeight,
   },
 

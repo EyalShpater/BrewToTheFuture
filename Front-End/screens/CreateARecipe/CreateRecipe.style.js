@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, FONT, SIZES } from "../constants";
+import { COLORS, FONT, SIZES } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 20,
   },
-  ingredients: {
+  instructions: {
     fontFamily: FONT.medium,
-    fontSize: SIZES.medium,
+    fontSize: SIZES.mediumLarge,
     color: COLORS.primary,
     marginTop: SIZES.large,
     textAlign: "center",
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 8,
   },
-  addStepButton: {
+  nextPageButton: {
     backgroundColor: COLORS.primary,
     paddingVertical: 10,
     paddingHorizontal: 20,
@@ -109,8 +109,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 20,
   },
-  addStepButtonText: {
-    color: "#fff",
+  nextPageButtonText: {
+    color: COLORS.white,
+    fontFamily: FONT.medium,
+    fontSize: SIZES.smallMedium,
+  },
+  AddStepButton: {
+    backgroundColor: COLORS.tertiary,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    alignItems: "center",
+    marginVertical: 20,
+  },
+  AddStepButtonText: {
+    color: COLORS.white,
     fontFamily: FONT.medium,
     fontSize: SIZES.smallMedium,
   },
@@ -119,6 +132,14 @@ const styles = StyleSheet.create({
   },
   underlineText: {
     textDecorationLine: "underline",
+  },
+  saveRecipeButton: {
+    backgroundColor: COLORS.yellow,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    alignItems: "center",
+    marginVertical: 20,
   },
 });
 
