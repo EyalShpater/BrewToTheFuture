@@ -113,6 +113,7 @@ public class Recipe {
     public RecipeDTO convertToDTO() {
         return new RecipeDTO(
                 metaData.authorId(),
+                recipeId,
                 metaData.name(),
                 metaData.method().toString(),
                 metaData.style().toString(),

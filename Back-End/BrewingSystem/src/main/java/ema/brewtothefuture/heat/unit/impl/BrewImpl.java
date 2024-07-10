@@ -56,4 +56,14 @@ public class BrewImpl implements Brew {
             brewingReports.add(report);
         }
     }
+
+    @Override
+    public List<BrewingReportDTO> getReports() {
+        return brewingReports;
+    }
+
+    @Override
+    public int getBrewId() {
+        return brewId;
+    }
 }

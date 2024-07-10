@@ -43,9 +43,29 @@ public class BrewingSystemController {
         brewingSystem.brewRecipe(recipeId, recipeDTO.user_id());
     }
 
+    @PostMapping("/api/brew/recipe/{recipeId}")
+    public void brew(@PathVariable int recipeId, @RequestBody String userId) {
+        brewingSystem.brewRecipe(recipeId, userId);
+    }
+
+    @PostMapping("/api/brew/add_recipe")
+    public void addRecipe(@RequestBody RecipeDTO recipeDTO) {
+        brewingSystem.addNewRecipe(recipeDTO);
+    }
+
     @GetMapping("/api/brew/all_recipes")
     public List<RecipeDTO> getAllRecipes() {
         return brewingSystem.getAllRecipes();
+    }
+
+    @GetMapping("/api/brew/methods")
+    public List<String> getMethods() {
+        return brewingSystem.getBrewingMethods();
+    }
+
+    @GetMapping("/api/brew/styles")
+    public List<String> getStyles() {
+        return brewingSystem.getBrewingStyle();
     }
 
     @PostMapping("{userId}/api/brew/recipe/{recipeId}")
@@ -66,5 +86,11 @@ public class BrewingSystemController {
     @PostMapping("{deviceSerialNumber}/api/embedded/report/brewing")
     public void addBrewingReport(@PathVariable String deviceSerialNumber, @RequestBody BrewingReportDTO report) {
         brewingSystem.addBrewingReport(deviceSerialNumber, report);
+    }
+
+    @GetMapping("{userId}/api/brew/data")
+    public List<BrewingReportDTO> getBrewingReport(@PathVariable String userId, @RequestParam int brewId) {
+        System.out.println(userId + " " + brewId);
+        return brewingSystem.getBrewingReport(userId, brewId);
     }
 }

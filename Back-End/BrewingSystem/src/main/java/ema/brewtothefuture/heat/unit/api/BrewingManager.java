@@ -1,17 +1,22 @@
 package ema.brewtothefuture.heat.unit.api;
 
+import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.recipe.impl.Recipe;
 
+import java.util.List;
+
 public interface BrewingManager {
-    Brew brewRecipe(String userId);
+    Brew brewRecipeInQueue(String userId);
 
-    Brew getBrew(String userId);
+    Brew getBrewInQueue(String userId);
 
-    Recipe getRecipe(String userId);
+    Recipe getRecipeInQueue(String userId);
 
-    void stopRecipe(int recipeId);
+    void stopRecipeInQueue(int recipeId);
 
     void addRecipeToBrew(int recipeId, String userId);
 
-    void markHeadOfQueueAsBrewed(String userId);
+    void markHeadOfQueueAsBrewedInQueue(String userId);
+
+    List<BrewingReportDTO> getBrewHistory(String userId, int brewId);
 }

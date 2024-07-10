@@ -10,12 +10,16 @@ import ema.brewtothefuture.heat.unit.api.BrewingManager;
 import ema.brewtothefuture.heat.unit.api.DeviceManager;
 import ema.brewtothefuture.heat.unit.impl.BrewingManagerImpl;
 import ema.brewtothefuture.heat.unit.impl.DeviceManagerImpl;
+import ema.brewtothefuture.recipe.api.BrewMethod;
+import ema.brewtothefuture.recipe.api.BrewStyle;
 import ema.brewtothefuture.recipe.api.Hop;
 import ema.brewtothefuture.recipe.impl.Recipe;
 import ema.brewtothefuture.recipe.impl.RecipeManager;
 import ema.brewtothefuture.system.api.BrewingSystem;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BrewingSystemImpl implements BrewingSystem {
     private final RecipeManager  recipeManager  = RecipeManager.getInstance();
@@ -25,7 +29,7 @@ public class BrewingSystemImpl implements BrewingSystem {
     @Override
     public EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
-        Brew brew = brewingManager.getBrew(userId);
+        Brew brew = brewingManager.getBrewInQueue(userId);
 
         return brew != null ?
                 brew.getEmbeddedRecipe() :
@@ -71,12 +75,31 @@ public class BrewingSystemImpl implements BrewingSystem {
     @Override
     public void markBrewingAsFinished(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
-        brewingManager.markHeadOfQueueAsBrewed(userId);
+        brewingManager.markHeadOfQueueAsBrewedInQueue(userId);
     }
 
     @Override
     public void addBrewingReport(String deviceId, BrewingReportDTO report) {
         String userId = deviceManager.getUser(deviceId);
-        brewingManager.getBrew(userId).addBrewingReport(report);
+        brewingManager.getBrewInQueue(userId).addBrewingReport(report);
+    }
+
+    @Override
+    public List<BrewingReportDTO> getBrewingReport(String userId, int brewId) {
+        return brewingManager.getBrewHistory(userId, brewId);
+    }
+
+    @Override
+    public List<String> getBrewingMethods() {
+        return Arrays.stream(BrewMethod.values())
+                     .map(Enum::toString)
+                     .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getBrewingStyle() {
+        return Arrays.stream(BrewStyle.values())
+                     .map(Enum::toString)
+                     .collect(Collectors.toList());
     }
 }

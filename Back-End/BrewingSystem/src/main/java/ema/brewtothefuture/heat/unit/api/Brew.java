@@ -4,6 +4,8 @@ import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.recipe.impl.Recipe;
 
+import java.util.List;
+
 public interface Brew {
     String getEndOfStepNotification(int stepId);
 
@@ -16,4 +18,8 @@ public interface Brew {
     EmbeddedRecipeDTO getEmbeddedRecipe();
 
     void addBrewingReport(BrewingReportDTO report);
+
+    List<BrewingReportDTO> getReports();
+
+    int getBrewId();
 }
