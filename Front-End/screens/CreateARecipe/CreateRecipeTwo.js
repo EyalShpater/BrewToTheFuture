@@ -44,18 +44,18 @@ const CreateRecipeTwo = () => {
   const navigation = useNavigation();
   const route = useRoute();
 
-  const {
-    userId,
-    recipeName,
-    method,
-    style,
-    abv,
-    ibu,
-    originalGravity,
-    finalGravity,
-    color,
-    batchSizeLiter,
-  } = route.params;
+  // const {
+  //   userId,
+  //   recipeName,
+  //   method,
+  //   style,
+  //   abv,
+  //   ibu,
+  //   originalGravity,
+  //   finalGravity,
+  //   color,
+  //   batchSizeLiter,
+  // } = route.params;
 
   const handleFermentablesPickerSelect = (value) => {
     setFermentables(value);

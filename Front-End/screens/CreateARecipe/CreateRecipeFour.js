@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import styles from "./CreateRecipe.style";
 import {
@@ -24,22 +24,22 @@ const CreateRecipeFour = () => {
     },
   ]);
 
-  const {
-    userId,
-    recipeName,
-    method,
-    style,
-    abv,
-    ibu,
-    originalGravity,
-    finalGravity,
-    color,
-    batchSizeLiter,
-    fermentableDetails,
-    hopsDetails,
-    yeastDetails,
-    steps,
-  } = route.params;
+  // const {
+  //   userId,
+  //   recipeName,
+  //   method,
+  //   style,
+  //   abv,
+  //   ibu,
+  //   originalGravity,
+  //   finalGravity,
+  //   color,
+  //   batchSizeLiter,
+  //   fermentableDetails,
+  //   hopsDetails,
+  //   yeastDetails,
+  //   steps,
+  // } = route.params;
 
   const renderNotifications = () => {
     return notifications.map((notification, index) => (
@@ -81,7 +81,7 @@ const CreateRecipeFour = () => {
   };
 
   const handleSubmit = async () => {
-    const recipe = {
+    const recipeObj = {
       user_id: route.params.userId,
       recipe_name: route.params.recipeName,
       method: route.params.method,
@@ -92,7 +92,7 @@ const CreateRecipeFour = () => {
       final_gravity: parseFloat(route.params.finalGravity),
       color: parseFloat(route.params.color),
       batch_size_liter: parseFloat(route.params.batchSizeLiter),
-      recipe: route.params.step,
+      recipe: route.params.steps,
       notifications: notifications,
       fermentables: route.params.fermentableDetails,
       hops: route.params.hopsDetails,
@@ -103,7 +103,7 @@ const CreateRecipeFour = () => {
 
     (async () => {
       try {
-        const response = await axios.post(url, recipe, {
+        const response = await axios.post(url, recipeObj, {
           headers: {
             "Content-Type": "application/json",
           },

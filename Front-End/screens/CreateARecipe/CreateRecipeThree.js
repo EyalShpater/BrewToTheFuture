@@ -13,7 +13,7 @@ import {
 import { COLORS } from "../../constants";
 
 const CreateRecipeThree = () => {
-  let navigation = useNavigation();
+  const navigation = useNavigation();
   const route = useRoute();
 
   const [step, setSteps] = useState([
@@ -27,21 +27,21 @@ const CreateRecipeThree = () => {
   ]);
   const [notifySwitches, setNotifySwitches] = useState(step.map(() => false));
 
-  const {
-    userId,
-    recipeName,
-    method,
-    style,
-    abv,
-    ibu,
-    originalGravity,
-    finalGravity,
-    color,
-    batchSizeLiter,
-    fermentableDetails,
-    yeastDetails,
-    hopsDetails,
-  } = route.params;
+  // const {
+  //   userId,
+  //   recipeName,
+  //   method,
+  //   style,
+  //   abv,
+  //   ibu,
+  //   originalGravity,
+  //   finalGravity,
+  //   color,
+  //   batchSizeLiter,
+  //   fermentableDetails,
+  //   yeastDetails,
+  //   hopsDetails,
+  // } = route.params;
 
   const renderSteps = () => {
     return step.map((step) => (
