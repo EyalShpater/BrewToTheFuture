@@ -1,5 +1,8 @@
 import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZES } from "../../constants";
+import { Dimensions } from "react-native";
+
+const windowHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   container: {
@@ -96,6 +99,19 @@ const styles = StyleSheet.create({
     fontFamily: FONT.medium,
     color: activeJobType === item ? COLORS.primary : COLORS.primary,
   }),
+  userMenu: {
+    position: "relative",
+  },
+  mainMenu: {
+    position: "absolute",
+    top: windowHeight * 0.1 - 150,
+    right: 0,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    paddingHorizontal: 10, // Adjust padding as needed
+  },
 });
 
 export default styles;

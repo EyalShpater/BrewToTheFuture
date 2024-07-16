@@ -10,7 +10,7 @@ const Bubbles = () => {
   const bubble = Array.from({ length: 6 }).map((_, index) => ({
     id: index.toString(),
     translateX: new Animated.Value(Math.random() * (windowWidth - 100)),
-    translateY: new Animated.Value(-Math.random() * windowHeight),
+    translateY: new Animated.Value(windowHeight + Math.random() * windowHeight),
     size: Math.random() * 20 + 10,
     delay: index * 1000,
     duration: Math.random() * 8000 + 5000,
@@ -21,7 +21,7 @@ const Bubbles = () => {
       Animated.loop(
         Animated.parallel([
           Animated.timing(bubble.translateY, {
-            toValue: windowHeight + bubble.size * 2, // Adjust the end position as needed
+            toValue: -bubble.size * 2, // Adjust the end position as needed
             duration: bubble.duration,
             easing: Easing.linear,
             delay: bubble.delay,

@@ -107,7 +107,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
     alignItems: "center",
-    marginVertical: 20,
+    marginVertical: 50,
+  },
+  saveRecipeButton: {
+    backgroundColor: COLORS.primary,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    alignItems: "center",
   },
   nextPageButtonText: {
     color: COLORS.white,
@@ -132,14 +139,6 @@ const styles = StyleSheet.create({
   },
   underlineText: {
     textDecorationLine: "underline",
-  },
-  saveRecipeButton: {
-    backgroundColor: COLORS.yellow,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-    alignItems: "center",
-    marginVertical: 20,
   },
 });
 

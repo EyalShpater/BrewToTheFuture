@@ -56,7 +56,7 @@ const Menu = ({ isVisible, closeMenu }) => {
           style={[styles.menu, { width: windowWidth * 0.5 }]}
           {...panResponder.panHandlers}
         >
-          <TouchableOpacity onPress={() => handleNavigation("CreateRecipe")}>
+          <TouchableOpacity onPress={() => handleNavigation("CreateRecipeOne")}>
             <Text style={styles.menuText}>Add new recipe</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleNavigation("Screen2")}>

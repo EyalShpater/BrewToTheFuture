@@ -14,7 +14,7 @@ import { COLORS } from "../../constants";
 import axios from "axios";
 
 const CreateRecipeFour = () => {
-  let navigation = useNavigation();
+  const navigation = useNavigation();
   const route = useRoute();
 
   const [notifications, setNotifications] = useState([
@@ -129,7 +129,7 @@ const CreateRecipeFour = () => {
   return (
     <SafeAreaView style={{ backgroundColor: COLORS.backGround }}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={[styles.instructions, { marginBottom: 10 }]}>
+        <Text style={[styles.instructions, { marginBottom: 0 }]}>
           Add message for the fermentation process:
         </Text>
         {renderNotifications()}
@@ -143,10 +143,10 @@ const CreateRecipeFour = () => {
         </TouchableOpacity>
 
         {/* Submit Button */}
-        <View style={{ marginVertical: 50 }} />
+        <View style={{ marginVertical: 75 }} />
         <TouchableOpacity
           onPress={() => handleSubmit()}
-          style={styles.nextPageButton}
+          style={styles.saveRecipeButton}
         >
           <Text style={styles.nextPageButtonText}>Save Recipe</Text>
         </TouchableOpacity>

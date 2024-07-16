@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,12 +8,10 @@ import {
   FlatList,
   SafeAreaView,
   ScrollView,
-  Animated,
-  Easing,
   ImageBackground,
 } from "react-native";
 import styles from "./welcome.style";
-import { icons, SIZES, COLORS, images } from "../../constants";
+import { icons, SIZES, images } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
 import Bubbles from "../../components/bubbles";
 import router from "expo-router";
@@ -80,10 +78,12 @@ const Home = () => {
       style={{ flex: 1 }}
       resizeMode="cover"
     >
-      <SafeAreaView style={{ flex: 1 }}>
-        <ScreenHeaderBtn iconUrl={icons.menu} dimensions="60%" />
-        <View style={{ position: "absolute", top: 0, right: 0 }}>
-          <ScreenHeaderBtn iconUrl={images.user} dimensions="100%" />
+      <SafeAreaView style={{ flex: 1, marginTop: 120 }}>
+        <View style={styles.mainMenu}>
+          <ScreenHeaderBtn iconUrl={icons.menu} dimensions="60%" />
+          <View style={styles.userMenu}>
+            <ScreenHeaderBtn iconUrl={images.user} dimensions="100%" />
+          </View>
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false}>

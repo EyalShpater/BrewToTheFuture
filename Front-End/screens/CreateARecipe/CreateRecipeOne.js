@@ -11,7 +11,7 @@ import {
 import styles from "./CreateRecipe.style";
 import { COLORS } from "../../constants";
 
-const CreateRecipe = () => {
+const CreateRecipeOne = () => {
   const userId = "ilwejkrfhiuy4o3y4ljkblkdj";
   const [recipeName, setRecipeName] = useState("");
   const [method, setMethod] = useState("");
@@ -164,23 +164,14 @@ const CreateRecipe = () => {
           Let's craft your perfect brew!
         </Text>
         <Text style={styles.instructions}>Edit your recipe below:</Text>
-        {/* Recipe Name Input */}
         {getRecipeName()}
-        {/* Method Input */}
         {getMethod()}
-        {/* Style Input */}
         {getStyle()}
-        {/* ABV Input */}
         {getABV()}
-        {/* IBU Input */}
         {getIBU()}
-        {/* Original Gravity Input */}
         {getOriginalGravity()}
-        {/* Final Gravity Input */}
         {getFinalGravity()}
-        {/* Color Input */}
         {getColor()}
-        {/* Batch Size Liter Input */}
         {getBatchSize()}
 
         {/* Next Page Button */}
@@ -195,4 +186,4 @@ const CreateRecipe = () => {
   );
 };
 
-export default CreateRecipe;
+export default CreateRecipeOne;
