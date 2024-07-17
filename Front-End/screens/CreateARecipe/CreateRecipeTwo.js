@@ -9,10 +9,11 @@ import {
   ScrollView,
   Modal,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import styles from "./CreateRecipe.style";
 import { Picker } from "@react-native-picker/picker";
-import { COLORS } from "../../constants";
+import { COLORS, images } from "../../constants";
 
 const CreateRecipeTwo = () => {
   const [fermentables, setFermentables] = useState(0);
@@ -159,7 +160,7 @@ const CreateRecipeTwo = () => {
     if (fermentables > 0) {
       return fermentableDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>
-          <Text style={[styles.fermentableTitle, styles.underlineText]}>
+          <Text style={[styles.ingredientTitle, styles.underlineText]}>
             Fermentable {index + 1}:
           </Text>
           <View style={styles.inputContainer}>
@@ -240,7 +241,7 @@ const CreateRecipeTwo = () => {
     if (hops > 0) {
       return hopsDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>
-          <Text style={[styles.fermentableTitle, styles.underlineText]}>
+          <Text style={[styles.ingredientTitle, styles.underlineText]}>
             Hops {index + 1}:
           </Text>
           <View style={styles.inputContainer}>
@@ -331,7 +332,7 @@ const CreateRecipeTwo = () => {
     if (yeast > 0) {
       return yeastDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>
-          <Text style={[styles.fermentableTitle, styles.underlineText]}>
+          <Text style={[styles.ingredientTitle, styles.underlineText]}>
             Yeast {index + 1}:
           </Text>
           <View style={styles.inputContainer}>
@@ -384,48 +385,54 @@ const CreateRecipeTwo = () => {
   };
 
   return (
-    <SafeAreaView style={{ backgroundColor: COLORS.backGround }}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text style={[styles.instructions, { marginBottom: 20 }]}>
-          Add Fermentables:
-        </Text>
-        {/* Fermentables Picker */}
-        {fermentablesPicker()}
-        {/* Modal for Fermentables Picker */}
-        {modalForFermentablesPicker()}
-        {/* Fermentable Details */}
-        {getFermentableDetails()}
+    <ImageBackground
+      source={images.beerBackground}
+      style={{ flex: 1 }}
+      resizeMode="cover"
+    >
+      <SafeAreaView>
+        <ScrollView contentContainerStyle={styles.container}>
+          <Text style={[styles.instructions, { marginBottom: 20 }]}>
+            Add Fermentables:
+          </Text>
+          {/* Fermentables Picker */}
+          {fermentablesPicker()}
+          {/* Modal for Fermentables Picker */}
+          {modalForFermentablesPicker()}
+          {/* Fermentable Details */}
+          {getFermentableDetails()}
 
-        <Text style={[styles.instructions, { marginBottom: 20 }]}>
-          Add Hops:
-        </Text>
-        {/* Hops Picker */}
-        {hopsPicker()}
-        {/* Modal for Hops Picker */}
-        {modalForHopsPicker()}
-        {/* Hops Details */}
-        {getHopsDetails()}
+          <Text style={[styles.instructions, { marginBottom: 20 }]}>
+            Add Hops:
+          </Text>
+          {/* Hops Picker */}
+          {hopsPicker()}
+          {/* Modal for Hops Picker */}
+          {modalForHopsPicker()}
+          {/* Hops Details */}
+          {getHopsDetails()}
 
-        <Text style={[styles.instructions, { marginBottom: 20 }]}>
-          Add Yeast:
-        </Text>
-        {/* Yeast Picker */}
-        {yeastPicker()}
-        {/* Modal for Yeast Picker */}
-        {modalForYeastPicker()}
-        {/* Yeast Details */}
-        {getYeastDetails()}
+          <Text style={[styles.instructions, { marginBottom: 20 }]}>
+            Add Yeast:
+          </Text>
+          {/* Yeast Picker */}
+          {yeastPicker()}
+          {/* Modal for Yeast Picker */}
+          {modalForYeastPicker()}
+          {/* Yeast Details */}
+          {getYeastDetails()}
 
-        {/* Next Page Button */}
-        <View style={{ marginVertical: 100 }} />
-        <TouchableOpacity
-          onPress={() => handleNavigation("CreateRecipeThree")}
-          style={styles.nextPageButton}
-        >
-          <Text style={styles.nextPageButtonText}>Continue</Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </SafeAreaView>
+          {/* Next Page Button */}
+          <View style={{ marginVertical: 100 }} />
+          <TouchableOpacity
+            onPress={() => handleNavigation("CreateRecipeThree")}
+            style={styles.nextPageButton}
+          >
+            <Text style={styles.nextPageButtonText}>Continue</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 

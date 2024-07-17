@@ -2,9 +2,11 @@ const COLORS = {
   primary: "#312651",
   secondary: "#444262",
   tertiary: "#ED9455",
+  darkOrange: "#D77948",
 
   gray: "#83829A",
   gray2: "#C1C0C8",
+  gray3: "#E5E1DA",
 
   white: "#F3F4F8",
   lightWhite: "#FAFAFC",
@@ -13,7 +15,7 @@ const COLORS = {
 
   lightOrange: "#FFCF9D",
   yellow: "#FFEEA9",
-  menuColor: "#FFE9D0",
+  menuColor: "#EDE4E0",
 };
 
 const FONT = {

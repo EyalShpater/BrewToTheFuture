@@ -8,8 +8,10 @@ import {
   Text,
   Dimensions,
   PanResponder,
+  // ImageBackground,
 } from "react-native";
 import styles from "./screenheader.style";
+// import { images } from "../../../constants";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -56,6 +58,11 @@ const Menu = ({ isVisible, closeMenu }) => {
           style={[styles.menu, { width: windowWidth * 0.5 }]}
           {...panResponder.panHandlers}
         >
+          {/* <ImageBackground
+          source={images.seeds}
+          style={[styles.menu, { width: windowWidth * 0.5 }]}
+          {...panResponder.panHandlers}
+        > */}
           <TouchableOpacity onPress={() => handleNavigation("CreateRecipeOne")}>
             <Text style={styles.menuText}>Add new recipe</Text>
           </TouchableOpacity>
@@ -66,6 +73,7 @@ const Menu = ({ isVisible, closeMenu }) => {
             <Text style={styles.menuText}>Explore new beers</Text>
           </TouchableOpacity>
         </View>
+        {/* </ImageBackground> */}
       </TouchableOpacity>
     </Modal>
   );

@@ -6,11 +6,11 @@ import {
   View,
   Text,
   TextInput,
-  Button,
   ScrollView,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
-import { COLORS } from "../../constants";
+import { COLORS, images } from "../../constants";
 import axios from "axios";
 
 const CreateRecipeFour = () => {
@@ -127,39 +127,45 @@ const CreateRecipeFour = () => {
   };
 
   return (
-    <SafeAreaView style={{ backgroundColor: COLORS.backGround }}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text style={[styles.instructions, { marginBottom: 0 }]}>
-          Add message for the fermentation process:
-        </Text>
-        {renderNotifications()}
-        <TouchableOpacity
-          onPress={handleAddNotification}
-          style={styles.AddStepButton}
-        >
-          <Text style={styles.AddStepButtonText}>
-            +Add fermentation message
+    <ImageBackground
+      source={images.beerBackground}
+      style={{ flex: 1 }}
+      resizeMode="cover"
+    >
+      <SafeAreaView>
+        <ScrollView contentContainerStyle={styles.container}>
+          <Text style={[styles.instructions, { marginBottom: 0 }]}>
+            Add message for the fermentation process:
           </Text>
-        </TouchableOpacity>
+          {renderNotifications()}
+          <TouchableOpacity
+            onPress={handleAddNotification}
+            style={styles.AddStepButton}
+          >
+            <Text style={styles.AddStepButtonText}>
+              +Add fermentation message
+            </Text>
+          </TouchableOpacity>
 
-        {/* Submit Button */}
-        <View style={{ marginVertical: 75 }} />
-        <TouchableOpacity
-          onPress={() => handleSubmit()}
-          style={styles.saveRecipeButton}
-        >
-          <Text style={styles.nextPageButtonText}>Save Recipe</Text>
-        </TouchableOpacity>
+          {/* Submit Button */}
+          <View style={{ marginVertical: 75 }} />
+          <TouchableOpacity
+            onPress={() => handleSubmit()}
+            style={styles.saveRecipeButton}
+          >
+            <Text style={styles.nextPageButtonText}>Save Recipe</Text>
+          </TouchableOpacity>
 
-        {/* Back To Main Screen */}
-        <TouchableOpacity
-          onPress={() => handleNavigation("Welcome")}
-          style={styles.nextPageButton}
-        >
-          <Text style={styles.nextPageButtonText}>Back To Main Menu</Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </SafeAreaView>
+          {/* Back To Main Screen */}
+          <TouchableOpacity
+            onPress={() => handleNavigation("Welcome")}
+            style={styles.nextPageButton}
+          >
+            <Text style={styles.nextPageButtonText}>Back To Main Menu</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 

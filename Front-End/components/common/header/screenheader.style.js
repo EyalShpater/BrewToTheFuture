@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES } from "../../../constants";
 import { Dimensions } from "react-native";
 
 const windowHeight = Dimensions.get("window").height;
@@ -33,11 +33,13 @@ const styles = StyleSheet.create({
   },
 
   menuText: {
+    fontFamily: FONT.bold,
+    color: COLORS.primary,
+    borderColor: COLORS.primary,
     textAlign: "center",
     marginVertical: 8, // Add vertical margin between menu items
-    borderWidth: 1, // Add border
-    borderColor: COLORS.black, // Border color
-    borderRadius: 5, // Border radius
+    borderWidth: 1.5,
+    borderRadius: 10,
     padding: 10, // Add padding inside the border
   },
 });

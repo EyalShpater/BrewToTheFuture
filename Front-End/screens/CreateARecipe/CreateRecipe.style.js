@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   instructions: {
-    fontFamily: FONT.medium,
+    fontFamily: FONT.bold,
     fontSize: SIZES.mediumLarge,
     color: COLORS.primary,
     marginTop: SIZES.large,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   label: {
-    fontFamily: FONT.medium,
+    fontFamily: FONT.bold,
     fontSize: SIZES.smallMedium,
     color: COLORS.primary,
     marginRight: 10,
@@ -38,10 +38,11 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 32,
-    borderWidth: 1,
-    borderColor: COLORS.gray,
-    borderRadius: 5,
+    borderWidth: 1.5,
+    borderColor: COLORS.primary,
+    borderRadius: 10,
     paddingHorizontal: 10,
+    backgroundColor: COLORS.gray3,
   },
   pickerModal: {
     flex: 1,
@@ -59,20 +60,14 @@ const styles = StyleSheet.create({
     height: 200,
     width: "100%",
   },
-  fermentableTitle: {
-    fontFamily: FONT.medium,
+  ingredientTitle: {
+    fontFamily: FONT.bold,
     fontSize: SIZES.medium,
     color: COLORS.primary,
     marginBottom: 10,
   },
   stepContainer: {
     marginBottom: 20,
-  },
-  stepTitle: {
-    fontFamily: FONT.medium,
-    fontSize: SIZES.medium,
-    color: COLORS.primary,
-    marginBottom: 5,
   },
   fieldContainer: {
     flexDirection: "row",
@@ -122,7 +117,9 @@ const styles = StyleSheet.create({
     fontSize: SIZES.smallMedium,
   },
   AddStepButton: {
-    backgroundColor: COLORS.tertiary,
+    backgroundColor: COLORS.gray3,
+    borderColor: COLORS.primary,
+    borderWidth: 1.5,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
@@ -130,7 +127,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   AddStepButtonText: {
-    color: COLORS.white,
+    color: COLORS.primary,
     fontFamily: FONT.medium,
     fontSize: SIZES.smallMedium,
   },

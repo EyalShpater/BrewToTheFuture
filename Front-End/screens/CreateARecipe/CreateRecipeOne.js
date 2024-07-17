@@ -7,9 +7,10 @@ import {
   TextInput,
   ScrollView,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import styles from "./CreateRecipe.style";
-import { COLORS } from "../../constants";
+import { images } from "../../constants";
 
 const CreateRecipeOne = () => {
   const userId = "ilwejkrfhiuy4o3y4ljkblkdj";
@@ -158,31 +159,37 @@ const CreateRecipeOne = () => {
     });
   };
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.backGround }}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.welcomeMessage}>
-          Let's craft your perfect brew!
-        </Text>
-        <Text style={styles.instructions}>Edit your recipe below:</Text>
-        {getRecipeName()}
-        {getMethod()}
-        {getStyle()}
-        {getABV()}
-        {getIBU()}
-        {getOriginalGravity()}
-        {getFinalGravity()}
-        {getColor()}
-        {getBatchSize()}
+    <ImageBackground
+      source={images.beerBackground}
+      style={{ flex: 1 }}
+      resizeMode="cover"
+    >
+      <SafeAreaView>
+        <ScrollView contentContainerStyle={styles.container}>
+          <Text style={styles.welcomeMessage}>
+            Let's craft your perfect brew!
+          </Text>
+          <Text style={styles.instructions}>Edit your recipe below:</Text>
+          {getRecipeName()}
+          {getMethod()}
+          {getStyle()}
+          {getABV()}
+          {getIBU()}
+          {getOriginalGravity()}
+          {getFinalGravity()}
+          {getColor()}
+          {getBatchSize()}
 
-        {/* Next Page Button */}
-        <TouchableOpacity
-          onPress={() => handleNavigation("CreateRecipeTwo")}
-          style={styles.nextPageButton}
-        >
-          <Text style={styles.nextPageButtonText}>Continue</Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </SafeAreaView>
+          {/* Next Page Button */}
+          <TouchableOpacity
+            onPress={() => handleNavigation("CreateRecipeTwo")}
+            style={styles.nextPageButton}
+          >
+            <Text style={styles.nextPageButtonText}>Continue</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 
