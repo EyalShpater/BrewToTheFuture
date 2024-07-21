@@ -166,7 +166,15 @@ const CreateRecipeOne = () => {
     >
       <SafeAreaView>
         <ScrollView contentContainerStyle={styles.container}>
-          <Text style={styles.welcomeMessage}>
+          {/* Return Button */}
+          <TouchableOpacity
+            style={styles.returnButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={styles.returnButtonText}>{"< Back"}</Text>
+          </TouchableOpacity>
+
+          <Text style={[styles.welcomeMessage, { marginTop: 20 }]}>
             Let's craft your perfect brew!
           </Text>
           <Text style={styles.instructions}>Edit your recipe below:</Text>

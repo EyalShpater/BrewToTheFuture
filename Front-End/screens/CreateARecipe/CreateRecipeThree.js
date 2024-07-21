@@ -168,7 +168,21 @@ const CreateRecipeThree = () => {
     >
       <SafeAreaView>
         <ScrollView contentContainerStyle={styles.container}>
-          <Text style={[styles.instructions, { marginBottom: 10 }]}>
+          {/* Return Button */}
+          <TouchableOpacity
+            style={styles.returnButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={styles.returnButtonText}>{"< Back"}</Text>
+          </TouchableOpacity>
+
+          <Text
+            style={[
+              styles.instructions,
+              { marginBottom: 10 },
+              { marginTop: 30 },
+            ]}
+          >
             Add step for the brewing process:
           </Text>
 

@@ -1,4 +1,7 @@
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import Welcome from "../screens/welcome/Welcome";
 import CreateRecipeOne from "../screens/CreateARecipe/CreateRecipeOne";
 import CreateRecipeTwo from "../screens/CreateARecipe/CreateRecipeTwo";
@@ -9,7 +12,11 @@ const Stack = createStackNavigator();
 
 const HomeStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        ...TransitionPresets.ModalSlideFromBottomIOS,
+      }}
+    >
       <Stack.Screen
         name="Welcome"
         component={Welcome}

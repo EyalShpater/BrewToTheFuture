@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
-import { COLORS, images } from "../../constants";
+import { images } from "../../constants";
 import axios from "axios";
 
 const CreateRecipeFour = () => {
@@ -134,7 +134,21 @@ const CreateRecipeFour = () => {
     >
       <SafeAreaView>
         <ScrollView contentContainerStyle={styles.container}>
-          <Text style={[styles.instructions, { marginBottom: 0 }]}>
+          {/* Return Button */}
+          <TouchableOpacity
+            style={styles.returnButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={styles.returnButtonText}>{"< Back"}</Text>
+          </TouchableOpacity>
+
+          <Text
+            style={[
+              styles.instructions,
+              { marginBottom: 10 },
+              { marginTop: 30 },
+            ]}
+          >
             Add message for the fermentation process:
           </Text>
           {renderNotifications()}

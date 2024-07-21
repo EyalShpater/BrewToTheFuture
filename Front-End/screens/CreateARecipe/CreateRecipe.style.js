@@ -137,6 +137,18 @@ const styles = StyleSheet.create({
   underlineText: {
     textDecorationLine: "underline",
   },
+  returnButton: {
+    position: "absolute",
+    top: 5,
+    left: 5,
+    padding: 5,
+    zIndex: 1,
+  },
+  returnButtonText: {
+    fontFamily: FONT.bold,
+    fontSize: SIZES.medium,
+    color: COLORS.darkOrange,
+  },
 });
 
 export default styles;

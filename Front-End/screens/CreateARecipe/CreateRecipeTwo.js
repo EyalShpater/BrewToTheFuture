@@ -392,7 +392,21 @@ const CreateRecipeTwo = () => {
     >
       <SafeAreaView>
         <ScrollView contentContainerStyle={styles.container}>
-          <Text style={[styles.instructions, { marginBottom: 20 }]}>
+          {/* Return Button */}
+          <TouchableOpacity
+            style={styles.returnButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={styles.returnButtonText}>{"< Back"}</Text>
+          </TouchableOpacity>
+
+          <Text
+            style={[
+              styles.instructions,
+              { marginBottom: 20 },
+              { marginTop: 30 },
+            ]}
+          >
             Add Fermentables:
           </Text>
           {/* Fermentables Picker */}
