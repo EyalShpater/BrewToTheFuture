@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import styles from "./CreateRecipe.style";
 import { Picker } from "@react-native-picker/picker";
-import { COLORS, images } from "../../constants";
+import { images } from "../../constants";
 
 const CreateRecipeTwo = () => {
   const [fermentables, setFermentables] = useState(0);

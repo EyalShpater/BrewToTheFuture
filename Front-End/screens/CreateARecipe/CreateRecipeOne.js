@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   SafeAreaView,
@@ -8,15 +8,23 @@ import {
   ScrollView,
   TouchableOpacity,
   ImageBackground,
+  Modal,
+  Button,
 } from "react-native";
 import styles from "./CreateRecipe.style";
 import { images } from "../../constants";
+import axios from "axios";
+import { Picker } from "@react-native-picker/picker";
 
 const CreateRecipeOne = () => {
   const userId = "ilwejkrfhiuy4o3y4ljkblkdj";
   const [recipeName, setRecipeName] = useState("");
   const [method, setMethod] = useState("");
+  const [methodsData, setMethodsData] = useState([]);
+  const [isMethodsPickerVisible, setMethodsPickerVisible] = useState(false);
   const [style, setStyle] = useState("");
+  const [stylesData, setStylesData] = useState([]);
+  const [isStylesPickerVisible, setStylesPickerVisible] = useState(false);
   const [abv, setAbv] = useState("");
   const [ibu, setIbu] = useState("");
   const [originalGravity, setOriginalGravity] = useState("");
@@ -41,29 +49,135 @@ const CreateRecipeOne = () => {
   };
 
   const getMethod = () => {
+    useEffect(() => {
+      axios
+        .get("https://brewtothefuture.azurewebsites.net/api/brew/methods")
+        .then((response) => {
+          setMethodsData(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching methods:", error);
+        });
+    }, []);
+
     return (
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Method:</Text>
-        <TextInput
-          style={styles.input}
-          value={method}
-          onChangeText={(text) => setMethod(text)}
-        />
+      <View style={{ marginTop: 2 }}>
+        <TouchableOpacity
+          style={styles.inputContainer}
+          onPress={() => setMethodsPickerVisible(true)}
+        >
+          <Text style={styles.label}>Method:</Text>
+          <TextInput
+            style={styles.input}
+            value={String(method)}
+            placeholder="Choose option"
+            placeholderTextColor="#999"
+            editable={false}
+            pointerEvents="none"
+          />
+        </TouchableOpacity>
       </View>
     );
   };
 
-  const getStyle = () => {
+  const modalForMethodPicker = () => {
     return (
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Style:</Text>
-        <TextInput
-          style={styles.input}
-          value={style}
-          onChangeText={(text) => setStyle(text)}
-        />
+      <Modal
+        visible={isMethodsPickerVisible}
+        transparent={true}
+        animationType="slide"
+      >
+        <View style={styles.pickerModal}>
+          <View style={styles.pickerContainer}>
+            <Picker
+              selectedValue={method}
+              onValueChange={(itemValue) =>
+                handleMethodsPickerSelect(itemValue)
+              }
+              style={styles.picker}
+            >
+              {methodsData.map((item, index) => (
+                <Picker.Item key={index} label={item} value={item} />
+              ))}
+            </Picker>
+            <Button
+              title="Done"
+              onPress={() => setMethodsPickerVisible(false)}
+            />
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  const handleMethodsPickerSelect = (value) => {
+    setMethod(value);
+    setMethodsPickerVisible(false);
+  };
+
+  const getStyle = () => {
+    useEffect(() => {
+      axios
+        .get("https://brewtothefuture.azurewebsites.net/api/brew/styles")
+        .then((response) => {
+          setStylesData(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching styles:", error);
+        });
+    }, []);
+
+    return (
+      <View style={{ marginTop: 2 }}>
+        <TouchableOpacity
+          style={styles.inputContainer}
+          onPress={() => setStylesPickerVisible(true)}
+        >
+          <Text style={styles.label}>Style:</Text>
+          <TextInput
+            style={[styles.input, { textAlign: "center" }]}
+            value={String(style)}
+            placeholder="Choose option"
+            placeholderTextColor="#999"
+            editable={false}
+            pointerEvents="none"
+          />
+        </TouchableOpacity>
       </View>
     );
+  };
+
+  const modalForStylePicker = () => {
+    return (
+      <Modal
+        visible={isStylesPickerVisible}
+        transparent={true}
+        animationType="slide"
+      >
+        <View style={styles.pickerModal}>
+          <View style={styles.pickerContainer}>
+            <Picker
+              selectedValue={style}
+              onValueChange={(itemValue) => handleStylesPickerSelect(itemValue)}
+              style={styles.picker}
+            >
+              {stylesData.map((item, index) => (
+                <Picker.Item key={index} label={item} value={item} />
+              ))}
+            </Picker>
+            <Button
+              title="Done"
+              onPress={() => setStylesPickerVisible(false)}
+            />
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  const handleStylesPickerSelect = (value) => {
+    setStyle(value);
+    setStylesPickerVisible(false);
   };
 
   const getABV = () => {
@@ -158,6 +272,7 @@ const CreateRecipeOne = () => {
       batchSizeLiter,
     });
   };
+
   return (
     <ImageBackground
       source={images.beerBackground}
@@ -173,21 +288,21 @@ const CreateRecipeOne = () => {
           >
             <Text style={styles.returnButtonText}>{"< Back"}</Text>
           </TouchableOpacity>
-
           <Text style={[styles.welcomeMessage, { marginTop: 20 }]}>
             Let's craft your perfect brew!
           </Text>
           <Text style={styles.instructions}>Edit your recipe below:</Text>
           {getRecipeName()}
           {getMethod()}
+          {modalForMethodPicker()}
           {getStyle()}
+          {modalForStylePicker()}
           {getABV()}
           {getIBU()}
           {getOriginalGravity()}
           {getFinalGravity()}
           {getColor()}
           {getBatchSize()}
-
           {/* Next Page Button */}
           <TouchableOpacity
             onPress={() => handleNavigation("CreateRecipeTwo")}

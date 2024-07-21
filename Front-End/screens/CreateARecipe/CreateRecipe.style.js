@@ -28,6 +28,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: "100%",
   },
+  pickerInputContainer: {
+    flex: 1,
+    height: 32,
+    borderWidth: 1.5,
+    borderColor: COLORS.primary,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    backgroundColor: COLORS.gray3,
+  },
   label: {
     fontFamily: FONT.bold,
     fontSize: SIZES.smallMedium,
@@ -43,6 +52,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 10,
     backgroundColor: COLORS.gray3,
+    textAlign: "center",
   },
   pickerModal: {
     flex: 1,
