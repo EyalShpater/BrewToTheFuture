@@ -1,0 +1,1460 @@
+Fermentable,Country,Category,Type,Color,PPG,Recipes
+Youngberry,,Fruit,Fruit,0 °L,2.5,2
+Admiral - Yolo Gold Wheat,United States,Grain,Base malt,3 °L,39,268
+Sugar Creek Malt - Ye Olde Pale Ale,United States,Grain,Base malt,4 °L,37.7,113
+Blue Ox Malthouse - Yankee Pilsner,United States,Grain,Base malt,1 °L,37,33
+Voyager Craft Malt - Winter Wheat Janz,Australia,Grain,Base malt,3 °L,38.8,407
+Wine Juice 25 brix,United States,Fruit,Juice,0 °L,11.48,57
+Wine Juice 20 Brix,,Fruit,Juice,0 °L,9.18,76
+Northern Brewer - Wildflower Honey,United States,Sugar,Honey,2 °L,42,443
+Mecca Grade - Wickiup (Hard Red Spring Wheat),United States,Grain,Base malt,3 °L,37,143
+The Swaen - WhiteSwaen Classic,Netherlands,Grain,Base malt,2 °L,37.7,816
+Briess - White Wheat Raw,United States,Grain,Base malt,2 °L,34.5,"1,761"
+Montana Craft Malt - White Wheat Malt,United States,Grain,Base malt,3 °L,37.7,120
+Great Lakes Malting - White Wheat Malt,United States,Grain,Base malt,3 °L,1.037,3
+Canada Malting - WHITE WHEAT MALT,Canada,Grain,Base malt,4 °L,38.1,"2,793"
+Root Shoot Malting - White Wheat,United States,Grain,Base malt,2 °L,38,114
+Great Western - White Wheat,United States,Grain,Base malt,4 °L,37,"2,624"
+Rahr - White Wheat,United States,Grain,Base malt,3 °L,39.1,"6,536"
+White Wheat,United States,Grain,Base malt,3 °L,40,"77,680"
+White Sorghum Syrup - Gluten Free,,Sugar,Sugar,2 °L,37,"1,606"
+Maker's Malt - Wheeler Wheat - Hard Spring Red Wheat,Canada,Grain,Base malt,2 °L,37,4
+Muntons - Wheat Spraymalt (DME),United Kingdom,Dry Extract,Extract,4 °L,44,225
+"Briess - Wheat Malt, White",United States,Grain,Base malt,3 °L,39.1,"7,330"
+"Briess - Wheat Malt, Red",United States,Grain,Base malt,2 °L,37.3,"1,249"
+Ireks - Wheat Malt Light,Germany,Grain,Base malt,2 °L,38,872
+Ireks - Wheat Malt Dark,Germany,Grain,Base malt,7 °L,37.7,40
+Ireks - Wheat Malt Black,Germany,Grain,Roasted malt,700 °L,29.9,244
+Malteurop - Wheat Malt,United States,Grain,Base malt,4 °L,38,464
+Barrett Burston - Wheat Malt,Australia,Grain,Base malt,2 °L,35.4,694
+Dingemans - Wheat Malt,Belgium,Grain,Base malt,2 °L,38.1,901
+Joe White - Wheat Malt,Australia,Grain,Base malt,2 °L,37.3,"1,192"
+Proximity - Wheat Malt,United States,Grain,Base malt,3 °L,39.1,730
+Wheat Malt,Germany,Grain,Base malt,2 °L,37,"52,707"
+Wheat Malt,Finland,Grain,Base malt,2 °L,38,"5,699"
+Simpsons - Wheat Malt,United Kingdom,Grain,Base malt,3 °L,36.576,"1,674"
+Viking - Wheat Malt,Finland,Grain,Base malt,3 °L,38,"2,379"
+OiO - Wheat Malt,Canada,Grain,Base malt,2 °L,37,24
+Carolina Malt House - Wheat Malt,United States,Grain,Base malt,2 °L,38,47
+Patagonia - Wheat Malt,Chile,Grain,Base malt,2 °L,37,27
+Gambrinus - Wheat Malt,Canada,Grain,Base malt,2 °L,35.9,563
+Gladfield - Wheat Malt,New Zealand,Grain,Base malt,2 °L,38.8,"1,520"
+BA Malt - Wheat Malt,Argentina,Grain,Base malt,2 °L,38,650
+Wheat Malt,New Zealand,Grain,Base malt,2 °L,35.4,"3,836"
+Crisp Malting - Wheat Malt,United Kingdom,Grain,Base malt,2 °L,37.26,"2,893"
+Muntons - Wheat Liquid Malt Extract (LME),United Kingdom,Liquid Extract,Extract,3 °L,37,104
+Black Rock - Wheat Liquid Malt Extract (LME),New Zealand,Liquid Extract,Extract,3 °L,36,36
+Avangard - Wheat,Germany,Grain,Base malt,2 °L,38.2,547
+Wheat,United States,Grain,Base malt,2 °L,38,"51,893"
+Wheat,Belgium,Grain,Base malt,2 °L,38,"16,334"
+Wheat,United Kingdom,Grain,Base malt,2 °L,37,"14,310"
+Watermelon,,Fruit,Fruit,0 °L,4.05,188
+Voyager Craft Malt - Voodoo Schooner,Australia,Grain,Specialty malt,43 °L,35.9,239
+Voyager Craft Malt - Vienna Schooner,Australia,Grain,Base malt,6 °L,36,259
+Grouse Malt House - Vienna Millet Malt,United States,Grain,Gluten-free malt,3 °L,31,178
+Carolina Malt House - Vienna Malt (two-row),United States,Grain,Base malt,3 °L,36,100
+Joe White - Vienna Malt,Australia,Grain,Base malt,3 °L,35.9,397
+Vienna Malt,New Zealand,Grain,Base malt,3 °L,39.1,"1,834"
+Weyermann - Vienna Malt,Germany,Grain,Base malt,4 °L,37,"11,587"
+Vienna Malt,Finland,Grain,Base malt,3 °L,36,"2,722"
+Gladfield - Vienna Malt,New Zealand,Grain,Base malt,3 °L,37.4,861
+Bairds - Vienna Malt,United Kingdom,Grain,Base malt,4 °L,37,470
+Barrett Burston - Vienna Malt,Australia,Grain,Base malt,4 °L,35,236
+Crisp Malting - Vienna Malt,United Kingdom,Grain,Base malt,3 °L,36.8,"1,069"
+Agrária - Vienna Malt,Brazil,Grain,Base malt,4 °L,37,219
+Thomas Fawcett - Vienna Malt,United Kingdom,Grain,Base malt,6 °L,36.3,83
+Proximity - Vienna,United States,Grain,Base malt,4 °L,37,608
+Riverbend Malt - Vienna,United States,Grain,Base malt,3 °L,36.3,120
+Sugar Creek Malt - Vienna,United States,Grain,Base malt,5 °L,37.4,63
+Simpsons - Vienna,United Kingdom,Grain,Base malt,4 °L,36,816
+Barnowl - Vienna,Canada,Grain,Base malt,6 °L,34,194
+Great Western - Vienna,United States,Grain,Base malt,3 °L,37,657
+Patagonia - Vienna,Chile,Grain,Base malt,3 °L,37,216
+BA Malt - Vienna,Argentina,Grain,Base malt,5 °L,38,345
+Niagara Malt - Vienna,United States,Grain,Base malt,3 °L,30,9
+Ireks - Vienna,Germany,Grain,Base malt,3 °L,34,585
+Viking - Vienna,Finland,Grain,Base malt,4 °L,37,"1,138"
+Avangard - Vienna,Germany,Grain,Base malt,4 °L,37.7,"1,317"
+Vienna,United States,Grain,Base malt,4 °L,35,"52,957"
+Vienna,Germany,Grain,Base malt,4 °L,37,"62,534"
+Briess - Victory Malt,United States,Grain,Roasted malt,28 °L,34.5,"6,533"
+Victory,United States,Grain,Roasted malt,28 °L,34,"43,144"
+Voyager Craft Malt - Veloria Schooner,Australia,Grain,Base malt,4 °L,35.9,596
+Mecca Grade - Vanora (Vienna-style),United States,Grain,Base malt,7 °L,36,450
+Rahr - Unmalted Wheat,United States,Adjunct,Raw,3 °L,34.5,923
+Unmalted Wheat,,Adjunct,Raw,2 °L,36,"4,855"
+Black Rock - Unhopped Ultra-light LME,New Zealand,Liquid Extract,Extract,3 °L,36,86
+Hogarth Malt - UMP (Undermodified Pilsner,Canada,Grain,Base malt,2 °L,36,5
+Prairie Malt - Two-Row Pale,Canada,Grain,Base malt,2 °L,39.1,664
+Deer Creek - Twilight Wheat,United States,Grain,Base malt,9 °L,37.7,17
+Turbinado,,Sugar,Sugar,10 °L,44,"7,019"
+Skagit Valley Malting - Triticale Caramel 20,United States,Grain,Crystal malt,20 °L,35,20
+Voyager Craft Malt - Triticale,Australia,Grain,Base malt,3 °L,38.5,81
+Epiphany Craft Malt - Triticale,United States,Grain,Specialty malt,4 °L,41.1,56
+Haus Malts - Triticale,United States,Grain,Base malt,3 °L,30,25
+Skagit Valley Malting - Triticale,United States,Grain,Base malt,4 °L,38,30
+OiO - Torrified Wheat,Canada,Adjunct,Raw,2 °L,36,13
+Muntons - Torrified Wheat,United Kingdom,Grain,Specialty malt,2 °L,36,101
+Crisp Malting - Torrified Wheat,United Kingdom,Adjunct,Raw,2 °L,36,"1,028"
+Torrified Wheat,,Adjunct,Raw,2 °L,36,"22,800"
+Torrified Barley,,Adjunct,Raw,2 °L,36,984
+Crisp Malting - Torrefied Wheat,United Kingdom,Grain,Base malt,3 °L,36.8,"2,722"
+Tomato,,Fruit,Fruit,0 °L,1.25,45
+Toffee Malt,,Grain,Crystal malt,5 °L,38.8,"1,098"
+Gladfield - Toffee Malt,New Zealand,Grain,Crystal malt,5 °L,34,804
+OiO - Toasted Wheat Flakes,Canada,Adjunct,Raw,1 °L,34,89
+Carolina Malt House - Tennessee 2-row,United States,Grain,Base malt,2 °L,37,14
+Oregon Fruit - Tangerine,United States,Fruit,Puree,0 °L,5.53,38
+Tangerine,,Fruit,Fruit,0 °L,2.95,97
+Tangelo,,Fruit,Fruit,0 °L,3.35,12
+Briess - Synergy Select Pilsen Malt,United States,Grain,Base malt,2 °L,38.3,761
+Red shed - Synergy 2 Row,Canada,Grain,Base malt,2 °L,36,50
+Deer Creek - Sweet Liberty,United States,Grain,Base malt,6 °L,36.3,12
+The Swaen - Swaen Vienna,Netherlands,Grain,Base malt,5 °L,36.8,666
+The Swaen - Swaen Pilsner,Netherlands,Grain,Base malt,2 °L,38,"1,789"
+The Swaen - Swaen Amber,Netherlands,Grain,Crystal malt,20 °L,35,110
+The Swaen - Swaen Ale,Netherlands,Grain,Base malt,4 °L,38,725
+Gladfield - Supernova Malt,New Zealand,Grain,Roasted malt,58 °L,35,156
+Supernova Malt,New Zealand,Grain,Roasted malt,58 °L,37.4,370
+Canada Malting - SUPERIOR PILSEN MALT,Canada,Grain,Base malt,2 °L,37.2,"2,956"
+Great Western - Superior Pilsen (1.6 °L),United States,Grain,Base malt,2 °L,35,"1,054"
+Canada Malting - SUPERIOR PALE ALE MALT,Canada,Grain,Base malt,3 °L,37,"1,117"
+Proximity - Super Extract Base,United States,Grain,Base malt,2 °L,37.5,14
+Sultanas,,Fruit,Fruit,0 °L,8.55,25
+Riverbend Malt - Streaker Malted Oats,United States,Grain,Base malt,2 °L,39,230
+Oregon Fruit - Strawberry - Seedless,United States,Fruit,Puree,0 °L,4.39,98
+Strawberry,,Fruit,Fruit,0 °L,3.15,"1,062"
+Stout Malt,Ireland,Grain,Base malt,2 °L,37,944
+Rahr - Standard 6-Row,United States,Grain,Base malt,2 °L,36.3,"1,102"
+Rahr - Standard 2-Row,United States,Grain,Base malt,2 °L,36.8,"17,908"
+Thomas Fawcett - Spring Barley Pale Ale Malt,United Kingdom,Grain,Base malt,3 °L,38,48
+Brewferm - Spraymalt - Light,Belgium,Dry Extract,Extract,3 °L,0,90
+LINC Malt - Spelt Pale,United States,Grain,Base malt,4 °L,25.5,30
+Weyermann - Spelt Malt,Germany,Grain,Base malt,5 °L,36.6,164
+Niagara Malt - Spelt Malt,United States,Grain,Base malt,2 °L,20,38
+Spelt Malt,Germany,Grain,Base malt,2 °L,37,"4,154"
+Root Shoot Malting - Specialty Roast,United States,Grain,Roasted malt,35 °L,33,11
+Weyermann - Special W,Germany,Grain,Crystal malt,115 °L,33.6,"1,260"
+Special Roast,United States,Grain,Roasted malt,50 °L,33,"10,962"
+Briess - Special Roast,United States,Grain,Roasted malt,40 °L,33,"1,671"
+Dingemans - Special B,Belgium,Grain,Crystal malt,125 °L,33.1,"3,133"
+Castle Malting - Special B,Belgium,Grain,Crystal malt,150 °L,34,711
+Special B,,Grain,Crystal malt,115 °L,34,"45,376"
+Franco-Belges - Special Aromatic,Belgium,Grain,Specialty malt,4 °L,37,286
+Riverbend Malt - Southern Select,United States,Grain,Base malt,3 °L,38,205
+Sour Grapes Malt,New Zealand,Grain,Base malt,2 °L,34,802
+Gladfield - Sour Grapes Acid Malt,New Zealand,Grain,Acidulated malt,2 °L,12.4,"1,222"
+LINC Malt - Sonora White Wheat Pale,United States,Grain,Base malt,2 °L,35.7,27
+Barnowl - Soft Red Wheat Malt,Canada,Grain,Base malt,3 °L,32,143
+Soft Candi Sugar - Brun Fonce - Dark Brown,Belgium,Sugar,Sugar,27 °L,42,121
+Soft Candi Sugar - Brown,,Sugar,Sugar,60 °L,38,"1,073"
+Soft Candi Sugar - Blond,,Sugar,Sugar,5 °L,38,"1,640"
+Crisp Malting - Smooth Chocolate Malt,United Kingdom,Grain,Roasted malt,148 °L,35.71,75
+Viking - Smoked Wheat,Finland,Grain,Base malt,3 °L,38,71
+Smoked Malt,,Grain,Smoked malt,5 °L,37,"6,849"
+Smoked Malt,,Grain,Smoked malt,3 °L,37,"7,105"
+Voyager Craft Malt - Sm40 Schooner,Australia,Grain,Specialty malt,20 °L,36.5,172
+Weyermann - Sinamar,Germany,Liquid Extract,Extract,3111 °L,24.4,305
+Blacklands - Silver Star 2-row,United States,Grain,Base malt,4 °L,35,30
+Gladfield - Shepherds Delight Malt,New Zealand,Grain,Acidulated malt,120 °L,35,336
+Shepherds Delight Malt,New Zealand,Grain,Roasted malt,152 °L,36.5,587
+Pauls Malt - Shell Shocker Crystal Extra Dark - 120L,United Kingdom,Grain,Crystal malt,117 °L,34,95
+Mecca Grade - Shaniko (White Winter Wheat),United States,Grain,Base malt,3 °L,39,601
+Troubador Malting - Serenade,United States,Grain,Base malt,5 °L,38,35
+Sekado - Sekado Czech 2-Row,,Grain,Base malt,3 °L,38,174
+LINC Malt - Scotts Bere Pale Malt,United States,Grain,Base malt,4 °L,32,12
+Bairds - Scottish Ale Malt,United Kingdom,Grain,Base malt,2 °L,40,40
+LINC Malt - Scots Bere Pilsner,United States,Grain,Base malt,2 °L,33.8,10
+LINC Malt - Scots Bere Pale,United States,Grain,Base malt,4 °L,33.6,39
+Weyermann - Schill Cologne,Germany,Grain,Base malt,2 °L,37,12
+New York Craft Malts - Saranac Special Dark Oats,United States,Grain,Roasted malt,125 °L,35,35
+Bestmalz - Salome Lager Malt,Germany,Grain,Base malt,2 °L,37,20
+Viking - Sahtimallas,Finland,Grain,Base malt,3 °L,38,170
+Briess - Rye Raw,United States,Grain,Base malt,3 °L,35.3,138
+Briess - Rye Malt,United States,Grain,Base malt,4 °L,36.8,"2,659"
+Viking - Rye Malt,Finland,Grain,Specialty malt,3 °L,38,479
+Bestmalz - Rye Malt,Germany,Grain,Base malt,3 °L,38,702
+Crisp Malting - Rye Malt,United Kingdom,Grain,Base malt,12 °L,39.8,718
+Gladfield - Rye Malt,New Zealand,Grain,Base malt,3 °L,35,222
+Weyermann - Rye Malt,Germany,Grain,Base malt,4 °L,36,"1,284"
+Proximity - Rye Malt,United States,Grain,Base malt,4 °L,37.7,364
+Rye,,Grain,Base malt,4 °L,38,"24,808"
+Rye,Germany,Grain,Base malt,4 °L,38,"10,537"
+Sugar Creek Malt - Rye,United States,Grain,Base malt,8 °L,40.2,39
+Gladfield - Rolled Wheat (blm),New Zealand,Grain,Base malt,2 °L,35.4,108
+Blue Lake Milling - Rolled Wheat,Australia,Adjunct,Raw,2 °L,34,65
+Gladfield - Rolled Oats (harraway's),New Zealand,Grain,Base malt,2 °L,32.2,95
+Gladfield - Rolled Oats (blm),New Zealand,Grain,Base malt,3 °L,32.2,158
+Blue Lake Milling - Rolled Oats,Australia,Adjunct,Raw,2 °L,33,145
+Quaker - Rolled Oats,United States,Adjunct,Raw,1 °L,4,363
+Rolled Oats,New Zealand,Adjunct,Raw,1 °L,12.4,"1,449"
+Rolled Oats,,Adjunct,Raw,2 °L,33,"23,941"
+Grain Millers - Rolled Oats,United States,Adjunct,Raw,2 °L,33,"1,299"
+Blue Lake Milling - Rolled Barley,Australia,Grain,Raw,2 °L,32,16
+Rolled Barley,New Zealand,Adjunct,Raw,2 °L,35.4,180
+Red shed - Rocky Mountain Malt,Canada,Grain,Base malt,5 °L,36,20
+Joe White - Roasted Wheat Malt,Australia,Grain,Roasted malt,524 °L,29.9,56
+Viking - Roasted Wheat,Finland,Grain,Roasted malt,550 °L,25.6,34
+Gladfield - Roasted Wheat,New Zealand,Grain,Roasted malt,279 °L,33.6,111
+BA Malt - Roasted Wheat,Argentina,Grain,Roasted malt,475 °L,29,17
+Thomas Fawcett - Roasted Wheat,United Kingdom,Grain,Roasted malt,325 °L,32.2,105
+Roasted Wheat,New Zealand,Grain,Roasted malt,279 °L,33.6,421
+Thomas Fawcett - Roasted Rye,United Kingdom,Grain,Roasted malt,190 °L,31,84
+Viking - Roasted Rye,Germany,Grain,Roasted malt,500 °L,36,60
+Grouse Malt House - Roasted Goldfinch Millet Malt,United States,Grain,Gluten-free malt,5 °L,28,10
+Grouse Malt House - Roasted CaraMillet Malt,United States,Grain,Gluten-free malt,25 °L,28,67
+Viking - Roasted Barley,Finland,Grain,Roasted malt,340 °L,32.7,611
+Simpsons - Roasted Barley,United Kingdom,Grain,Roasted malt,600 °L,28.52,"1,535"
+Bairds - Roasted Barley,United Kingdom,Grain,Roasted malt,600 °L,33,"1,144"
+Barrett Burston - Roasted Barley,Australia,Grain,Roasted malt,340 °L,34.5,148
+Thomas Fawcett - Roasted Barley,United Kingdom,Grain,Roasted malt,545 °L,31.5,711
+Crisp Malting - Roasted Barley,United Kingdom,Grain,Roasted malt,600 °L,31.28,"2,155"
+Gladfield - Roasted Barley,New Zealand,Grain,Roasted malt,488 °L,33,488
+Weyermann - Roasted Barley,Germany,Grain,Roasted malt,432 °L,29.9,"2,413"
+Proximity - Roasted Barley,United States,Grain,Roasted malt,475 °L,33,341
+Muntons - Roasted Barley,United Kingdom,Grain,Roasted malt,550 °L,29,109
+Briess - Roasted Barley,United States,Grain,Roasted malt,300 °L,33.1,"3,293"
+Red shed - Roasted Barley,Canada,Grain,Roasted malt,445 °L,32,62
+Joe White - Roasted Barley,Australia,Grain,Roasted malt,475 °L,29.9,297
+Roasted Barley,United States,Grain,Roasted malt,300 °L,33,"55,311"
+Roasted Barley,Belgium,Grain,Roasted malt,575 °L,30,"5,563"
+Roasted Barley,United Kingdom,Grain,Roasted malt,550 °L,29,"32,468"
+Roast Barley,New Zealand,Grain,Roasted malt,736 °L,32.7,947
+Voyager Craft Malt - Roast Barley,Australia,Grain,Roasted malt,609 °L,33.1,126
+Mecca Grade - Rimrock (Vienna-style Spring Rye),United States,Grain,Base malt,5 °L,40,269
+"Briess - Rice, Flaked",United States,Adjunct,Raw,1 °L,32.2,"1,111"
+Rice Syrup Solids,,Sugar,Sugar,1 °L,37,"2,526"
+Rice Hulls,,Adjunct,Other,0 °L,0,"52,016"
+Rice,,Adjunct,Raw,1 °L,35.5,742
+Rhubarb,,Fruit,Fruit,0 °L,0.4,211
+Red X,,Grain,Specialty malt,12 °L,36,"5,329"
+Grouse Malt House - Red Wing Amber Millet Malt,United States,Grain,Gluten-free malt,22 °L,24,30
+Briess - Red Wheat Raw,United States,Grain,Base malt,2 °L,36.8,471
+Rahr - Red Wheat,United States,Grain,Base malt,3 °L,39.1,811
+Malteurop - Red Wheat,United States,Grain,Base malt,3 °L,32,32
+Red Wheat,United States,Grain,Base malt,3 °L,38,"14,425"
+Simpsons - Red Rye Crystal,United Kingdom,Grain,Crystal malt,89 °L,29.9,675
+LINC Malt - Red Russian Wheat,United States,Grain,Raw,3 °L,35,24
+Red Raspberry Puree ~10 Brix,,Fruit,Puree,0 °L,4.61,196
+Gladfield - Red Back Wheat,New Zealand,Grain,Roasted malt,14 °L,37.7,9
+Gladfield - Red Back Malt,New Zealand,Grain,Roasted malt,33 °L,35.4,326
+Red Back Malt,New Zealand,Grain,Roasted malt,33 °L,35.4,633
+Viking - Red Ale Malt,Finland,Grain,Specialty malt,27 °L,35,477
+Viking - Red Active Malt,Finland,Grain,Base malt,14 °L,33,335
+Joe White - Raw Wheat,Australia,Adjunct,Raw,2 °L,20,224
+OiO - Raw Wheat,Canada,Adjunct,Raw,3 °L,36.8,25
+Gladfield - Raw Wheat,New Zealand,Adjunct,Raw,2 °L,28,270
+Castle Malting - Raw Oats,Belgium,Adjunct,Raw,3 °L,34,4
+Raw Honey,,Sugar,Honey,20 °L,38,"1,769"
+LINC Malt - Raw Cashup Soft Wheat,United States,Grain,Raw,2 °L,20,5
+Gladfield - Raw Barley,New Zealand,Adjunct,Raw,2 °L,28,91
+"Raspberry, red",,Fruit,Fruit,0 °L,2.3,706
+"Raspberry, black",,Fruit,Fruit,0 °L,2.8,34
+Raspberry puree,Finland,Adjunct,Puree,1 °L,8.44,70
+Oregon Fruit - Raspberry - Seedless Red,United States,Fruit,Puree,0 °L,4.83,120
+Raspberry,,Fruit,Fruit,0 °L,3.15,"1,097"
+Raisins (dried),,Fruit,Fruit,0 °L,29.25,550
+Quince,,Fruit,Fruit,0 °L,0.45,18
+Canada Malting - QUÉBÉCOISE MALT,Canada,Grain,Base malt,3 °L,37,47
+LINC Malt - Purple Egyptian Pale,United States,Grain,Base malt,4 °L,36.1,40
+Great Western - Pure Idaho Pilsen,United States,Grain,Base malt,2 °L,37.7,959
+Pumpkin (fresh),,Fruit,Fruit,0 °L,1,"1,003"
+Pumpkin (canned),,Fruit,Fruit,0 °L,8,"1,458"
+Prunes (dried),,Fruit,Fruit,0 °L,19.8,61
+Proximity - Prox Red,United States,Grain,Crystal malt,18 °L,36,232
+Proximity - Prox Mild,United States,Grain,Base malt,6 °L,36.8,134
+Prickly Pear,,Fruit,Fruit,0 °L,4.95,53
+Rahr - Premium Pilsner,United States,Grain,Base malt,2 °L,36.8,"4,562"
+Coopers - Premium Pale Malt,Australia,Grain,Base malt,3 °L,37,349
+Simpsons - Premium English Caramalt,United Kingdom,Grain,Crystal malt,23 °L,32.6,878
+Mountain Malt - Premium 2-Row Base Malt,United States,Grain,Base malt,2 °L,37.6,184
+Great Western - Premium 2-Row,United States,Grain,Base malt,2 °L,37,"4,981"
+Canada Malting - POT STILL MALT,Canada,Grain,Base malt,2 °L,37.3,13
+Oregon Fruit - Pomegranate,United States,Fruit,Puree,0 °L,7.3,24
+Pomegranate,,Fruit,Fruit,0 °L,5.2,114
+Plum,,Fruit,Fruit,0 °L,4.95,305
+The Swaen - PlatinumSwaen Spelt,Netherlands,Grain,Base malt,4 °L,34.5,97
+The Swaen - PlatinumSwaen Smoke,Netherlands,Grain,Smoked malt,3 °L,37.7,43
+The Swaen - Platinumswaen Sauer,Netherlands,Grain,Acidulated malt,6 °L,27,368
+The Swaen - PlatinumSwaen Salty Caramel Malt,Netherlands,Grain,Crystal malt,10 °L,30,89
+Pineapple,,Fruit,Fruit,0 °L,5.85,933
+Viking - Pilsner Zero Malt,Finland,Grain,Base malt,2 °L,37,257
+Viking - Pilsner Organic,Finland,Grain,Base malt,2 °L,37,129
+House of Malt - Pilsner Malt,Australia,Grain,Base malt,2 °L,34.6,31
+Gambrinus - Pilsner Malt,Canada,Grain,Base malt,2 °L,37.3,"1,216"
+Gladfield - Pilsner Malt,New Zealand,Grain,Base malt,2 °L,37.7,"1,536"
+Agrária - Pilsner Malt,Brazil,Grain,Base malt,2 °L,37,"1,281"
+Barrett Burston - Pilsner Malt,New Zealand,Grain,Base malt,2 °L,37.3,327
+Pilsner Malt,New Zealand,Grain,Base malt,2 °L,37.3,"2,971"
+Viking - Pilsner Malt,Finland,Grain,Base malt,2 °L,37,"4,916"
+Ireks - Pilsner Malt,Germany,Grain,Base malt,2 °L,36,"2,038"
+Pilsner Malt,Finland,Grain,Base malt,2 °L,37,"8,152"
+Carolina Malt House - Pilsner 6-row,United States,Grain,Base malt,2 °L,37,25
+Joe White - Pilsner / Export Pilsner,Australia,Grain,Base malt,2 °L,36.8,972
+Pilsner,United States,Grain,Base malt,2 °L,37.7,268
+Sugar Creek Malt - Pilsner,United States,Grain,Base malt,2 °L,37.7,206
+Castle Malting - Pilsner,Belgium,Grain,Base malt,2 °L,38,346
+Niagara Malt - Pilsner,United States,Grain,Base malt,2 °L,35,31
+Weyermann - Pilsner,Germany,Grain,Base malt,2 °L,36,"17,833"
+Root Shoot Malting - Pilsner,United States,Grain,Base malt,2 °L,37,225
+Brewferm - Pilsner,Germany,Grain,Base malt,1 °L,37,78
+Riverbend Malt - Pilsner,United States,Grain,Base malt,2 °L,37,155
+Avangard - Pilsner,Germany,Grain,Base malt,2 °L,37.3,"2,433"
+Pilsner,United States,Grain,Base malt,2 °L,37,"79,713"
+Pilsner,Belgium,Grain,Base malt,2 °L,37,"56,533"
+Pilsner,Germany,Grain,Base malt,2 °L,38,"115,482"
+Montana Craft Malt - Pilsner,United States,Grain,Base malt,2 °L,37,101
+Barnowl - Pilsener Malt,Canada,Grain,Base malt,2 °L,36,206
+Maltear - Pilsener,United States,Grain,Base malt,2 °L,38,397
+Bairds - Pilsen/Lager,United Kingdom,Grain,Base malt,2 °L,37.2,214
+Briess - Pilsen Malt 2-Row,United States,Grain,Base malt,1 °L,37,"6,983"
+Malteurop - Pilsen Malt,United States,Grain,Base malt,2 °L,37.44,958
+Proximity - Pilsen Malt,United States,Grain,Base malt,2 °L,37.5,"1,555"
+Franco-Belges - Pilsen Malt,Belgium,Grain,Base malt,2 °L,39,608
+Dingemans - Pilsen,Belgium,Grain,Base malt,2 °L,36.8,"1,797"
+BA Malt - Pilsen,Argentina,Grain,Base malt,2 °L,37,"2,340"
+Patagonia - Pilsen,Chile,Grain,Base malt,2 °L,34,239
+Origin Malt - Pilsen,United States,Grain,Base malt,2 °L,35.88,98
+Pilsen,United Kingdom,Grain,Base malt,2 °L,36,"7,020"
+Innomalt - Pils Traditionnel,Canada,Grain,Base malt,2 °L,36.8,82
+Innomalt - Pils Moderne,Canada,Grain,Base malt,2 °L,37,305
+Admiral - Pils (Pilsner),United States,Grain,Base malt,2 °L,38,365
+Persimmon,,Fruit,Fruit,0 °L,6.3,64
+BSG - Perla Negra,United States,Grain,Roasted malt,340 °L,32,81
+Red shed - Penhold Wheat Malt,Canada,Grain,Base malt,3 °L,36,47
+Mecca Grade - Pelton,United States,Grain,Base malt,2 °L,36,801
+Simpsons - Peated Malt,United Kingdom,Grain,Smoked malt,2 °L,37.674,238
+Peated Malt,,Grain,Specialty malt,3 °L,38,"3,588"
+Gladfield - Peat Smoked (heavy),New Zealand,Grain,Base malt,2 °L,36.3,82
+Thomas Fawcett - Pearl Pale Ale Malt,United Kingdom,Grain,Base malt,3 °L,36.8,300
+Pearl,United Kingdom,Grain,Base malt,2 °L,37,"3,258"
+Pear,,Fruit,Fruit,0 °L,4.5,228
+Peach,,Fruit,Fruit,0 °L,4.05,"1,040"
+Passionfruit,,Fruit,Fruit,0 °L,5,587
+Papaya,,Fruit,Fruit,0 °L,2.9,59
+Sugar Creek Malt - Pale Wheat Malt,United States,Grain,Base malt,3 °L,38.6,93
+Crisp Malting - Pale Wheat Malt,United Kingdom,Grain,Base malt,2 °L,38.7,"1,566"
+Weyermann - Pale Wheat,Germany,Grain,Base malt,2 °L,36,"9,450"
+Pale Wheat,Canada,Grain,Base malt,2 °L,36,"7,459"
+Pale Wheat,Germany,Grain,Base malt,2 °L,39,"14,136"
+Deer Creek - Pale Wheat,United States,Grain,Base malt,4 °L,38.1,101
+Deer Creek - Pale Triticale,United States,Grain,Base malt,4 °L,38.6,42
+Deer Creek - Pale Spelt,United States,Grain,Base malt,3 °L,37.7,61
+Voyager Craft Malt - Pale Schooner,Australia,Grain,Base malt,2 °L,35.9,173
+Deer Creek - Pale Rye,United States,Grain,Base malt,4 °L,38.6,46
+Weyermann - Pale Rye,Germany,Grain,Base malt,3 °L,37,855
+Proximity - Pale Roasted Barley,United States,Grain,Roasted malt,475 °L,33,21
+Eckert Malting - Pale Rice Malt,United States,Grain,Gluten-free malt,1 °L,22,133
+Muntons - Pale Planet,United Kingdom,Grain,Base malt,2 °L,38.25,522
+Blacklands - Pale Moon 2-Row,United States,Grain,Base malt,4 °L,37,78
+Pale Millet Malt - Gluten Free,United States,Grain,Gluten-free malt,2 °L,30,517
+Grouse Malt House - Pale Millet Malt,United States,Grain,Gluten-free malt,2 °L,29,332
+Barrett Burston - Pale Malt,Australia,Grain,Base malt,2 °L,37,"1,273"
+Proximity - Pale Malt,United States,Grain,Base malt,2 °L,37.5,404
+Coopers - Pale Malt,Australia,Grain,Base malt,3 °L,38,494
+Riverbend Malt - Pale Malt,United States,Grain,Base malt,2 °L,36.4,49
+Joe White - Pale Malt,Australia,Grain,Base malt,2 °L,36.8,356
+Gambrinus - Pale Malt,Canada,Grain,Base malt,2 °L,37.3,772
+Great Western - Pale High Color,United States,Grain,Base malt,3 °L,37,817
+Thomas Fawcett - Pale Crystal Malt,United Kingdom,Grain,Crystal malt,23 °L,34,818
+Viking - Pale Cookie,Finland,Grain,Specialty malt,10 °L,34,47
+Voyager Craft Malt - Pale Compass,Australia,Grain,Base malt,3 °L,38.1,516
+Thomas Fawcett - Pale Chocolate Malt,United Kingdom,Grain,Roasted malt,230 °L,32.2,"2,511"
+Proximity - Pale Chocolate,United States,Grain,Roasted malt,300 °L,32,648
+Bairds - Pale Chocolate,United Kingdom,Grain,Roasted malt,207 °L,33,315
+Crisp Malting - Pale Chocolate,United Kingdom,Grain,Roasted malt,220 °L,32.7,"4,431"
+Pale Chocolate,United Kingdom,Grain,Roasted malt,207 °L,33,"24,694"
+Briess - Pale Ale Malt 2-Row,United States,Grain,Base malt,4 °L,36.8,"8,737"
+Innomalt - Pale Ale Malt 2-row,Canada,Grain,Base malt,2 °L,36.8,234
+Crossmyloof - Pale Ale Malt,United Kingdom,Grain,Base malt,2 °L,1,18
+Proximity - Pale Ale Malt,United States,Grain,Base malt,4 °L,37,980
+Root Shoot Malting - Pale Ale Malt,United States,Grain,Base malt,5 °L,36,143
+Malteurop - Pale Ale Malt,United States,Grain,Base malt,6 °L,38,419
+Ireks - Pale Ale Malt,Germany,Grain,Base malt,3 °L,36.8,"1,145"
+Avangard - Pale Ale Malt,Germany,Grain,Base malt,2 °L,39,463
+Agrária - Pale Ale Malt,Brazil,Grain,Base malt,3 °L,37,672
+Muntons - Pale Ale Malt,United Kingdom,Grain,Base malt,4 °L,37,230
+Warminster Maltings - Pale Ale Malt,United Kingdom,Grain,Base malt,3 °L,38,54
+Viking - Pale Ale Malt,Finland,Grain,Base malt,3 °L,37,"3,899"
+Barnowl - Pale Ale Malt,Canada,Grain,Base malt,3 °L,35,129
+Niagara Malt - Pale Ale Malt,United States,Grain,Base malt,3 °L,35,81
+Pale Ale Malt,Finland,Grain,Base malt,2 °L,36,"8,419"
+Les Maltiers - Pale Ale Malt,France,Grain,Base malt,3 °L,37,34
+Coopers - Pale Ale kit,Australia,,Base malt,4 °L,35,238
+Patagonia - Pale ale,Chile,Grain,Base malt,3 °L,36.8,776
+Mecca Grade - Pale Ale,United States,Grain,Base malt,3 °L,37,5
+BA Malt - Pale Ale,Argentina,Grain,Base malt,4 °L,38,"1,476"
+Bairds - Pale Ale,United Kingdom,Grain,Base malt,3 °L,37.2,540
+Rahr - Pale Ale,United States,Grain,Base malt,4 °L,36.34,"2,407"
+Sugar Creek Malt - Pale Ale,United States,Grain,Base malt,3 °L,37.7,129
+Weyermann - Pale Ale,Germany,Grain,Base malt,2 °L,39,"8,738"
+Pale Ale,United States,Grain,Base malt,4 °L,37,"49,409"
+Pale Ale,Belgium,Grain,Base malt,3 °L,38,"22,497"
+Pale Ale,Germany,Grain,Base malt,2 °L,39,"41,377"
+Dingemans - Pale Ale,Belgium,Grain,Base malt,4 °L,37.72,"1,143"
+Crisp Malting - Pale Ale,United Kingdom,Grain,Base malt,4 °L,38,"2,280"
+Carolina Malt House - Pale 6-row malt,United States,Grain,Base malt,3 °L,37,19
+Pale 6-Row,United States,Grain,Base malt,2 °L,35,"14,748"
+Pale 2-Row - Toasted,United States,Grain,Base malt,30 °L,33,"6,261"
+Pale 2-Row,United States,Grain,Base malt,2 °L,37,"348,742"
+Pale 2-Row,Canada,Grain,Base malt,2 °L,36,"30,992"
+Pale 2-Row,United Kingdom,Grain,Base malt,3 °L,38,"29,940"
+Simpsons - Pale 2-Row,United Kingdom,Grain,Base malt,2 °L,38,312
+Avangard - Pale 2-Row,Germany,Grain,Base malt,2 °L,37,"1,565"
+Mecca Grade - Pale 2-Row,United States,Grain,Base malt,3 °L,30,63
+Hudson Valley Malt - Pale 2-Row,United States,Grain,Base malt,1 °L,33,91
+Haus Malts - Pale,United States,Grain,Base malt,2 °L,37,19
+Admiral - Pacific Victor,United States,Grain,Base malt,6 °L,37,188
+Great Western - Organic White Wheat,United States,Grain,Base malt,4 °L,27.6,97
+Grouse Malt House - Organic Roasted Buckwheat Malt,United States,Grain,Gluten-free malt,42 °L,30,65
+Briess - Organic Roasted Barley,United States,Grain,Roasted malt,300 °L,33.1,188
+Great Western - Organic Premium 2-Row,Canada,Grain,Base malt,2 °L,37,112
+Organic Pilsner Malt,Finland,Grain,Base malt,2 °L,36,524
+Admiral - Organic Pilsner Malt,United States,Grain,Base malt,2 °L,37,183
+Gladfield - Organic Pilsner,New Zealand,Grain,Base malt,2 °L,36,13
+Organic Pilsner,New Zealand,Grain,Base malt,2 °L,37.9,56
+LINC Malt - Organic Lyon Pilsner,United States,Grain,Base malt,2 °L,36,5
+Holland & Barrett - Organic Flaked Barley,United Kingdom,Adjunct,Raw,3 °L,28,90
+Crisp Malting - Organic Extra Pale Malt,United Kingdom,Grain,Base malt,2 °L,37.5,176
+Bob's Red MIll - Organic Coconut Sugar,United States,Sugar,Sugar,15 °L,45,94
+Briess - Organic Chocolate Malt,United States,Grain,Roasted malt,350 °L,33.6,703
+Briess - Organic Carapils Malt,United States,Grain,Specialty malt,2 °L,33.6,219
+Briess - Organic Caramel Malt - 60L,United States,Grain,Crystal malt,60 °L,33.6,102
+Briess - Organic Caramel Malt - 20L,United States,Grain,Crystal malt,20 °L,33.6,79
+Briess - Organic Caramel Malt - 120L,United States,Grain,Crystal malt,120 °L,32.2,181
+Briess - Organic Brewers Malt,United States,Grain,Base malt,2 °L,37,149
+Briess - Organic Bonlander Munich Malt 10L,United States,Grain,Specialty malt,10 °L,35,173
+Briess - Organic Black Malt,United States,Grain,Roasted malt,500 °L,32.2,55
+Proximity - Organic Base,United States,Grain,Base malt,2 °L,37,24
+Canada Malting - ORGANIC 2-ROW MALT,Canada,Grain,Base malt,2 °L,37,56
+Orange juice,,Fruit,Juice,0 °L,4.8,431
+Orange (Blood Orange),,Fruit,Fruit,0 °L,4.05,345
+Orange,,Fruit,Fruit,0 °L,4.1,440
+Optic,United Kingdom,Grain,Base malt,2 °L,38,901
+Mecca Grade - Opal 44,United States,Grain,Specialty malt,45 °L,36,375
+Mecca Grade - Opal 22,United States,Grain,Specialty malt,22 °L,35.6,309
+Canada Malting - ONTARIO SELECT MALT,Canada,Grain,Base malt,3 °L,37,3
+Rahr - Old World Pilsner,United States,Grain,Base malt,2 °L,36.3,152
+OiO - OIO Toasted Barley Flakes,United States,Adjunct,Raw,2 °L,32,71
+OiO - OiO Oat Flakes / Rolled oats,United States,Adjunct,Raw,2 °L,33,193
+Root Shoot Malting - Odyssey Munich,United States,Grain,Specialty malt,20 °L,37,40
+Sugar Creek Malt - Oats,United States,Grain,Base malt,4 °L,28.8,109
+LINC Malt - Oat Pale Malt,United States,Grain,Base malt,2 °L,24,24
+Red shed - Oat Malt,Canada,Grain,Base malt,3 °L,33,56
+Thomas Fawcett - Oat Malt,United Kingdom,Grain,Specialty malt,2 °L,27.6,149
+Canada Malting - OAT MALT,Canada,Grain,Base malt,3 °L,27.6,"1,606"
+Oat Malt,United Kingdom,Grain,Base malt,2 °L,28,"11,713"
+Muntons - Oat Malt,United Kingdom,Grain,Base malt,2 °L,28,198
+Simpsons - Oat Malt,United Kingdom,Grain,Base malt,2 °L,28,"1,892"
+Oat hulls,,Adjunct,Other,0 °L,0,361
+Weyermann - Oak Smoked Wheat Malt,Germany,Grain,Smoked malt,2 °L,38,992
+Viking - Oak Smoked Wheat,Finland,Grain,Smoked malt,4 °L,31,121
+1886 Malt House - NY Synergy Base Malt,United States,Grain,Base malt,3 °L,36.11,13
+1886 Malt House - NY Red Winter Wheat,United States,Grain,Base malt,2 °L,35.499,15
+1886 Malt House - NY Pilsner Malt,United States,Grain,Base malt,2 °L,37,56
+1886 Malt House - NY Pale Malt,United States,Grain,Base malt,4 °L,35.64,75
+1886 Malt House - NY Munich Malt,United States,Grain,Specialty malt,5 °L,34.8,60
+1886 Malt House - NY Caramel 20,United States,Grain,Crystal malt,20 °L,37.7,74
+1886 Malt House - NY Aromatic 20,United States,Grain,Roasted malt,20 °L,34.86,11
+1886 Malt House - NY 6-Row Base Malt,United States,Grain,Base malt,2 °L,34.78,25
+Great Western - Northwest Pale Ale Malt,United States,Grain,Base malt,3 °L,37,790
+Rahr - North Star Pils,United States,Grain,Base malt,2 °L,36.3,"1,507"
+Stone Path Malt - Nor’East Vienna,Germany,Grain,Base malt,4 °L,36.8,70
+Stone Path Malt - Nor’East Pale,United States,Grain,Base malt,3 °L,37.3,110
+Stone Path Malt - Nor’East Munich,Germany,Grain,Base malt,6 °L,36.8,52
+Stone Path Malt - Nor'East Gold,United States,Grain,Base malt,2 °L,36.8,183
+Crisp Malting - No.19 Floor Malt Maris Otter,United Kingdom,Grain,Base malt,3 °L,37,"1,774"
+Red shed - Newdale Base,Canada,Grain,Base malt,2 °L,35,5
+Canada Malting - NEW ENGLANDER MALT,Canada,Grain,Base malt,3 °L,37,46
+Maltear - Negra,United States,Grain,Roasted malt,560 °L,28,49
+Nectarine,,Fruit,Fruit,0 °L,3.4,23
+Weyermann - Munich Type II (Dark),Germany,Grain,Specialty malt,10 °L,37,"7,403"
+Weyermann - Munich Type I,Germany,Grain,Specialty malt,6 °L,38,"13,944"
+Voyager Craft Malt - Munich Schooner,Australia,Grain,Specialty malt,9 °L,36,255
+Munich Millet Malt - Gluten Free,United States,Grain,Gluten-free malt,7 °L,25,298
+Grouse Malt House - Munich Millet Malt,United States,Grain,Gluten-free malt,3 °L,28,176
+Dingemans - Munich MD,Belgium,Grain,Specialty malt,6 °L,36.5,852
+Barnowl - Munich Malt II,Canada,Grain,Specialty malt,11 °L,32,112
+Munich Malt,,Grain,Specialty malt,8 °L,36.8,"9,724"
+Crisp Malting - Munich Malt,United Kingdom,Grain,Specialty malt,10 °L,37,"1,351"
+Proximity - Munich Malt,United States,Grain,Specialty malt,10 °L,37.3,739
+Simpsons - Munich Malt,United Kingdom,Grain,Specialty malt,8 °L,36.8,"1,129"
+House of Malt - Munich Malt,Australia,Grain,Specialty malt,7 °L,37,27
+Gladfield - Munich Malt,New Zealand,Grain,Specialty malt,8 °L,36.8,"1,366"
+Bairds - Munich Malt,United Kingdom,Grain,Specialty malt,5 °L,36.8,450
+Barrett Burston - Munich Malt,Australia,Grain,Specialty malt,8 °L,35,188
+Canada Malting - MUNICH MALT,Canada,Grain,Specialty malt,11 °L,37.3,718
+Agrária - Munich Malt,Brazil,Grain,Specialty malt,9 °L,36,321
+Warminster Maltings - Munich Malt,United Kingdom,Grain,Specialty malt,7 °L,37,100
+Ireks - Munich Malt,Germany,Grain,Specialty malt,8 °L,36.8,859
+The Swaen - Munich Light,Netherlands,Grain,Specialty malt,6 °L,35.3,419
+Montana Craft Malt - Munich Light,United States,Grain,Base malt,5 °L,37,23
+Niagara Malt - Munich Light,United States,Grain,Specialty malt,10 °L,25,113
+Viking - Munich Light,Finland,Grain,Specialty malt,6 °L,36,"1,302"
+Viking - Munich Dark Malt,Finland,Grain,Specialty malt,9 °L,33,587
+Munich Dark 20L,,Grain,Specialty malt,20 °L,34,"43,122"
+Avangard - Munich Dark,Germany,Grain,Specialty malt,12 °L,37.1,764
+Gambrinus - Munich Dark,Canada,Grain,Specialty malt,30 °L,37.3,337
+The Swaen - Munich Dark,Netherlands,Grain,Specialty malt,8 °L,37,228
+Root Shoot Malting - Munich 10,United States,Grain,Base malt,10 °L,36,159
+Gambrinus - Munich - Light 10L,Canada,Grain,Specialty malt,10 °L,37.3,779
+Riverbend Malt - Munich - Light 10L,United States,Grain,Specialty malt,10 °L,37,309
+Munich - Light 10L,,Grain,Specialty malt,10 °L,33,"132,461"
+Munich - 60L,,Grain,Specialty malt,60 °L,33,"7,823"
+Munich,,Grain,Specialty malt,6 °L,37,"42,158"
+Patagonia - Munich,Chile,Grain,Base malt,12 °L,34,318
+BA Malt - Munich,Argentina,Grain,Specialty malt,7 °L,38,680
+Sugar Creek Malt - Munich,United States,Grain,Base malt,8 °L,37.4,125
+Sekado - Munich,Germany,Grain,Specialty malt,20 °L,20,10
+Viking - Munich,Finland,Grain,Specialty malt,9 °L,36,425
+Mulberry,,Fruit,Fruit,0 °L,6.1,42
+Dingemans - Mroost 900 MD Chocolate Malt,Belgium,Grain,Roasted malt,340 °L,32,225
+Dingemans - Mroost 1400 MD (Debittered black malt),Belgium,Grain,Roasted malt,525 °L,35,782
+Mountain Malt - Mountain Pilsner Base Malt,United States,Grain,Base malt,1 °L,37.4,183
+Troubador Malting - Moonlight Serenade,United States,Grain,Roasted malt,350 °L,0,20
+LINC Malt - Monica Oats,United States,Grain,Specialty malt,3 °L,27,6
+Molasses,,Sugar,Sugar,80 °L,36,"9,072"
+Pauls Malt - Miserable Fish (Melanoidin Malt),United Kingdom,Grain,Specialty malt,17 °L,34,141
+Les Maltiers - Miserable Fish – Malt Mélanoïdin,France,Grain,Specialty malt,23 °L,32.2,22
+Black Rock - Miners Stout LME,New Zealand,Liquid Extract,Extract,25 °L,35,14
+Warminster Maltings - Mild Ale Malt,United Kingdom,Grain,Base malt,5 °L,37,38
+Thomas Fawcett - Mild,United Kingdom,Grain,Base malt,4 °L,37,73
+Mild,United Kingdom,Grain,Base malt,3 °L,37,"1,548"
+Muntons - Mild,United Kingdom,Grain,Base malt,3 °L,37,47
+Admiral - Midway,United States,Grain,Specialty malt,10 °L,37,134
+Midnight Wheat Malt,United States,Grain,Roasted malt,550 °L,33,"13,293"
+Briess - Midnight Wheat Malt,United States,Grain,Roasted malt,550 °L,25,"4,091"
+Proximity - Mid-Atlantic Wheat,United States,Grain,Base malt,3 °L,39,531
+Mecca Grade - Metolius [Munich Style],United States,Grain,Specialty malt,9 °L,35,629
+Root Shoot Malting - Metcalfe Pale Ale,United States,Grain,Base malt,4 °L,36.8,22
+Briess - Mesquite Smoked Malt,United States,Grain,Smoked malt,5 °L,37,152
+The Swaen - Melany,Netherlands,Grain,Specialty malt,27 °L,35,316
+BA Malt - Melanoidina,Argentina,Grain,Specialty malt,25 °L,36,483
+Riverbend Malt - Melanoidin Malt,United States,Grain,Specialty malt,24 °L,35,102
+Patagonia - Melanoidin,Chile,Grain,Specialty malt,20 °L,34,7
+Weyermann - Melanoidin,Germany,Grain,Base malt,27 °L,34.5,"5,553"
+Melanoidin,Germany,Grain,Roasted malt,25 °L,37,"40,350"
+Melanoid Malt,Finland,Grain,Roasted malt,27 °L,35,"1,987"
+Great Western - Mela Malt,United States,Grain,Specialty malt,23 °L,34.5,138
+Medium Roasted Millet Malt - Gluten Free,United States,Grain,Gluten-free malt,36 °L,25,115
+Medium Crystal Malt,New Zealand,Grain,Crystal malt,56 °L,35.4,"2,428"
+Gladfield - Medium Crystal Malt,New Zealand,Grain,Crystal malt,56 °L,35.4,"1,060"
+Bairds - Medium Crystal,United Kingdom,Grain,Crystal malt,75 °L,35.4,878
+Joe White - Medium Crystal,Australia,Grain,Crystal malt,57 °L,34.5,343
+Bairds - Medium Caramel / Crystal 80L,United Kingdom,Grain,Crystal malt,80 °L,34,411
+Pauls Malt - Mark 5 (Med Crystal),United Kingdom,Grain,Crystal malt,64 °L,34,222
+Canada Malting - MARITIME MALT,Canada,Grain,Base malt,3 °L,37,6
+Thomas Fawcett - Maris Otter Pale Ale Malt,United Kingdom,Grain,Base malt,3 °L,38,"4,115"
+Bairds - Maris Otter Pale Ale,United Kingdom,Grain,Base malt,3 °L,37.5,"3,022"
+Maris Otter Pale,United Kingdom,Grain,Base malt,4 °L,38,"179,070"
+Simpsons - Maris Otter pale,United Kingdom,Grain,Base malt,2 °L,38,"3,579"
+Thomas Fawcett - Maris Otter Low Colour Malt,United Kingdom,Grain,Base malt,2 °L,36.8,275
+Muntons - Maris Otter Liquid Malt Extract (LME),United Kingdom,Liquid Extract,Extract,5 °L,36,216
+Maris Otter Liquid Malt Extract (LME),United Kingdom,Liquid Extract,Extract,5 °L,36,461
+Pauls Malt - Maris Otter Keep Flying,United Kingdom,Grain,Base malt,2 °L,38,457
+Bairds - Maris Otter Finest Ale Malt,United Kingdom,Grain,Base malt,3 °L,37.7,"1,009"
+Muntons - Maris Otter Extra Pale,United Kingdom,Grain,Base malt,2 °L,38,429
+Simpsons - Maris Otter Extra Pale,United Kingdom,Grain,Base malt,2 °L,38,881
+Warminster Maltings - Maris Otter,United Kingdom,Grain,Base malt,4 °L,36,273
+Muntons - Maris Otter,United Kingdom,Grain,Base malt,2 °L,38,"3,317"
+Maple Syrup,,Fruit,Fruit,0 °L,29.8,855
+Maple Syrup,,Sugar,Sugar,35 °L,30,"4,427"
+Maple Sap,,Fruit,Fruit,0 °L,0.9,48
+Manuka Smoked Malt,,Grain,Smoked malt,2 °L,36.8,285
+Gladfield - Manuka Smoked Malt,New Zealand,Grain,Smoked malt,2 °L,35,99
+Mango,,Fruit,Fruit,0 °L,4.95,"1,962"
+Maltodextrin,,Sugar,Sugar,0 °L,39,"14,436"
+Gladfield - Maltodextrin,New Zealand,Sugar,Sugar,3 °L,34.5,429
+Briess - MaltGems,United States,Grain,Base malt,2 °L,38.3,323
+Muntons - Malted Wheat Flakes,United Kingdom,Grain,Specialty malt,19 °L,36,159
+Malted Rye,New Zealand,Grain,Base malt,3 °L,40.2,738
+Root Shoot Malting - Malted Rye,United States,Grain,Base malt,4 °L,40,79
+Voyager Craft Malt - Malted Oats Mitika,Australia,Grain,Base malt,3 °L,27,462
+Proximity - Malted Oats,United States,Grain,Base malt,3 °L,29.9,"2,075"
+Malted Naked Oats,United Kingdom,Grain,Base malt,1 °L,33,"5,934"
+Gladfield - Malted Maize,New Zealand,Adjunct,Specialty malt,2 °L,24,57
+Riverbend Malt - Malted Corn,United States,Grain,Base malt,2 °L,37,223
+Intermalta - Malta Viena Carmelo (Caramel Vienna),Spain,Grain,Crystal malt,8 °L,36,12
+Intermalta - Malta Viena (Vienna Malt),Spain,Grain,Specialty malt,6 °L,36,107
+Intermalta - Malta Pilsen Caramelo,Spain,Grain,Crystal malt,4 °L,36,17
+Intermalta - Malta Pilsen,Spain,Grain,Base malt,2 °L,37,116
+Intermalta - Malta Pale Ale,Spain,Grain,Base malt,3 °L,37,123
+Intermalta - Malta Negra Tostada,Spain,Grain,Roasted malt,425 °L,35,8
+Intermalta - Malta Munich,Spain,Grain,Specialty malt,12 °L,37,37
+Intermalta - Malta Melano Caramelo,Spain,Grain,Crystal malt,42 °L,36,10
+Intermalta - Malta De Trigo (Wheat Malt),Spain,Grain,Base malt,2 °L,38.9,258
+Intermalta - Malta Cristal (Crystal Malt),Spain,Grain,Crystal malt,57 °L,34,84
+Intermalta - Malta Carabe 60,Spain,Grain,Specialty malt,27 °L,36,14
+Les Maltiers - Malt Vienna,France,Grain,Base malt,5 °L,36.8,97
+Les Maltiers - Malt Munich,France,Grain,Base malt,12 °L,37,146
+Les Maltiers - Malt de Blé,France,Grain,Specialty malt,2 °L,37.7,225
+Maker's Malt - Maker’s Vienna 4.5,Canada,Grain,Base malt,5 °L,38,58
+Maker's Malt - Maker's Premium Pale,Canada,Grain,Base malt,2 °L,37.5,116
+Maker's Malt - Maker's Pilsner,Canada,Grain,Base malt,2 °L,37.9,50
+Maker's Malt - Maker's Midnight,Canada,Grain,Roasted malt,77 °L,35.65,7
+Admiral - Maiden Voyage,United States,Grain,Base malt,3 °L,37,165
+Innomalt - M2,Canada,Grain,Base malt,9 °L,35,78
+BA Malt - M Tostada,Argentina,Grain,Roasted malt,500 °L,29,80
+BA Malt - M Chocolate,Argentina,Grain,Roasted malt,400 °L,29,336
+"LINC Malt - Lyon Pilsner, Organic",United States,Grain,Base malt,2 °L,36.8,39
+LINC Malt - Lyon Pilsner Malt,United States,Grain,Base malt,2 °L,32,30
+LINC Malt - Lyon Pale,United States,Grain,Base malt,2 °L,36.8,56
+LINC Malt - Lyon Munich,United States,Grain,Specialty malt,18 °L,36,3
+LINC Malt - Lyon Light Munich,United States,Grain,Specialty malt,7 °L,36,42
+LINC Malt - Lyon English Pale,United States,Grain,Base malt,3 °L,37,82
+Lychee (Litchi),,Fruit,Fruit,0 °L,7.65,37
+Red shed - Lowe 2 Row,Canada,Grain,Base malt,2 °L,36,299
+Simpsons - Low Colour Maris Otter,United Kingdom,Grain,Base malt,2 °L,37,558
+Warminster Maltings - Low Colour Maris Otter,United Kingdom,Grain,Base malt,2 °L,38,32
+Warminster Maltings - Low Colour Chocolate,United Kingdom,Grain,Roasted malt,177 °L,32.6,85
+Warminster Maltings - Low Color Pale Ale Malt,United Kingdom,Grain,Base malt,2 °L,35,19
+Bairds - London Lager Malt,United Kingdom,Grain,Base malt,2 °L,37,64
+Loganberry,,Fruit,Fruit,0 °L,2.6,5
+Briess - LME White Grain Sorghum,United States,Liquid Extract,Extract,3 °L,34.5,570
+Briess - LME Traditional Dark,United States,Liquid Extract,Extract,30 °L,35,520
+Briess - LME Sparkling Amber Liquid,United States,Liquid Extract,Extract,10 °L,35,706
+Briess - LME Rye,United States,Liquid Extract,Extract,9 °L,34.5,156
+Briess - LME Porter,United States,Liquid Extract,Extract,17 °L,35,100
+Briess - LME Pilsen Light,United States,Liquid Extract,Extract,3 °L,35,"3,101"
+Briess - LME Pale Ale,United States,Liquid Extract,Extract,6 °L,34.5,"1,333"
+Briess - LME Organic Maltoferm,United States,Liquid Extract,Extract,4 °L,37.6,19
+Briess - LME Munich,United States,Liquid Extract,Extract,8 °L,34.5,902
+Briess - LME Goldpils Vienna,United States,Liquid Extract,Extract,6 °L,34.5,157
+Briess - LME Golden Light,United States,Liquid Extract,Extract,4 °L,35,"3,286"
+Briess - LME Bavarian Wheat,United States,Liquid Extract,Extract,3 °L,35,953
+Liquid Malt Extract - Wheat,,Liquid Extract,Extract,3 °L,35,"9,406"
+Liquid Malt Extract - Pilsen,,Liquid Extract,Extract,2 °L,35,"13,528"
+Liquid Malt Extract - Munich,,Liquid Extract,Extract,8 °L,35,"6,291"
+Liquid Malt Extract - Maris Otter,,Liquid Extract,Extract,4 °L,36,"1,925"
+Liquid Malt Extract - Light,,Liquid Extract,Extract,4 °L,35,"40,020"
+Liquid Malt Extract - Extra Light,,Liquid Extract,Extract,3 °L,37,"8,198"
+Liquid Malt Extract - Dark,,Liquid Extract,Extract,30 °L,35,"8,395"
+Liquid Malt Extract - Amber,,Liquid Extract,Extract,10 °L,35,"15,919"
+Black Rock - Liquid Brewing Sugar,New Zealand,Sugar,Sugar,1 °L,32,6
+Lime juice,,Fruit,Puree,0 °L,0.45,196
+Lime,,Fruit,Fruit,0 °L,0.45,171
+Light Roasted Millet Malt - Gluten Free,United States,Grain,Gluten-free malt,7 °L,25,145
+Joe White - Light Roast,Australia,Grain,Roasted malt,338 °L,33.1,11
+Joe White - Light Munich,Australia,Grain,Specialty malt,5 °L,35.9,513
+Origin Malt - Light Munich,United States,Grain,Base malt,6 °L,34.5,108
+Root Shoot Malting - Light Munich,United States,Grain,Base malt,4 °L,36,35
+Avangard - Light Munich,Germany,Grain,Specialty malt,8 °L,37,"1,774"
+Black Rock - Light Malt Extract,New Zealand,Liquid Extract,Extract,3 °L,36,88
+Muntons - Light Dry Malt Extract (DME),United Kingdom,Dry Extract,Extract,4 °L,42,"1,247"
+Pauls Malt - Light Crystal Malt - Lucky Squid,United Kingdom,Grain,Crystal malt,46 °L,34,171
+Gladfield - Light Crystal Malt,New Zealand,Grain,Crystal malt,32 °L,35.4,943
+Joe White - Light Crystal Malt,Australia,Grain,Crystal malt,46 °L,34.5,432
+Light Crystal Malt,New Zealand,Grain,Crystal malt,32 °L,35.4,"2,612"
+Simpsons - Light Crystal,United Kingdom,Grain,Crystal malt,39 °L,34,856
+Light Chocolate Malt,New Zealand,Grain,Roasted malt,457 °L,32.7,"1,050"
+Gladfield - Light Chocolate Malt,New Zealand,Grain,Roasted malt,355 °L,32.7,532
+Red shed - Light Chocolate Malt,Canada,Grain,Roasted malt,111 °L,29,30
+Pauls Malt - Light Chocolate - Reliable Lighthouse Light,United Kingdom,Grain,Roasted malt,190 °L,34,171
+Lemon juice,,Fruit,Juice,0 °L,1,424
+Mecca Grade - Lamonta Pale Ale,United States,Grain,Base malt,3 °L,38,93
+Mecca Grade - Lamonta (American Pale),United States,Grain,Base malt,3 °L,37,726
+Lager Malt,Ireland,Grain,Base malt,2 °L,37,608
+Muntons - Lager Malt,United Kingdom,Grain,Base malt,2 °L,37,74
+The Swaen - Lager Malt,United Kingdom,Grain,Base malt,1 °L,38,285
+Lager Light,New Zealand,Grain,Base malt,1 °L,37,444
+Gladfield - Lager Light,New Zealand,Grain,Base malt,2 °L,35,283
+Coopers - Lager kit,Australia,Liquid Extract,Extract,4 °L,35,208
+Thomas Fawcett - Lager (Pilsner) Malt,United Kingdom,Grain,Base malt,2 °L,38,175
+Lager,United Kingdom,Grain,Base malt,1 °L,38,"4,910"
+Gladfield - Lactose (saputo Brand),New Zealand,Sugar,Sugar,1 °L,40.9,31
+Lactose (Milk Sugar),,Sugar,Sugar,1 °L,41,"41,473"
+"Gladfield - Lactose (fonterra ""surestart"" Brand)",New Zealand,Sugar,Sugar,1 °L,40.9,61
+Kölsch,Germany,Grain,Base malt,4 °L,37,996
+Kiwi,,Fruit,Fruit,0 °L,5.75,90
+Admiral - Kilnsmith,United States,Grain,Crystal malt,70 °L,37,93
+Rahr - Kilned Caramel 80L,United States,Grain,Crystal malt,80 °L,27.6,105
+Rahr - Kilned Caramel 47L,United States,Grain,Crystal malt,47 °L,32.2,10
+Rahr - Kilned Caramel 30L,United States,Grain,Crystal malt,30 °L,32.2,26
+Malteurop - Kilned C60,United States,Grain,Specialty malt,45 °L,36,50
+Franco-Belges - Kiln Coffee,Belgium,Grain,Roasted malt,150 °L,28,258
+Franco-Belges - Kiln Amber (Biscuit),Belgium,Grain,Specialty malt,17 °L,28,147
+Deer Creek - Keystone Pale,United States,Grain,Base malt,3 °L,37.7,172
+Kananaskis Malt,Canada,Grain,Specialty malt,11 °L,34,23
+Les Maltiers - Jehanne D’Arc Pilsen Malt,France,Grain,Base malt,2 °L,37.3,236
+Jackfruit,,Fruit,Fruit,0 °L,8.3,8
+Weyermann - Isaria 1924,Germany,Grain,Base malt,3 °L,35.8,165
+Coopers - IPA Kit,Australia,Liquid Extract,Extract,1 °L,12,29
+Invert Sugar Syrup,,Sugar,Sugar,1 °L,36,"3,692"
+Invert Sugar No 3,United Kingdom,Sugar,Sugar,46 °L,36,220
+Invert Sugar #2,United Kingdom,Sugar,Sugar,25 °L,36,271
+Simpsons - Imperial Malt,United Kingdom,Grain,Base malt,16 °L,34.5,368
+Honeydew Melon,,Fruit,Fruit,0 °L,4.5,41
+"Brewmaster - Honey, Orange Blossom",,Sugar,Honey,1 °L,34.8,333
+Gambrinus - Honey Malted Oats,Canada,Grain,Specialty malt,6 °L,33,55
+Honey Malt,,Grain,Crystal malt,25 °L,37,"49,164"
+Root Shoot Malting - Honey Malt,United States,Grain,Crystal malt,9 °L,35,85
+Gambrinus - Honey Malt,Canada,Grain,Crystal malt,25 °L,37,"5,454"
+Honey (Buckwheat),,Sugar,Honey,2 °L,35,844
+Honey - Sweet Clover,United States,Sugar,Honey,0 °L,35,438
+Honey,,Sugar,Honey,2 °L,35,"40,103"
+Honey,United States,Sugar,Honey,0 °L,34,110
+Rahr - High DP Distillers Malt,United States,Grain,Base malt,3 °L,35,105
+Montana Craft Malt - High Country Pils,United States,Grain,Base malt,2 °L,36.8,105
+Canada Malting - HERITAGE SELECT MALT,Canada,Grain,Base malt,2 °L,37.3,15
+Voyager Craft Malt - Heritage Rye,Australia,Grain,Base malt,3 °L,38.5,60
+Simpsons - Heritage Crystal,United Kingdom,Grain,Crystal malt,66 °L,32,453
+Riverbend Malt - Heritage,United States,Grain,Base malt,4 °L,36,55
+Gladfield - Harraways Rolled Barley,New Zealand,Adjunct,Raw,2 °L,35.4,21
+Gladfield - Harraways Flaked Wheat,New Zealand,Adjunct,Raw,2 °L,35.4,522
+Gladfield - Harraway's Rolled Oats,New Zealand,Adjunct,Raw,1 °L,39.1,187
+Crisp Malting - Hana Malt,United Kingdom,Grain,Base malt,1 °L,36,216
+Halcyon,United Kingdom,Grain,Base malt,2 °L,36,835
+Guava,,Fruit,Fruit,0 °L,2.8,272
+Guanabana,,Fruit,Fruit,0 °L,4,10
+Grits,,Adjunct,Raw,1 °L,37,895
+Bairds - Greenwich Crystal Malt,United Kingdom,Grain,Crystal malt,75 °L,35.9,68
+The Swaen - GreenSwaen Vienna,Netherlands,Grain,Base malt,4 °L,36.8,46
+The Swaen - Greenswaen Pilsner,Netherlands,Grain,Base malt,2 °L,37.3,71
+Les Maltiers - Greedy Goats – Flocons d’avoine,France,Adjunct,Specialty malt,2 °L,34.5,67
+Riverbend Malt - Great Chit,United States,Grain,Specialty malt,2 °L,36.8,134
+Grapefruit,,Fruit,Fruit,0 °L,2.75,276
+"Grape, concord",,Fruit,Fruit,0 °L,4,71
+Grape,,Fruit,Fruit,0 °L,7.15,349
+Gooseberry,,Fruit,Fruit,0 °L,4.95,50
+The Swaen - GoldSwaen Red,Netherlands,Grain,Crystal malt,19 °L,35,359
+The Swaen - GoldSwaen Munich Light,Netherlands,Grain,Crystal malt,30 °L,36.8,291
+The Swaen - GoldSwaen Munich Dark,Netherlands,Grain,Crystal malt,55 °L,35,290
+The Swaen - Goldswaen light,Netherlands,Grain,Crystal malt,10 °L,35,355
+The Swaen - Goldswaen Hell,Netherlands,Grain,Crystal malt,10 °L,0,214
+The Swaen - Goldswaen Classic,Netherlands,Grain,Crystal malt,45 °L,38,450
+The Swaen - GoldSwaen Brown Supreme,Netherlands,Grain,Crystal malt,113 °L,34,216
+The Swaen - GoldSwaen Brown Light,Netherlands,Grain,Crystal malt,180 °L,34,60
+The Swaen - GoldSwaen Brown,Netherlands,Grain,Crystal malt,83 °L,35,188
+The Swaen - Goldswaen Belge,Netherlands,Grain,Crystal malt,14 °L,35,132
+The Swaen - GoldSwaen Aroma,Netherlands,Grain,Crystal malt,150 °L,34,173
+The Swaen - GoldSwaen Amber,Netherlands,Grain,Crystal malt,27 °L,36,151
+Briess - Goldpils Vienna Malt,United States,Grain,Base malt,4 °L,36.8,"3,220"
+Grouse Malt House - Goldfinch Millet Malt,United States,Grain,Gluten-free malt,5 °L,28,105
+Tate and Lyle - Golden Syrup,United Kingdom,Sugar,Sugar,1 °L,40,558
+Thomas Fawcett - Golden Promise Pale Ale Malt,United Kingdom,Grain,Base malt,3 °L,36.8,"2,115"
+Bairds - Golden Promise,United Kingdom,Grain,Base malt,3 °L,37,490
+Golden Promise,United Kingdom,Grain,Base malt,3 °L,37,"38,653"
+Gladfield - Golden Oat Malt,,Grain,Specialty malt,2 °L,32,41
+Golden Naked Oats,United Kingdom,Grain,Crystal malt,10 °L,33,"11,729"
+Simpsons - Golden Naked Oats,United Kingdom,Grain,Crystal malt,7 °L,27,"3,762"
+Gladfield - Golden Naked Oats,New Zealand,Grain,Base malt,1 °L,32.2,183
+Viking - Golden Ale Malt,Finland,Grain,Base malt,4 °L,37,369
+Gladfield - Go Nutty Roasted Oats,New Zealand,Grain,Roasted malt,5 °L,32.2,57
+Crisp Malting - Gleneagles Premium Peated Malt,United Kingdom,Grain,Base malt,3 °L,37.5,110
+Gladiator Malt,New Zealand,Grain,Base malt,5 °L,37.3,"1,653"
+Gladfield - Gladiator Malt,New Zealand,Grain,Crystal malt,4 °L,37.3,963
+Gladfield - German Pilsner Malt,New Zealand,Grain,Base malt,2 °L,36.3,"1,895"
+Crisp Malting - German Pilsen,United Kingdom,Grain,Base malt,2 °L,36.8,103
+Root Shoot Malting - Genie Vienna,United States,Grain,Base malt,7 °L,36,106
+LINC Malt - Genie Pale Malt,United States,Grain,Base malt,2 °L,37,119
+Root Shoot Malting - Genie Pale 2-Row,United States,Grain,Base malt,2 °L,36,401
+Root Shoot Malting - Genie Munich,United States,Grain,Specialty malt,3 °L,35,31
+LINC Malt - Gazelle Rye Pale,United States,Grain,Base malt,5 °L,35.1,31
+Mecca Grade - Gateway,,Grain,Base malt,1 °L,38,142
+Admiral - Gallagher's Best,United States,Grain,Base malt,3 °L,38,236
+Briess - Full Pint Brewers Malt,United States,Grain,Base malt,2 °L,37.3,188
+Grouse Malt House - French Roast,United States,Grain,Gluten-free malt,30 °L,20,16
+LINC Malt - Francin Pilsner,United States,Grain,Base malt,2 °L,37.3,86
+Gladfield - Fonterra - Lactose,New Zealand,Sugar,Sugar,0 °L,35,91
+Floor-Malted Bohemian Wheat,Germany,Grain,Base malt,2 °L,38,"1,179"
+Floor-Malted Bohemian Pilsner Dk,Germany,Grain,Base malt,7 °L,38,626
+Floor-Malted Bohemian Pilsner,Germany,Grain,Base malt,2 °L,38,"7,750"
+Weyermann - Floor-Malted Bohemian Pilsner,Germany,Grain,Base malt,2 °L,36.3,"2,514"
+Weyermann - Floor malted Bohemian Dark,Germany,Grain,Base malt,7 °L,37,102
+Grain Millers - Flaked White Wheat,United States,Adjunct,Raw,2 °L,36,"1,246"
+BSG - Flaked White Wheat,United States,Adjunct,Raw,2 °L,36,925
+OiO - flaked wheat,Canada,Grain,Specialty malt,2 °L,32,191
+Flaked Wheat,,Adjunct,Raw,2 °L,34,"72,492"
+Crisp Malting - Flaked Torrified Oats,United Kingdom,Adjunct,Raw,2 °L,31,"1,947"
+Crisp Malting - Flaked Torrefied Rice,United Kingdom,Adjunct,Other,1 °L,37,253
+Crisp Malting - Flaked Torrefied Maize,United Kingdom,Adjunct,Raw,1 °L,36.8,"1,152"
+Gladfield - Flaked Spelt,New Zealand,Adjunct,Raw,2 °L,32.2,304
+Flaked Rye,,Adjunct,Raw,3 °L,36,"12,616"
+Flaked Rice,,Adjunct,Raw,1 °L,40,"15,855"
+OiO - Flaked Rice,Canada,Adjunct,Raw,1 °L,37.7,86
+Grouse Malt House - Flaked Quinoa,United States,Adjunct,Raw,1 °L,1,136
+Bob's Red MIll - Flaked Oats,,Adjunct,Raw,1 °L,33,413
+Grain Millers - Flaked Oats,United States,Adjunct,Raw,2 °L,34.6,"2,610"
+Flaked Oats,Chile,Adjunct,Raw,2 °L,33,19
+Flaked Oats,,Adjunct,Raw,2 °L,33,"194,500"
+Warminster Maltings - Flaked Malted Oats,United Kingdom,Adjunct,Other,2 °L,38,62
+Flaked Corn,,Adjunct,Raw,1 °L,40,"43,287"
+OiO - Flaked Corn,Canada,Adjunct,Raw,1 °L,41.4,154
+Gladfield - Flaked Barley (harraway's),New Zealand,Adjunct,Raw,2 °L,33.1,233
+Flaked Barley,,Adjunct,Raw,2 °L,32,"52,706"
+Deer Creek - First Crack (Melanoidin),United States,Grain,Specialty malt,45 °L,35.4,79
+Simpsons - Finest Pale Ale Maris Otter,United Kingdom,Grain,Base malt,3 °L,37,"3,483"
+Simpsons - Finest Pale Ale Golden Promise,United Kingdom,Grain,Base malt,2 °L,37,"6,827"
+Crisp Malting - Finest Maris Otter,United Kingdom,Grain,Base malt,2 °L,36.8,"10,593"
+Simpsons - Finest Lager Malt,United Kingdom,Grain,Base malt,2 °L,35.74,831
+Figs (dried),,Fruit,Fruit,0 °L,29.95,116
+Fig,,Fruit,Fruit,0 °L,5.3,73
+Admiral - Feldblume,United States,Grain,Base malt,3 °L,37,227
+Briess - Extra Special Malt,United States,Grain,Roasted malt,130 °L,33.5,825
+Weyermann - Extra Pale Premium Pilsner Malt,Germany,Grain,Base malt,2 °L,38,"3,076"
+Crisp Malting - Extra Pale Maris Otter,United Kingdom,Grain,Base malt,2 °L,37.5,"3,377"
+Patagonia - Extra Pale Malt,Chile,Grain,Base malt,2 °L,36.8,360
+Viking - Extra pale malt,Finland,Grain,Base malt,2 °L,37.6,"1,053"
+Crisp Malting - Extra Pale Malt,United Kingdom,Grain,Base malt,2 °L,38,79
+Extra Pale Malt,,Grain,Base malt,2 °L,33,"2,485"
+Simpsons - Extra Pale Ale Malt,United Kingdom,Grain,Base malt,2 °L,35.82,"1,423"
+Crisp Malting - Extra Pale Ale Malt,United Kingdom,Grain,Base malt,2 °L,38,"2,603"
+Muntons - Extra Light Dry Malt Extract (DME),United States,Dry Extract,Extract,3 °L,44,608
+Extra Dark Crystal 160L,United Kingdom,Grain,Crystal malt,160 °L,33,"4,439"
+Extra Dark Crystal 120L,United Kingdom,Grain,Crystal malt,120 °L,33,"8,456"
+Joe White - Extra Dark Crystal,Australia,Grain,Crystal malt,104 °L,34.5,37
+Crisp Malting - Europils Malt,United Kingdom,Grain,Base malt,2 °L,37.5,"1,797"
+Gambrinus - ESB Pale Malt,Canada,Grain,Base malt,3 °L,36.8,358
+ESB Malt,Canada,Grain,Base malt,4 °L,36,"1,694"
+Weyermann - Eraclea Pilsner,Germany,Grain,Base malt,2 °L,37.03,412
+Enzyme Malt,Finland,Grain,Base malt,0 °L,35,217
+Thomas Fawcett - English Pearl Pale Ale Malt,United Kingdom,Grain,Base malt,3 °L,38,326
+OiO - English Pale malt,Canada,Grain,Base malt,2 °L,36.8,17
+Innomalt - English Pale Ale Malt,Canada,Grain,Base malt,4 °L,37,166
+Bairds - English Carastan Malt,United Kingdom,Grain,Crystal malt,35 °L,35.4,394
+Troubador Malting - Encore 50L,United States,Grain,Crystal malt,50 °L,22,11
+LINC Malt - Elwha River Hulless Spelt,United States,Grain,Specialty malt,3 °L,36,16
+Elderberry,,Fruit,Fruit,0 °L,2.75,68
+Gladfield - Eclipse Roasted Wheat,New Zealand,Grain,Roasted malt,526 °L,34,86
+The Swaen - Dutch Pale Ale,Netherlands,Grain,Base malt,3 °L,37.3,468
+Deer Creek - Dutch,United States,Grain,Specialty malt,10 °L,35.9,60
+Dry Malt Extract - Wheat,,Dry Extract,Extract,3 °L,42,"15,018"
+Dry Malt Extract - Pilsen,,Dry Extract,Extract,2 °L,42,"17,068"
+Dry Malt Extract - Munich,,Dry Extract,Extract,8 °L,42,"2,227"
+Dry Malt Extract - Light,,Dry Extract,Extract,4 °L,42,"54,902"
+Dry Malt Extract - Extra Light,,Dry Extract,Extract,3 °L,42,"16,567"
+Dry Malt Extract - Dark,,Dry Extract,Extract,30 °L,44,"8,491"
+Dry Malt Extract - Amber,,Dry Extract,Extract,10 °L,42,"15,195"
+Simpsons - DRC,United Kingdom,Grain,Crystal malt,115 °L,34.7,"2,443"
+Root Shoot Malting - Double Honey,United States,Grain,Specialty malt,50 °L,38.226,15
+Deer Creek - Double Dutch,United States,Grain,Specialty malt,20 °L,35.4,41
+Great Western - Domestic 2-Row,United States,Grain,Base malt,2 °L,37,"2,340"
+Briess - DME Traditional Dark,United States,Dry Extract,Extract,30 °L,44.6,"1,018"
+Briess - DME Sparkling Amber,United States,Dry Extract,Extract,10 °L,44.6,"1,277"
+Briess - DME Pilsen Light,United States,Dry Extract,Extract,2 °L,43,"6,647"
+Briess - DME Pale Ale,United States,Dry Extract,Extract,6 °L,45,"2,342"
+Briess - DME Organic Maltoferm,United States,Dry Extract,Extract,4 °L,45,48
+Briess - DME Munich,United States,Dry Extract,Extract,8 °L,45,463
+Briess - DME Goldpils Vienna,United States,Dry Extract,Extract,6 °L,45,82
+Briess - DME Golden Light,United States,Dry Extract,Extract,4 °L,44.6,"6,266"
+Briess - DME Bavarian Wheat,United States,Dry Extract,Extract,3 °L,44.6,"2,923"
+Briess - Distillers Malt,United States,Grain,Base malt,2 °L,35.4,361
+Gladfield - Distillers Malt,New Zealand,Grain,Base malt,2 °L,37.5,94
+Distillers Malt,Ireland,Grain,Base malt,2 °L,37,141
+Root Shoot Malting - Distiller's Malt,United States,Grain,Base malt,2 °L,36,3
+Weyermann - Diastatic Barley,Germany,Grain,Base malt,2 °L,36,114
+Gladfield - Dextrose Sugar,New Zealand,Sugar,Sugar,0 °L,46,579
+Briess - Dextrose,United States,Sugar,Sugar,1 °L,42,"1,520"
+Dextrine Malt,United Kingdom,Grain,Crystal malt,2 °L,33,"6,181"
+Viking - Dextrine Malt,Finland,Grain,Crystal malt,2 °L,33,921
+Proximity - Dextrine Malt,United States,Grain,Crystal malt,3 °L,34.5,876
+Bairds - Dextrin Malt,United Kingdom,Grain,Specialty malt,2 °L,32.2,225
+Crisp Malting - Dextrin Malt,United Kingdom,Grain,Crystal malt,2 °L,36.8,"2,837"
+Simpsons - Dextrin Malt,United Kingdom,Grain,Specialty malt,1 °L,31,"1,401"
+Great Western - DextraPils,United States,Grain,Specialty malt,2 °L,34.5,"1,146"
+Dewberry,,Fruit,Fruit,0 °L,2.5,3
+Pauls Malt - Deep Diver (Dark Crystal C80),United Kingdom,Grain,Crystal malt,85 °L,34,115
+De-Husked Caraf III,Germany,Grain,Roasted malt,470 °L,32,"5,185"
+De-Husked Caraf II,Germany,Grain,Roasted malt,418 °L,32,"3,863"
+De-Husked Caraf I,Germany,Grain,Roasted malt,340 °L,32,"1,686"
+De-Bittered Black,Belgium,Grain,Roasted malt,566 °L,34,"4,851"
+Date (dried),,Fruit,Fruit,0 °L,28.9,160
+Date,,Fruit,Fruit,0 °L,27,142
+Weyermann - Dark Wheat Malt,Germany,Grain,Crystal malt,7 °L,37,942
+Dark Wheat,Germany,Grain,Base malt,7 °L,39,"3,465"
+Joe White - Dark Toast,Australia,Grain,Roasted malt,488 °L,33.1,7
+Dark Roasted Millet Malt - Gluten Free,United States,Grain,Gluten-free malt,300 °L,25,261
+Briess - Dark Munich Malt 30L,United States,Grain,Specialty malt,30 °L,36,763
+Carolina Malt House - Dark Munich Malt,United States,Grain,Base malt,17 °L,34,18
+Barrett Burston - Dark Munich Malt,Australia,Grain,Specialty malt,10 °L,35,145
+Great Western - Dark Munich,United States,Grain,Specialty malt,20 °L,33,229
+Riverbend Malt - Dark Munich,United States,Grain,Specialty malt,37 °L,38,57
+Crisp Malting - Dark Munich,United Kingdom,Grain,Specialty malt,19 °L,36.3,477
+Grouse Malt House - Dark Millet Malt,United States,Grain,Gluten-free malt,325 °L,29,20
+Black Rock - Dark Malt Extract (LME),New Zealand,Liquid Extract,Extract,16 °L,36,43
+Muntons - Dark LME,United Kingdom,Liquid Extract,Extract,2 °L,37,66
+Thomas Fawcett - Dark Crystal Malt II,United Kingdom,Grain,Crystal malt,120 °L,33,600
+Crisp Malting - Dark Crystal Malt 240,United Kingdom,Grain,Crystal malt,122 °L,33.1,47
+Gladfield - Dark Crystal Malt,New Zealand,Grain,Crystal malt,96 °L,35.4,519
+Barrett Burston - Dark Crystal Malt,Australia,Grain,Crystal malt,80 °L,34.5,136
+Dark Crystal Malt,New Zealand,Grain,Crystal malt,96 °L,35.4,"1,417"
+Joe White - Dark Crystal Malt,Australia,Grain,Crystal malt,85 °L,34.5,270
+Dark Crystal 80L,United Kingdom,Grain,Crystal malt,80 °L,33,"10,002"
+Crisp Malting - Dark Crystal (400 EBC),United Kingdom,Grain,Crystal malt,158 °L,32,39
+Muntons - Dark Crystal,United Kingdom,Grain,Crystal malt,150 °L,33,363
+Dark Chocolate Malt,New Zealand,Grain,Roasted malt,660 °L,32.7,"1,088"
+Gladfield - Dark Chocolate Malt,New Zealand,Grain,Roasted malt,488 °L,32.7,351
+Briess - Dark Chocolate Malt,United States,Grain,Roasted malt,420 °L,33,838
+Viking - Dark Chocolate Malt,Finland,Grain,Roasted malt,325 °L,30.8,418
+Proximity - Dark Chocolate,United States,Grain,Roasted malt,400 °L,34.5,128
+Crisp Malting - Dark Chocolate,United States,Grain,Roasted malt,450 °L,33,109
+Dark Chocolate,United States,Grain,Roasted malt,420 °L,29,"6,794"
+Avangard - Dark Caramel Malt,Germany,Grain,Crystal malt,28 °L,34,75
+Viking - Dark Ale Malt,Finland,Grain,Roasted malt,14 °L,35,31
+Dark Ale,Finland,Grain,Roasted malt,14 °L,35,416
+"Currant, red",,Fruit,Fruit,0 °L,2.7,49
+"Currant, black",,Fruit,Fruit,0 °L,4.2,209
+Riverbend Malt - Cumberland Pilsner,United States,Grain,Base malt,2 °L,36.8,103
+Riverbend Malt - Cumberland Corn Malt,United States,Adjunct,Base malt,2 °L,26.7,54
+Gladfield - Crystal Wheat Malt,New Zealand,Grain,Crystal malt,20 °L,21,11
+Warminster Maltings - Crystal Wheat Malt,United Kingdom,Grain,Crystal malt,57 °L,32,12
+Proximity - Crystal Wheat,United States,Grain,Crystal malt,60 °L,34.5,144
+Ireks - Crystal Teak,Germany,Grain,Crystal malt,35 °L,55,263
+Simpsons - Crystal T50,United Kingdom,Grain,Crystal malt,50 °L,34,"1,844"
+Thomas Fawcett - Crystal Rye Malt,United Kingdom,Grain,Crystal malt,75 °L,32.2,321
+Warminster Maltings - Crystal Rye Malt,United Kingdom,Grain,Crystal malt,68 °L,34,3
+Gladfield - Crystal Rye Malt,New Zealand,Grain,Crystal malt,36 °L,37,127
+Proximity - Crystal Rye,United States,Grain,Crystal malt,80 °L,34.5,96
+Crystal Rye,United Kingdom,Grain,Crystal malt,90 °L,33,"3,728"
+Eckert Malting - Crystal Rice Malt,United States,Grain,Gluten-free malt,16 °L,22,68
+Ireks - Crystal Oak,Germany,Grain,Crystal malt,13 °L,36.3,147
+Grouse Malt House - Crystal Millet Malt,United States,Grain,Gluten-free malt,3 °L,20,31
+Simpsons - Crystal Medium,United Kingdom,Grain,Crystal malt,65 °L,33,"3,008"
+Ireks - Crystal Maple,Germany,Grain,Crystal malt,2 °L,36.3,480
+Thomas Fawcett - Crystal Malt II,United Kingdom,Grain,Crystal malt,65 °L,34,622
+Thomas Fawcett - Crystal Malt I,United Kingdom,Grain,Crystal malt,45 °L,34,954
+Crystal Malt 50,Finland,Grain,Crystal malt,19 °L,35,"1,419"
+Crystal Malt 300,Finland,Grain,Crystal malt,113 °L,35,862
+Crystal Malt 250,Finland,Grain,Crystal malt,94 °L,35,419
+Crystal Malt 150,Finland,Grain,Crystal malt,57 °L,35,"1,808"
+Bairds - Crystal Malt 150,United Kingdom,Grain,Crystal malt,57 °L,34,626
+Crystal Malt 100,Finland,Grain,Crystal malt,38 °L,35,"2,075"
+Thomas Fawcett - Crystal Malt,United Kingdom,Grain,Crystal malt,61 °L,33,792
+Black Rock - Crystal Liquid Malt Extract (LME),New Zealand,Liquid Extract,Extract,10 °L,36,8
+Crisp Malting - Crystal Light - 45L,United Kingdom,Grain,Crystal malt,45 °L,33.1,"1,974"
+Simpsons - Crystal Light,United Kingdom,Grain,Crystal malt,38 °L,33.1,"2,160"
+Crisp Malting - Crystal Extra Light EBC100,United Kingdom,Grain,Crystal malt,38 °L,33.1,313
+Crisp Malting - Crystal Extra Dark - 120L,United Kingdom,Grain,Crystal malt,120 °L,35,"1,138"
+Simpsons - Crystal Extra Dark,United Kingdom,Grain,Crystal malt,179 °L,31.7,577
+Simpsons - Crystal Dark Medium (78.55 L),United Kingdom,Grain,Base malt,79 °L,33,78
+Crisp Malting - Crystal Dark - 77L,United Kingdom,Grain,Crystal malt,77 °L,33.1,"2,032"
+Simpsons - Crystal Dark,United Kingdom,Grain,Crystal malt,120 °L,33,"1,538"
+Crystal 90L,United Kingdom,Grain,Crystal malt,90 °L,33,"6,539"
+Proximity - Crystal 80,United States,Grain,Crystal malt,80 °L,35,210
+Great Western - Crystal 75L,United States,Grain,Crystal malt,75 °L,29,273
+Crystal 70L,United Kingdom,Grain,Crystal malt,70 °L,34,"7,503"
+Crystal 60L,United Kingdom,Grain,Crystal malt,60 °L,34,"22,934"
+Crisp Malting - Crystal 60L,United Kingdom,Grain,Crystal malt,60 °L,33.1,"2,690"
+Muntons - Crystal 60,United Kingdom,Grain,Crystal malt,55 °L,34,255
+Great Western - Crystal 60,United States,Grain,Crystal malt,60 °L,30,637
+Proximity - Crystal 60,United States,Grain,Crystal malt,60 °L,35,371
+Crystal 55L,United Kingdom,Grain,Crystal malt,55 °L,34,"2,016"
+Crystal 50L,United Kingdom,Grain,Crystal malt,50 °L,34,"6,948"
+Crystal 45L,United Kingdom,Grain,Crystal malt,45 °L,34,"13,483"
+Warminster Maltings - Crystal 400,United Kingdom,Grain,Crystal malt,183 °L,32,52
+Great Western - Crystal 40 Malt,United States,Grain,Crystal malt,40 °L,21,947
+Proximity - Crystal 40,United States,Grain,Crystal malt,40 °L,34.5,415
+Crystal 30L Millet Malt - Gluten Free,United States,Grain,Gluten-free malt,30 °L,25,246
+Crystal 30L,United Kingdom,Grain,Crystal malt,30 °L,34,"6,936"
+Proximity - Crystal 30,United States,Grain,Crystal malt,30 °L,34.5,111
+Crystal 15L,United Kingdom,Grain,Crystal malt,15 °L,34,"5,583"
+Great Western - Crystal 150L,United States,Grain,Crystal malt,150 °L,27,152
+Proximity - Crystal 150,United States,Grain,Crystal malt,150 °L,34.5,78
+Warminster Maltings - Crystal 150,United Kingdom,Grain,Crystal malt,88 °L,32.5,78
+Great Western - Crystal 15 Malt,United States,Grain,Crystal malt,15 °L,34,588
+Proximity - Crystal 15,United States,Grain,Crystal malt,15 °L,36.8,390
+Crystal 140L,United Kingdom,Grain,Crystal malt,140 °L,33,"6,026"
+Proximity - Crystal 120,United States,Grain,Crystal malt,120 °L,34.5,352
+Crystal 10L Millet Malt - Gluten Free,United States,Grain,Gluten-free malt,10 °L,25,435
+Avangard - Crystal 10L,Germany,Grain,Crystal malt,8 °L,38.2,50
+Root Shoot Malting - Crystal 100,United States,Grain,Crystal malt,100 °L,33,102
+Warminster Maltings - Crystal 100,United Kingdom,Grain,Crystal malt,64 °L,34,58
+Simpsons - Crisp Amber Malt,United Kingdom,Grain,Roasted malt,27 °L,34,431
+Black Rock - Creamy Brown Liquid Malt Extract (LME),New Zealand,Liquid Extract,Extract,19 °L,35,22
+Black Rock - Creamy Blonde Liquid Malt Extract (LME),New Zealand,Liquid Extract,Extract,2 °L,35,9
+Cranberry Blossom Honey,United States,Sugar,Honey,5 °L,63,14
+Cranberry,,Fruit,Fruit,0 °L,1.8,417
+Cracked Corn,,Adjunct,Raw,1 °L,30,228
+Crabapple,,Fruit,Fruit,0 °L,3.85,15
+Simpsons - Cornish Gold,United Kingdom,Grain,Base malt,10 °L,36,13
+Corn Syrup,,Sugar,Sugar,1 °L,37,"1,834"
+Corn Sugar - Dextrose,,Sugar,Sugar,1 °L,42,"73,834"
+Corn Sugar,United States,Sugar,Sugar,0 °L,42,282
+Bob's Red MIll - Corn Grits,,Adjunct,Raw,1 °L,15,312
+Skagit Valley Malting - Copeland Pale,United States,Grain,Base malt,2 °L,33,228
+LINC Malt - Copeland Munich,United States,Grain,Specialty malt,35 °L,37.3,16
+LINC Malt - Copeland English Pale,United States,Grain,Base malt,4 °L,37.2,48
+Viking - Cookie Malt,Finland,Grain,Roasted malt,25 °L,37,594
+Cookie Malt,Finland,Grain,Roasted malt,19 °L,37,762
+Red shed - Connect Base Malt,Canada,Grain,Base malt,2 °L,36,6
+Viking - Colorado Honey Malt,Finland,Grain,Roasted malt,6 °L,35,50
+Viking - Colorado Crystal 10,United States,Grain,Crystal malt,10 °L,35.42,35
+Deer Creek - Colonial Pilsner,United States,Grain,Base malt,2 °L,36.3,110
+Weyermann - Cologne Malt,Germany,Grain,Base malt,4 °L,37,211
+Patagonia - Coffee Malt,Chile,Grain,Roasted malt,230 °L,30,2
+Coffee Malt,United Kingdom,Grain,Roasted malt,150 °L,36,"4,910"
+Canada Malting - CMC 6-ROW MALT,Canada,Grain,Base malt,2 °L,37,244
+Canada Malting - CMC 2-ROW MALT,Canada,Grain,Base malt,2 °L,36,"3,233"
+Crisp Malting - Clear Choice Malt,United Kingdom,Grain,Base malt,3 °L,37,502
+Chocolate Wheat,Germany,Grain,Roasted malt,413 °L,31,"6,776"
+Weyermann - Chocolate Wheat,Germany,Grain,Roasted malt,415 °L,34.8,"1,764"
+Proximity - Chocolate Wheat,United States,Grain,Roasted malt,400 °L,34.5,309
+Gladfield - Chocolate Rye Malt,New Zealand,Grain,Roasted malt,406 °L,32.7,131
+Proximity - Chocolate Rye,United States,Grain,Roasted malt,225 °L,34.5,200
+Dingemans - Chocolate Rye,Belgium,Grain,Roasted malt,115 °L,30,79
+Weyermann - Chocolate Rye,Germany,Grain,Roasted malt,240 °L,29.9,"1,589"
+Chocolate Rye,Germany,Grain,Roasted malt,240 °L,31,"6,686"
+Grouse Malt House - Chocolate Roasted Millet Malt,United States,Grain,Gluten-free malt,140 °L,22,66
+Simpsons - Chocolate Malt,United Kingdom,Grain,Roasted malt,444 °L,31.7,"3,069"
+Red shed - Chocolate Malt,Canada,Grain,Roasted malt,222 °L,29,79
+Bairds - Chocolate Malt,United Kingdom,Grain,Roasted malt,500 °L,31,"1,770"
+Barrett Burston - Chocolate Malt,Australia,Grain,Roasted malt,169 °L,34.5,39
+Proximity - Chocolate Malt,United States,Grain,Roasted malt,350 °L,32,581
+Patagonia - Chocolate Malt,Chile,Grain,Roasted malt,350 °L,29.9,4
+Warminster Maltings - Chocolate malt,United Kingdom,Grain,Roasted malt,600 °L,32.6,26
+Crisp Malting - Chocolate Malt,United Kingdom,Grain,Roasted malt,450 °L,32.66,"3,366"
+Chocolate Malt,Finland,Grain,Roasted malt,338 °L,31,"4,262"
+Muntons - Chocolate Malt,United Kingdom,Grain,Roasted malt,350 °L,30.8,308
+Joe White - Chocolate Malt,Australia,Grain,Roasted malt,244 °L,33.1,406
+Gladfield - Chocolate Malt,New Zealand,Grain,Roasted malt,488 °L,24,167
+Thomas Fawcett - Chocolate Malt,United Kingdom,Grain,Roasted malt,420 °L,32.2,"1,355"
+Viking - Chocolate Light,Finland,Grain,Roasted malt,150 °L,32,373
+Briess - Chocolate,United States,Grain,Roasted malt,350 °L,25,"5,493"
+Voyager Craft Malt - Chocolate,Australia,Grain,Roasted malt,406 °L,34.5,158
+Ireks - Chocolate,Germany,Grain,Roasted malt,340 °L,32.2,296
+Maltear - Chocolate,United States,Grain,Roasted malt,300 °L,29,75
+Chocolate,United States,Grain,Roasted malt,350 °L,29,"84,337"
+Chocolate,Belgium,Grain,Roasted malt,340 °L,30,"10,582"
+Chocolate,United Kingdom,Grain,Roasted malt,425 °L,34,"42,086"
+Gladfield - Chit Wheat Malt,New Zealand,Grain,Specialty malt,2 °L,36,44
+LINC Malt - Chit Malt,United States,Grain,Specialty malt,1 °L,35,77
+Valley Malt - chit malt,United States,Grain,Base malt,1 °L,33,256
+Gladfield - Chit Malt,New Zealand,Grain,Specialty malt,2 °L,27,699
+Crisp Malting - Chevallier Heritage Malt,United Kingdom,Grain,Base malt,3 °L,36.3,775
+"Cherry, Montmorency",,Fruit,Fruit,0 °L,3.55,229
+"Cherry, dark sweet",,Fruit,Fruit,0 °L,6.4,570
+Briess - Cherry Wood Smoked Malt,United States,Grain,Smoked malt,5 °L,37,"1,500"
+Cherry,,Fruit,Fruit,0 °L,6.3,868
+Castle Malting - Château Whiskey Light,Belgium,Grain,Other,2 °L,38,100
+Castle Malting - Château Wheat Blanc,Belgium,Grain,Base malt,2 °L,38,"2,363"
+Castle Malting - Château Vienna,Belgium,Grain,Base malt,3 °L,38,"1,195"
+Castle Malting - Château Special Belgium,Belgium,Grain,Crystal malt,115 °L,34,772
+Castle Malting - Château Smoked (Malta Ahumada),Belgium,Grain,Smoked malt,2 °L,35.4,168
+Castle Malting - Château Rye Malt (Malta De Centeno),Belgium,Grain,Base malt,4 °L,36,267
+Castle Malting - Château Roasted Barley,Belgium,Grain,Roasted malt,432 °L,30,698
+Castle Malting - Chateau Pilsen Malt,Belgium,Grain,Base malt,2 °L,37,226
+Castle Malting - Château Pilsen 2RS,Belgium,Grain,Base malt,2 °L,37,"3,242"
+Castle Malting - Chateau Pale Ale Malt,Belgium,Grain,Base malt,4 °L,36.8,114
+Castle Malting - Château Pale Ale,Belgium,Grain,Base malt,3 °L,38,"3,175"
+Castle Malting - Chateau Oat Malt,Belgium,Grain,Base malt,2 °L,36.1,383
+Castle Malting - Château Munich Light,Belgium,Grain,Specialty malt,8 °L,34,922
+Castle Malting - Château Munich,Belgium,Grain,Specialty malt,13 °L,34,"1,489"
+Castle Malting - Château Monastique,Belgium,Grain,Crystal malt,18 °L,35,78
+Castle Malting - Château Melano,Belgium,Grain,Specialty malt,31 °L,35.88,834
+Castle Malting - Chateau Diastatic,Belgium,Grain,Base malt,3 °L,35,107
+Castle Malting - Château Crystal,Belgium,Grain,Crystal malt,61 °L,34.4,"1,594"
+Castle Malting - Château Chocolat,Belgium,Grain,Roasted malt,488 °L,38,"1,227"
+Castle Malting - Chateau Cara Terra,Belgium,Grain,Crystal malt,75 °L,34,63
+Castle Malting - Château Cara Ruby,Belgium,Grain,Crystal malt,19 °L,33,"1,233"
+Castle Malting - CHÂTEAU CARA HONEY,Belgium,Grain,Crystal malt,27 °L,34.5,140
+Castle Malting - Chateau Cara Gold,Belgium,Fruit,Crystal malt,45 °L,35.8,46
+Castle Malting - Château Cara Gold,Belgium,Grain,Crystal malt,45 °L,34,"1,287"
+Castle Malting - Château Cara Clair,Belgium,Grain,Crystal malt,3 °L,35,"1,533"
+Castle Malting - Château Cara Blond,Belgium,Grain,Crystal malt,8 °L,34,"1,185"
+Castle Malting - Château Cafe Light,Belgium,Grain,Crystal malt,90 °L,34,189
+Castle Malting - Château Cafe,Belgium,Grain,Roasted malt,177 °L,35,340
+Castle Malting - Château Black,Belgium,Grain,Roasted malt,488 °L,34,637
+Castle Malting - Château Biscuit,Belgium,Grain,Specialty malt,17 °L,35,"1,468"
+Castle Malting - Château Arome,Belgium,Grain,Crystal malt,40 °L,34.4,548
+Castle Malting - Château Acid (Malta Acida),Belgium,Grain,Acidulated malt,4 °L,34,858
+Castle Malting - Chateau Abbey Malt,Belgium,Grain,Specialty malt,17 °L,35.8,29
+Castle Malting - Château Abbey,Belgium,Grain,Crystal malt,18 °L,33,395
+Canada Malting - Century Rye,Canada,Grain,Base malt,3 °L,29,376
+Celery,,Fruit,Fruit,0 °L,0.75,3
+BA Malt - Cebada Tostada,Argentina,Grain,Roasted malt,500 °L,29,248
+Briess - CBW® Golden Light,United States,Dry Extract,Extract,4 °L,41,462
+Briess - CBW Rye,United States,Liquid Extract,Extract,9 °L,34.5,16
+LINC Malt - Cashup White Wheat Pale,United States,Grain,Base malt,2 °L,38.2,60
+Cashew,,Fruit,Fruit,0 °L,3,12
+Candi Syrup - Cascade Beer Candi Syrup - Thai Ginger,United States,Sugar,Sugar,7 °L,1.032,25
+Casaba Melon,,Fruit,Fruit,0 °L,1.9,6
+Carrot,,Fruit,Fruit,0 °L,2,65
+1886 Malt House - Caromatic 180,United States,Grain,Roasted malt,180 °L,0,26
+Carolina Malt House - Carolina Pilsner,United States,Grain,Base malt,2 °L,37,102
+Carolina Malt House - Carolina Gold,United States,Grain,Base malt,3 °L,37,119
+Weyermann - CaraWheat,Germany,Grain,Crystal malt,45 °L,31,924
+Proximity - Caravienne 20,United States,Grain,Crystal malt,20 °L,34.5,326
+CaraVienne,Belgium,Grain,Crystal malt,20 °L,34,"11,159"
+Franco-Belges - CaraVienna,Belgium,Grain,Base malt,20 °L,27,230
+Carastan Light (15L),United Kingdom,Grain,Crystal malt,15 °L,35,927
+Carastan (30/37),United Kingdom,Grain,Crystal malt,34 °L,35,"4,808"
+Weyermann - CaraRye,Germany,Grain,Crystal malt,75 °L,33,285
+CaraRye,Germany,Grain,Crystal malt,67 °L,34,"1,449"
+CaraRed,Germany,Grain,Crystal malt,20 °L,34,"20,840"
+Weyermann - CaraRed,Germany,Grain,Roasted malt,19 °L,35,"3,623"
+Briess - Carapils Malt,United States,Grain,Specialty malt,2 °L,34.5,"14,266"
+Briess - Carapils Copper Malt,United States,Grain,Specialty malt,30 °L,34.5,642
+Carapils (Dextrine Malt),United States,Grain,Crystal malt,2 °L,33,"125,695"
+Carapils,Germany,Grain,Crystal malt,1 °L,35,"48,815"
+BA Malt - Carapils,Argentina,Grain,Specialty malt,4 °L,34,"1,178"
+Weyermann - Carapils,Germany,Grain,Crystal malt,2 °L,34.5,"9,378"
+Maltear - Carapils,United States,Grain,Crystal malt,1 °L,35,186
+Weyermann - Caramunich Type 3,Germany,Grain,Crystal malt,57 °L,34,"3,059"
+Weyermann - Caramunich Type 2,Germany,Grain,Crystal malt,45 °L,34,"3,945"
+Weyermann - Caramunich Type 1,Germany,Grain,Crystal malt,35 °L,33.5,"4,058"
+CaraMunich III,Germany,Grain,Crystal malt,57 °L,34,"16,765"
+CaraMunich II,Germany,Grain,Crystal malt,46 °L,34,"22,692"
+CaraMunich I,Germany,Grain,Crystal malt,39 °L,34,"23,610"
+Proximity - Caramunich 60,United States,Grain,Crystal malt,60 °L,34.5,525
+The Swaen - CaraMunich,Netherlands,Grain,Crystal malt,35 °L,36.9,152
+CaraMunich,Belgium,Grain,Crystal malt,50 °L,33,"15,638"
+Grouse Malt House - CaraMillet Malt,United States,Grain,Gluten-free malt,3 °L,28,112
+Maltear - Caramelo 60,United States,Grain,Crystal malt,60 °L,34,167
+BA Malt - Caramelo 60,Argentina,Grain,Crystal malt,60 °L,35,606
+BA Malt - Caramelo 30,Argentina,Grain,Crystal malt,30 °L,35,543
+BA Malt - Caramelo 15,Argentina,Grain,Crystal malt,15 °L,35,59
+BA Malt - Caramelo 140,Argentina,Grain,Crystal malt,140 °L,34,86
+BA Malt - Caramelo 120,Argentina,Grain,Crystal malt,120 °L,34,435
+Maltear - Caramelo 120,United States,Grain,Crystal malt,120 °L,30,130
+Caramel Wheat,Germany,Grain,Crystal malt,46 °L,34,"2,847"
+Briess - Caramel Vienne 20L Malt,United States,Grain,Crystal malt,20 °L,35.9,749
+Viking - Caramel Sweet,Finland,Grain,Crystal malt,24 °L,34.5,15
+Great Western - Caramel Steam,United States,Grain,Crystal malt,40 °L,32,163
+Briess - Caramel Rye,United States,Grain,Crystal malt,60 °L,32,294
+Caramel Pils,Belgium,Grain,Crystal malt,8 °L,34,"7,979"
+Caramel Pils,Germany,Grain,Crystal malt,2 °L,35,"6,908"
+Viking - Caramel Pale,Finland,Grain,Crystal malt,4 °L,35,386
+Franco-Belges - Caramel Munich 80,Belgium,Grain,Crystal malt,80 °L,34,66
+Briess - Caramel Munich 60L,United States,Grain,Crystal malt,60 °L,35.4,"1,367"
+Franco-Belges - Caramel Munich 60,Belgium,Grain,Crystal malt,60 °L,34,153
+Briess - Caramel Malt - 90L,United States,Grain,Crystal malt,90 °L,34.5,498
+Briess - Caramel Malt - 80L,United States,Grain,Crystal malt,80 °L,35,"2,099"
+Briess - Caramel Malt - 60L,United States,Grain,Crystal malt,60 °L,35.4,"5,566"
+Briess - Caramel Malt - 40L,United States,Grain,Crystal malt,40 °L,35.4,"5,433"
+Briess - Caramel Malt - 30L,United States,Grain,Crystal malt,30 °L,35.4,240
+Briess - Caramel Malt - 20L,United States,Grain,Crystal malt,20 °L,35,"2,842"
+Briess - Caramel Malt - 120L,United States,Grain,Crystal malt,120 °L,34.5,"3,425"
+Briess - Caramel Malt - 10L,United States,Grain,Crystal malt,10 °L,35.4,"2,346"
+Avangard - Caramel Light 8L,Germany,Grain,Crystal malt,8 °L,36,75
+Viking - Caramel Aromatic 180EBC (68L),Finland,Grain,Crystal malt,68 °L,35,36
+Patagonia - Caramel 90L,Chile,Grain,Crystal malt,90 °L,29.9,119
+Viking - Caramel 600 (225L),Finland,Grain,Crystal malt,225 °L,35,108
+Maker's Malt - Caramel 60,Canada,Grain,Crystal malt,60 °L,37.3,147
+Patagonia - Caramel 55L,Chile,Grain,Crystal malt,55 °L,29.9,257
+Viking - Caramel 50 Malt(20L),Finland,Grain,Crystal malt,20 °L,34,499
+Patagonia - Caramel 45L,Chile,Grain,Crystal malt,45 °L,34,68
+1886 Malt House - Caramel 40,United States,Grain,Crystal malt,40 °L,34,238
+Viking - Caramel 300,Finland,Grain,Crystal malt,152 °L,35,302
+Viking - Caramel 30 Malt,Finland,Grain,Crystal malt,12 °L,34,339
+Patagonia - Caramel 20L,Chile,Grain,Crystal malt,20 °L,34,20
+Viking - Caramel 200 Malt,Finland,Grain,Crystal malt,75 °L,33,195
+Patagonia - Caramel 190L,Chile,Grain,Crystal malt,190 °L,29.9,34
+Viking - Caramel 150,Finland,Grain,Crystal malt,76 °L,35,742
+Patagonia - Caramel 140L,Chile,Grain,Crystal malt,140 °L,29.9,95
+Viking - Caramel 100,Finland,Grain,Crystal malt,51 °L,35,899
+Caramel / Crystal 90L,United States,Grain,Crystal malt,90 °L,33,"7,883"
+Caramel / Crystal 80L,United States,Grain,Crystal malt,80 °L,33,"34,792"
+Caramel / Crystal 75L,United States,Grain,Crystal malt,75 °L,33,"9,378"
+Caramel / Crystal 60L,,Grain,Crystal malt,60 °L,34,"102,299"
+Caramel / Crystal 40L,United States,Grain,Crystal malt,40 °L,34,"87,883"
+Caramel / Crystal 30L,United States,Grain,Crystal malt,30 °L,34,"11,198"
+Caramel / Crystal 20L,United States,Grain,Crystal malt,20 °L,35,"49,591"
+Caramel / Crystal 15L,United States,Grain,Crystal malt,15 °L,35,"15,838"
+Caramel / Crystal 150L,United States,Grain,Crystal malt,150 °L,33,"7,786"
+Caramel / Crystal 120L,United States,Grain,Crystal malt,120 °L,33,"52,248"
+Caramel / Crystal 10L,United States,Grain,Crystal malt,10 °L,35,"37,666"
+Carambola,,Fruit,Fruit,0 °L,1.95,2
+Simpsons - CaraMalt Light,United Kingdom,Grain,Crystal malt,12 °L,35,208
+Crisp Malting - Caramalt 15L,United Kingdom,Grain,Crystal malt,18 °L,32.7,"2,291"
+Crisp Malting - Caramalt,United Kingdom,Grain,Crystal malt,12 °L,37,"1,780"
+Joe White - Caramalt,Australia,Grain,Crystal malt,21 °L,34.5,573
+Thomas Fawcett - Caramalt,United Kingdom,Grain,Crystal malt,32 °L,34,468
+Simpsons - CaraMalt,United Kingdom,Grain,Crystal malt,14 °L,34,"1,907"
+Weyermann - Carahell,Germany,Grain,Crystal malt,10 °L,34,"5,390"
+CaraHell,Germany,Grain,Crystal malt,11 °L,34,"19,862"
+CaraFoam,Germany,Grain,Crystal malt,2 °L,37,"25,786"
+Weyermann - Carafoam,Germany,Grain,Crystal malt,2 °L,34.5,"9,255"
+Weyermann - Carafa Special Type III,Germany,Grain,Roasted malt,525 °L,29.9,"3,691"
+Weyermann - Carafa Special Type II,Germany,Grain,Roasted malt,425 °L,29.9,"3,293"
+Weyermann - Carafa Special Type 1,Germany,Grain,Roasted malt,340 °L,29.9,"1,550"
+Weyermann - Carafa III,Germany,Grain,Roasted malt,525 °L,32,"2,133"
+Carafa III,Germany,Grain,Roasted malt,535 °L,32,"20,221"
+Carafa II,Germany,Grain,Roasted malt,425 °L,32,"17,011"
+Weyermann - Carafa II,Germany,Grain,Roasted malt,415 °L,31.5,"1,632"
+Carafa I,Germany,Grain,Roasted malt,340 °L,32,"9,106"
+Weyermann - Carafa I,Germany,Grain,Roasted malt,340 °L,32,"1,131"
+Briess - Caracrystal Wheat Malt,United States,Grain,Crystal malt,55 °L,35.9,257
+CaraCrystal Wheat Malt,United States,Grain,Crystal malt,55 °L,34,"3,698"
+Briess - Carabrown Malt,United States,Grain,Crystal malt,55 °L,36.3,422
+CaraBrown,United States,Grain,Roasted malt,55 °L,34,"2,914"
+CaraBohemian,Germany,Grain,Crystal malt,75 °L,33,"2,774"
+Weyermann - CaraBohemian,Germany,Grain,Crystal malt,76 °L,35,231
+Viking - Carabody,Finland,Grain,Crystal malt,3 °L,10,484
+Weyermann - CARABELGE,Germany,Grain,Crystal malt,14 °L,34,"2,716"
+CaraAroma,Germany,Grain,Crystal malt,130 °L,34,"13,113"
+Weyermann - CaraAroma,Germany,Grain,Crystal malt,140 °L,36,"3,026"
+Weyermann - CaraAmber,Germany,Grain,Crystal malt,27 °L,37,"2,131"
+CaraAmber,Germany,Grain,Crystal malt,23 °L,34,"8,155"
+LINC Malt - Cara-6,United States,Grain,Crystal malt,6 °L,38,1
+Root Shoot Malting - Cara Ruby,United States,Grain,Crystal malt,27 °L,36,95
+Cara Plus 250,Finland,Grain,Crystal malt,94 °L,35,111
+Cara Plus 200,Finland,Grain,Crystal malt,76 °L,35,264
+Cara Plus 150,Finland,Grain,Crystal malt,57 °L,35,532
+Viking - Cara Plus 150,Finland,Grain,Crystal malt,76 °L,35,61
+Cara Plus 100,Finland,Grain,Crystal malt,38 °L,35,505
+Viking - Cara Plus 10,Finland,Grain,Crystal malt,5 °L,35,24
+Cara Pale,Finland,Grain,Crystal malt,4 °L,35,"2,476"
+Cara Malt,United Kingdom,Grain,Crystal malt,18 °L,35,"14,334"
+Warminster Maltings - Cara Malt,United Kingdom,Grain,Crystal malt,15 °L,34,3
+Barrett Burston - Cara malt,Australia,Grain,Crystal malt,18 °L,34.5,147
+Muntons - Cara Malt,United Kingdom,Grain,Crystal malt,11 °L,34,149
+Crisp Malting - Cara Gold malt,United Kingdom,Grain,Crystal malt,6 °L,34,"1,254"
+Warminster Maltings - Cara Gold,United Kingdom,Grain,Crystal malt,7 °L,35,17
+Dingemans - Cara 50 MD,Belgium,Grain,Crystal malt,20 °L,34,214
+Cara 45L,,Grain,Crystal malt,42 °L,34,"4,856"
+Dingemans - Cara 45,Belgium,Grain,Crystal malt,47 °L,34.5,470
+Cara 20L,,Grain,Crystal malt,22 °L,34,"5,352"
+Dingemans - cara 200 MD,Belgium,Grain,Crystal malt,75 °L,34,55
+Dingemans - Cara 20 MD (Caravienne),Belgium,Grain,Crystal malt,20 °L,34,713
+Dingemans - Cara 120 MD,Belgium,Grain,Crystal malt,120 °L,34,457
+Pauls Malt - Captains Classic - Cara Malt,United Kingdom,Grain,Crystal malt,10 °L,34.5,279
+Admiral - Capay Rye,United States,Grain,Base malt,8 °L,39,7
+Cantaloupe,,Fruit,Fruit,0 °L,3.4,10
+Cane Sugar,,Sugar,Sugar,0 °L,46,"53,032"
+OiO - Canadian 2-Row Malt,Canada,Grain,Base malt,2 °L,36.8,456
+Great Western - California Select 2-Row Malt,United States,Grain,Base malt,2 °L,37,552
+Origin Malt - C90,United States,Grain,Crystal malt,90 °L,34,5
+Origin Malt - C60,United States,Grain,Crystal malt,60 °L,34.5,36
+Origin Malt - C40,United States,Grain,Crystal malt,40 °L,34.5,45
+Buckwheat Malt - Gluten Free,United States,Grain,Gluten-free malt,2 °L,25,883
+Grouse Malt House - Buckwheat Malt,United States,Grain,Gluten-free malt,2 °L,30,271
+Great Western - Brumalt,United States,Grain,Crystal malt,20 °L,36,175
+Blacklands - Brownfield 40 Munich,United States,Grain,Specialty malt,40 °L,35,15
+Blacklands - Brownfield 25 Munich,United States,Grain,Specialty malt,25 °L,35,15
+Blacklands - Brownfield 15 Munich,United States,Grain,Specialty malt,15 °L,35,84
+Brown Sugar,,Sugar,Sugar,15 °L,45,"26,824"
+Brown Rice Syrup - Gluten Free,,Sugar,Sugar,2 °L,44,939
+Muntons - Brown Malt,United Kingdom,Grain,Specialty malt,57 °L,36,153
+Simpsons - Brown Malt,United Kingdom,Grain,Roasted malt,188 °L,32,"1,072"
+Gladfield - Brown Malt,New Zealand,Grain,Specialty malt,90 °L,34,217
+Brown Malt,,Grain,Specialty malt,90 °L,34,"1,882"
+Crisp Malting - Brown Malt,United Kingdom,Grain,Specialty malt,65 °L,32.7,"2,724"
+Warminster Maltings - Brown Malt,United Kingdom,Grain,Roasted malt,40 °L,34,44
+Patagonia - Brown Malt,Chile,Grain,Roasted malt,110 °L,30,4
+Thomas Fawcett - Brown,United Kingdom,Grain,Roasted malt,71 °L,32,769
+Brown,United Kingdom,Grain,Roasted malt,65 °L,32,"17,147"
+BA Malt - Brown,Argentina,Grain,Crystal malt,130 °L,32,52
+Montana Craft Malt - British Pale Malt,United States,Grain,Base malt,3 °L,37,78
+Briess - Brewers Yellow Corn Flakes,United States,Adjunct,Raw,1 °L,34.5,"1,258"
+Briess - Brewers Triticale Flakes,United States,Adjunct,Raw,3 °L,32.7,22
+Briess - Brewers Torrified Wheat,United States,Adjunct,Raw,2 °L,35,"1,260"
+Briess - Brewers Rye Flakes,United States,Adjunct,Raw,3 °L,32.7,354
+Briess - Brewers Red Wheat Flakes,United States,Adjunct,Raw,2 °L,32.2,975
+Briess - Brewers Oat Flakes / Flaked oats,United States,Adjunct,Raw,3 °L,32.2,"3,813"
+Briess - Brewers Malt 2-Row,United States,Grain,Base malt,2 °L,37,"17,672"
+Origin Malt - Brewers Malt,United States,Grain,Base malt,2 °L,35.88,34
+Brewers Crystals,United States,Sugar,Sugar,2 °L,44,838
+Briess - Brewers Corn Syrup,United States,Sugar,Sugar,1 °L,40.9,86
+Briess - Brewers Brown Rice Flakes,United States,Adjunct,Raw,1 °L,27.6,353
+Coopers - Brew Enhancer 3,Australia,Liquid Extract,Extract,4 °L,16,34
+Coopers - Brew Enhancer 2,Australia,Liquid Extract,Extract,6 °L,45,76
+Coopers - Brew Enhancer 1,Australia,Sugar,Sugar,1 °L,45,51
+Boysenberry,,Fruit,Fruit,0 °L,2.5,34
+Canada Malting - BOURBON MALT,Canada,Grain,Base malt,2 °L,37.3,7
+Sugar Creek Malt - Boone County White Malted Corn,United States,Adjunct,Base malt,3 °L,35.7,16
+Briess - Bonlander Munich Malt 10L,United States,Grain,Specialty malt,10 °L,36,"10,265"
+Weyermann - Bohemian Pilsner Malt,Germany,Grain,Base malt,2 °L,36.8,"2,767"
+Bohemian Pilsner,Germany,Grain,Base malt,2 °L,38,"17,237"
+Proximity - BodyBuilder,United States,Grain,Base malt,8 °L,34.5,1
+Black Rock - Bock,New Zealand,Liquid Extract,Extract,19 °L,25,6
+Blueberry honey,United States,Sugar,Honey,2 °L,35,36
+Blueberry,,Fruit,Fruit,0 °L,4.95,"1,338"
+Troubador Malting - Blue Ballad,United States,Grain,Crystal malt,20 °L,38.2,6
+Sugar Creek Malt - Bloody Butcher Malted Corn,United States,Adjunct,Base malt,3 °L,37,39
+Bloody Butcher Corn,United States,Adjunct,Raw,2 °L,25,26
+Riverbend Malt - Bloody Butcher Corn,United States,Adjunct,Raw,2 °L,20,15
+Briess - Blonde RoastOat Malt,United States,Grain,Roasted malt,6 °L,34.5,"1,267"
+Innomalt - Ble Rouge Malté (Red Wheat Malt),Canada,Grain,Base malt,2 °L,36.3,221
+The Swaen - Blackswaen Honey Biscuit,Netherlands,Grain,Crystal malt,30 °L,37,316
+The Swaen - BlackSwaen Coffee Malt,Netherlands,Grain,Roasted malt,225 °L,36,270
+The Swaen - Blackswaen Coffee Light W,Netherlands,Grain,Roasted malt,150 °L,35.8,40
+The Swaen - Blackswaen Chocolate W,Netherlands,Grain,Roasted malt,350 °L,35.8,182
+The Swaen - BlackSwaen Chocolate B,Netherlands,Grain,Roasted malt,338 °L,34.5,666
+The Swaen - Blackswaen Black W,Netherlands,Grain,Roasted malt,400 °L,36,67
+The Swaen - Blackswaen Black Extra,Netherlands,Grain,Roasted malt,500 °L,32.7,143
+The Swaen - Blackswaen Black,Netherlands,Grain,Roasted malt,125 °L,33.6,116
+The Swaen - BlackSwaen Biscuit,Netherlands,Grain,Roasted malt,30 °L,36,348
+The Swaen - BlackSwaen Barley,Netherlands,Grain,Roasted malt,400 °L,33,259
+Meridian - Blackstrap,United Kingdom,Sugar,Sugar,1125 °L,40,173
+Briess - Blackprinz Malt,United States,Grain,Roasted malt,500 °L,25,"1,878"
+Blackprinz,United States,Grain,Roasted malt,500 °L,36,"6,696"
+Blackberry,,Fruit,Fruit,0 °L,3.6,830
+Lyle - Black Treacle,United Kingdom,Sugar,Sugar,74 °L,36,114
+Patagonia - Black Pearl,Chile,Grain,Roasted malt,340 °L,29.9,225
+Black Patent,United Kingdom,Grain,Roasted malt,525 °L,27,"25,302"
+Black Malt,United States,Grain,Roasted malt,500 °L,28,"25,138"
+Black Malt,Finland,Grain,Roasted malt,526 °L,30,"1,376"
+Thomas Fawcett - Black Malt,United Kingdom,Grain,Roasted malt,545 °L,32,532
+Simpsons - Black Malt,United Kingdom,Grain,Roasted malt,700 °L,34,"1,197"
+Briess - Black Malt,United States,Grain,Roasted malt,500 °L,27,316
+Proximity - Black Malt,United States,Grain,Roasted malt,500 °L,32,135
+Viking - Black Malt,Finland,Grain,Roasted malt,500 °L,21,428
+Ireks - Black Malt,Germany,Grain,Roasted malt,530 °L,32.2,109
+Bestmalz - black malt,United States,Grain,Roasted malt,425 °L,32,11
+Muntons - Black Malt,United Kingdom,Grain,Roasted malt,600 °L,34.5,107
+Gladfield - Black Forrest Rye Malt,New Zealand,Grain,Base malt,45 °L,31,74
+Red shed - Black Bear Wheat Malt,Canada,Grain,Roasted malt,355 °L,33,26
+Briess - Black Barley,United States,Grain,Roasted malt,550 °L,25,"2,458"
+Black Barley,United States,Grain,Roasted malt,530 °L,27,"4,909"
+Crisp Malting - Black,United Kingdom,Grain,Roasted malt,600 °L,34.5,"1,239"
+Proximity - Biscuit Roasted 20,United States,Grain,Roasted malt,20 °L,35,519
+Eckert Malting - Biscuit Rice Malt,United States,Grain,Gluten-free malt,5 °L,22,173
+Biscuit Malt,New Zealand,Grain,Roasted malt,30 °L,35,"1,724"
+Gladfield - Biscuit Malt,New Zealand,Grain,Roasted malt,30 °L,35,517
+Red shed - Biscuit (18 ºL),Canada,Grain,Roasted malt,18 °L,35,209
+Voyager Craft Malt - Biscuit,Australia,Grain,Roasted malt,15 °L,36.3,185
+BA Malt - Biscuit,Argentina,Grain,Specialty malt,20 °L,36,350
+Biscuit,Belgium,Grain,Roasted malt,23 °L,35,"39,046"
+Dingemans - Biscuit,Belgium,Grain,Specialty malt,22 °L,34.5,"2,854"
+Weyermann - BIOLAND Pilsner Malt (Organic),Germany,Grain,Base malt,3 °L,29,145
+"Gladfield - Big O, Malted Oats",New Zealand,Grain,Base malt,2 °L,27.5,"1,227"
+Bestmalz - BEST Wheat Malt Dark,Germany,Grain,Base malt,7 °L,37.7,131
+Bestmalz - BEST Wheat Malt,Germany,Grain,Base malt,2 °L,37.7,"3,570"
+Bestmalz - BEST Vienna,Germany,Grain,Base malt,4 °L,37,"2,973"
+Bestmalz - BEST Spelt,Germany,Grain,Base malt,2 °L,37.7,718
+Bestmalz - BEST Special X,Germany,Grain,Crystal malt,133 °L,34.5,870
+Bestmalz - BEST Smoked,Germany,Grain,Smoked malt,3 °L,35.4,488
+Bestmalz - BEST Roasted Barley,Germany,Grain,Roasted malt,480 °L,30,782
+Bestmalz - Best RED X,Germany,Grain,Specialty malt,12 °L,36,"1,996"
+Bestmalz - BEST Pilsen,Germany,Grain,Base malt,2 °L,37,"7,418"
+Bestmalz - BEST Peated,Germany,Grain,Base malt,3 °L,35.8,83
+Bestmalz - BEST Pale ale,Germany,Grain,Base malt,3 °L,38.1,"3,569"
+Simpsons - Best Pale Ale,United Kingdom,Grain,Base malt,2 °L,37.5,"1,411"
+Bestmalz - BEST Organic Pilsen Malt,Germany,Grain,Base malt,2 °L,37,202
+Bestmalz - BEST Munich Dark,Germany,Grain,Specialty malt,11 °L,36.23,"1,100"
+Bestmalz - BEST Munich,Germany,Grain,Specialty malt,6 °L,37,"4,166"
+Bestmalz - BEST Melanoidin Light,Germany,Grain,Specialty malt,20 °L,34.5,312
+Bestmalz - BEST Melanoidin,Germany,Grain,Specialty malt,27 °L,34.5,"1,920"
+Bestmalz - BEST Heidelberg Wheat Malt,Germany,Grain,Base malt,2 °L,37,409
+Bestmalz - BEST Heidelberg,Germany,Grain,Base malt,1 °L,38,"1,568"
+Bestmalz - BEST Chocolate,Germany,Grain,Roasted malt,338 °L,34.5,"1,355"
+Bestmalz - BEST Chit Malt,Germany,Grain,Base malt,1 °L,23,"4,195"
+Bestmalz - BEST Caramel Pils,Germany,Grain,Crystal malt,2 °L,37,"2,158"
+Bestmalz - BEST Caramel Munich III,Germany,Grain,Crystal malt,63 °L,34.5,812
+Bestmalz - BEST Caramel Munich II,Germany,Grain,Crystal malt,46 °L,34.5,740
+Bestmalz - BEST Caramel Munich I,Germany,Grain,Crystal malt,35 °L,34.5,741
+Bestmalz - BEST Caramel Hell,Germany,Grain,Crystal malt,5 °L,34.5,839
+Bestmalz - BEST Caramel Aromatic,Germany,Grain,Crystal malt,19 °L,34.5,790
+Bestmalz - BEST Caramel Amber,Germany,Grain,Crystal malt,25 °L,34,510
+Bestmalz - BEST Black Malt eXtra,Germany,Grain,Roasted malt,500 °L,30,290
+Bestmalz - BEST Black Malt,Germany,Grain,Roasted malt,425 °L,30,570
+Bestmalz - BEST Biscuit,Germany,Grain,Roasted malt,20 °L,35,"1,402"
+Crisp Malting - Best Ale,United Kingdom,Grain,Base malt,3 °L,37.5,"2,051"
+Bestmalz - BEST Acidulated,Germany,Grain,Acidulated malt,3 °L,35.9,"4,521"
+Bestmalz - Best A-XL,Germany,Grain,Base malt,2 °L,36.8,27
+Dingemans - Belgian Pilsner Malt,Belgium,Grain,Base malt,2 °L,37,"3,335"
+Dingemans - Belgian Cara 8 Pils Malt,Belgium,Grain,Crystal malt,6 °L,30,450
+Candi Syrup - Belgian Candi Syrup - Simplicity,,Sugar,Sugar,1 °L,32,691
+Candi Syrup - Belgian Candi Syrup - Golden (5L),,Sugar,Sugar,5 °L,32,"1,544"
+Candi Syrup - Belgian Candi Syrup - Dark (80L),,Sugar,Sugar,80 °L,32,"3,233"
+Candi Syrup - Belgian Candi Syrup - D2 (160L),,Sugar,Sugar,160 °L,32,"1,024"
+Lyle - Belgian Candi Syrup - D2 (160L),United Kingdom,Sugar,Sugar,169 °L,32,4
+Candi Syrup - Belgian Candi Syrup - D-90,,Sugar,Sugar,90 °L,32,"2,646"
+Candi Syrup - Belgian Candi Syrup - D-45,,Sugar,Sugar,45 °L,32,"1,801"
+Candi Syrup - Belgian Candi Syrup - D-240,,Sugar,Sugar,240 °L,32,337
+Candi Syrup - Belgian Candi Syrup - D-180,,Sugar,Sugar,180 °L,32,"3,231"
+Candi Syrup - Belgian Candi Syrup - Clear (0L),,Sugar,Sugar,0 °L,32,"3,552"
+Candi Syrup - Belgian Candi Syrup - Brun Léger,,Sugar,Sugar,7 °L,42,113
+Candi Syrup - Belgian Candi Syrup - Brun Foncé,,Sugar,Sugar,22 °L,42,121
+Candi Syrup - Belgian Candi Syrup - Blanc,,Sugar,Sugar,0 °L,42,356
+Candi Syrup - Belgian Candi Syrup - Amber (40L),,Sugar,Sugar,40 °L,32,"3,095"
+Belgian Candi Sugar - Dark (275L),,Sugar,Sugar,275 °L,38,"5,191"
+Franco-Belges - Belgian Candi Sugar - Dark (275L),Belgium,Sugar,Sugar,160 °L,38,172
+Belgian Candi Sugar - Clear/Blond (0L),,Sugar,Sugar,0 °L,38,"15,054"
+Lyle - Belgian Candi Sugar - Clear/Blond (0L),United Kingdom,Sugar,Sugar,0 °L,38,22
+Candi Syrup - Belgian Candi Sugar - Clear/Blond (0L),Belgium,Sugar,Sugar,0 °L,46,142
+Belgian Candi Sugar - Amber/Brown (60L),,Sugar,Sugar,60 °L,38,"5,578"
+Weyermann - Beech Smoked Barley,Germany,Grain,Smoked malt,3 °L,35,"1,681"
+Castle Malting - BE - Castle Malting - Pale Ale,Belgium,Grain,Base malt,2 °L,38,52
+Proximity - Base Malt,United States,Grain,Base malt,2 °L,37.5,"2,226"
+Riverbend Malt - Base Camp Extra Pale,United States,Grain,Base malt,2 °L,36.4,103
+LINC Malt - Baronnesse Pilsner,United States,Grain,Base malt,2 °L,37,51
+LINC Malt - Baronnesse Light Munich,United States,Grain,Specialty malt,8 °L,36,33
+LINC Malt - Baronnesse c40,United States,Grain,Crystal malt,43 °L,34,6
+LINC Malt - Baronesse Vienna,United States,Grain,Base malt,6 °L,37,53
+LINC Malt - Baronesse Pilsner,United States,Grain,Base malt,2 °L,36,18
+LINC Malt - Baronesse Pale,United States,Grain,Base malt,2 °L,37,58
+LINC Malt - Baronesse English Pale,United States,Grain,Base malt,4 °L,37,75
+LINC Malt - Baronesse Dark Munich,United States,Grain,Specialty malt,60 °L,36.3,38
+LINC Malt - Baronesse Crystal 60L,United States,Grain,Crystal malt,60 °L,36,2
+LINC Malt - Baronesse Crystal 120,United States,Grain,Crystal malt,120 °L,36,22
+LINC Malt - Baronesse Caramel/Dextrine,United States,Grain,Crystal malt,4 °L,37.3,19
+LINC Malt - Baroness Crystal 60L,United States,Grain,Crystal malt,60 °L,37.7,27
+"Briess - Barley, Flaked",United States,Adjunct,Raw,1 °L,32.2,"2,247"
+Weyermann - Barke Vienna,Germany,Grain,Base malt,3 °L,36,"1,607"
+Weyermann - Barke Pilsner Malt,Germany,Grain,Base malt,2 °L,37.03,"4,439"
+Weyermann - Barke Munich Malt,Germany,Grain,Specialty malt,8 °L,37,"2,509"
+Banana,,Fruit,Fruit,0 °L,7.65,308
+Troubador Malting - Ballad,United States,Grain,Base malt,7 °L,38,4
+BA Malt - Avena,Argentina,Adjunct,Other,2 °L,33,793
+Gladfield - Aurora Malt,New Zealand,Grain,Specialty malt,29 °L,37.2,446
+Aurora Malt,New Zealand,Grain,Base malt,29 °L,37.2,696
+Voyager Craft Malt - Atlas Latrobe,Australia,Grain,Base malt,2 °L,37.6,517
+Briess - Ashburne® Mild Malt,United States,Grain,Base malt,5 °L,36.34,411
+Ashburne Mild,,Grain,Base malt,5 °L,36,"1,368"
+Briess - Aromatic Munich Malt 20L,United States,Grain,Specialty malt,20 °L,35.4,"2,934"
+Aromatic Malt,,Grain,Specialty malt,20 °L,35,"18,078"
+Pauls Malt - Aromatic Malt,United Kingdom,Grain,Specialty malt,20 °L,35,22
+Patagonia - Aromatic Malt,Chile,Grain,Specialty malt,8 °L,35,0
+Castle Malting - Aromatic Malt,Belgium,Grain,Specialty malt,20 °L,35,134
+Weyermann - Aromatic Malt,Germany,Grain,Specialty malt,20 °L,35,111
+Dingemans - Aromatic Malt,Belgium,Grain,Specialty malt,19 °L,36.3,"1,561"
+Franco-Belges - Aromatic Malt,Belgium,Grain,Acidulated malt,3 °L,35,66
+Simpsons - Aromatic Malt,United Kingdom,Grain,Roasted malt,23 °L,33,949
+Montana Craft Malt - Aromatic Malt,United States,Grain,Specialty malt,20 °L,35,3
+Aromatic,,Grain,Base malt,38 °L,33,"18,747"
+Ireks - Aroma Malt,Germany,Grain,Roasted malt,108 °L,35,157
+Dingemans - Aroma 150 MD,Belgium,Grain,Specialty malt,57 °L,35,107
+Dingemans - Aroma 100 MD,Belgium,Grain,Specialty malt,38 °L,35.4,39
+Apricot (dried),,Fruit,Fruit,0 °L,17.9,92
+Oregon Fruit - Apricot,United States,Fruit,Puree,0 °L,7.31,60
+Apricot,,Fruit,Fruit,0 °L,4.05,493
+Briess - Apple Wood Smoked Malt,United States,Grain,Smoked malt,6 °L,37,135
+Apple juice,United States,Fruit,Juice,1 °L,5.8,"1,280"
+Apple,,Fruit,Fruit,0 °L,5.6,"1,668"
+Riverbend Malt - Appalachian Wheat,United States,Grain,Base malt,3 °L,39,243
+Pauls Malt - Angry Angler Roasted Barley,United Kingdom,Grain,Roasted malt,563 °L,29,167
+Grouse Malt House - American Roasted Millet Malt,United States,Grain,Gluten-free malt,16 °L,25,32
+Great Western - American Munich,United States,Grain,Base malt,8 °L,35.4,711
+Briess - American Honey Malt,United States,Grain,Specialty malt,25 °L,37.7,"1,471"
+American Ale Malt,New Zealand,Grain,Base malt,3 °L,37.3,"3,143"
+Gladfield - American Ale Malt,New Zealand,Grain,Base malt,3 °L,37.3,"2,426"
+Quaker - American 5 Minute Grits,United States,Adjunct,Raw,1 °L,20,59
+Bays Best Feed - American - Oats,United States,Adjunct,Raw,10 °L,33,147
+Simpsons - Amber Malt,United Kingdom,Grain,Specialty malt,21 °L,31.8,821
+Thomas Fawcett - Amber Malt,United Kingdom,Grain,Roasted malt,38 °L,32.2,768
+Muntons - Amber Malt,United Kingdom,Grain,Roasted malt,22 °L,35,176
+Warminster Maltings - Amber Malt,United Kingdom,Grain,Roasted malt,35 °L,34,26
+Muntons - Amber LME,United Kingdom,Liquid Extract,Extract,2 °L,36,114
+Black Rock - Amber Liquid Malt Extract (LME),New Zealand,Liquid Extract,Extract,7 °L,36,48
+Castle Malting - Amber,Belgium,Grain,Roasted malt,17 °L,35.9,76
+Crisp Malting - Amber,United Kingdom,Grain,Base malt,28 °L,33.1,"1,181"
+Red shed - Amber,Canada,Grain,Roasted malt,50 °L,32,34
+Amber,United Kingdom,Grain,Base malt,27 °L,32,"13,426"
+Voyager Craft Malt - Amber,Australia,Grain,Crystal malt,25 °L,37,59
+Joe White - Amber,Australia,Grain,Roasted malt,20 °L,34,118
+Joe White - Ale Malt,Australia,Grain,Base malt,3 °L,36.8,803
+Ale Malt,Ireland,Grain,Base malt,3 °L,37,"1,641"
+Ale Malt,New Zealand,Grain,Base malt,3 °L,37.4,"3,715"
+Barrett Burston - Ale Malt,Australia,Grain,Base malt,3 °L,36.8,521
+The Swaen - Ale Malt,Netherlands,Grain,Base malt,4 °L,37,228
+Gladfield - Ale Malt,New Zealand,Grain,Base malt,3 °L,37.4,345
+Pauls Malt - Albino Whale - Extra pale ale malt,United Kingdom,Grain,Base malt,2 °L,36,344
+Agave Nectar,,Sugar,Sugar,2 °L,35,746
+Admiral - Admiral's Hearth,United States,Grain,Specialty malt,20 °L,37,72
+Acidulated Malt,Germany,Grain,Acidulated malt,3 °L,27,"80,872"
+Weyermann - Acidulated,Germany,Grain,Acidulated malt,3 °L,27,"16,045"
+Acerola,,Fruit,Fruit,0 °L,1.5,8
+Weyermann - Abbey Malt,Germany,Grain,Base malt,17 °L,36.8,"1,021"
+Abbey Malt,Germany,Grain,Base malt,17 °L,33,"3,797"
+LINC Malt - 99 Triticale Pilsner,United States,Grain,Base malt,4 °L,38.4,12
+LINC Malt - 99 Triticale Pale,United States,Grain,Base malt,5 °L,40.9,23
+LINC Malt - 99 Triticale Munich,United States,Grain,Specialty malt,15 °L,40,20
+Sugar Creek Malt - 6-Row Pre-Prohibition,United States,Grain,Base malt,6 °L,36.1,62
+Viking - 2-row Xtra Pale Europe,Poland,Grain,Base malt,2 °L,36.8,253
+Montana Craft Malt - 2-row,United States,Grain,Base malt,2 °L,37,182
+Great Lakes Malting - 2 Row Pale malt,United States,Grain,Base malt,4 °L,38,26
+Malteurop - 2 Row,United States,Grain,Base malt,2 °L,34.3,"3,904"
+1886 Malt House - NY 2-Row Pale Malt,United States,Grain,Base malt,2 °L,35.64,204
+1886 Malt House - NY 2-Row Base Malt,United States,Grain,Base malt,3 °L,35.64,149
+Thomas Fawcett - Halcyon Pale Ale,United Kingdom,Grain,Base malt,3 °L,37,179

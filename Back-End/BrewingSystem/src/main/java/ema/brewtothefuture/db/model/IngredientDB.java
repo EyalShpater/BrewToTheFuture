@@ -16,4 +16,16 @@ public class IngredientDB {
 
     @OneToOne(mappedBy = "ingredientDB")
     private RecipeIngredientDB recipeIngredient;
+
+    public static String TypeHop = "Hop";
+    public static String TypeFermentable = "Fermentable";
+    public static String TypeYeast = "Yeast";
+
+    public IngredientDB(String name, String type) {
+        this.type = type;
+        this.name = name;
+    }
+
+    public IngredientDB() {
+    }
 }

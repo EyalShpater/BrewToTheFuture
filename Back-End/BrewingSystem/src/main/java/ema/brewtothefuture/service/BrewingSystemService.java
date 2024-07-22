@@ -1,6 +1,7 @@
 package ema.brewtothefuture.service;
 
 import com.opencsv.CSVReader;
+import ema.brewtothefuture.db.model.IngredientDB;
 import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.db.model.StyleDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
@@ -19,6 +20,7 @@ import ema.brewtothefuture.model.recipe.api.Hop;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.recipe.impl.RecipeManager;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
+import ema.brewtothefuture.repository.IngredientRepository;
 import ema.brewtothefuture.repository.RecipeRepository;
 import ema.brewtothefuture.repository.StyleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +43,14 @@ public class BrewingSystemService implements BrewingSystem {
     private final DeviceManager  deviceManager  = new DeviceManagerImpl();
 
     private final RecipeRepository recipeRepository;
-    private final StyleRepository  styleRepository;
+    private final StyleRepository      styleRepository;
+    private final IngredientRepository ingredientRepository;
 
     @Autowired
-    public BrewingSystemService(RecipeRepository recipeRepository, StyleRepository styleRepository) {
+    public BrewingSystemService(RecipeRepository recipeRepository, StyleRepository styleRepository, IngredientRepository ingredientRepository) {
         this.recipeRepository = recipeRepository;
         this.styleRepository = styleRepository;
+        this.ingredientRepository = ingredientRepository;
     }
 
     @Override
@@ -139,16 +143,44 @@ public class BrewingSystemService implements BrewingSystem {
     @Override
     public void loadData() {
         if (styleRepository.count() <= 0) {
-            try (CSVReader csvReader = new CSVReader(new InputStreamReader(new ClassPathResource("dataset/styleData.csv").getInputStream()))) {
-                csvReader.readNext();
-                List<StyleDB> entities = csvReader.readAll().stream()
-                                                  .map(values -> new StyleDB(values[ 0 ]))
-                                                  .collect(Collectors.toList());
-                styleRepository.saveAll(entities);
-                System.out.println("Loaded styles");
-            } catch (Exception e) {
-                throw new RuntimeException("Failed to parse CSV file", e);
-            }
+            loadStyle();
+        }
+
+        if (ingredientRepository.count() <= 0) {
+            loadIngredients();
         }
     }
+
+    private void loadIngredients() {
+        loadIngredients(IngredientDB.TypeHop, "dataset/hops.csv");
+        loadIngredients(IngredientDB.TypeFermentable, "dataset/fermentables.csv");
+        loadIngredients(IngredientDB.TypeYeast, "dataset/yeasts.csv");
+    }
+
+    private void loadIngredients(String type, String fileName) {
+        try{
+            InputStream inputStream = new ClassPathResource(fileName).getInputStream();
+            CSVReader csvReader = new CSVReader(new InputStreamReader(inputStream));
+            csvReader.readNext();
+            List<IngredientDB> entities = csvReader.readAll().stream()
+                                                   .map(values -> new IngredientDB(values[ 0 ], type))
+                                                   .collect(Collectors.toList());
+            ingredientRepository.saveAll(entities);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to parse CSV file", e);
+        }
+    }
+
+    private void loadStyle() {
+        try (CSVReader csvReader = new CSVReader(new InputStreamReader(new ClassPathResource("dataset/styleData.csv").getInputStream()))) {
+            csvReader.readNext();
+            List<StyleDB> entities = csvReader.readAll().stream()
+                                              .map(values -> new StyleDB(values[ 0 ]))
+                                              .collect(Collectors.toList());
+            styleRepository.saveAll(entities);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to parse CSV file", e);
+        }
+    }
+
 }
