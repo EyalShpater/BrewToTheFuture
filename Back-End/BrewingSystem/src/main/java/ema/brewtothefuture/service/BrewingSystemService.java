@@ -6,17 +6,13 @@ import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.db.model.StyleDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
-import ema.brewtothefuture.dto.front.FermentableDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
-import ema.brewtothefuture.dto.front.YeastDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.api.BrewingManager;
 import ema.brewtothefuture.model.heatunit.api.DeviceManager;
 import ema.brewtothefuture.model.heatunit.impl.BrewingManagerImpl;
 import ema.brewtothefuture.model.heatunit.impl.DeviceManagerImpl;
 import ema.brewtothefuture.model.recipe.api.BrewMethod;
-import ema.brewtothefuture.model.recipe.api.BrewStyle;
-import ema.brewtothefuture.model.recipe.api.Hop;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.recipe.impl.RecipeManager;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
@@ -26,12 +22,9 @@ import ema.brewtothefuture.repository.StyleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -53,6 +46,7 @@ public class BrewingSystemService implements BrewingSystem {
         this.ingredientRepository = ingredientRepository;
     }
 
+    //todo: db
     @Override
     public EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
@@ -64,27 +58,11 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
-    public List<FermentableDTO> getFermentables() {
-        return null;
-    }
-
-    @Override
-    public List<Hop> getHops() {
-        return List.of();
-    }
-
-    @Override
-    public List<YeastDTO> getYeast() {
-        return List.of();
-    }
-
-    @Override
     public List<RecipeDTO> getAllRecipes() {
-//        return recipeManager.getAllRecipes();
         return recipeRepository.findAll()
-                              .stream()
-                              .map(RecipeDB::convertToDTO)
-                              .collect(Collectors.toList());
+                               .stream()
+                               .map(RecipeDB::convertToDTO)
+                               .collect(Collectors.toList());
     }
 
     @Override
@@ -92,6 +70,7 @@ public class BrewingSystemService implements BrewingSystem {
 
     }
 
+    //todo: maybe delete the recipeManager
     @Override
     public int addNewRecipe(RecipeDTO recipe) {
         Recipe newRecipe = recipeManager.addRecipe(recipe);
@@ -111,12 +90,14 @@ public class BrewingSystemService implements BrewingSystem {
         brewingManager.markHeadOfQueueAsBrewedInQueue(userId);
     }
 
+    //todo: db
     @Override
     public void addBrewingReport(String deviceId, BrewingReportDTO report) {
         String userId = deviceManager.getUser(deviceId);
         brewingManager.getBrewInQueue(userId).addBrewingReport(report);
     }
 
+    //todo: db
     @Override
     public List<BrewingReportDTO> getBrewingReport(String userId, int brewId) {
         return brewingManager.getBrewHistory(userId, brewId);
@@ -131,13 +112,18 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public List<String> getBrewingStyle() {
-//        return Arrays.stream(BrewStyle.values())
-//                     .map(Enum::toString)
-//                     .collect(Collectors.toList());
         return styleRepository.findAll()
                               .stream()
                               .map(StyleDB::getName)
                               .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getIngredients(String type) {
+        return ingredientRepository.findByType(type)
+                                   .stream()
+                                   .map(IngredientDB::getName)
+                                   .collect(Collectors.toList());
     }
 
     @Override
@@ -158,7 +144,7 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     private void loadIngredients(String type, String fileName) {
-        try{
+        try {
             InputStream inputStream = new ClassPathResource(fileName).getInputStream();
             CSVReader csvReader = new CSVReader(new InputStreamReader(inputStream));
             csvReader.readNext();

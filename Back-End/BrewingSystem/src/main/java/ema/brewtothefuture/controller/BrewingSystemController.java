@@ -49,11 +49,6 @@ public class BrewingSystemController {
         brewingSystem.brewRecipe(recipeId, recipeDTO.user_id());
     }
 
-//    @PostMapping("/api/brew/recipe/{recipeId}")
-//    public void brew(@PathVariable int recipeId, @RequestBody String userId) {
-//        brewingSystem.brewRecipe(recipeId, userId);
-//    }
-
     @PostMapping("/api/brew/add_recipe")
     public void addRecipe(@RequestBody RecipeDTO recipeDTO) {
         brewingSystem.addNewRecipe(recipeDTO);
@@ -72,6 +67,11 @@ public class BrewingSystemController {
     @GetMapping("/api/brew/styles")
     public List<String> getStyles() {
         return brewingSystem.getBrewingStyle();
+    }
+
+    @GetMapping("/api/brew/ingredients")
+    public List<String> getIngredients(@RequestParam String type) {
+        return brewingSystem.getIngredients(type);
     }
 
     @PostMapping("/api/{userId}/brew/recipe/{recipeId}")
