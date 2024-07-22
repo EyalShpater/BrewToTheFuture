@@ -99,4 +99,9 @@ public class BrewingSystemController {
         System.out.println(userId + " " + brewId);
         return brewingSystem.getBrewingReport(userId, brewId);
     }
+
+    @GetMapping("api/init/load_data")
+    public void loadData() {
+        brewingSystem.loadData();
+    }
 }

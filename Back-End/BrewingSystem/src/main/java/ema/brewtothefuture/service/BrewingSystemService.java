@@ -1,6 +1,8 @@
 package ema.brewtothefuture.service;
 
+import com.opencsv.CSVReader;
 import ema.brewtothefuture.db.model.RecipeDB;
+import ema.brewtothefuture.db.model.StyleDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.FermentableDTO;
@@ -18,9 +20,16 @@ import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.recipe.impl.RecipeManager;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.repository.RecipeRepository;
+import ema.brewtothefuture.repository.StyleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,10 +41,12 @@ public class BrewingSystemService implements BrewingSystem {
     private final DeviceManager  deviceManager  = new DeviceManagerImpl();
 
     private final RecipeRepository recipeRepository;
+    private final StyleRepository  styleRepository;
 
     @Autowired
-    public BrewingSystemService(RecipeRepository recipeRepository) {
+    public BrewingSystemService(RecipeRepository recipeRepository, StyleRepository styleRepository) {
         this.recipeRepository = recipeRepository;
+        this.styleRepository = styleRepository;
     }
 
     @Override
@@ -65,7 +76,11 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public List<RecipeDTO> getAllRecipes() {
-        return recipeManager.getAllRecipes();
+//        return recipeManager.getAllRecipes();
+        return recipeRepository.findAll()
+                              .stream()
+                              .map(RecipeDB::convertToDTO)
+                              .collect(Collectors.toList());
     }
 
     @Override
@@ -112,8 +127,28 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public List<String> getBrewingStyle() {
-        return Arrays.stream(BrewStyle.values())
-                     .map(Enum::toString)
-                     .collect(Collectors.toList());
+//        return Arrays.stream(BrewStyle.values())
+//                     .map(Enum::toString)
+//                     .collect(Collectors.toList());
+        return styleRepository.findAll()
+                              .stream()
+                              .map(StyleDB::getName)
+                              .collect(Collectors.toList());
+    }
+
+    @Override
+    public void loadData() {
+        if (styleRepository.count() <= 0) {
+            try (CSVReader csvReader = new CSVReader(new InputStreamReader(new ClassPathResource("dataset/styleData.csv").getInputStream()))) {
+                csvReader.readNext();
+                List<StyleDB> entities = csvReader.readAll().stream()
+                                                  .map(values -> new StyleDB(values[ 0 ]))
+                                                  .collect(Collectors.toList());
+                styleRepository.saveAll(entities);
+                System.out.println("Loaded styles");
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to parse CSV file", e);
+            }
+        }
     }
 }

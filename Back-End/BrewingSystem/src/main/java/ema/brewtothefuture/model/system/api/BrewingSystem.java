@@ -40,4 +40,6 @@ public interface BrewingSystem {
     List<String> getBrewingMethods();
 
     List<String> getBrewingStyle();
+
+    void loadData();
 }

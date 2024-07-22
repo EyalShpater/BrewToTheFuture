@@ -2,8 +2,11 @@ package ema.brewtothefuture.db.model;
 
 import ema.brewtothefuture.db.model.converter.CombinedStepsNotifications;
 import ema.brewtothefuture.db.model.converter.StepsAndNotificationsConverter;
+import ema.brewtothefuture.dto.api.DTOConvertible;
 import ema.brewtothefuture.dto.front.*;
 import ema.brewtothefuture.model.recipe.api.MetaData;
+import ema.brewtothefuture.model.recipe.api.Notification;
+import ema.brewtothefuture.model.recipe.api.RecipeStep;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
@@ -13,7 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "recipe")
-public class RecipeDB {
+public class RecipeDB implements DTOConvertible<RecipeDTO> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int recipe_id;
@@ -55,5 +58,33 @@ public class RecipeDB {
         this.color = metaData.color();
         this.batch_size_liter = 0;
         this.recipe = new CombinedStepsNotifications(recipe.getSteps(), recipe.getNotifications());
+    }
+
+    @Override
+    public RecipeDTO convertToDTO() {
+        return new RecipeDTO(
+                user_id,
+                recipe_id,
+                recipe_name,
+                method,
+                style,
+                abv,
+                ibu,
+                original_gravity,
+                final_gravity,
+                color,
+                batch_size_liter,
+                recipe.getSteps()
+                        .stream()
+                        .map(RecipeStep::convertToFrontDTO)
+                        .toList(),
+                recipe.getNotifications()
+                        .stream()
+                        .map(Notification::convertToDTO)
+                        .toList(),
+                null,
+                null,
+                null
+        );
     }
 }
