@@ -1,6 +1,9 @@
 package ema.brewtothefuture.model.recipe.impl;
 
+import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.dto.front.RecipeDTO;
+import ema.brewtothefuture.repository.RecipeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 
@@ -24,7 +27,6 @@ public class RecipeManager {
     public Recipe addRecipe(RecipeDTO recipe) {
         Recipe newRecipe= new Recipe(recipe, id++);
         recipes.put(newRecipe.getRecipeId(), newRecipe);
-
         return newRecipe;
     }
 

@@ -5,6 +5,7 @@ import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.service.BrewingSystemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,12 @@ import java.util.Random;
 @RestController
 public class BrewingSystemController {
 
-    private final BrewingSystem brewingSystem = new BrewingSystemService();
+    private final BrewingSystem brewingSystem;
+
+    @Autowired
+    public BrewingSystemController(BrewingSystemService brewingSystemService) {
+        this.brewingSystem = brewingSystemService;
+    }
 
     @GetMapping("/api/health")
     public String health() {

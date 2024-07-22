@@ -10,7 +10,9 @@ public class BrewingReportDB {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private int brew_id;
+    @ManyToOne
+    @JoinColumn(name = "brew_id")
+    private BrewDB brew;
     private String user_id;
     private long   timestamp;
     private double temperature_celsius;

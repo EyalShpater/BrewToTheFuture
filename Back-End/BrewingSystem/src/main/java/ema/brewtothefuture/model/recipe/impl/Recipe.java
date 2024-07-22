@@ -83,6 +83,18 @@ public class Recipe {
         return views;
     }
 
+    public List<RecipeStep> getSteps() {
+        return steps;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public MetaData getMetaData() {
+        return metaData;
+    }
+
     public void setRating(double rating) {
         this.rating = rating;
     }

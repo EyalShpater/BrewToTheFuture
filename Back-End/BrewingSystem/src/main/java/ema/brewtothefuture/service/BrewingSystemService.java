@@ -1,5 +1,6 @@
 package ema.brewtothefuture.service;
 
+import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.FermentableDTO;
@@ -16,6 +17,8 @@ import ema.brewtothefuture.model.recipe.api.Hop;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.recipe.impl.RecipeManager;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
+import ema.brewtothefuture.repository.RecipeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -27,6 +30,13 @@ public class BrewingSystemService implements BrewingSystem {
     private final RecipeManager  recipeManager  = RecipeManager.getInstance();
     private final BrewingManager brewingManager = new BrewingManagerImpl();
     private final DeviceManager  deviceManager  = new DeviceManagerImpl();
+
+    private final RecipeRepository recipeRepository;
+
+    @Autowired
+    public BrewingSystemService(RecipeRepository recipeRepository) {
+        this.recipeRepository = recipeRepository;
+    }
 
     @Override
     public EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber) {
@@ -66,6 +76,8 @@ public class BrewingSystemService implements BrewingSystem {
     @Override
     public int addNewRecipe(RecipeDTO recipe) {
         Recipe newRecipe = recipeManager.addRecipe(recipe);
+        RecipeDB recipeDB = new RecipeDB(newRecipe);
+        recipeRepository.save(recipeDB);
         return newRecipe.getRecipeId();
     }
 

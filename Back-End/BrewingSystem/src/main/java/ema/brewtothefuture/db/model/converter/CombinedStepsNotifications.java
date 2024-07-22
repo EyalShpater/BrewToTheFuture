@@ -9,6 +9,14 @@ public class CombinedStepsNotifications {
     private List<RecipeStep>   steps;
     private List<Notification> notifications;
 
+    public CombinedStepsNotifications() {
+    }
+
+    public CombinedStepsNotifications(List<RecipeStep> steps, List<Notification> notifications) {
+        this.steps = steps;
+        this.notifications = notifications;
+    }
+
     // Getters and Setters
     public List<RecipeStep> getSteps() {
         return steps;
