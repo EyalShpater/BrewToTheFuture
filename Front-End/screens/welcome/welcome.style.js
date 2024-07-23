@@ -1,5 +1,8 @@
 import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZES } from "../../constants";
+import { Dimensions } from "react-native";
+
+const windowHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   container: {
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
   searchBtn: {
     width: 50,
     height: "100%",
-    backgroundColor: COLORS.tertiary,
+    backgroundColor: COLORS.primary,
     borderRadius: SIZES.medium,
     justifyContent: "center",
     alignItems: "center",
@@ -90,12 +93,25 @@ const styles = StyleSheet.create({
     paddingHorizontal: SIZES.small,
     borderRadius: SIZES.medium,
     borderWidth: 1,
-    borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+    borderColor: activeJobType === item ? COLORS.secondary : COLORS.primary,
   }),
   tabText: (activeJobType, item) => ({
     fontFamily: FONT.medium,
-    color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+    color: activeJobType === item ? COLORS.primary : COLORS.primary,
   }),
+  userMenu: {
+    position: "relative",
+  },
+  mainMenu: {
+    position: "absolute",
+    top: windowHeight * 0.1 - 150,
+    right: 0,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    paddingHorizontal: 10, // Adjust padding as needed
+  },
 });
 
 export default styles;

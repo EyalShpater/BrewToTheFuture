@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, FONT, SIZES } from "../constants";
+import { COLORS, FONT, SIZES } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 20,
   },
-  ingredients: {
-    fontFamily: FONT.medium,
-    fontSize: SIZES.medium,
+  instructions: {
+    fontFamily: FONT.bold,
+    fontSize: SIZES.mediumLarge,
     color: COLORS.primary,
     marginTop: SIZES.large,
     textAlign: "center",
@@ -28,8 +28,17 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: "100%",
   },
+  pickerInputContainer: {
+    flex: 1,
+    height: 32,
+    borderWidth: 1.5,
+    borderColor: COLORS.primary,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    backgroundColor: COLORS.gray3,
+  },
   label: {
-    fontFamily: FONT.medium,
+    fontFamily: FONT.bold,
     fontSize: SIZES.smallMedium,
     color: COLORS.primary,
     marginRight: 10,
@@ -38,10 +47,12 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 32,
-    borderWidth: 1,
-    borderColor: COLORS.gray,
-    borderRadius: 5,
+    borderWidth: 1.5,
+    borderColor: COLORS.primary,
+    borderRadius: 10,
     paddingHorizontal: 10,
+    backgroundColor: COLORS.gray3,
+    textAlign: "center",
   },
   pickerModal: {
     flex: 1,
@@ -59,20 +70,14 @@ const styles = StyleSheet.create({
     height: 200,
     width: "100%",
   },
-  fermentableTitle: {
-    fontFamily: FONT.medium,
+  ingredientTitle: {
+    fontFamily: FONT.bold,
     fontSize: SIZES.medium,
     color: COLORS.primary,
     marginBottom: 10,
   },
   stepContainer: {
     marginBottom: 20,
-  },
-  stepTitle: {
-    fontFamily: FONT.medium,
-    fontSize: SIZES.medium,
-    color: COLORS.primary,
-    marginBottom: 5,
   },
   fieldContainer: {
     flexDirection: "row",
@@ -101,16 +106,38 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 8,
   },
-  addStepButton: {
+  nextPageButton: {
     backgroundColor: COLORS.primary,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    alignItems: "center",
+    marginVertical: 50,
+  },
+  saveRecipeButton: {
+    backgroundColor: COLORS.primary,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  nextPageButtonText: {
+    color: COLORS.white,
+    fontFamily: FONT.medium,
+    fontSize: SIZES.smallMedium,
+  },
+  AddStepButton: {
+    backgroundColor: COLORS.gray3,
+    borderColor: COLORS.primary,
+    borderWidth: 1.5,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
     alignItems: "center",
     marginVertical: 20,
   },
-  addStepButtonText: {
-    color: "#fff",
+  AddStepButtonText: {
+    color: COLORS.primary,
     fontFamily: FONT.medium,
     fontSize: SIZES.smallMedium,
   },
@@ -119,6 +146,18 @@ const styles = StyleSheet.create({
   },
   underlineText: {
     textDecorationLine: "underline",
+  },
+  returnButton: {
+    position: "absolute",
+    top: 5,
+    left: 5,
+    padding: 5,
+    zIndex: 1,
+  },
+  returnButtonText: {
+    fontFamily: FONT.bold,
+    fontSize: SIZES.medium,
+    color: COLORS.darkOrange,
   },
 });
 

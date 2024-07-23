@@ -1,54 +1,49 @@
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import Welcome from "../screens/welcome/Welcome";
-import CreateRecipe from "../screens/CreateRecipe";
+import CreateRecipeOne from "../screens/CreateARecipe/CreateRecipeOne";
+import CreateRecipeTwo from "../screens/CreateARecipe/CreateRecipeTwo";
+import CreateRecipeThree from "../screens/CreateARecipe/CreateRecipeThree.js";
+import CreateRecipeFour from "../screens/CreateARecipe/CreateRecipeFour.js";
 
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
   return (
-    // <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen name="Welcome" component={Welcome} />
-      <Stack.Screen name="CreateRecipe" component={CreateRecipe} />
+    <Stack.Navigator
+      screenOptions={{
+        ...TransitionPresets.ModalSlideFromBottomIOS,
+      }}
+    >
+      <Stack.Screen
+        name="Welcome"
+        component={Welcome}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CreateRecipeOne"
+        component={CreateRecipeOne}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CreateRecipeTwo"
+        component={CreateRecipeTwo}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CreateRecipeThree"
+        component={CreateRecipeThree}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CreateRecipeFour"
+        component={CreateRecipeFour}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
-    // </NavigationContainer>
   );
 };
 
 export default HomeStack;
-
-// const Home = () => {
-//   // const router = useRouter();
-//   return (
-//     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-//       <Stack.Screen
-//         options={{
-//           headerStyle: { backgroundColor: COLORS.lightWhite },
-//           headerShadowVisible: false,
-//           headerLeft: () => (
-//             <ScreenHeaderBtn iconUrl={icons.menu} dimensions="60%" />
-//           ),
-//           headerRight: () => (
-//             <ScreenHeaderBtn iconUrl={images.profile} dimensions="100%" />
-//           ),
-//           headerTitle: "",
-//         }}
-//       />
-
-//       <ScrollView showsVerticalScrollIndicator={false}>
-//         <View
-//           style={{
-//             flex: 1,
-//             padding: SIZES.medium,
-//           }}
-//         >
-//           <Welcome />
-//           <Savedrecipes />
-//         </View>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// };
-
-// export default Home;

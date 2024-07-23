@@ -1,15 +1,21 @@
 const COLORS = {
   primary: "#312651",
   secondary: "#444262",
-  tertiary: "#FF7754",
+  tertiary: "#ED9455",
+  darkOrange: "#D77948",
 
   gray: "#83829A",
   gray2: "#C1C0C8",
+  gray3: "#E5E1DA",
 
   white: "#F3F4F8",
   lightWhite: "#FAFAFC",
+  backGround: "#F1F1F1",
+  backGround2: "#D6E8DB",
 
   lightOrange: "#FFCF9D",
+  yellow: "#FFEEA9",
+  menuColor: "#EDE4E0",
 };
 
 const FONT = {
@@ -23,6 +29,7 @@ const SIZES = {
   small: 12,
   smallMedium: 14,
   medium: 16,
+  mediumLarge: 18,
   large: 20,
   xLarge: 24,
   xxLarge: 32,

@@ -1,5 +1,11 @@
-import profile from "../assets/images/kemal.jpg";
+import beerBackground from "../assets/images/beerBackground.jpg";
+import beer from "../assets/images/beer.jpeg";
+import user from "../assets/images/user.jpeg";
+import seeds from "../assets/images/seeds.jpeg";
 
 export default {
-  profile,
+  beerBackground,
+  beer,
+  user,
+  seeds,
 };

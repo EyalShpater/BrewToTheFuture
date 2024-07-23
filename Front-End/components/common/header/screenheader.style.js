@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SIZES } from "../../../constants";
+import { COLORS, FONT, SIZES } from "../../../constants";
 import { Dimensions } from "react-native";
 
 const windowHeight = Dimensions.get("window").height;
@@ -25,22 +25,21 @@ const styles = StyleSheet.create({
     alignItems: "flex-start", // Align to the left side
   },
   menu: {
-    backgroundColor: COLORS.lightOrange,
-    alignSelf: "flex-start", // Align menu to the left
-    justifyContent: "flex-end", // Align options to the bottom
-    //borderTopLeftRadius: 30, // Rounded top left corner
-    //borderTopRightRadius: 30, // Rounded top right corner
-    //borderBottomLeftRadius: 30, // Rounded bottom left corner
-    paddingVertical: 350, // Add padding
+    backgroundColor: COLORS.menuColor,
+    alignSelf: "flex-start",
+    justifyContent: "flex-end",
+    paddingVertical: 350,
     minHeight: windowHeight,
   },
 
   menuText: {
+    fontFamily: FONT.bold,
+    color: COLORS.primary,
+    borderColor: COLORS.primary,
     textAlign: "center",
     marginVertical: 8, // Add vertical margin between menu items
-    borderWidth: 1, // Add border
-    borderColor: COLORS.black, // Border color
-    borderRadius: 5, // Border radius
+    borderWidth: 1.5,
+    borderRadius: 10,
     padding: 10, // Add padding inside the border
   },
 });
