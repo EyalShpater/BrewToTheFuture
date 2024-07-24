@@ -27,6 +27,10 @@ public class HopDB {
         this.use = use;
     }
 
+    public HopDB(long id) {
+        this.id = id;
+    }
+
     public HopDB() {
     }
 }

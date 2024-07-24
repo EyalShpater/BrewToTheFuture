@@ -30,6 +30,10 @@ public class FermentableDB {
         this.ppg = ppg;
     }
 
+    public FermentableDB(long id) {
+        this.id = id;
+    }
+
     public FermentableDB() {
     }
 }

@@ -65,6 +65,18 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
         this.recipe = new CombinedStepsNotifications(recipe.getSteps(), recipe.getNotifications());
     }
 
+    public void setYeasts(List<RecipeYeastDB> yeasts) {
+        this.yeasts = yeasts;
+    }
+
+    public void setHops(List<RecipeHopDB> hops) {
+        this.hops = hops;
+    }
+
+    public void setFermentables(List<RecipeFermentableDB> fermentables) {
+        this.fermentables = fermentables;
+    }
+
     @Override
     public RecipeDTO convertToDTO() {
         return new RecipeDTO(
@@ -91,5 +103,17 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
                 null,
                 null
         );
+    }
+
+    public List<RecipeFermentableDB> getFermentables() {
+        return fermentables;
+    }
+
+    public List<RecipeHopDB> getHops() {
+        return hops;
+    }
+
+    public List<RecipeYeastDB> getYeasts() {
+        return yeasts;
     }
 }

@@ -4,10 +4,10 @@ import ema.brewtothefuture.dto.api.DTOConvertible;
 import ema.brewtothefuture.dto.front.FermentableDTO;
 
 public class Fermentable implements DTOConvertible<FermentableDTO> {
-    private final int id;
+    private final long id;
     private double amountKG;
 
-    public Fermentable(int id) {
+    public Fermentable(long id) {
         this.id = id;
     }
 
@@ -16,7 +16,7 @@ public class Fermentable implements DTOConvertible<FermentableDTO> {
         this.amountKG = fermentableDTO.amount_kg();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

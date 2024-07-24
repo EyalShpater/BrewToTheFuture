@@ -1,11 +1,10 @@
 package ema.brewtothefuture.model.recipe.api;
 
 import ema.brewtothefuture.dto.api.DTOConvertible;
-import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.dto.front.YeastDTO;
 
 public class Yeast implements DTOConvertible<YeastDTO> {
-    private final int id;
+    private final long id;
     private double temperatureCelsius;
 
     public Yeast(int id) {
@@ -17,7 +16,7 @@ public class Yeast implements DTOConvertible<YeastDTO> {
         this.temperatureCelsius = dto.temperature_celsius();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

@@ -4,9 +4,9 @@ import ema.brewtothefuture.dto.api.DTOConvertible;
 import ema.brewtothefuture.dto.front.HopDTO;
 
 public class Hop implements DTOConvertible<HopDTO> {
-    private final int id;
-    private double amountG;
-    private int timeToBrewMinutes;
+    private final long   id;
+    private       double amountG;
+    private       int    timeToBrewMinutes;
 
     public Hop(int id) {
         this.id = id;
@@ -18,7 +18,7 @@ public class Hop implements DTOConvertible<HopDTO> {
         this.timeToBrewMinutes = dto.time_minutes();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

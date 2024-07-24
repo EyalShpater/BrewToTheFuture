@@ -36,7 +36,6 @@ public class BrewingSystemService implements BrewingSystem {
     private final StyleRepository styleRepository;
     private final RecipeService   recipeService;
 
-
     @Autowired
     public BrewingSystemService(RecipeRepository recipeRepository, StyleRepository styleRepository, RecipeService recipeService) {
         this.recipeRepository = recipeRepository;
@@ -72,8 +71,7 @@ public class BrewingSystemService implements BrewingSystem {
     @Override
     public int addNewRecipe(RecipeDTO recipe) {
         Recipe newRecipe = recipeManager.addRecipe(recipe);
-        RecipeDB recipeDB = new RecipeDB(newRecipe);
-        recipeRepository.save(recipeDB);
+        recipeService.saveRecipe(newRecipe);
         return newRecipe.getRecipeId();
     }
 

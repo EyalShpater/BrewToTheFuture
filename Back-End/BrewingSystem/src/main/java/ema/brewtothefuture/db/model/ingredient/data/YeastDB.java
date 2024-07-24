@@ -35,6 +35,10 @@ public class YeastDB {
         this.maxTemp = maxTemp;
     }
 
+    public YeastDB(long id) {
+        this.id = id;
+    }
+
     public YeastDB() {
     }
 }

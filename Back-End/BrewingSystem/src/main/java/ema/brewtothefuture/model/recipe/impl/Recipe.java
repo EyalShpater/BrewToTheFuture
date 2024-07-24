@@ -95,6 +95,18 @@ public class Recipe {
         return metaData;
     }
 
+    public List<Fermentable> getFermentables() {
+        return fermentables;
+    }
+
+    public List<Hop> getHops() {
+        return hops;
+    }
+
+    public List<Yeast> getYeast() {
+        return yeast;
+    }
+
     public void setRating(double rating) {
         this.rating = rating;
     }
