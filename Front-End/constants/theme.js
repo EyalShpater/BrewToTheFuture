@@ -7,6 +7,7 @@ const COLORS = {
   gray: "#83829A",
   gray2: "#C1C0C8",
   gray3: "#E5E1DA",
+  date: "#888",
 
   white: "#F3F4F8",
   lightWhite: "#FAFAFC",
@@ -16,6 +17,7 @@ const COLORS = {
   lightOrange: "#FFCF9D",
   yellow: "#FFEEA9",
   menuColor: "#EDE4E0",
+  transparent: "#rgba(0, 0, 0, 0.5)",
 };
 
 const FONT = {
