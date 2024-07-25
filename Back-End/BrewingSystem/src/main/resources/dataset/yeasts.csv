@@ -1,0 +1,879 @@
+Yeast,Laboratory,Code,Type,Alcohol Tolerance,Flocculation,Attenuation,Minimum Temp,Maximum Temp
+Escarpment Labs - Brut Ale,,,Ales,Medium,Low,85%,57°F,72°F
+Omega Yeast Labs - Dried Lutra Kveik - OYL-071DRY,,,Norwegian Ales,High,Medium,78.5%,68°F,95°F
+AEB - Fermo Brew Citrus,,,Ales,Medium,Low,75%,0°F,0°F
+Fermentum Mobile - FM12 Scottish Tartan,,,Ales,High,High,77%,64°F,72°F
+Fermentum Mobile - FM20 White Wellingtons,,,Ales,High,Low,73%,66°F,75°F
+Fermentum Mobile - FM23 Magical Garden,,,Ales,High,Low,74%,64°F,75°F
+Fermentum Mobile - FM27 Trappist Artefacts,,,Ales,High,Low,76%,66°F,77°F
+Fermentum Mobile - FM28 Abbot's Habit,,,Ales,High,High,78%,64°F,75°F
+Fermentum Mobile - FM30 Bohemian Meloday,,,Lagers,High,High,0%,46°F,53°F
+Fermentum Mobile - FM42 Old Rhine,,,Ales,High,Low,75%,57°F,71°F
+Fermentum Mobile - FM50 Kansas Ears,,,Ales,High,Medium,76%,57°F,75°F
+Fermentum Mobile - FM51 Oakengate,,,Ales,Medium,Low,69%,64°F,72°F
+Fermentum Mobile - FM52 American Dream,,,Ales,High,Medium,75%,61°F,72°F
+Fermentum Mobile - FM56 Driving Today,,,Ales,Low,High,13%,66°F,72°F
+Granvin,,,Norwegian Ales,High,Medium,75%,86°F,104°F
+Omega Yeast Labs - Helio Gazer - OYL-405,,,Ales,High,High,73%,64°F,74°F
+White Labs - Hornindal Kveik Ale Yeast,,,Norwegian Ales,High,High,78%,72°F,98°F
+Escarpment Labs - Hydra,,,Ales,Medium,Low,68.5%,68°F,77°F
+Escarpment Labs - Krusher,,,Norwegian Ales,High,Medium,81%,59°F,77°F
+Escarpment Labs - Lactic Magic,,,Wilds & Sours,Medium,Medium,75%,68°F,77°F
+Escarpment Labs - Lactobacillus paracasei,,,Wilds & Sours,Low,Low,0%,60°F,95°F
+Lallemand - Lalvin QA23,,,Wine,Low,High,100%,57°F,82°F
+Escarpment Labs - NAY (Non Alcoholic Yeast),,,Ales,Low,Low,15%,0°F,0°F
+Escarpment Labs - Optimus Primary,,,Wilds & Sours,High,Low,83.5%,68°F,81°F
+Escarpment Labs - Premium Pils,,,Lagers,Medium,Medium,77%,48°F,55°F
+- Saccharomycodes ludwigii,,,Ales,Low,Medium,20%,68°F,75°F
+Fermentis - SafBrew BR-8,,,Wilds & Sours,Low,Medium,0%,77°F,84°F
+Fermentis - SafBrew BR-8 Brettanomyces bruxellensis,,,Ales,High,Low,0%,59°F,77°F
+White Labs - Sigmund Kveik Ale Yeast,,,Norwegian Ales,High,Medium,79%,72°F,98°F
+White Labs - Stranda Kveik Ale Yeast,,,Norwegian Ales,High,Medium,80%,72°F,98°F
+Escarpment Labs - Valor Blend,,,Wilds & Sours,Medium,Medium,80%,68°F,752°F
+Lallemand - WILDBREW™ SOUR PITCH,,,Wilds & Sours,Low,Low,0%,86°F,104°F
+Coopers Ale,-,,Ale,Medium,High,72%,68°F,80°F
+Doric Ale,-,,Ale,Medium,Medium,74%,62°F,72°F
+Edme Ale,-,,Ale,Medium,Medium,74%,62°F,70°F
+Gervin Ale (by Muntons) GV-12,-,GV-12,Ale,n/a,High,77%,57°F,70°F
+Munton and Fison,-,,Ale,Medium,High,72%,64°F,70°F
+Muntons Premium Gold,-,,Ale,n/a,High,78%,57°F,77°F
+AEB - AEB Weiss Arome+,AEB,AEBWA+,Wheat,Medium,Low,65%,12°F,25°F
+AEB - Fermoale AY4,AEB,Fermoale AY4,Ales,Medium,High,75%,62.6°F,77°F
+AEB - Fermolager W,AEB,AEB W,Lagers,High,High,87%,48.2°F,59°F
+Angel Yeast - BF27 lager yeast,Angel,BF27,Lagers,High,High,85%,50°F,77°F
+Angel Yeast - CN36 Ale Yeast,Angel,CN-36,Ales,High,High,80%,50°F,77°F
+Angel Yeast - WA18 ale yeast,Angel,WA18,Ales,Low,Low,65%,64.4°F,77°F
+Angel Yeast - BF 16 Lager Yeast,Angel Yeast,,Lagers,Medium,High,80%,48°F,55°F
+Angel Yeast - CS31,Angel Yeast,,Ales,Medium,High,80%,0°F,0°F
+Apex - San Diego (Chico) Yeast,apex,San Diego (chico),Ales,Medium,High,81%,64°F,75°F
+Apex - Saison Calais French Ale Yeast,apex cultures,,Belgian Ales,Medium,Low,90%,65°F,78°F
+Bactoferm - LHP Pedio Blend,bactoferm,LHP,Wilds & Sours,Low,Low,5%,65°F,78°F
+Bio4 - American Ale - SY025,Bio4,SY025,Ales,High,Medium,77%,59°F,71.6°F
+Bio4 - Hefeweizen Ale,Bio4,SY055,Wheat,Medium,Low,74%,60.8°F,71.6°F
+Bio4 - London Ale,Bio4,SY035,British Ales,High,High,78%,62.6°F,71.6°F
+Bio4 - London ESB - SY030,Bio4,SY030,Ales,Medium,High,71%,64.4°F,71.6°F
+Bio4 - Norwegian Kveik,Bio4,,Norwegian Ales,High,Medium,65%,71.6°F,98.6°F
+Bio4 - Norwegian Kveik 2,Bio4,SY084,Norwegian Ales,High,High,76%,68°F,98.6°F
+Bio4 - Superyeast High Gravity Ale,Bio4,SY042,Ales,High,Medium,80%,64.4°F,71.6°F
+BioAgro - LP-100,bioagro,,Wilds & Sours,Low,Low,0%,86°F,95°F
+Bluestone Yeast Co. - A012 Michigan,bluestone,A012,Ales,High,Medium,76%,66.2°F,71.6°F
+Bluestone Yeast Co. - BSY L005 Pilsen Yeast,bluestone,BSY L005,Lagers,Medium,Medium,74%,50°F,60.8°F
+Bluestone Yeast Co. - BSY-029 London,bluestone,BSY-029,Ales,Medium,High,66%,60.8°F,73.4°F
+Bluestone Yeast Co. - BSY-A011 New England,bluestone,BSY-A011,Ales,Medium,Medium,74%,64.4°F,73.4°F
+Bluestone Yeast Co. - BSY-L006 Stuttgart Lager Yeast,bluestone,BSY-L006,Lagers,Medium,Medium,73%,55.4°F,64.4°F
+Bluestone Yeast Co. - BSY- A010 San Diego,Bluestone Yeast Company,,Ales,High,Medium,75%,61°F,71.6°F
+Bluestone Yeast Co. - BSY- A038 Bergen,Bluestone Yeast Company,BERGEN,Ales,High,High,78%,73.4°F,82.4°F
+Bootleg Biology - BBAUR – AURORA™,Bootleg Biology,Aurora,Ales,Medium,Medium,81%,75°F,98°F
+Bootleg Biology - BBXNPA - NEEPAH Blend,Bootleg Biology,NEEPAH,Ales,Low,Low,80%,66°F,70°F
+Bootleg Biology - Belgian Yeast Blend *BETA*,Bootleg Biology,BBXBELG,Ales,Medium,Low,72%,62°F,72°F
+Bootleg Biology - Berliner Blend *BETA*,Bootleg Biology,,Wilds & Sours,Low,Low,98%,65°F,75°F
+Bootleg Biology - Bootleg BB70115,Bootleg Biology,BB70116,Ales,Medium,Medium,80%,65°F,78°F
+Bootleg Biology - Bootleg Biology - MTF - 2019 Blend,Bootleg Biology,,Ales,Medium,Medium,65%,65°F,78°F
+Bootleg Biology - Brulosophy Blend,Bootleg Biology,,Ales,Low,Medium,76%,50°F,68°F
+Bootleg Biology - Chardonnay,Bootleg Biology,BB99301A,S. boulardii,Medium,Low,70%,65°F,75°F
+Bootleg Biology - Classic American *BETA*,Bootleg Biology,BBUSA1,Ales,Medium,Medium,75.5%,65°F,72°F
+Bootleg Biology - Classic English *BETA*,Bootleg Biology,BBENG1,British Ales,Medium,Low,74%,64°F,72°F
+Bootleg Biology - Classic New England *BETA*,Bootleg Biology,,Ales,Low,Low,83%,64°F,72°F
+Bootleg Biology - Franconian Keller Lager,Bootleg Biology,BBFKL,Lagers,Low,Medium,82%,50°F,55°F
+Bootleg Biology - Funk Weapon #1,Bootleg Biology,BB0022,B. bruxellensis,Medium,Low,80%,65°F,75°F
+Bootleg Biology - Funk Weapon #2,Bootleg Biology,BB0035C,B. bruxellensis,Medium,Low,80%,65°F,75°F
+Bootleg Biology - Funk Weapon #3,Bootleg Biology,BB0022,B. bruxellensis,Medium,Low,80%,65°F,75°F
+Bootleg Biology - OSLO,Bootleg Biology,OSLO,Norwegian Ales,Medium,Medium,82%,64°F,105°F
+Bootleg Biology - Regal Lager,Bootleg Biology,BBXRGL,Lagers,Medium,Low,76%,55°F,85°F
+Bootleg Biology - S. arlingtonesis,Bootleg Biology,BB22204,Ale,Medium,Medium,85%,60°F,75°F
+Bootleg Biology - Saison Parfait,Bootleg Biology,BBX0104,Ale,Medium,Medium,90%,65°F,85°F
+Bootleg Biology - Sour Solera Blend,Bootleg Biology,BBXSS,Blend,Medium,Medium,95%,65°F,75°F
+Bootleg Biology - Sour Weapon L,Bootleg Biology,,Wilds & Sours,Low,Low,0%,84°F,98°F
+Bootleg Biology - Sour Weapon P,Bootleg Biology,BBX0089,Ales,Medium,Low,0%,80°F,100°F
+Bootleg Biology - Southern Lager Yeast,Bootleg Biology,BBARL,Lagers,Low,High,90%,55°F,68°F
+Bootleg Biology - The Mad Fermentationist Saison Blend,Bootleg Biology,BBXMAD1,Blend,Medium,Medium,90%,68°F,80°F
+Brewferm - Brewferm Blanche #Y015,Brewferm,Y015,Ale,n/a,Low,78%,64°F,73°F
+Brewferm - Brewferm Lager #Y016,Brewferm,Y016,Lagers,n/a,High,78%,50°F,59°F
+Brewferm - Brewferm Top,Brewferm,,Ale,Medium,Med/High,75%,64°F,77°F
+BSI - 1187 Ringwood Ale,BSI,1187,Ales,Medium,High,72%,64°F,74°F
+BSI - 1868 Pasteur Champagne,BSI,1868,Champagne,High,Low,68%,39°F,93°F
+BSI - 3470 German Lager,BSI,3470,Lagers,Medium,Medium,75%,46°F,54°F
+BSI - A-07 German Ale,BSI,A-07,Ales,Low,Low,75%,55°F,66°F
+BSI - A-10 American White Ale,BSI,A-10,Ales,Medium,Low,76%,60°F,72°F
+BSI - A-18 London Ale III,BSI,A-18,Ales,Medium,Medium,73%,64°F,74°F
+BSI - A-28 London Ale I,BSI,A-28,Ales,Medium,Medium,75%,60°F,72°F
+BSI - A-32 British Ale III,BSI,A-32,Ales,Medium,High,69%,60°F,72°F
+BSI - A-35 British Ale II,BSI,A-35,Ales,Medium,High,74%,63°F,75°F
+BSI - A-38 Old German Ale,BSI,A-38,Ales,Medium,Low,75%,60°F,72°F
+BSI - A-56 Chico Ale,BSI,A-56,Ales,Medium,Medium,75%,60°F,72°F
+BSI - A-65 Kolsch,BSI,A-65,German Ales,Medium,Low,75%,54°F,64°F
+BSI - A-68 London Ale II,BSI,A-68,Ales,Medium,High,69%,64°F,72°F
+BSI - A-69 Timothy Taylor Ale,BSI,A-69,Ales,Medium,High,69%,64°F,72°F
+BSI - A-72 American Microbrewery Ale,BSI,A-72,Ales,Medium,High,74%,62°F,72°F
+BSI - A-75 Henley on Thames Ale,BSI,A-75,Ales,Medium,Medium,74%,62°F,72°F
+BSI - A-78 Scotch Ale,BSI,A-78,Ales,High,High,71%,55°F,70°F
+BSI - A-84 Irish Ale,BSI,A-84,Ales,Medium,Medium,73%,64°F,72°F
+BSI - A-98 British Ale,BSI,A-98,Ales,Medium,High,74%,64°F,72°F
+BSI - A-99 Whitbread Ale,BSI,A-99,Ales,Low,High,70%,64°F,75°F
+BSI - ABS3 Belgian Ale,BSI,ABS3,Ales,Medium,High,74%,65°F,75°F
+BSI - Andechs Lager,BSI,Andechs Lager,Lagers,Medium,Medium,73%,50°F,54°F
+BSI - Andechs Weizen,BSI,Andechs Weizen,Ales,Medium,Low,74%,64°F,70°F
+BSI - Augustiner Lager,BSI,Augustiner Lager,Lagers,Medium,Medium,73%,52°F,62°F
+Bulldog (Hambleton Bard) - Amber Lager,Bulldog (Hambleton Bard),B38,Lagers,Medium,High,73%,48°F,57°F
+Bulldog (Hambleton Bard) - American West (B5),Bulldog (Hambleton Bard),B5,Ales,Medium,Medium,73%,61°F,70°F
+Bulldog (Hambleton Bard) - B16 Belgian Saison,Bulldog (Hambleton Bard),BR16 SAI,Belgian Ales,High,Medium,85%,64.4°F,86°F
+Bulldog (Hambleton Bard) - Bavarian Wheat (B49),Bulldog (Hambleton Bard),B49,Wheat,Medium,Low,78%,64°F,77°F
+Bulldog (Hambleton Bard) - Belgian Saison (B16),Bulldog (Hambleton Bard),B16,Belgian Ales,Low,Medium,87%,64°F,86°F
+Bulldog (Hambleton Bard) - Belgian Trappix (B19),Bulldog (Hambleton Bard),B19,Belgian Ales,Medium,High,78%,64°F,77°F
+Bulldog (Hambleton Bard) - English Ale (B4),Bulldog (Hambleton Bard),B4,Ales,Medium,High,67%,61°F,70°F
+Bulldog (Hambleton Bard) - European Ale (B44),Bulldog (Hambleton Bard),B44,Ales,Medium,High,73%,59°F,70°F
+Bulldog (Hambleton Bard) - German Lager (B34),Bulldog (Hambleton Bard),B34,Lagers,Medium,High,78%,48°F,57°F
+Bulldog (Hambleton Bard) - Steam Lager (B23),Bulldog (Hambleton Bard),B23,Lagers,Medium,High,78%,55°F,68°F
+Bulldog (Hambleton Bard) - Universal Ale (B1),Bulldog (Hambleton Bard),B01,Ales,Medium,Medium,73%,64°F,73°F
+CellarScience - Berlin lager,cellar science,,Lagers,Medium,High,65%,54°F,62°F
+CellarScience - Cali,cellar science,DY103B,Ales,Medium,Medium,75%,59°F,72°F
+CellarScience - English,cellar science,English,Ales,High,High,75%,59°F,70°F
+CellarScience - German,cellar science,German,Lagers,Medium,High,75%,54°F,62°F
+CellarScience - Acid,CellarScience,,Wilds & Sours,Medium,Low,0%,66°F,77°F
+CellarScience - Baja,CellarScience,BAJA,Lagers,High,High,75%,50°F,57°F
+CellarScience - Hazy,CellarScience,HAZY,Ales,Medium,Low,75%,62°F,75°F
+CellarScience - Kolsch,CellarScience,Kolsch,Ales,Medium,Medium,75%,60°F,73°F
+CellarScience - Monk,CellarScience,Monk,Belgian Ales,High,Medium,75%,62°F,75°F
+CellarScience - Nectar,CellarScience,CSN,Ales,Medium,Medium,78%,64°F,72°F
+CellarScience - Origin,CellarScience,,Ales,High,High,90%,70°F,80°F
+CellarScience - Prime,CellarScience,,Ales,High,High,90%,60°F,78°F
+CellarScience - Saison,CellarScience,SAISON,Belgian Ales,Medium,Low,75%,62°F,75°F
+CellarScience - Voss,CellarScience,,Ales,High,Medium,80%,68°F,104°F
+CellarScience - Hornindal,CellerScience,,Ales,High,High,80%,73°F,98°F
+Crescat Labs - CL001 London's Calling,Crescat Labs,CL001,Ale,9%,Medium,76.5%,64.4°F,71.6°F
+Crescat Labs - CL002 Northern Shire,Crescat Labs,CL002,Ale,9%,Medium,75%,64.4°F,71.6°F
+Crescat Labs - CL003 Bagpipes Chanter,Crescat Labs,CL003,Ale,10%,High,77%,64.4°F,71.6°F
+Crescat Labs - CL004 Black Clover,Crescat Labs,CL004,Ale,12%,Very High,73%,60.8°F,71.6°F
+Crescat Labs - CL005 Flemish Rhapsody,Crescat Labs,CL005,Ale,10%,Low,73.5%,60.8°F,75.2°F
+Crescat Labs - CL006 Saison's Season,Crescat Labs,CL006,Ale,11%,Low/Medium,79.5%,64.4°F,77°F
+Crescat Labs - CL007 Abbey's Sellection,Crescat Labs,CL007,Ale,12%,Low/Medium,76%,66.2°F,75.2°F
+Crescat Labs - CL008 Belgian Meander,Crescat Labs,CL008,Ale,12%,Very High,74%,64.4°F,75.2°F
+Crescat Labs - CL009 Trapeze Trappist,Crescat Labs,CL009,Ale,12%,Medium,76%,66.2°F,77°F
+Crescat Labs - CL010 Moravian Vale,Crescat Labs,CL010,Lagers,12%,High,75%,46.4°F,53.6°F
+Crescat Labs - CL011 Bayernfest,Crescat Labs,CL011,Lagers,11%,High,76.5%,46.4°F,57.2°F
+Crescat Labs - CL012 Witty Pretty,Crescat Labs,CL012,Ale,10%,Very low,78%,64.4°F,71.6°F
+Crescat Labs - CL013 Cologne Definition,Crescat Labs,CL013,Ale,11%,Low/Medium,75%,57.2°F,71.6°F
+Crescat Labs - CL014 American Cream,Crescat Labs,CL014,Ale,10%,Medium,76%,57.2°F,71.6°F
+Crescat Labs - CL015 Piwo Cells,Crescat Labs,CL015,Ale,9%,Low,69.5%,64.4°F,71.6°F
+Crescat Labs - CL016 USA1933,Crescat Labs,CL016,Ale,11%,Medium,75%,60.8°F,71.6°F
+Crescat Labs - CL017 Friar's Strong,Crescat Labs,CL017,Ale,15%,High,77.5%,64.4°F,75.2°F
+Crescat Labs - CL018 Kveik & Fox,Crescat Labs,CL018,Ale,10%,High,74%,68°F,104°F
+Crossmyloof - Flushed Nun,Crossmyloof,Flushed Nun,Ales,High,Medium,76%,64.4°F,82.4°F
+Crossmyloof - Belgian,Crossmyloof Brew,,Belgian Ales,Medium,Medium,80%,64°F,82°F
+Crossmyloof - BEòIR,Crossmyloof Brew,CML BEòIR,Ales,Medium,Medium,74%,59°F,72°F
+Crossmyloof - Californian,Crossmyloof Brew,CALIFORNAIN,Lagers,Medium,Medium,79%,59°F,71.6°F
+Crossmyloof - Five,Crossmyloof Brew,,Ales,Medium,High,78%,63°F,82°F
+Crossmyloof - Four,Crossmyloof Brew,,Ales,Medium,Medium,73.5%,59°F,72°F
+Crossmyloof - Gretel,Crossmyloof Brew,Gretel,Wheat,Low,Low,86%,53.6°F,77°F
+Crossmyloof - Haze,Crossmyloof Brew,,Ales,Medium,Low,75%,59°F,68°F
+Crossmyloof - Hell,Crossmyloof Brew,,Lagers,Medium,High,79%,54°F,70°F
+Crossmyloof - HøG-NORSK,Crossmyloof Brew,Northern European Ale Yeast,Ales,Medium,High,77.5%,64°F,80°F
+Crossmyloof - Kentucky,Crossmyloof Brew,,Ales,Medium,High,75.5%,55°F,72°F
+Crossmyloof - Kölsch,Crossmyloof Brew,,Ales,Medium,High,79%,59°F,71.6°F
+Crossmyloof - KRISTALLWEIZEN,Crossmyloof Brew,KRISTALLWEIZEN,Wheat,Medium,Medium,76%,64°F,82°F
+Crossmyloof - Lille Saison,Crossmyloof Brew,,Ales,High,Medium,85%,62.6°F,82.4°F
+Crossmyloof - Midland,Crossmyloof Brew,,Ales,High,High,75%,55°F,72°F
+Crossmyloof - Monk,Crossmyloof Brew,,Ales,Medium,Medium,69%,59°F,68°F
+Crossmyloof - Pia,Crossmyloof Brew,,Ales,Medium,Medium,74%,59°F,72°F
+Crossmyloof - Real Ale,Crossmyloof Brew,,British Ales,Medium,Medium,76%,62.6°F,71.6°F
+Crossmyloof - US Pale Ale,Crossmyloof Brew,,Ales,Low,Medium,77%,62.6°F,71.6°F
+Crossmyloof - Voss Kveik,Crossmyloof Brew,No.1,Norwegian Ales,High,High,80%,25°F,40°F
+Danstar - Abbaye Ale Yeast,Danstar,,Ale,12%,Med/High,75%,63°F,77°F
+Danstar - American West Coast Yeast BRY-97,Danstar,BRY-97,Ale,Medium,High,72%,62°F,75°F
+Danstar - Belle Saison Yeast,Danstar,,Ale,High,Low,80%,63°F,75°F
+Danstar - Cask and Bottle Conditioning CBC-1,Danstar,CBC-1,Ale,n/a,Med/Low,72%,59°F,77°F
+Lallemand - LalBrew Diamond Lager,Danstar,,Lagers,High,High,80%,50°F,59°F
+Danstar - Lalbrew New England East Coast Ale Yeast,Danstar,,Ale,9%,Medium,75%,59°F,72°F
+Danstar - London ESB Yeast,Danstar,,Ale,Med-High,Low,70%,65°F,72°F
+Danstar - Munich Classic Wheat Beer Yeast,Danstar,,Wheat,9%,Low,75%,63°F,72°F
+Danstar - Munich Dry Wheat Yeast,Danstar,,Wheat,Medium,Medium,75%,64°F,70°F
+Danstar - Nottingham Ale Yeast,Danstar,,Ale,Med-High,High,77%,57°F,70°F
+Danstar - Windsor Ale Yeast,Danstar,,Ale,Medium,Medium,72%,64°F,70°F
+East Coast Yeast - Baltic Lager ECY22,East Coast Yeast,ECY22,Lagers,n/a,Medium,77%,46°F,54°F
+East Coast Yeast - Belgian Abbaye ECY09,East Coast Yeast,ECY09,Ale,n/a,Medium,75%,66°F,72°F
+East Coast Yeast - Belgian White ECY11,East Coast Yeast,ECY11,Ale,n/a,Low,76%,70°F,76°F
+East Coast Yeast - Berliner Blend ECY06,East Coast Yeast,ECY06,Ale,n/a,n/a,76%,70°F,74°F
+East Coast Yeast - Brett Blend #1 Anomala ECY04,East Coast Yeast,ECY04,Ale,n/a,n/a,75%,70°F,70°F
+East Coast Yeast - Brett Blend #9 ECY05,East Coast Yeast,ECY05,Ale,n/a,n/a,75%,70°F,70°F
+East Coast Yeast - Brett Custersianus ECY19,East Coast Yeast,ECY19,Ale,n/a,n/a,75%,60°F,74°F
+East Coast Yeast - Brett Nanus ECY24,East Coast Yeast,ECY24,Ale,n/a,n/a,75%,70°F,70°F
+East Coast Yeast - British Mild ECY18,East Coast Yeast,ECY18,Ale,n/a,Low,68%,60°F,68°F
+East Coast Yeast - BugCounty ECY20,East Coast Yeast,ECY20,Ale,n/a,n/a,80%,60°F,74°F
+East Coast Yeast - BugFarm,East Coast Yeast,ECY01,Ales,Low,Low,80%,60°F,74°F
+East Coast Yeast - BugFarm2,East Coast Yeast,ECY45,Wilds & Sours,High,Medium,65%,60°F,80°F
+East Coast Yeast - Burton Union ECY17,East Coast Yeast,ECY17,Ale,n/a,Medium,74%,64°F,69°F
+East Coast Yeast - Farmhouse Brett ECY03,East Coast Yeast,ECY03,Ale,n/a,n/a,75%,70°F,70°F
+East Coast Yeast - Flemish Ale ECY02,East Coast Yeast,ECY02,Ale,n/a,n/a,80%,60°F,74°F
+East Coast Yeast - Kellerbier,East Coast Yeast,ECY28,Lagers,Medium,Medium,75%,46°F,54°F
+East Coast Yeast - Kölschbier ECY21,East Coast Yeast,ECY21,Ale,n/a,High,77%,58°F,66°F
+East Coast Yeast - Munich Festbier ECY15,East Coast Yeast,ECY15,Lagers,n/a,Medium,75%,46°F,54°F
+East Coast Yeast - Northeast Ale ECY29,East Coast Yeast,ECY29,Ale,n/a,High,81%,65°F,70°F
+East Coast Yeast - Old Newark Ale ECY10,East Coast Yeast,ECY10,Ale,n/a,High,72%,60°F,68°F
+East Coast Yeast - Old Newark Beer ECY12,East Coast Yeast,ECY12,Ale,n/a,Medium,72%,58°F,68°F
+East Coast Yeast - Oud Brune ECY23,East Coast Yeast,ECY23,Ale,n/a,n/a,77%,68°F,74°F
+East Coast Yeast - Saison Brasserie ECY08,East Coast Yeast,ECY08,Ale,n/a,Medium,80%,75°F,85°F
+East Coast Yeast - Saison Single ECY14,East Coast Yeast,ECY14,Ale,n/a,Medium,77%,75°F,82°F
+East Coast Yeast - Scottish Heavy ECY07,East Coast Yeast,ECY07,Ale,n/a,Medium,78%,60°F,68°F
+East Coast Yeast - Senne Valley,East Coast Yeast,ECY31,Wilds & Sours,High,High,85%,65°F,78°F
+East Coast Yeast - Trappist Ale ECY13,East Coast Yeast,ECY13,Ale,n/a,Medium,75%,66°F,72°F
+Escarpment Labs - American Ale,Escarpment Labs,,Ale,Med-High,Medium,74%,60.8°F,72°F
+Escarpment Labs - Anchorman Ale,Escarpment Labs,,Ale,High,High,77.5%,65°F,68°F
+Escarpment Labs - Ardennes Belgian Ale,Escarpment Labs,,Ale,High,Med-High,76%,65°F,76°F
+Escarpment Labs - ? rset Kveik Blend,Escarpment Labs,,Ales,High,High,75%,68°F,98.6°F
+Escarpment Labs - Belgian Sour Blend,Escarpment Labs,,Ales,Low,Low,0%,70°F,90°F
+Escarpment Labs - Berliner Brett I,Escarpment Labs,Berliner Brett I,Wilds & Sours,High,Medium,0%,64.4°F,75.2°F
+Escarpment Labs - Biergarten Lager,Escarpment Labs,,Lagers,Medium,Medium,73%,48.2°F,55.4°F
+Escarpment Labs - Brett B,Escarpment Labs,,Ale,Med-High,Low,77.5%,80°F,80°F
+Escarpment Labs - Brett D,Escarpment Labs,,Ale,12%,Med-Low,80%,71.6°F,77°F
+Escarpment Labs - Brett Q,Escarpment Labs,,Ale,High,Med-Low,80%,68°F,77°F
+Escarpment Labs - Brussels Brett,Escarpment Labs,,Ale,12%,Med-Low,80%,71.6°F,77°F
+Escarpment Labs - Cali Ale,Escarpment Labs,,Ale,High,Medium,80%,65°F,72°F
+Escarpment Labs - Cali Common Lager,Escarpment Labs,,Lagers,Medium,Medium,67.5%,57.2°F,64.4°F
+Escarpment Labs - Cerberus,Escarpment Labs,,Ales,Medium,Low,75%,71.6°F,82.4°F
+Escarpment Labs - Classic Witbier,Escarpment Labs,,Ale,Medium,Med-Low,75%,66.2°F,75.2°F
+Escarpment Labs - Copenhagen Lager,Escarpment Labs,,Lagers,Med-High,Med-Low,74%,46.4°F,55.4°F
+Escarpment Labs - Czech Lager,Escarpment Labs,,Lagers,Medium,Medium,74%,48.2°F,55.4°F
+Escarpment Labs - Dry Belgian Ale,Escarpment Labs,,Ale,12%,Med-Low,85%,72°F,79°F
+Escarpment Labs - Ebbegarden Kveik Blend,Escarpment Labs,,Ales,High,Medium,75%,71.6°F,98.6°F
+Escarpment Labs - English Ale I,Escarpment Labs,,Ale,Medium,Very High,67%,65°F,69°F
+Escarpment Labs - English Ale II,Escarpment Labs,,Ale,Medium,Med-High,76%,65°F,72°F
+Escarpment Labs - Escarpment Labs - Marina Russian Farmhouse,Escarpment Labs,,Ales,Medium,Low,72%,77°F,102°F
+Escarpment Labs - Foggy London Ale,Escarpment Labs,,Ale,Med-High,Medium,74.5%,64.4°F,73.4°F
+Escarpment Labs - Fruit Bomb Saison,Escarpment Labs,,Ale,12%,Med-Low,80%,72°F,81°F
+Escarpment Labs - Fruity Witbier,Escarpment Labs,,Ale,12%,Med-Low,72.5%,62.6°F,75.2°F
+Escarpment Labs - Goldrush Lager,Escarpment Labs,,Lagers,Medium,Medium,72%,57.2°F,64.4°F
+Escarpment Labs - Hornindal Kveik Blend,Escarpment Labs,,Ale,High,Med-High,75%,77°F,95°F
+Escarpment Labs - Irish Ale,Escarpment Labs,,Ale,Medium,Med-High,72.5%,64.4°F,71.6°F
+Escarpment Labs - Isar Lager,Escarpment Labs,,Lagers,Med-High,Med-High,77%,50°F,59°F
+Escarpment Labs - Jötunn,Escarpment Labs,,Norwegian Ales,High,High,80%,72°F,95°F
+Escarpment Labs - Kölsch Ale,Escarpment Labs,,Ales,Medium,Medium,75%,65°F,69°F
+Escarpment Labs - Krispy,Escarpment Labs,KRISPY,Ales,High,High,76%,64.4°F,86°F
+Escarpment Labs - Lactobacillus Blend,Escarpment Labs,,Ale,,,0%,89.6°F,107.6°F
+Escarpment Labs - Lactobacillus Blend 2.0,Escarpment Labs,Lactobacillus Blend 2.0,Wilds & Sours,Low,Low,0%,86°F,113°F
+Escarpment Labs - Lactobacillus brevis,Escarpment Labs,,Ale,,,0%,95°F,113°F
+Escarpment Labs - Lactobacillus Secondary Souring Blend,Escarpment Labs,,Wilds & Sours,Low,Low,0%,64.4°F,77°F
+Escarpment Labs - Lærdal Kveik,Escarpment Labs,,Norwegian Ales,High,High,75%,72°F,99°F
+Escarpment Labs - Mexican Lager,Escarpment Labs,,Lagers,Medium,Medium,75%,50°F,57.2°F
+Escarpment Labs - Munich Lager,Escarpment Labs,,Lagers,High,Medium,78%,53.6°F,59°F
+Escarpment Labs - New World Saison,Escarpment Labs,,Ale,12%,Medium,80%,68°F,77°F
+Escarpment Labs - Old World Saison Blend,Escarpment Labs,,Ale,High,Med-Low,85%,71.6°F,80.6°F
+Escarpment Labs - Ontario Farmhouse Ale Blend,Escarpment Labs,,Ale,Medium,Low,80%,71.6°F,80.6°F
+Escarpment Labs - Scotia Sauvage,Escarpment Labs,,Ales,High,Medium,80%,65°F,77°F
+Escarpment Labs - Scottish Ale,Escarpment Labs,,Ale,High,Medium,73.5%,57.2°F,71.6°F
+Escarpment Labs - Skare Kveik,Escarpment Labs,,Ales,Low,Low,76%,64.4°F,86°F
+Escarpment Labs - Spooky Saison,Escarpment Labs,,Belgian Ales,Medium,Low,85%,77°F,0°F
+Escarpment Labs - St-Remy Abbey Ale,Escarpment Labs,,Ale,10%,Medium,76%,64.4°F,75.2°F
+Escarpment Labs - St. Lucifer Belgian Ale,Escarpment Labs,,Ale,12%,Medium,80%,68°F,76°F
+Escarpment Labs - Sterling Ale,Escarpment Labs,Sterling,Ales,High,Medium,78%,57.2°F,71.6°F
+Escarpment Labs - Thiol Libre,Escarpment Labs,,Ales,Medium,Medium,74%,62.6°F,73.4°F
+Escarpment Labs - Uberweizen,Escarpment Labs,,German Ales,Medium,Medium,76%,64.4°F,75.2°F
+Escarpment Labs - Vermont Ale,Escarpment Labs,,Ale,High,Medium,78%,66°F,72°F
+Escarpment Labs - Voss Kveik,Escarpment Labs,,Ales,High,High,72.5%,77°F,107°F
+Escarpment Labs - Weizen I,Escarpment Labs,,Ale,Med-High,Low,72.5%,64.4°F,75.2°F
+Escarpment Labs - Weizen II,Escarpment Labs,,Ale,Med-High,Med-Low,76%,64.4°F,75.2°F
+Escarpment Labs - Wild Thing,Escarpment Labs,,Ale,9%,Medium,78.5%,77°F,77°F
+Fermentis - Bioferm Champ,Fermentis,,Wine,High,High,78%,59°F,86°F
+Fermentis - DA-16,Fermentis,DA-16,Ales,High,Medium,100%,68°F,89.6°F
+Fermentis - GV S107,Fermentis,,Wine,High,High,95%,32°F,32°F
+Fermentis - LA 01,Fermentis,LA01,Ales,Low,Low,15%,64.4°F,77°F
+Fermentis - LD-20,Fermentis,LD-20,Lagers,Medium,High,100%,53.6°F,68°F
+Fermentis - Premier Cuvee,Fermentis,Premier Cuvee,Wine,High,High,100%,50°F,80°F
+Fermentis - S-33,Fermentis,s33,Ales,High,Medium,70%,64.4°F,77°F
+Fermentis - SafAle BE-256,Fermentis,BE-256,Belgian Ales,High,Low,75%,64.4°F,77°F
+Fermentis - SafAle F2,Fermentis,F2,Ales,High,High,0%,59°F,77°F
+Fermentis - Safale S-33,Fermentis,,Ales,Low,Low,68.72%,65°F,78°F
+Fermentis - Safale T-58,Fermentis,T-58,Ales,High,Medium,75%,53.6°F,77°F
+Fermentis - Safbrew LA-01,Fermentis,LA-01,Ales,Low,Low,15%,50°F,77°F
+Fermentis - Safcider,Fermentis,Safcider,Cider,High,High,75%,50°F,80°F
+Fermentis - Safcider TF-6,Fermentis,Safcider TF-6,Cider,High,Medium,75%,59°F,77°F
+Fermentis - SafCider TF-6,Fermentis,TF-6,Cider,High,Medium,85%,59°F,77°F
+Fermentis - SafSour LP652,Fermentis,LB652,Wilds & Sours,Low,Low,75%,98.6°F,104°F
+Fermentis - Safspirit HG-1,Fermentis,HG-1,Ales,High,Low,80%,77°F,95°F
+Fermentis - SafSpirit M-1,Fermentis,M-1,Ales,High,Low,100%,64.4°F,77°F
+Fermentis - HA-18,Fermentis / Safale,HA-18,Ales,High,Medium,97%,77°F,95°F
+Fermentis - Safale - American Ale Yeast US-05,Fermentis / Safale,US-05,Ales,Low,Medium,81%,54°F,77°F
+Fermentis - Safale - Belgian Saison Ale Yeast BE-134,Fermentis / Safale,BE-134,Ale,,Low,90%,64°F,82°F
+Fermentis - Safale - English Ale Yeast S-04,Fermentis / Safale,S-04,Ale,9.75%,High,75%,54°F,77°F
+Fermentis - Safale - German Ale Yeast K-97,Fermentis / Safale,K-97,Ale,10.4%,High,81%,54°F,77°F
+Fermentis - Safale-WB06,Fermentis / Safale,WB06,Ales,High,Low,78%,59°F,75°F
+Fermentis - Safbrew - Abbaye Yeast BE-256,Fermentis / Safale,BE-256,Ale,11%,High,82%,54°F,77°F
+Fermentis - Safbrew - General/Belgian Yeast S-33,Fermentis / Safale,S-33,Ale,11.5%,High,70%,54°F,77°F
+Fermentis - Safbrew - Specialty Ale Yeast T-58,Fermentis / Safale,T-58,Ale,11.5%,High,70%,54°F,77°F
+Fermentis - Safbrew - Wheat Beer Yeast WB-06,Fermentis / Safale,WB-06,Wheat,10.5%,Low,86%,54°F,77°F
+Fermentis - Saflager - German Lager Yeast S-23,Fermentis / Safale,S-23,Lagers,10.5%,High,82%,48°F,72°F
+Fermentis - Saflager - German Lager Yeast W-34/70,Fermentis / Safale,W-34/70,Lagers,10.5%,High,83%,48°F,72°F
+Fermentis - Saflager - Swiss Lager Yeast S-189,Fermentis / Safale,S-189,Lagers,10.5%,High,84%,48°F,72°F
+Fermentis - SafSpirit™ USW-6,Fermentis / Safale,USW-6,Ales,High,Medium,80%,68°F,90°F
+Fermentum Mobile - FM10 Wind and the Willows,Fermentum Mobile,,Ales,Medium,Low,0%,64°F,72°F
+Fermentum Mobile - FM11 Heathery Heights,Fermentum Mobile,FM11,British Ales,Medium,Medium,75%,64.4°F,71.6°F
+Fermentum Mobile - FM13 Irish darkness,Fermentum Mobile,FM13,Ales,High,High,72%,60.8°F,71.6°F
+Fermentum Mobile - FM21 Season's greetings,Fermentum Mobile,FM21,Belgian Ales,Medium,Medium,65%,64.4°F,77°F
+Fermentum Mobile - FM25 Monastery Mediation,Fermentum Mobile,FM25,Belgian Ales,High,Medium,78%,64.4°F,77°F
+Fermentum Mobile - FM31 Bavarian Valley,Fermentum Mobile,FM31,Lagers,High,High,76%,46.4°F,57.2°F
+Fermentum Mobile - FM41 Bananas and cloves,Fermentum Mobile,FM41,Ales,Medium,Low,78%,64.4°F,71.6°F
+Fermentum Mobile - FM53 Voss Kveik,Fermentum Mobile,FM53,Norwegian Ales,High,Medium,80%,68°F,104°F
+Fermentum Mobile - FM54 California fever,Fermentum Mobile,FM54,Ales,High,High,79%,64.4°F,69.8°F
+Fermentum Mobile - FM55 Green hill,fermentum mobile,Fm55,Ales,Low,Low,80%,66.2°F,75.2°F
+GigaYeast - Achouffe Belgian Ale yeast,GigaYeast,GY003,Ale,,Med-Low,82.5%,68°F,77°F
+GigaYeast - Altstadt Ale,GigaYeast,GY016,Ale,,Low,79%,55°F,68°F
+GigaYeast - American Lager Yeast,GigaYeast,GY030,Lagers,,Medium,81%,48°F,60°F
+GigaYeast - Bavarian Hefe Yeast,GigaYeast,GY017,Ale,,Low,79%,64°F,80°F
+GigaYeast - Belgian Mix,GigaYeast,GY007,Ale,,Low,80%,66°F,77°F
+GigaYeast - Belgian Wit Yeast,GigaYeast,GY028,Ale,,Low,77.5%,64°F,80°F
+GigaYeast - Berliner Blend,GigaYeast,GB122,Ale,,N/A,89%,70°F,80°F
+GigaYeast - British Ale #3,GigaYeast,GY041,Ale,,Med-High,81%,64°F,77°F
+GigaYeast - British Ale Yeast #1,GigaYeast,GY011,Ale,,High,77%,64°F,77°F
+GigaYeast - British Ale Yeast #2,GigaYeast,GY031,Ale,,High,81%,64°F,75°F
+GigaYeast - Czech Pilsner Yeast,GigaYeast,GY002,Lagers,,Med-High,77%,48°F,55°F
+GigaYeast - Farmhouse Sour,GigaYeast,GB121,Ale,,N/A,89%,68°F,80°F
+GigaYeast - Fast Souring Lacto,GigaYeast,GB110,Ale,,N/A,40%,68°F,98°F
+GigaYeast - German Lager Yeast,GigaYeast,GY045,Lagers,,Med-Low,76%,50°F,60°F
+GigaYeast - Golden Gate Lager Yeast,GigaYeast,GY005,Lagers,,Medium,81%,55°F,70°F
+GigaYeast - Golden Pear Belgian Ale Yeast,GigaYeast,GY048,Ale,,Low,84%,65°F,80°F
+GigaYeast - Hornindal Kveik #5,GigaYeast,GY135,Ales,Medium,Medium,77%,50°F,100°F
+GigaYeast - Kölsch Bier Yeast,GigaYeast,GY021,Ale,,Med-High,81%,60°F,72°F
+GigaYeast - NorCal Ale #1,GigaYeast,GY001,Ale,,Medium,78%,64°F,77°F
+GigaYeast - NorCal Ale #5,GigaYeast,GY029,Ale,,Med-High,71%,67°F,75°F
+GigaYeast - Portland Hefe Yeast,GigaYeast,GY020,Ale,,Low,78%,64°F,74°F
+GigaYeast - Saison Blend,GigaYeast,GY047,Ale,,Low,81.5%,64°F,80°F
+GigaYeast - Saison Sour,GigaYeast,GB124,Ale,,N/A,78%,68°F,80°F
+GigaYeast - Saison Yeast #1,GigaYeast,GY018,Ale,,Low,82%,64°F,80°F
+GigaYeast - Saison Yeast #2,GigaYeast,GY027,Ale,,Low,81%,64°F,80°F
+GigaYeast - Scotch Ale #1,GigaYeast,GY044,Ale,,Med-Low,81%,64°F,75°F
+GigaYeast - Scourmont Abbey Ale Yeast,GigaYeast,GY014,Ale,,Low,80%,64°F,80°F
+GigaYeast - Sour Cherry Funk,GigaYeast,GB150,Wilds & Sours,Medium,Low,65%,68°F,80°F
+GigaYeast - Sour Plum Belgian,GigaYeast,GB123,Ale,,N/A,77%,68°F,80°F
+GigaYeast - Sweet Flemish Brett,GigaYeast,GB144,Ale,,N/A,83%,68°F,75°F
+GigaYeast - Trappist Tripel Yeast,GigaYeast,GY015,Ale,,Low,75%,66°F,74°F
+GigaYeast - Vermont IPA Yeast,GigaYeast,GY054,Ale,,Med-Low,80%,62°F,75°F
+Imperial Yeast - A40 Bubbles,Imperial,A40 Bubbles,Cider,High,Medium,90%,57°F,77°F
+Imperial Yeast - A01 House,Imperial Yeast,A01 House,Ale,,High,73%,62°F,70°F
+Imperial Yeast - A04 Barbarian,Imperial Yeast,A04 Barbarian,Ale,,Medium,73%,62°F,70°F
+Imperial Yeast - A05 Four Square,Imperial Yeast,A05 Four Square,ale,,High,68%,64°F,72°F
+Imperial Yeast - A05 Voyager,Imperial Yeast,A05 Voyager,Ales,Medium,High,68%,64°F,74°F
+Imperial Yeast - A07 Flagship,Imperial Yeast,A07 Flagship,Ale,,Medium-low,73%,60°F,72°F
+Imperial Yeast - A09 Pub,Imperial Yeast,A09 Pub,Ale,,Very High,69%,64°F,70°F
+Imperial Yeast - A10 Darkness,Imperial Yeast,A10 Darkness,Ale,,Medium,71%,62°F,72°F
+Imperial Yeast - A13 Sovereign,Imperial Yeast,A13 Sovereign,Ale,,Medium-low,73%,60°F,70°F
+Imperial Yeast - A15 Independence,Imperial Yeast,A15 Independence,Ale,,Medium,72%,62°F,72°F
+Imperial Yeast - A18 Joystick,Imperial Yeast,A18 Joystick,Ale,,Medium High,73%,60°F,70°F
+Imperial Yeast - A20 Citrus,Imperial Yeast,A20 Citrus,Ale,,Low,74%,67°F,80°F
+Imperial Yeast - A24 Dry Hop,Imperial Yeast,A24 Dry Hop,Ale,,Medium,76%,64°F,74°F
+Imperial Yeast - A31 Tartan,Imperial Yeast,A31 Tartan,Ale,,Medium,72.5%,65°F,70°F
+Imperial Yeast - A34 - Julius,Imperial Yeast,,Ales,Medium,High,75%,64°F,68°F
+Imperial Yeast - A37 POG,Imperial Yeast,A37,Norwegian Ales,High,High,80%,85°F,100°F
+Imperial Yeast - A38 Juice,Imperial Yeast,A38 Juice,Ales,Medium,Medium,74%,64°F,74°F
+Imperial Yeast - A43 Loki,Imperial Yeast,A43 Loki,Ale,,Medium High,80%,60°F,100°F
+Imperial Yeast - A44 Kveiking,Imperial Yeast,A44,Norwegian Ales,High,Low,80%,75°F,97°F
+Imperial Yeast - A62 Bell,Imperial Yeast,A62,Ales,Medium,Medium,79%,65°F,72°F
+Imperial Yeast - B44 Whiteout,Imperial Yeast,B44 Whiteout,Belgian Ale,,Medium-low,72%,62°F,72°F
+Imperial Yeast - B45 Gnome,Imperial Yeast,B45 Gnome,Belgian Ale,,Medium-high,72%,65°F,75°F
+Imperial Yeast - B48 Triple Double,Imperial Yeast,B48 Triple Double,Belgian Ale,,Medium,74%,65°F,77°F
+Imperial Yeast - B51 Workhorse,Imperial Yeast,B51 Workhorse,Belgian Ale,,Medium,72%,65°F,75°F
+Imperial Yeast - B53 Fish Finder,Imperial Yeast,B53 Fish Finder,Belgian Ale,,Medium,74%,65°F,73°F
+Imperial Yeast - B56 Rustic,Imperial Yeast,B56 Rustic,Belgian Ale,,Medium,72%,68°F,90°F
+Imperial Yeast - B63 Monastic,Imperial Yeast,B63 Monastic,Belgian Ale,,Medium-low,74%,68°F,78°F
+Imperial Yeast - B64 Napoleon,Imperial Yeast,B64 Napoleon,Belgian Ale,,Low,77%,65°F,78°F
+Imperial Yeast - F08 Sour Batch Kidz,Imperial Yeast,F08 Sour Batch Kidz,Ale,,Low,80%,68°F,76°F
+Imperial Yeast - G01 Stefon,Imperial Yeast,G01 Stefon,German Ale,,Low,73%,63°F,73°F
+Imperial Yeast - G02 Kaiser,Imperial Yeast,G02 Kaiser,German Ale,,Low,73%,55°F,65°F
+Imperial Yeast - G03 Dieter,Imperial Yeast,G03 Dieter,German Ale,,Medium,75%,60°F,69°F
+Imperial Yeast - L02 Fest,Imperial Yeast,L02 Fest,Lagers,,Medium High,71%,46°F,56°F
+Imperial Yeast - L05 Cablecar,Imperial Yeast,L05 Cablecar,Lagers,,Medium High,71%,55°F,65°F
+Imperial Yeast - L09 Que Bueno,Imperial Yeast,L09 Que Bueno,Lagers,,Medium,73%,47°F,55°F
+Imperial Yeast - L11 Gateway,Imperial Yeast,L11 Gateway,Lagers,,Medium,72%,47°F,55°F
+Imperial Yeast - L13 Global,Imperial Yeast,L13 Global,Lagers,,Medium-low,73%,46°F,56°F
+Imperial Yeast - L17 Harvest,Imperial Yeast,L17 Harvest,Lagers,,Medium,70%,50°F,60°F
+Imperial Yeast - L22 Capri,Imperial Yeast,L22,Ales,Medium,Medium,71%,68°F,86°F
+Imperial Yeast - L26 Pilgrimage,Imperial Yeast,L26,Lagers,Medium,Medium,75%,44°F,56°F
+Imperial Yeast - L28 Urkel,Imperial Yeast,L28 Urkel,Lagers,,Medium,73%,52°F,58°F
+Imperial Yeast - W15 Suburban Brett,Imperial Yeast,W15 Suburban Brett,Ale,,Low,77.5%,64°F,74°F
+Inland Island Yeast - American Ale Yeast INIS-007,Inland Island Yeast,INIS-007,Ale,High,Medium,71%,68°F,74°F
+Inland Island Yeast - Belgian Gnome Ale INIS-222,Inland Island Yeast,INIS-222,Ale,High,High,74%,65°F,76°F
+Inland Island Yeast - Brett Barrel Yeast III INIS-913,Inland Island Yeast,INIS-913,Ale,Medium,Medium,90%,60°F,75°F
+Inland Island Yeast - Colorado IPA Yeast INIS-003,Inland Island Yeast,INIS-003,Ale,High,Medium,76%,62°F,75°F
+Inland Island Yeast - Eccentric Ale Yeast INIS-006,Inland Island Yeast,INIS-006,Ale,Med-High,Medium,72%,68°F,72°F
+Inland Island Yeast - English Ale V INIS-315,Inland Island Yeast,INIS-315,Ale,Medium,Very High,66.5%,65°F,68°F
+Inland Island Yeast - English Dry Ale INIS-318,Inland Island Yeast,INIS-318,Ale,Med-High,Med-High,75%,65°F,70°F
+Inland Island Yeast - German Monk Lager INIS-711,Inland Island Yeast,INIS-711,Lagers,Medium,Medium,73%,50°F,54°F
+Inland Island Yeast - INIS-008 EAST COAST IPA,Inland Island Yeast,INIS-008,Ales,High,High,73%,64°F,74°F
+Inland Island Yeast - INIS-009 FOG MACHINE,Inland Island Yeast,INIS-009,Ales,Medium,Medium,74%,66°F,73°F
+Inland Island Yeast - INIS-055 AMERICAN WEIZEN YEAST,Inland Island Yeast,INIS-055,Ales,Medium,Low,72%,65°F,69°F
+Inland Island Yeast - INIS-241 BELGIAN WIT ALE,Inland Island Yeast,INIS-241,Belgian Ales,High,Medium,74%,64°F,74°F
+Inland Island Yeast - INIS-298 SAISON : BARON,Inland Island Yeast,INIS-298,Belgian Ales,Medium,Medium,75%,70°F,78°F
+Inland Island Yeast - INIS-441 Norwegian Farmhouse,Inland Island Yeast,INIS-441,Ales,Medium,High,80%,70°F,100°F
+Inland Island Yeast - INIS-451 FRENCH ALE,Inland Island Yeast,INIS-451,Ales,Medium,High,72%,63°F,73°F
+Inland Island Yeast - INIS-572 GOLDEN KOLSCH STYLE ALE,Inland Island Yeast,INIS-572,Ales,Medium,Medium,76%,56°F,65°F
+Inland Island Yeast - INIS-573 GERMAN HYBRID ALE,Inland Island Yeast,INIS-573,Ales,Medium,Medium,75%,65°F,69°F
+Inland Island Yeast - INIS-701 SESSION LAGER,Inland Island Yeast,INIS 701,Lagers,Medium,Medium,77.5%,50°F,55°F
+Inland Island Yeast - Northern California Ale Yeast INIS-001,Inland Island Yeast,INIS-001,Ale,High,Medium,75%,60°F,72°F
+Inland Island Yeast - Saison : Farmhouse INIS-291,Inland Island Yeast,INIS-291,Ale,High,Medium,76.5%,70°F,95°F
+Lallemand - LALBREW® BRY-97 WEST COAST ALE YEAST,LalBrew,BRY-97,Ales,High,High,75%,59°F,72°F
+Lallemand - LALBREW® ABBAYE BELGIAN ALE YEAST,Lallemand,,Belgian Ales,High,Medium,88%,63°F,77°F
+Lallemand - Belle Saison,Lallemand,,Ales,High,Low,90%,59°F,95°F
+Lallemand - ICV Okay,Lallemand,,Champagne,High,Medium,77%,59°F,77°F
+Lallemand - kv1116,Lallemand,K1-V1116,Wine,High,Low,90%,50°F,95°F
+Lallemand - Lalbrew Farmhouse Hybrid Saison,Lallemand,LalBrew Farmhouse Hybrid Saison,Belgian Ales,High,Low,82%,71.6°F,86°F
+Lallemand - Lalbrew New England,Lallemand,,Ales,Medium,Medium,75%,59°F,72°F
+Lallemand - LalBrew NovaLager™,Lallemand,Nova Lager,Lagers,High,Medium,81%,50°F,68°F
+Lallemand - LALBREW® CBC-1 CASK & BOTTLE CONDITIONING YEAST,Lallemand,CBC-1,Ales,High,High,65%,59°F,77°F
+Lallemand - LALBREW® KÖLN KÖLSCH KOLSCH STYLE ALE YEAST,Lallemand,Koln,Ales,Medium,Medium,75%,59°F,72°F
+Lallemand - LALBREW® LONDON ENGLISH-STYLE ALE YEAST,Lallemand,London ESB,British Ales,High,Low,65%,65°F,72°F
+Lallemand - LALBREW® MUNICH CLASSIC WHEAT BEER YEAST,Lallemand,WB,Ales,High,Low,78%,64°F,72°F
+Lallemand - LALBREW® NOTTINGHAM HIGH PERFORMANCE ALE YEAST,Lallemand,,Ales,Medium,High,80%,50°F,72°F
+Lallemand - LALBREW® VOSS KVEIK ALE YEAST,Lallemand,VOSS,Ales,High,High,80%,77°F,104°F
+Lallemand - LALBREW® WINDSOR BRITISH-STYLE BEER YEAST,Lallemand,,Ales,Medium,Low,70%,59°F,72°F
+Lallemand - LALBREW® WIT BELGIAN WIT-STYLE ALE YEAST,Lallemand,,Wheat,Medium,Low,70%,63°F,72°F
+Lallemand - Lalvin 71B -1122,Lallemand,71B,Mead,High,High,100%,59°F,86°F
+Lallemand - Lalvin Ba11,Lallemand,ba11,Wine,High,Low,100%,59°F,77°F
+Lallemand - Lalvin EC-1118,Lallemand,EC 1118,Champagne,High,High,65%,59°F,77°F
+Lallemand - Lalvin ICV D-47,Lallemand,Saccharomyces cerevisiae var. cerevisiae,Wine,High,Medium,95%,59°F,86°F
+Lallemand - LALVIN ICV K1-V1116,Lallemand,,Wine,Medium,High,65%,50°F,95°F
+Lallemand - Lalvin RC-212,Lallemand,,Wine,High,Low,75%,68°F,86°F
+Lallemand - Sourvisiae,Lallemand,Sourvisiae,Ales,High,Medium,85%,50°F,72°F
+Lallemand - Verdant IPA,Lallemand,Verdant IPA,Ales,High,High,80%,64°F,73°F
+Lallemand - WildBrew Philly Sour,Lallemand,Philly Sour,Wilds & Sours,Medium,High,85%,68°F,77°F
+Lallemand - WILDBREW™ HELVETICUS PITCH,Lallemand,Helveticus Pitch,Wilds & Sours,Low,Low,0%,100°F,113°F
+Lallemand - Windsor,Lallemand,,British Ales,Medium,Low,65%,59°F,72°F
+Lallemand - LALVIN BM 4x4,Lalvin,BM4x4,Wine,High,High,100%,65°F,85°F
+Lallemand - Lalvin W15,Lalvin,,Wine,High,High,100%,50°F,81°F
+Le Labo - Bruxelles Trois,Le Labo,LSB2013,Ales,High,Low,83.5%,69.8°F,82.4°F
+Levtec - English Ale - Tecbrew 07,Levtec,,British Ales,Medium,Medium,75%,60.8°F,71.6°F
+Levtec - Levtec - Teckbrew 07 - English Ale,Levtec,,Ales,High,Medium,75%,64.4°F,71.6°F
+Levtec - Seljeset kveik,Levtec,,Ales,High,High,78%,77°F,104°F
+Levtec - Abbey Ale – TeckBrew 40,Levteck,,Belgian Ales,High,Medium,78%,66°F,73°F
+Mainiacal Yeast Labs - Arset,Mainiacal Yeast Labs,,Ales,Medium,Medium,78%,65°F,95°F
+Mainiacal Yeast Labs - Aurland,Mainiacal Yeast Labs,,Norwegian Ales,Medium,Medium,0%,60°F,95°F
+Mainiacal Yeast Labs - BB 3,Mainiacal Yeast Labs,,Ales,Medium,Medium,76%,68°F,78°F
+Mainiacal Yeast Labs - Brettanomainer,Mainiacal Yeast Labs,,Wilds & Sours,Medium,Low,93%,52°F,80°F
+Mainiacal Yeast Labs - Citrus King,Mainiacal Yeast Labs,,Ales,Low,Low,82%,65°F,78°F
+Mainiacal Yeast Labs - Ebbegarden Kveik,Mainiacal Yeast Labs,,Norwegian Ales,High,Medium,85%,80°F,90°F
+Mainiacal Yeast Labs - Espe,Mainiacal Yeast Labs,,Norwegian Ales,Medium,Medium,75%,60°F,94°F
+Mainiacal Yeast Labs - Framgarden,Mainiacal Yeast Labs,,Ales,High,Medium,78%,75°F,110°F
+Mainiacal Yeast Labs - Granvin,Mainiacal Yeast Labs,,Ales,Medium,Low,78%,68°F,110°F
+Mainiacal Yeast Labs - Infectious Behaviour,Mainiacal Yeast Labs,,Ales,High,Medium,90%,65°F,80°F
+Mainiacal Yeast Labs - Juggernaut,Mainiacal Yeast Labs,,Ales,Medium,Medium,79%,65°F,80°F
+Mainiacal Yeast Labs - Lærdal,Mainiacal Yeast Labs,,Norwegian Ales,Low,Low,80%,80°F,105°F
+Mainiacal Yeast Labs - Midtbust,Mainiacal Yeast Labs,,Ales,Medium,Medium,78%,75°F,105°F
+Mainiacal Yeast Labs - MTF Blend,Mainiacal Yeast Labs,,Wilds & Sours,High,Medium,80%,70°F,100°F
+Mainiacal Yeast Labs - Muri,Mainiacal Yeast Labs,,Norwegian Ales,Medium,Medium,80%,60°F,100°F
+Mainiacal Yeast Labs - MYBrett86,Mainiacal Yeast Labs,,Wilds & Sours,Medium,Low,85%,55°F,82°F
+Mangrove Jack - Bavarian Lager M76,Mangrove Jack,M76,Lagers,n/a,Medium,77.5%,45°F,57°F
+Mangrove Jack - Bavarian Wheat Yeast M20,Mangrove Jack,M20,Ale,n/a,Low,73%,59°F,86°F
+Mangrove Jack - Belgian Abbey M47,Mangrove Jack,M47,Ale,n/a,Med-High,75%,64°F,77°F
+Mangrove Jack - Belgian Ale Yeast M41,Mangrove Jack,M41,Ale,n/a,Medium,85%,64°F,82°F
+Mangrove Jack - Belgian Tripel M31,Mangrove Jack,M31,Ale,n/a,Medium,85%,64°F,82°F
+Mangrove Jack - Belgian Wit M21,Mangrove Jack,M21,Ale,n/a,Med-Low,72.5%,64°F,77°F
+Mangrove Jack - Bohemian Lager Yeast M84,Mangrove Jack,M84,Lagers,n/a,High,78%,50°F,59°F
+Mangrove Jack - British Ale Yeast M07,Mangrove Jack,M07,Ale,n/a,High,78%,57°F,72°F
+Mangrove Jack - Burton Union Yeast M79,Mangrove Jack,M79,Ale,n/a,High,78%,62°F,74°F
+Mangrove Jack - BV7,Mangrove Jack,BV7,Wine,High,Low,65%,57°F,82°F
+Mangrove Jack - Californian Lager M54,Mangrove Jack,M54,Lagers,n/a,Med-High,79.5%,64°F,68°F
+Mangrove Jack - Craft Series Cider Yeast,Mangrove Jack,,Cider,n/a,High,78%,64°F,75°F
+Mangrove Jack - Empire Ale M15,Mangrove Jack,M15,Ale,n/a,Med-High,72.5%,70°F,75°F
+Mangrove Jack - French Saison Ale M29,Mangrove Jack,M29,Ale,n/a,Medium,87.5%,79°F,90°F
+Mangrove Jack - Hophead M66,Mangrove Jack,M66,Ales,Medium,High,78%,64°F,72°F
+Mangrove Jack - Kveik Yeast,Mangrove Jack,M12,Norwegian Ales,High,High,80%,68°F,104°F
+Mangrove Jack - Kveik Yeast M12,Mangrove Jack,M12,Norwegian Ales,Medium,High,79.5%,68°F,104°F
+Mangrove Jack - Liberty Bell Ale M36,Mangrove Jack,M36,Ale,n/a,Med-High,76%,62°F,74°F
+Mangrove Jack - M27 BELGIAN ALE YEAST,Mangrove Jack,M27,Belgian Ales,High,Medium,95%,79°F,90°F
+Mangrove Jack - Mead M05,Mangrove Jack,M05,Mead,n/a,Med-High,97.5%,59°F,86°F
+Mangrove Jack - New World Strong Ale M42,Mangrove Jack,M42,Ale,n/a,High,79.5%,61°F,72°F
+Mangrove Jack - Newcastle Dark Ale Yeast M03,Mangrove Jack,M03,Ale,n/a,Medium,73%,64°F,72°F
+Mangrove Jack - UK Dark Ale Yeast,Mangrove Jack,,Ale,n/a,Medium,73%,64°F,72°F
+Mangrove Jack - US West Coast Yeast M44,Mangrove Jack,M44,Ale,n/a,High,78%,59°F,74°F
+Mangrove Jack - Workhorse Beer Yeast M10,Mangrove Jack,M10,Ale,n/a,Medium,78%,59°F,68°F
+Mangrove Jack - M02 - Cider Yeast,Mangrove Jack's,M02,Cider,High,High,95%,54°F,82°F
+Muntons - Gervin Ale,Muntons,GV-12,Ales,Low,Low,70%,61°F,72°F
+Omega Yeast Labs - Abbey Ale C OYL-018,Omega Yeast Labs,OYL-018,Belgian Ales,12%,Medium-Low,76%,68°F,78°F
+Omega Yeast Labs - All the Bretts OYL-218,Omega Yeast Labs,OYL-218,Bretts and Blends,11%,Low,48%,68°F,85°F
+Omega Yeast Labs - Alt OYL-001,Omega Yeast Labs,OYL-001,Ales,11%,Low,75%,55°F,68°F
+Omega Yeast Labs - American Lager OYL-103,Omega Yeast Labs,OYL-103,Lagers,9%,Medium,75%,48°F,56°F
+Omega Yeast Labs - American Pilsner OYL-102,Omega Yeast Labs,OYL-102,Lagers,9%,Medium,73%,48°F,56°F
+Omega Yeast Labs - American Wheat OYL-002,Omega Yeast Labs,OYL-002,Ales,10%,Low,76%,58°F,74°F
+Omega Yeast Labs - Bananza OYL-400,Omega Yeast Labs,OYL-400,Ales,Medium,Low,75%,64°F,75°F
+Omega Yeast Labs - Bavarian Wheat OYL-025,Omega Yeast Labs,OYL-025,Ales,10%,Low,73%,64°F,75°F
+Omega Yeast Labs - Bayern Lager OYL-114,Omega Yeast Labs,OYL-114,Lagers,9%,Medium,74%,51°F,62°F
+Omega Yeast Labs - Belgian Ale A OYL-024,Omega Yeast Labs,OYL-024,Belgian Ales,12%,High,79%,65°F,78°F
+Omega Yeast Labs - Belgian Ale D OYL-019,Omega Yeast Labs,OYL-019,Belgian Ales,12%,Low,76%,64°F,80°F
+Omega Yeast Labs - Belgian Ale DK OYL-049,Omega Yeast Labs,OYL-049,Belgian Ales,10%,Medium,77%,67°F,70°F
+Omega Yeast Labs - Belgian Ale O OYL-046,Omega Yeast Labs,OYL-046,Belgian Ales,12%,Medium,77%,66°F,72°F
+Omega Yeast Labs - Belgian Ale R OYL-020,Omega Yeast Labs,OYL-020,Belgian Ales,12%,Medium,78%,65°F,75°F
+Omega Yeast Labs - Belgian Ale W OYL-028,Omega Yeast Labs,OYL-028,Belgian Ales,11%,Medium,76%,64°F,78°F
+Omega Yeast Labs - Belgian Dark Ale A OYL-040,Omega Yeast Labs,OYL-040,Belgian Ales,High,Medium,76.5%,65°F,80°F
+Omega Yeast Labs - Belgian Golden Strong,Omega Yeast Labs,OYL-056,Ales,High,Low,92.5%,68°F,76°F
+Omega Yeast Labs - Belgian Saison I OYL-027,Omega Yeast Labs,OYL-027,Belgian Ales,12%,Low,78%,70°F,95°F
+Omega Yeast Labs - Belgian Saison II OYL-042,Omega Yeast Labs,OYL-042,Belgian Ales,12%,Medium,77%,70°F,84°F
+Omega Yeast Labs - Belgian Wheat OYL-029,Omega Yeast Labs,OYL-029,Belgian Ales,12%,Medium,74%,64°F,74°F
+Omega Yeast Labs - Biere de Garde OYL-039,Omega Yeast Labs,OYL-039,Belgian Ales,9%,Low,77%,70°F,84°F
+Omega Yeast Labs - Brett Blend #1 Where Da Funk? OYL-210,Omega Yeast Labs,OYL-210,Bretts and Blends,11%,Very Low,83%,68°F,80°F
+Omega Yeast Labs - Brett Blend #2 Bit O' Funk OYL-211,Omega Yeast Labs,OYL-211,Bretts and Blends,11%,Very Low,48%,68°F,80°F
+Omega Yeast Labs - Brett Blend #3 Bring On Da Funk OYL-212,Omega Yeast Labs,OYL-212,Bretts and Blends,11%,Very Low,48%,68°F,80°F
+Omega Yeast Labs - Brettanomyces Bruxellensis OYL-202,Omega Yeast Labs,OYL-202,Bretts and Blends,10%,Low,48%,68°F,85°F
+Omega Yeast Labs - Brettanomyces Claussenii OYL-201,Omega Yeast Labs,OYL-201,Bretts and Blends,10%,Low,48%,68°F,85°F
+Omega Yeast Labs - Brettanomyces Lambicus OYL-203,Omega Yeast Labs,OYL-203,Bretts and Blends,10%,Low,48%,68°F,85°F
+Omega Yeast Labs - British Ale I OYL-006,Omega Yeast Labs,OYL-006,British Ales,10%,Medium High,75%,64°F,72°F
+Omega Yeast Labs - British Ale II OYL-007,Omega Yeast Labs,OYL-007,British Ales,10%,Medium-High,70%,64°F,75°F
+Omega Yeast Labs - British Ale III OYL-008,Omega Yeast Labs,OYL-008,British Ales,10%,High,71%,64°F,74°F
+Omega Yeast Labs - British Ale IV OYL-010,Omega Yeast Labs,OYL-010,British Ales,10%,Medium-Low,73%,62°F,73°F
+Omega Yeast Labs - British Ale V OYL-011,Omega Yeast Labs,OYL-011,British Ales,10%,High,73%,64°F,74°F
+Omega Yeast Labs - British Ale VI OYL-013,Omega Yeast Labs,OYL-013,British Ales,10%,High,75%,63°F,75°F
+Omega Yeast Labs - British Ale VII OYL-014,Omega Yeast Labs,OYL-014,British Ales,9%,High,69%,64°F,72°F
+Omega Yeast Labs - British Ale VIII OYL-016,Omega Yeast Labs,OYL-016,British Ales,9%,Very High,69%,64°F,72°F
+Omega Yeast Labs - British Ale XI OYL-048,Omega Yeast Labs,OYL-048,British Ales,High,High,77%,66°F,70°F
+Omega Yeast Labs - British Cask OYL-038,Omega Yeast Labs,OYL-038,British Ales,Medium,High,75.5%,63°F,72°F
+Omega Yeast Labs - C2C American Farmhouse OYL-217,Omega Yeast Labs,OYL-217,Bretts and Blends,10%,Low,78%,68°F,80°F
+Omega Yeast Labs - CL-50 Ale OYL-041,Omega Yeast Labs,OYL-041,Ales,10%,Low,75%,60°F,70°F
+Omega Yeast Labs - Cosmic Punch - OYL-402,Omega Yeast Labs,OYL-402,Ales,High,High,73%,64°F,75°F
+Omega Yeast Labs - Danish Lager OYL-104,Omega Yeast Labs,OYL-104,Lagers,9%,Low,75%,46°F,56°F
+Omega Yeast Labs - DIPA Ale OYL-052,Omega Yeast Labs,OYL-052,Ales,11%,Medium-low,76%,65°F,72°F
+Omega Yeast Labs - East Coast Ale OYL-032,Omega Yeast Labs,OYL-032,Ales,10%,Medium-Low,73%,68°F,73°F
+Omega Yeast Labs - Espe Kveik,Omega Yeast Labs,OYL090,Norwegian Ales,High,Medium,77%,68°F,98°F
+Omega Yeast Labs - French Saison OYL-026,Omega Yeast Labs,OYL-026,Belgian Ales,12%,Low,85%,65°F,77°F
+Omega Yeast Labs - German Bock OYL-111,Omega Yeast Labs,OYL-111,Lagers,10%,Medium,73%,48°F,55°F
+Omega Yeast Labs - German Lager I OYL-106,Omega Yeast Labs,OYL-106,Lagers,9%,Medium-low,75%,45°F,68°F
+Omega Yeast Labs - German Lager II OYL-109,Omega Yeast Labs,OYL-109,Lagers,9%,Medium-High,72%,50°F,55°F
+Omega Yeast Labs - Grand Cru OYL-023,Omega Yeast Labs,OYL-023,Belgian Ales,12%,Low,74%,63°F,76°F
+Omega Yeast Labs - Gulo Ale OYL-501,Omega Yeast Labs,OYL-501,Ales,High,Medium,87.5%,68°F,77°F
+Omega Yeast Labs - Hefeweizen Ale I OYL-021,Omega Yeast Labs,OYL-021,Ales,10%,Low,75%,65°F,75°F
+Omega Yeast Labs - Hefeweizen Ale II OYL-022,Omega Yeast Labs,OYL-022,Ales,10%,High,73%,63°F,75°F
+Omega Yeast Labs - Hornindal Kveik OYL-091,Omega Yeast Labs,OYL-091,Norwegian Ales,12%,High/Low,79%,70°F,95°F
+Omega Yeast Labs - HotHead Ale OYL-057,Omega Yeast Labs,OYL-057,Norwegian Ales,11%,Medium High,80%,62°F,98°F
+Omega Yeast Labs - Irish Ale OYL-005,Omega Yeast Labs,OYL-005,British Ales,12%,Medium,72%,62°F,72°F
+Omega Yeast Labs - Jovaru Lithuanian Farmhouse OYL-033,Omega Yeast Labs,OYL-033,Ales,Medium,High,85%,70°F,95°F
+Omega Yeast Labs - Kolsch I OYL-017,Omega Yeast Labs,OYL-017,Ales,10%,Low,75%,56°F,70°F
+Omega Yeast Labs - Kolsch II OYL-044,Omega Yeast Labs,OYL-044,Ales,10%,Medium,75%,65°F,69°F
+Omega Yeast Labs - Lactobacillus Blend OYL-605,Omega Yeast Labs,OYL-605,Bacterial Cultures,12%,N/A,0%,68°F,95°F
+Omega Yeast Labs - Lager I OYL-100,Omega Yeast Labs,OYL-100,Lagers,9%,Medium-High,73%,48°F,56°F
+Omega Yeast Labs - London Ale OYL-003,Omega Yeast Labs,OYL-003,British Ales,11%,Medium,72%,66°F,72°F
+Omega Yeast Labs - Lunar Crush Lager - OYL-403,Omega Yeast Labs,OYL-403,Lagers,Medium,Medium,74.5%,50°F,65°F
+Omega Yeast Labs - Lutra Kveik OYL-071,Omega Yeast Labs,OYL-071,Norwegian Ales,High,Medium,78%,68°F,95°F
+Omega Yeast Labs - Mexican Lager OYL-113,Omega Yeast Labs,OYL-113,Lagers,9%,Medium,74%,50°F,55°F
+Omega Yeast Labs - New Jersey Ale OYL-045,Omega Yeast Labs,OYL-045,Ales,High,High,76%,66°F,72°F
+Omega Yeast Labs - Oktoberfest OYL-107,Omega Yeast Labs,OYL-107,Lagers,9%,Medium-High,75%,46°F,58°F
+Omega Yeast Labs - Pacific NW Ale OYL-012,Omega Yeast Labs,OYL-012,Ales,10%,High,69%,65°F,75°F
+Omega Yeast Labs - Pilsner I OYL-101,Omega Yeast Labs,OYL-101,Lagers,9%,Medium-High,74%,48°F,56°F
+Omega Yeast Labs - Pilsner II OYL-108,Omega Yeast Labs,OYL-108,Lagers,9%,Medium-High,72%,50°F,58°F
+Omega Yeast Labs - Saisonstein’s Monster OYL-500,Omega Yeast Labs,OYL-500,Ales,High,Low,80%,65°F,78°F
+Omega Yeast Labs - Scottish Ale OYL-015,Omega Yeast Labs,OYL-015,British Ales,10%,Medium,75%,65°F,70°F
+Omega Yeast Labs - Star Party - OYL 404,Omega Yeast Labs,OYL-404,Ales,High,Medium,76.5%,60°F,73°F
+Omega Yeast Labs - Sundew OYL-401,Omega Yeast Labs,OYL-401,Ales,High,High,79%,64°F,78°F
+Omega Yeast Labs - Swiss Lager OYL-112,Omega Yeast Labs,OYL-112,Lagers,Low,Medium,75%,50°F,55°F
+Omega Yeast Labs - Tropical IPA OYL-200,Omega Yeast Labs,OYL-200,Ales,10%,Low,92.5%,75°F,85°F
+Omega Yeast Labs - Voss Kveik OYL-061,Omega Yeast Labs,OYL-061,Norwegian Ales,12%,Medium,79%,68°F,98°F
+Omega Yeast Labs - West Coast Ale I OYL-004,Omega Yeast Labs,OYL-004,Ales,11%,Medium-Low,77%,60°F,73°F
+Omega Yeast Labs - West Coast Ale II OYL-009,Omega Yeast Labs,OYL-009,Ales,10%,Medium,74%,60°F,72°F
+Omega Yeast Labs - West Coast Ale III OYL-043,Omega Yeast Labs,OYL-043,Ales,11%,Medium-High,80%,65°F,68°F
+Omega Yeast Labs - West Coast Ale IV OYL-050,Omega Yeast Labs,OYL-050,Ales,10%,Medium-High,77%,62°F,74°F
+Omega Yeast Labs - West Coast Lager OYL-105,Omega Yeast Labs,OYL-105,Lagers,9%,High,69%,58°F,68°F
+Omega Yeast Labs - Wit OYL-030,Omega Yeast Labs,OYL-030,Belgian Ales,11%,Medium,74%,62°F,75°F
+Pathfinder - TY-Pure,Pathfinder,TY Pure,Champagne,High,High,81%,50°F,86°F
+Pathfinder - TY48 Turbo Yeast,pathfinder,,Ales,High,High,65%,80.6°F,96.8°F
+Propagate Labs - Malty IPA Yeast,Propagate,MIP-130,Ales,High,High,75%,65°F,75°F
+Propagate Labs - American Blend,Propagate,MIP-170,Ales,High,High,75%,65°F,76°F
+Propagate Labs - Colorado Kolsch,Propagate,MIP-511,Ales,Medium,Medium,75%,55°F,65°F
+Propagate Labs - Hazy IPA Yeast,Propagate,MIP-110,Ales,Medium,Medium,75%,65°F,75°F
+Propagate Labs - Mexican Lager,Propagate,MIP-660,Lagers,Medium,Medium,0%,50°F,55°F
+Propagate Labs - MIP-640 Festbier Yeast,Propagate,MIP-640 Festbier Yeast,Lagers,Medium,Medium,72%,52°F,58°F
+Propagate Labs - Andechs Lager,Propagate Labs,MIP-620,Lagers,Medium,High,75%,50°F,55°F
+Propagate Labs - Belgian Wit Ale II,Propagate Labs,MIP-232,Ales,High,Low,78%,65°F,74°F
+Propagate Labs - Kveik: Voss,Propagate Labs,MIP-340,Ales,High,High,75%,75°F,95°F
+Propagate Labs - MIP-343 Ebbegarden,Propagate Labs,MIP-343,Ales,High,High,75%,65°F,98°F
+Real Brewers - Lucky No. 7,Real Brewers,,Ale,10%,High,75%,68°F,75°F
+Real Brewers - The Monk,Real Brewers,,Ale,15%,Medium,78%,66°F,72°F
+Real Brewers - The One,Real Brewers,,Ale,n/a,High,75%,68°F,75°F
+Real Brewers - Ye Olde English,Real Brewers,,Ale,n/a,Medium,70%,65°F,70°F
+Red Star - Cote des Blanc,Red Star,DYW40,Wine,High,Medium,99%,64°F,86°F
+Red Star - DADY,Red Star,DADY,Ales,High,Low,65%,65°F,80°F
+Red Star - Premier Blanc Yeast,Red Star,UCD595,Wine,High,Low,0%,59°F,86°F
+RVA Yeast Labs - RVA 101 Chico Ale,RVA Yeast Labs,RVA 101,Ale,High,Medium,77.5%,67°F,73°F
+RVA Yeast Labs - RVA 102 Boston Ale,RVA Yeast Labs,RVA 102,Ale,High,Medium,72.5%,65°F,73°F
+RVA Yeast Labs - RVA 103 Pacman Ale,RVA Yeast Labs,RVA 103,Ale,High,Medium-High,76%,62°F,72°F
+RVA Yeast Labs - RVA 104 Hoptopper Ale,RVA Yeast Labs,RVA 104,Ale,High,Medium-Low,77.5%,64°F,76°F
+RVA Yeast Labs - RVA 131 Chiswick Ale,RVA Yeast Labs,RVA 131,Ale,Medium,Very High,68.5%,65°F,70°F
+RVA Yeast Labs - RVA 132 Manchester Ale,RVA Yeast Labs,RVA 132,Ale,Medium,High,72.5%,65°F,72°F
+RVA Yeast Labs - RVA 141 Scotch Ale,RVA Yeast Labs,RVA 141,Ale,High,Medium,72.5%,65°F,70°F
+RVA Yeast Labs - RVA 151 Dublin Ale,RVA Yeast Labs,RVA 151,Ale,High,Medium-High,72.5%,65°F,70°F
+RVA Yeast Labs - RVA 161 German Ale I,RVA Yeast Labs,RVA 161,Ale,Medium-High,Medium,73%,60°F,68°F
+RVA Yeast Labs - RVA 201 Trappist Ale I,RVA Yeast Labs,RVA 201,Ale,High,Medium,77.5%,65°F,72°F
+RVA Yeast Labs - RVA 202 Trappist Ale II,RVA Yeast Labs,RVA 202,Ale,High,Medium,77.5%,65°F,72°F
+RVA Yeast Labs - RVA 203 Trappist Ale III,RVA Yeast Labs,RVA 203,Ale,High,Medium,77.5%,65°F,72°F
+RVA Yeast Labs - RVA 204 Trappist Ale IV,RVA Yeast Labs,RVA 204,Ale,High,Medium,77.5%,65°F,72°F
+RVA Yeast Labs - RVA 221 Belgian 1833 Ale,RVA Yeast Labs,RVA 221,Ale,Medium,Medium,76.5%,67°F,70°F
+RVA Yeast Labs - RVA 222 Belgian Gnome Ale,RVA Yeast Labs,RVA 222,Ale,High,High,76.5%,67°F,75°F
+RVA Yeast Labs - RVA 241 Verboten Ale,RVA Yeast Labs,RVA 241,Ale,High,Low,72.5%,65°F,75°F
+RVA Yeast Labs - RVA 251 Golden Strong Ale,RVA Yeast Labs,RVA 251,Ale,High,Medium,76.5%,68°F,75°F
+RVA Yeast Labs - RVA 261 Saison I,RVA Yeast Labs,RVA 261,Ale,Medium,Medium,70%,75°F,85°F
+RVA Yeast Labs - RVA 262 Saison II,RVA Yeast Labs,RVA 262,Ale,Medium,Medium,78.5%,67°F,77°F
+RVA Yeast Labs - RVA 263 Ghost Ale,RVA Yeast Labs,RVA 263,Ale,Medium,Medium,80.5%,65°F,80°F
+RVA Yeast Labs - RVA 301 American Lager,RVA Yeast Labs,RVA 301,Lagers,Medium,Medium,77.5%,50°F,55°F
+RVA Yeast Labs - RVA 302 München Lager,RVA Yeast Labs,RVA 302,Lagers,Medium-High,High,77.5%,58°F,65°F
+RVA Yeast Labs - RVA 303 Oktoberfest Lager,RVA Yeast Labs,RVA 303,Lagers,Medium-High,Medium,69%,52°F,58°F
+RVA Yeast Labs - RVA 304 Czech Lager,RVA Yeast Labs,RVA 304,Lagers,Medium,Medium,77.5%,50°F,55°F
+Siebel Institute - Alt Ale BRY 144,Siebel Institute,BRY 144,Ale,n/a,Medium,78%,59°F,68°F
+Siebel Institute - American Ale BRY 96,Siebel Institute,BRY 96,Ale,n/a,Medium,78%,64°F,72°F
+Siebel Institute - American Lager BRY 118,Siebel Institute,BRY 118,Lagers,n/a,High,72%,68°F,72°F
+Siebel Institute - Bavarian Weizen Ale BRY 235,Siebel Institute,BRY 235,Ale,n/a,High,73%,50°F,57°F
+Siebel Institute - English Ale BRY 264,Siebel Institute,BRY 264,Ale,n/a,Medium,78%,59°F,68°F
+Siebel Institute - German Kölsch BRY 401,Siebel Institute,BRY 401,Ale,n/a,Low,72%,55°F,59°F
+Siebel Institute - North European Lager BRY 203,Siebel Institute,BRY 203,Lagers,n/a,Low,78%,68°F,72°F
+Siebel Institute - Trappist Ale BRY 204,Siebel Institute,BRY 204,Ale,n/a,Medium,78%,64°F,72°F
+The Yeast Bay - Amalgamation - Brett Super Blend,The Yeast Bay,WLP4637,Wilds & Sours,Low,Low,85%,70°F,80°F
+The Yeast Bay - Amalgamation II - Brett Super Blend,The Yeast Bay,WLP4641,Wilds & Sours,High,Low,84%,70°F,80°F
+The Yeast Bay - Beersel Brettanomyces Blend,The Yeast Bay,WLP4603,Wilds & Sours,Low,Medium,78%,70°F,80°F
+The Yeast Bay - Brettanomyces Bruxellenis TYB261,The Yeast Bay,TYB261,Wilds & Sours,High,Low,81%,72°F,82°F
+The Yeast Bay - BRETTANOMYCES BRUXELLENSIS - STRAIN TYB184,The Yeast Bay,TYB184,Wilds & Sours,High,Medium,85%,72°F,82°F
+The Yeast Bay - Brettanomyces Bruxellensis - Strain TYB207,The Yeast Bay,TYB207,Wilds & Sours,High,Low,81%,72°F,82°F
+The Yeast Bay - Brettanomyces Bruxellensis - Strain TYB307,The Yeast Bay,TYB307,Wilds & Sours,High,Low,82%,70°F,80°F
+The Yeast Bay - Brettanomyces bruxellensis - Strain TYB415,The Yeast Bay,TYB415,Wilds & Sours,High,Low,84%,70°F,80°F
+The Yeast Bay - Brussels Brettanomyces Blend,The Yeast Bay,WLP4613,Wilds & Sours,High,Medium,80%,70°F,80°F
+The Yeast Bay - Dark Belgian Cask,The Yeast Bay,WLP4653,Wilds & Sours,High,Medium,82.5%,68°F,75°F
+The Yeast Bay - Dry Belgian Ale,The Yeast Bay,WLP4025,Ales,High,High,92.5%,68°F,74°F
+The Yeast Bay - Farmhouse Sour Ale,The Yeast Bay,WLP4675,Wilds & Sours,Low,Medium,90%,70°F,78°F
+The Yeast Bay - Flanders Specialty Ale,The Yeast Bay,WLP4001,Ales,High,Medium,80%,68°F,80°F
+The Yeast Bay - Framgarden Kveik,The Yeast Bay,WLP4051,Norwegian Ales,High,Medium,80%,80°F,95°F
+The Yeast Bay - Franconian Dark Lager,The Yeast Bay,WLP4030,Ales,Low,Medium,71%,46°F,51°F
+The Yeast Bay - Funktown Pale Ale,The Yeast Bay,WLP4627,Ales,Low,Medium,79%,68°F,74°F
+The Yeast Bay - Hazy Daze,The Yeast Bay,WLP4042,Ales,Medium,Low,81%,64°F,70°F
+The Yeast Bay - Hazy Daze II,The Yeast Bay,WLP4044,Ales,Low,Low,83%,66°F,72°F
+The Yeast Bay - Hessian Pils,The Yeast Bay,WLP4035,Ales,Low,Medium,73.5%,45°F,48°F
+The Yeast Bay - HORNINDAL KVEIK,The Yeast Bay,WLP4050,Norwegian Ales,High,Medium,79%,80°F,95°F
+The Yeast Bay - Lactobacillus Blend,The Yeast Bay,WLP4682,Wilds & Sours,Low,Low,80%,70°F,90°F
+The Yeast Bay - Lactobacillus brevis - Strain TYB282,The Yeast Bay,WLP4681,Wilds & Sours,Low,Low,4%,70°F,90°F
+The Yeast Bay - Lida Kveik,The Yeast Bay,WLP4052,Norwegian Ales,High,Low,79%,80°F,90°F
+The Yeast Bay - Lochristi Brettanomyces Blend,The Yeast Bay,WLP4623,Wilds & Sours,Low,Medium,80%,70°F,80°F
+The Yeast Bay - Mélange - Sour Blend,The Yeast Bay,WLP4633,Wilds & Sours,Low,Medium,85%,68°F,78°F
+The Yeast Bay - Metschnikowia reukaufii,The Yeast Bay,WLP4650,Wilds & Sours,Medium,Low,22.5%,60°F,90°F
+The Yeast Bay - Midtbust Kveik,The Yeast Bay,WLP4053,Norwegian Ales,High,Low,78%,75°F,95°F
+The Yeast Bay - Midwestern Ale,The Yeast Bay,WLP4040,Ales,Medium,Medium,78%,64°F,72°F
+The Yeast Bay - Northeastern Abbey,The Yeast Bay,WLP4015,Ales,Low,Medium,79%,68°F,75°F
+The Yeast Bay - Pakruojis Lithuanian Farmhouse,The Yeast Bay,WLP4047,Norwegian Ales,High,Low,95%,75°F,95°F
+The Yeast Bay - Saison Blend,The Yeast Bay,WLP4007,Ales,Low,Medium,79%,72°F,82°F
+The Yeast Bay - Saison Blend II,The Yeast Bay,WLP4021,Ales,Medium,Medium,85%,68°F,80°F
+The Yeast Bay - Saison/Brettanomyces Blend,The Yeast Bay,WLP4626,Ales,Low,Medium,80%,70°F,78°F
+The Yeast Bay - Saison/Brettanomyces Blend II,The Yeast Bay,WLP4636,Wilds & Sours,Medium,Medium,83%,72°F,80°F
+The Yeast Bay - Sigmund's Voss Kveik,The Yeast Bay,WLP4045,Norwegian Ales,Low,High,80.5%,70°F,100°F
+The Yeast Bay - Simonaitis Lithuanian Farmhouse,The Yeast Bay,WLP4046,Norwegian Ales,High,High,79%,75°F,95°F
+The Yeast Bay - Transatlantic Berliner Blend,The Yeast Bay,WLP4645,Wilds & Sours,Medium,Medium,92.5%,66°F,75°F
+The Yeast Bay - TYB House Sour Blend,The Yeast Bay,,Wilds & Sours,High,Low,92.5%,68°F,78°F
+The Yeast Bay - Vermont Ale,The Yeast Bay,WLP4000,Ales,Low,Medium,78.5%,64°F,72°F
+The Yeast Bay - Wallonian Farmhouse,The Yeast Bay,WLP4020,Ales,Low,Medium,84.5%,68°F,78°F
+The Yeast Bay - Wallonian Farmhouse II,The Yeast Bay,WLP4022,Ales,High,Medium,81%,68°F,80°F
+The Yeast Bay - Wallonian III Farmhouse,The Yeast Bay,WLP4023,Ales,Low,Low,83%,68°F,80°F
+WHC Lab - Bjorn - Kveik,WHC Lab,Bjorn,Norwegian Ales,High,High,75%,86°F,95°F
+WHC Lab - Funky Pineapple,WHC Lab,,Ales,Medium,Low,80%,64.4°F,82.4°F
+WHC Lab - Lagertha - Kveik,WHC Lab,,Norwegian Ales,High,High,76%,89.6°F,98.6°F
+WHC Lab - Odin,WHC Lab,,Norwegian Ales,High,High,76%,77°F,98.6°F
+WHC Lab - Ragnar - Kveik,WHC Lab,,Norwegian Ales,High,High,76%,91.4°F,104°F
+WHC Lab - Sanders,WHC Lab,Sanders,Ales,Medium,Medium,75%,60.8°F,69.9°F
+WHC Lab - Saturated,WHC Lab,Saturated,Ales,Medium,Medium,73%,68°F,73.4°F
+WHC Lab - The Wall,WHC Lab,THE WALL,Ales,Medium,Medium,77%,60.8°F,69.8°F
+WHC Lab - Ubbe - Kveik,WHC Lab,UBBE,Norwegian Ales,Medium,Medium,77%,86°F,98.6°F
+WHC Lab - Valkyrie/Ebbegarden - Kveik,WHC Lab,,Norwegian Ales,High,High,75%,87.8°F,98.6°F
+White Labs - Abbey Ale Yeast WLP530,White Labs,WLP530,Ale,High,Med-High,77.5%,66°F,72°F
+White Labs - Abbey IV Ale Yeast WLP540,White Labs,WLP540,Ale,High,Medium,78%,66°F,72°F
+White Labs - American Ale Yeast Blend WLP060,White Labs,WLP060,Ale,Med-High,Medium,76%,68°F,72°F
+White Labs - American Farmhouse Blend WLP670,White Labs,WLP670,Ale,Medium,Medium,78.5%,68°F,72°F
+White Labs - American Hefeweizen Ale Yeast WLP320,White Labs,WLP320,Ale,Medium,Low,72.5%,65°F,69°F
+White Labs - American Lager Yeast WLP840,White Labs,WLP840,Lagers,Medium,Medium,77.5%,50°F,55°F
+White Labs - American Whiskey WLP065,White Labs,WLP065,Ale,High,Medium,79%,75°F,82°F
+White Labs - Antwerp Ale Yeast WLP515,White Labs,WLP515,Ale,Medium,Medium,76.5%,67°F,70°F
+White Labs - Appalachian Tart WLP631,White Labs,WLP631,Wilds & Sours,Medium,Medium,81.5%,80°F,80°F
+White Labs - Artisanal Country Ale WLP073,White Labs,WLP073,Belgian Ales,Medium,Medium,77.5%,70°F,82°F
+White Labs - Australian Ale Yeast WLP009,White Labs,WLP009,Ale,Medium,High,72.5%,65°F,70°F
+White Labs - Bavarian Weizen Yeast WLP351,White Labs,WLP351,Wheat,Medium,Low,75%,66°F,70°F
+White Labs - Bedford British WLP006,White Labs,WLP006,Ale,Medium,High,76%,65°F,70°F
+White Labs - Belgian Ale Yeast WLP550,White Labs,WLP550,Ale,Med-High,Medium,81.5%,68°F,78°F
+White Labs - Belgian Bastogne Ale Yeast WLP510,White Labs,WLP510,Ale,High,Medium,77%,66°F,72°F
+White Labs - Belgian Golden Ale Yeast WLP570,White Labs,WLP570,Ale,High,Low,75.5%,68°F,75°F
+White Labs - Belgian Lager Yeast WLP815,White Labs,WLP815,Lagers,Medium,Medium,75%,50°F,55°F
+White Labs - Belgian Saison I Yeast WLP565,White Labs,WLP565,Ale,Medium,Medium,70%,68°F,75°F
+White Labs - Belgian Saison II Yeast WLP566,White Labs,WLP566,Ale,Medium,Medium,81.5%,68°F,78°F
+White Labs - Belgian Saison III Yeast WLP585,White Labs,WLP585,Ale,Medium,Low-Med,72%,68°F,75°F
+White Labs - Belgian Sour Mix WLP655,White Labs,WLP655,Ale,Med-High,Med/Low,75%,80°F,85°F
+White Labs - Belgian Strong Ale Yeast WLP545,White Labs,WLP545,Ale,High,Medium,81.5%,66°F,72°F
+White Labs - Belgian Style Ale Yeast Blend WLP575,White Labs,WLP575,Ale,Med-High,Medium,77%,68°F,75°F
+White Labs - Belgian Style Saison Blend WLP568,White Labs,WLP568,Ale,Medium,Medium,75%,70°F,80°F
+White Labs - Belgian Wit Ale Yeast WLP400,White Labs,WLP400,Ale,Medium,Low-Med,76%,67°F,74°F
+White Labs - Belgian Wit II Ale Yeast WLP410,White Labs,WLP410,Ale,Medium,Low-Med,72.5%,67°F,74°F
+White Labs - Berliner Weisse Blend WLP630,White Labs,WLP630,Ale,Medium,Medium,76.5%,68°F,70°F
+White Labs - Best Of Both Worlds WLP200,White Labs,WLP200,Ales,Medium,Medium,76.5%,65°F,73°F
+White Labs - Bourbon Yeast WLP070,White Labs,WLP070,Ale,High,Medium,77%,72°F,77°F
+White Labs - Brettanomyces Anomalus WLP640,White Labs,WLP640,Wilds & Sours,Medium,Low,77%,70°F,85°F
+White Labs - Brettanomyces Bruxellensis Trois Vrai WLP648,White Labs,WLP648,Ale,Med-High,Low,85%,70°F,85°F
+White Labs - Brettanomyces Bruxellensis WLP650,White Labs,WLP650,Ale,Med-High,Low,78%,85°F,95°F
+White Labs - Brettanomyces Claussenii WLP645,White Labs,WLP645,Ale,Med-High,Low,78%,85°F,95°F
+White Labs - Brettanomyces Lambicus WLP653,White Labs,WLP653,Ale,Med-High,Low,78%,85°F,95°F
+White Labs - British Ale Yeast WLP005,White Labs,WLP005,Ale,Medium,High,70.5%,65°F,70°F
+White Labs - Burlington Ale Yeast WLP095,White Labs,WLP095,Ale,Med-High,Medium,75.5%,67°F,70°F
+White Labs - Burton Ale Yeast WLP023,White Labs,WLP023,Ale,Medium,Medium,72%,68°F,73°F
+White Labs - California Ale V Yeast WLP051,White Labs,WLP051,Ale,Med-High,Med-High,72.5%,66°F,70°F
+White Labs - California Ale Yeast WLP001,White Labs,WLP001,Ale,High,Medium,76.5%,68°F,73°F
+White Labs - Champagne Yeast WLP715,White Labs,WLP715,Champagne,17%,Low,90%,70°F,75°F
+White Labs - Coastal Haze Ale Yeast Blend WLP067,White Labs,WLP067,Ales,High,Medium,78%,65°F,78°F
+White Labs - Coastal Haze WLP067,White Labs,WLP067,Ales,Medium,Medium,75%,68°F,72°F
+White Labs - Copenhagen Lager Yeast WLP850,White Labs,WLP850,Lagers,Medium,Medium,75%,50°F,58°F
+White Labs - Cream Ale Yeast Blend WLP080,White Labs,WLP080,Ale,Med-High,Medium,77.5%,65°F,70°F
+White Labs - Cry Havoc WLP862,White Labs,WLP862,Ale,Medium,Med-Low,68%,68°F,74°F
+White Labs - Czech Budejovice Lager Yeast WLP802,White Labs,WLP802,Lagers,Medium,Medium,77.5%,50°F,55°F
+White Labs - Dry English Ale Yeast WLP007,White Labs,WLP007,Ale,Med-High,Med-High,75%,65°F,70°F
+White Labs - Dusseldorf Alt Yeast WLP036,White Labs,WLP036,Ale,Medium,Medium,68.5%,65°F,72°F
+White Labs - East Coast Ale Yeast WLP008,White Labs,WLP008,Ale,Medium,Med-Low,72.5%,68°F,73°F
+White Labs - East Midlands Ale Yeast WLP039,White Labs,WLP039,Ale,Medium,Med-High,77.5%,66°F,70°F
+White Labs - Edinburgh Scottish Ale Yeast WLP028,White Labs,WLP028,Ale,Med-High,Medium,72.5%,65°F,70°F
+White Labs - English Ale Blend WLP085,White Labs,WLP085,Ale,Medium,Med-High,72.5%,68°F,72°F
+White Labs - English Ale Yeast WLP002,White Labs,WLP002,Ale,Medium,Very High,66.5%,65°F,68°F
+White Labs - English Cider Yeast WLP775,White Labs,WLP775,Wine,Med-High,Medium,90%,68°F,75°F
+White Labs - Essex Ale Yeast WLP022,White Labs,WLP022,Ale,Medium,Med-High,73.5%,66°F,70°F
+White Labs - European Ale Yeast WLP011,White Labs,WLP011,Ale,Medium,Medium,67.5%,65°F,70°F
+White Labs - Flemish Ale Blend WLP665,White Labs,WLP665,Ale,Med-High,Low/Med,83%,68°F,80°F
+White Labs - French Ale WLP072,White Labs,WLP072,Ale,Medium,Med-High,71.5%,63°F,67°F
+White Labs - French Saison Ale Yeast WLP590,White Labs,WLP590,Ales,Medium,Medium,81%,69°F,75°F
+White Labs - German Ale II WLP003,White Labs,WLP003,Ale,Medium,Medium,76.5%,65°F,70°F
+White Labs - German Ale/ Kölsch Yeast WLP029,White Labs,WLP029,Ale,Medium,Medium,75%,65°F,69°F
+White Labs - German Bock Lager Yeast WLP833,White Labs,WLP833,Lagers,Med-High,Medium,73%,48°F,55°F
+White Labs - German Lager X Yeast WLP835,White Labs,WLP835,Lagers,Med-High,Medium,73%,50°F,54°F
+White Labs - German Lager Yeast WLP830,White Labs,WLP830,Lagers,Medium,Medium,76.5%,50°F,55°F
+White Labs - Hansen Ale Yeast Blend WLP075,White Labs,WLP075,Ales,High,Medium,77%,66°F,70°F
+White Labs - Hefeweizen Ale Yeast WLP300,White Labs,WLP300,Wheat,Medium,Low,74%,68°F,72°F
+White Labs - Hefeweizen IV Ale Yeast WLP380,White Labs,WLP380,Wheat,Medium,Low,76.5%,66°F,70°F
+White Labs - HP Lager Yeast WLP925,White Labs,WLP925,Lagers,Medium,Medium,77.5%,62°F,68°F
+White Labs - Irish Ale Yeast WLP004,White Labs,WLP004,Ale,Med-High,Med-High,71.5%,65°F,68°F
+White Labs - Klassic Ale Yeast WLP033,White Labs,WLP033,Ale,Medium,Medium,70%,66°F,70°F
+White Labs - Lactobacillus Brevis,White Labs,WLP672,Ales,Low,Low,80%,70°F,95°F
+White Labs - Lactobacillus Buchneri,White Labs,WLP673,Wilds & Sours,Low,Low,4%,60°F,95°F
+White Labs - Lactobacillus Delbrueckii Bacteria WLP677,White Labs,WLP677,Wilds & Sours,Medium,Low,0%,70°F,75°F
+White Labs - Lactobacillus hilgardii,White Labs,WLP678,Wilds & Sours,Medium,Low,85%,65°F,90°F
+White Labs - Lactobacillus Paracollinoides,White Labs,WLP669,Wilds & Sours,Low,Low,85%,65°F,90°F
+White Labs - Lactobacillus plantarum,White Labs,WLP693,Wilds & Sours,Low,Low,85%,70°F,100°F
+White Labs - Leeuwenhoek Saison Yeast Blend WLP564,White Labs,WLP564,Ale,High,Low,79%,66°F,75°F
+White Labs - London Ale Yeast WLP013,White Labs,WLP013,Ale,Medium,Medium,71%,66°F,71°F
+White Labs - London Fog Ale Yeast WLP066,White Labs,WLP066,Ales,High,Medium,78.5%,64°F,72°F
+White Labs - Manchester Ale Yeast WLP038,White Labs,WLP038,Ale,Med-High,Med-High,72%,65°F,70°F
+White Labs - Marañón Canyon Wild Cacao WLP546,White Labs,WLP546,Wilds & Sours,Medium,Low,67.5%,65°F,75°F
+White Labs - Mexican Lager Yeast WLP940,White Labs,WLP940,Lagers,Medium,Medium,74%,50°F,55°F
+White Labs - Monastary Ale Yeast WLP500,White Labs,WLP500,Ales,High,Medium,77.5%,65°F,72°F
+White Labs - Munich Helles Yeast WLP860,White Labs,WLP860,Lagers,Medium,Medium,70%,48°F,52°F
+White Labs - Neutral Grain Yeast WLP078,White Labs,WLP078,Ale,High,Medium,81%,76°F,85°F
+White Labs - New Nordic Ale WLP611,White Labs,WLP611,Ales,Medium,Medium,70%,50°F,86°F
+White Labs - Non STA1son Ale Yeast WLP561,White Labs,WLP561,Ales,High,Low,81.5%,68°F,78°F
+White Labs - Oktoberfest/Märzen Lager Yeast WLP820,White Labs,WLP820,Lagers,Med-High,Medium,69%,52°F,58°F
+White Labs - Old Bavarian Lager Yeast WLP920,White Labs,WLP920,Lagers,Medium-High,Medium,69.5%,50°F,55°F
+White Labs - Old Sonoma Ale WLP076,White Labs,WLP076,Ale,Medium,Medium,72%,66°F,70°F
+White Labs - Opshaug Kveik Ale Yeast WLP518,White Labs,WLP518,Ales,Medium,Medium,75%,77°F,86°F
+White Labs - Pacific Ale Yeast WLP041,White Labs,WLP041,Ale,Medium,High,67.5%,65°F,68°F
+White Labs - Pediococcus damnosus,White Labs,WLP661,Wilds & Sours,Low,Low,0%,55°F,85°F
+White Labs - Pilsner Lager Yeast WLP800,White Labs,WLP800,Lagers,Medium,Med-High,74.5%,50°F,55°F
+White Labs - Premium Bitter Ale Yeast WLP026,White Labs,WLP026,Ale,Medium,Medium,72.5%,67°F,60°F
+White Labs - Ringwood Ale: Strain 1187,White Labs,,Ales,High,High,77%,68°F,72°F
+"White Labs - Saccharomyces ""Bruxellensis"" Trois WLP644",White Labs,WLP644,Ale,Med-High,Low,85%,70°F,85°F
+White Labs - Sake #7 Yeast WLP705,White Labs,WLP705,Sake,High,Low,90%,70°F,100°F
+White Labs - Sake #9 Yeast WLP709,White Labs,WLP709,Sake,Low,Low,75%,62°F,68°F
+White Labs - San Diego Super Yeast WLP090,White Labs,WLP090,Ale,High,Med-High,79.5%,65°F,68°F
+White Labs - San Francisco Lager Yeast WLP810,White Labs,WLP810,Lagers,Med-High,High,67.5%,58°F,65°F
+White Labs - Scotch Whiskey WLP045,White Labs,WLP045,Ale,High,Medium,77%,72°F,77°F
+White Labs - Scottish Cider Yeast Blend WLP773,White Labs,WLP773,Cider,High,Medium,80%,65°F,78°F
+White Labs - Southern German Lager Yeast WLP838,White Labs,WLP838,Lagers,Medium,Med-High,72%,50°F,55°F
+White Labs - Southwold Ale Yeast WLP025,White Labs,WLP025,Ale,Medium,Medium,71.5%,66°F,69°F
+White Labs - Super High Gravity Ale Yeast WLP099,White Labs,WLP099,Ale,Very High,Medium,85%,65°F,69°F
+White Labs - Sweet Mead/Wine Yeast WLP720,White Labs,WLP720,Wine,15%,Low,75%,70°F,75°F
+White Labs - Tennessee Whiskey WLP050,White Labs,WLP050,Ale,High,Medium,77%,75°F,79°F
+White Labs - Thames Valley Ale Yeast WLP030,White Labs,WLP030,Ales,Medium,High,75%,65°F,78°F
+White Labs - Whitbread Ale Yeast WLP017,White Labs,WLP017,Ale,Medium,High,70%,66°F,70°F
+White Labs - White Labs - Hazy Daze WLP 4042,White Labs,WLP,Ales,Low,Low,81%,64°F,70°F
+White Labs - WLP1983 Charlie,White Labs,WLP1983,Ales,Medium,Low,68%,68°F,74°F
+White Labs - WLP521 Hornindal Kveik Ale Yeast,White Labs,WLP521,Norwegian Ales,High,High,79%,72°F,98°F
+White Labs - WLP603 Torulaspora delbrueckii,White Labs,WLP603,Wilds & Sours,Low,Low,40%,65°F,78°F
+White Labs - WLP780 Thai Rice Chong Yeast,White Labs,WLP780,Ales,High,Medium,76%,69.8°F,78.8°F
+White Labs - Yorkshire Square Ale Yeast WLP037,White Labs,WLP037,Ale,Med-High,High,70%,65°F,69°F
+White Labs - Zurich Lager Yeast WLP885,White Labs,WLP885,Lagers,Medium,Medium,75%,50°F,55°F
+White Labs - Zygosaccharomyces Lentus WLP686,White Labs,WLP686,Ales,Low,Low,20%,68°F,75°F
+Wyeast - American Ale 1056,Wyeast,1056,Ale,10%,Med-Low,75%,60°F,72°F
+Wyeast - American Ale II 1272,Wyeast,1272,Ale,10%,High,74%,60°F,72°F
+Wyeast - American Lager 2035,Wyeast,2035,Lagers,9%,Medium,75%,48°F,58°F
+Wyeast - American Wheat 1010,Wyeast,1010,Wheat,10%,Low,76%,58°F,74°F
+Wyeast - Bavarian Lager 2206,Wyeast,2206,Lagers,9%,Med-High,75%,46°F,58°F
+Wyeast - Bavarian Wheat 3056,Wyeast,3056,Wheat,10%,Medium,75%,64°F,74°F
+Wyeast - Bavarian Wheat 3638,Wyeast,3638,Wheat,10%,Low,73%,64°F,75°F
+Wyeast - Belgian Abby Ale II 1762,Wyeast,1762,Ale,12%,Medium,75%,65°F,75°F
+Wyeast - Belgian Ale 1214,Wyeast,1214,Ale,12%,Med-Low,75%,68°F,78°F
+Wyeast - Belgian Ardennes 3522,Wyeast,3522,Ale,12%,High,74%,65°F,85°F
+Wyeast - Belgian Dark Ale 3822,Wyeast,3822,Ale,12%,Medium,76%,65°F,80°F
+Wyeast - Belgian Lambic Blend 3278,Wyeast,3278,Ale,12%,Med,75%,63°F,75°F
+Wyeast - Belgian Saison 3724,Wyeast,3724,Ale,12%,Low,78%,70°F,95°F
+Wyeast - Belgian Schelde 3655,Wyeast,3655,Ale,11%,Med,75%,62°F,74°F
+Wyeast - Belgian Stout 1581,Wyeast,1581,Ale,12%,Medium,80%,65°F,75°F
+Wyeast - Belgian Strong Ale 1388,Wyeast,1388,Ale,12%,Low,76%,64°F,80°F
+Wyeast - Belgian Wheat 3942,Wyeast,3942,Wheat,12%,Medium,74%,64°F,74°F
+Wyeast - Belgian Witbier 3944,Wyeast,3944,Ale,12%,Med-Low,74%,62°F,75°F
+Wyeast - Berliner Weisse Blend 3191,Wyeast,3191,Ale,6%,Low,75%,68°F,72°F
+Wyeast - Bier de Garde 3725,Wyeast,3725,Ale,12%,Low,76%,70°F,95°F
+Wyeast - Bohemian Lager 2124,Wyeast,2124,Lagers,9%,Medium,75%,48°F,58°F
+Wyeast - Brettanomyces bruxellensis 5112,Wyeast,5112,Ale,12%,Medium,90%,60°F,75°F
+Wyeast - Brettanomyces Claussenii,Wyeast,5151-PC,Wilds & Sours,High,Medium,80%,60°F,75°F
+Wyeast - Brettanomyces lambicus 5526,Wyeast,5526,Ale,12%,Medium,90%,60°F,75°F
+Wyeast - British Ale 1098,Wyeast,1098,Ale,10%,Med-High,74%,64°F,72°F
+Wyeast - British Ale 1335,Wyeast,1335,Ale,10%,High,74.5%,63°F,75°F
+Wyeast - British Cask Ale 1026,Wyeast,1026,Ale,10%,Med/High,76%,63°F,72°F
+Wyeast - Budvar Lager 2000,Wyeast,2000,Lagers,9%,Med-High,73%,48°F,56°F
+Wyeast - California Lager 2112,Wyeast,2112,Lagers,9%,High,69%,58°F,68°F
+Wyeast - Canadian/Belgian Ale 3864,Wyeast,3864,Ale,12%,Medium,77%,65°F,80°F
+Wyeast - Cider 4766,Wyeast,4766,Wine,12%,Low,85%,65°F,70°F
+Wyeast - Czech Pils 2278,Wyeast,2278,Lagers,9%,Med-High,72%,50°F,58°F
+Wyeast - Danish Lager 2042,Wyeast,2042,Lagers,9%,Low,75%,46°F,56°F
+Wyeast - Denny's Favorite 50 1450,Wyeast,1450,Ale,10%,Low,75%,60°F,70°F
+Wyeast - Dry Mead 4632,Wyeast,4632,Wine,18%,Low-Med,95%,55°F,75°F
+Wyeast - English Special Bitter 1768,Wyeast,1768,Ale,9%,High,70%,64°F,72°F
+Wyeast - European Ale 1338,Wyeast,1338,Ale,10%,High,69%,62°F,72°F
+Wyeast - European Lager 2247,Wyeast,2247,Lagers,9%,Low,75%,46°F,56°F
+Wyeast - Farmhouse Ale 3726,Wyeast,3726,Ale,12%,Variable,76%,70°F,95°F
+Wyeast - Flanders Golden Ale 3739,Wyeast,3739,Ale,12%,Med-Low,76%,64°F,80°F
+Wyeast - Forbidden Fruit 3463,Wyeast,3463,Ale,12%,Low,74%,63°F,76°F
+Wyeast - French Saison 3711,Wyeast,3711,Ale,12%,Low,80%,65°F,77°F
+Wyeast - Gambrinus Style Lager 2002-PC,Wyeast,2002-PC,Lagers,9%,Med-High,73%,46°F,56°F
+Wyeast - German Ale 1007,Wyeast,1007,Ale,11%,Low,75%,55°F,68°F
+Wyeast - German Wheat 3333,Wyeast,3333,Wheat,10%,High,73%,63°F,75°F
+Wyeast - Hella Bock 2487,Wyeast,2487,Ale,12%,Medium,72%,48°F,56°F
+Wyeast - Irish Ale 1084,Wyeast,1084,Ale,10%,Medium,73%,62°F,72°F
+Wyeast - Kölsch 2565,Wyeast,2565,Ale,10%,Low,75%,56°F,70°F
+Wyeast - Kölsch II 2575,Wyeast,2575,Ale,10%,Low,75%,55°F,70°F
+Wyeast - Lacto Brevis,Wyeast,5223-PC,Wilds & Sours,High,Low,0%,60°F,95°F
+Wyeast - Lactobacillus 5335,Wyeast,5335,Ale,9%,-,75%,60°F,95°F
+Wyeast - Leuven Pale Ale 3538,Wyeast,3538,Ale,12%,High,76%,65°F,80°F
+Wyeast - London Ale 1028,Wyeast,1028,Ale,10%,Med-Low,75%,60°F,72°F
+Wyeast - London Ale III 1318,Wyeast,1318,Ale,10%,High,73%,64°F,74°F
+Wyeast - London ESB Ale 1968,Wyeast,1968,Ale,10%,Very High,69%,64°F,72°F
+Wyeast - Munich Lager 2308,Wyeast,2308,Lagers,9%,Medium,72%,48°F,56°F
+Wyeast - Munich Lager II 2352,Wyeast,2352,Lagers,10%,Medium,73%,52°F,62°F
+Wyeast - NB NeoBritannia 1945,Wyeast,1945,Ale,10%,Med-High,74%,66°F,74°F
+Wyeast - North American Lager 2272,Wyeast,2272,Lagers,9%,High,73%,52°F,58°F
+Wyeast - Northwest Ale 1332,Wyeast,1332,Ale,10%,High,69%,65°F,75°F
+Wyeast - Octoberfest Lager Blend 2633,Wyeast,2633,Lagers,9%,Med-Low,75%,48°F,58°F
+Wyeast - Pediococcus 5733,Wyeast,5733,Ale,9%,-,75%,60°F,95°F
+Wyeast - Pilsen Lager 2007,Wyeast,2007,Lagers,9%,Medium,73%,48°F,56°F
+Wyeast - Pilsner Urquell H-strain 2001-PC,Wyeast,2001-PC,Lagers,Medium,Medium,74%,48°F,56°F
+Wyeast - Private Collection West Coast IPA 1217,Wyeast,1217,Ale,10% ABV,Medium-High,75%,62°F,74°F
+Wyeast - Rasenmäher Lager 2252,Wyeast,2252,Lagers,9%,Low,75%,48°F,68°F
+Wyeast - Ringwood Ale 1187,Wyeast,1187,Ale,10%,High,70%,64°F,74°F
+Wyeast - Rocky Mountain Lager 2105,Wyeast,2105,Lagers,10%,Med/High,72%,48°F,56°F
+Wyeast - Roeselare Ale Blend 3763,Wyeast,3763,Ale,11%,Variable,80%,65°F,85°F
+Wyeast - Rogue Pacman 1764,Wyeast,1764,Ale,12%,Med-High,75%,60°F,72°F
+Wyeast - Saison-Brett Blend 3031-PC,Wyeast,3031-PC,Ale,12%,Low,85%,65°F,80°F
+Wyeast - Sake 4134,Wyeast,WY4134,Sake,High,Low,65%,60°F,75°F
+Wyeast - Scottish Ale 1728,Wyeast,1728,Ale,12%,High,71%,55°F,75°F
+Wyeast - Staro Prague Lager 2782,Wyeast,2782,Lagers,11%,High,72%,50°F,58°F
+Wyeast - Sweet Mead 4184,Wyeast,4184,Wine,11%,Medium,75%,65°F,75°F
+Wyeast - Thames Valley Ale 1275,Wyeast,1275,Ale,10%,Med-Low,77%,62°F,72°F
+Wyeast - Thames Valley II 1882,Wyeast,1882,Ale,10%,High,75%,60°F,70°F
+Wyeast - Trappist Blend 3789,Wyeast,3789,Ale,12%,Medium,77%,68°F,85°F
+Wyeast - Trappist High Gravity 3787,Wyeast,3787,Ale,12%,Med-High,76%,64°F,78°F
+Wyeast - Urquell Lager 2001,Wyeast,2001,Lagers,9%,Med-High,74%,48°F,58°F
+Wyeast - Weihenstephan Weizen 3068,Wyeast,3068,Wheat,10%,Low,75%,64°F,75°F
+Wyeast - West Yorkshire 1469,Wyeast,1469,Ale,9%,High,69%,64°F,72°F
+Wyeast - Whitbread Ale 1099,Wyeast,1099,Ale,10%,High,70%,64°F,75°F
+YeastFlow - Double Agent,YEASTFLOW,YF-206,Belgian Ales,High,Low,82.5%,69.8°F,86°F
+YeastFlow - Hotspur Viking,YEASTFLOW,YF-503,Norwegian Ales,Medium,High,80.5%,69.8°F,100.4°F
+YeastFlow - McGyver,YEASTFLOW,YF-107,Ales,High,Low,75%,59°F,71.6°F
+YeastFlow - Redshamrock,YEASTFLOW,YF-106,Ales,High,Medium,73%,62.6°F,71.6°F
+YeastFlow - Steamprunk,YEASTFLOW,YF-103,Ales,Medium,High,73%,64.4°F,73.4°F
+YeastFlow - Yeastoberfest,YEASTFLOW,YF-303,Lagers,Medium,Low,75%,44.6°F,57.2°F
