@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
   returnButton: {
     position: "absolute",
-    top: 5,
+    top: 54,
     left: 5,
     padding: 5,
     zIndex: 1,

@@ -67,6 +67,9 @@ const Menu = ({ isVisible, closeMenu }) => {
           <TouchableOpacity onPress={() => handleNavigation("SavedRecipes")}>
             <Text style={styles.menuText}>My saved recipes</Text>
           </TouchableOpacity>
+          <TouchableOpacity onPress={() => handleNavigation("Brew")}>
+            <Text style={styles.menuText}>Current brewing</Text>
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => handleNavigation("Screen2")}>
             <Text style={styles.menuText}>Get AI beer recipe</Text>
           </TouchableOpacity>

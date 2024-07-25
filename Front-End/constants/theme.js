@@ -16,7 +16,7 @@ const COLORS = {
 
   lightOrange: "#FFCF9D",
   yellow: "#FFEEA9",
-  menuColor: "#EDE4E0",
+  beige: "#EDE4E0",
   transparent: "#rgba(0, 0, 0, 0.5)",
 };
 

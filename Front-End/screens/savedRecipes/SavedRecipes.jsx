@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import styles from "./SavedRecipes.style";
-import { images } from "../../constants";
+import { COLORS } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
 import {
   SafeAreaView,
   View,
   Text,
-  ScrollView,
   TouchableOpacity,
-  ImageBackground,
   Modal,
   Button,
   FlatList,
@@ -27,9 +25,9 @@ const recipes = [
     finalGravity: "1.010",
     color: "Golden",
     batchSize: "20L",
-    fermentables: "Fermentable 1, Fermentable 2",
-    hops: "Hop 1, Hop 2",
-    yeast: "Yeast 1",
+    fermentables: "id: 26, amount_kg: 3.25",
+    hops: "id: 31, amount_g: 20, time_minutes: 15",
+    yeast: " id: 12, temperature_celsius: 20",
     steps: "Step 1, Step 2",
   },
   {
@@ -99,75 +97,78 @@ const SavedRecipes = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={styles.container}>
-        {/* Return Button */}
-        <TouchableOpacity
-          style={styles.returnButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Text style={styles.returnButtonText}>{"< Back"}</Text>
-        </TouchableOpacity>
-        <Text
-          style={[
-            styles.welcomeMessage,
-            { marginTop: 30 },
-            { marginBottom: 30 },
-          ]}
-        >
-          My saved recipes:
-        </Text>
-
-        <FlatList
-          data={recipes}
-          keyExtractor={(item) => item.id}
-          ListHeaderComponent={renderHeader}
-          renderItem={({ item, index }) => (
-            <View style={styles.row}>
-              <TouchableOpacity
-                onPress={() => openModal(item)}
-                style={styles.nameContainer}
-              >
-                <View style={styles.nameRow}>
-                  <Text style={styles.recipeName}>{index + 1}. </Text>
-                  <Text style={[styles.recipeName, styles.underlineText]}>
-                    {item.name}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-              <View>
-                <Text style={styles.date}>{item.date}</Text>
+    <SafeAreaView
+      style={[styles.container, { flex: 1, backgroundColor: COLORS.beige }]}
+    >
+      {/* Return Button */}
+      <TouchableOpacity
+        style={styles.returnButton}
+        onPress={() => navigation.goBack()}
+      >
+        <Text style={styles.returnButtonText}>{"< Back"}</Text>
+      </TouchableOpacity>
+      <FlatList
+        data={recipes}
+        keyExtractor={(item) => item.id}
+        ListHeaderComponent={
+          <>
+            <Text
+              style={[
+                styles.welcomeMessage,
+                { marginTop: 40 },
+                { marginBottom: 30 },
+              ]}
+            >
+              My saved recipes:
+            </Text>
+            {renderHeader()}
+          </>
+        }
+        renderItem={({ item, index }) => (
+          <View style={styles.row}>
+            <TouchableOpacity
+              onPress={() => openModal(item)}
+              style={styles.nameContainer}
+            >
+              <View style={styles.nameRow}>
+                <Text style={styles.recipeName}>{index + 1}. </Text>
+                <Text style={[styles.recipeName, styles.underlineText]}>
+                  {item.name}
+                </Text>
               </View>
-              <TouchableOpacity
-                onPress={() => handleNavigation("brew")}
-                style={styles.playButton}
-              >
-                <Text style={styles.playButtonText}>play</Text>
-              </TouchableOpacity>
+            </TouchableOpacity>
+            <View>
+              <Text style={styles.date}>{item.date}</Text>
             </View>
-          )}
-        />
-        {selectedRecipe && (
-          <Modal
-            visible={!!selectedRecipe}
-            transparent={true}
-            animationType="slide"
-            onRequestClose={closeModal}
-          >
-            <View style={styles.modalContainer}>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalTitle}>Recipe Details:</Text>
-                <FlatList
-                  data={getRecipeDetails(selectedRecipe)}
-                  keyExtractor={(item, index) => index.toString()}
-                  renderItem={renderRecipeDetail}
-                />
-                <Button title="Close" onPress={closeModal} />
-              </View>
-            </View>
-          </Modal>
+            <TouchableOpacity
+              onPress={() => handleNavigation("Brew")}
+              style={styles.playButton}
+            >
+              <Text style={styles.playButtonText}>play</Text>
+            </TouchableOpacity>
+          </View>
         )}
-      </ScrollView>
+      />
+      {selectedRecipe && (
+        <Modal
+          visible={!!selectedRecipe}
+          transparent={true}
+          animationType="slide"
+          onRequestClose={closeModal}
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <Text style={styles.modalTitle}>Recipe Details:</Text>
+              <FlatList
+                data={getRecipeDetails(selectedRecipe)}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={renderRecipeDetail}
+              />
+              <Button title="Close" onPress={closeModal} />
+            </View>
+          </View>
+        </Modal>
+      )}
     </SafeAreaView>
   );
 };
