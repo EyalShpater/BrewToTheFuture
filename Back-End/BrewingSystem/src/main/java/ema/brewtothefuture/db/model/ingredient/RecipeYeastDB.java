@@ -34,4 +34,12 @@ public class RecipeYeastDB {
 
     public RecipeYeastDB() {
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public double getTemperatureCelsius() {
+        return temperature_celsius;
+    }
 }

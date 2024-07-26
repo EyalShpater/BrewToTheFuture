@@ -36,4 +36,16 @@ public class RecipeHopDB {
 
     public RecipeHopDB() {
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public double getAmountGrams() {
+        return amount_g;
+    }
+
+    public int getTimeToBrewMinutes() {
+        return time_min;
+    }
 }

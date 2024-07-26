@@ -13,7 +13,6 @@ import ema.brewtothefuture.model.heatunit.impl.BrewingManagerImpl;
 import ema.brewtothefuture.model.heatunit.impl.DeviceManagerImpl;
 import ema.brewtothefuture.model.recipe.api.BrewMethod;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
-import ema.brewtothefuture.model.recipe.impl.RecipeManager;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.repository.RecipeRepository;
 import ema.brewtothefuture.repository.StyleRepository;
@@ -28,7 +27,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class BrewingSystemService implements BrewingSystem {
-    private final RecipeManager  recipeManager  = RecipeManager.getInstance();
     private final BrewingManager brewingManager = new BrewingManagerImpl();
     private final DeviceManager  deviceManager  = new DeviceManagerImpl();
 
@@ -70,9 +68,12 @@ public class BrewingSystemService implements BrewingSystem {
     //todo: maybe delete the recipeManager
     @Override
     public int addNewRecipe(RecipeDTO recipe) {
-        Recipe newRecipe = recipeManager.addRecipe(recipe);
-        recipeService.saveRecipe(newRecipe);
-        return newRecipe.getRecipeId();
+//        Recipe newRecipe = recipeManager.addRecipe(recipe);
+//        recipeService.saveRecipe(newRecipe);
+//        return newRecipe.getRecipeId();
+        int id = recipeService.saveRecipe(new Recipe(recipe));
+        System.out.println("Recipe added with id: " + id);
+        return id;
     }
 
     @Override

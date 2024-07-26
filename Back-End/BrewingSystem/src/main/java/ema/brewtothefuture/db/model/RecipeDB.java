@@ -65,6 +65,27 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
         this.recipe = new CombinedStepsNotifications(recipe.getSteps(), recipe.getNotifications());
     }
 
+    public RecipeDB(RecipeDTO recipe) {
+        List<RecipeStep> steps = recipe.recipe()
+                                       .stream()
+                                       .map(RecipeStep::new)
+                                       .toList();
+        List<Notification> notifications = recipe.notifications()
+                                                 .stream()
+                                                 .map(Notification::new)
+                                                 .toList();
+        this.recipe_name = recipe.recipe_name();
+        this.method = recipe.method();
+        this.style = recipe.style();
+        this.abv = recipe.abv();
+        this.ibu = recipe.ibu();
+        this.original_gravity = recipe.original_gravity();
+        this.final_gravity = recipe.final_gravity();
+        this.color = recipe.color();
+        this.batch_size_liter = recipe.batch_size_liter();
+        this.recipe = new CombinedStepsNotifications(steps, notifications);
+    }
+
     public void setYeasts(List<RecipeYeastDB> yeasts) {
         this.yeasts = yeasts;
     }
@@ -115,5 +136,67 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
 
     public List<RecipeYeastDB> getYeasts() {
         return yeasts;
+    }
+
+    public int getId() { return recipe_id; }
+
+    public String getUserID() {
+        return user_id;
+    }
+
+    public String getRecipeName() {
+        return recipe_name;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public double getAbv() {
+        return abv;
+    }
+
+    public double getIbu() {
+        return ibu;
+    }
+
+    public double getOriginalGravity() {
+        return original_gravity;
+    }
+
+    public double getFinalGravity() {
+        return final_gravity;
+    }
+
+    public double getColor() {
+        return color;
+    }
+
+    public int getBatchSizeLiter() {
+        return batch_size_liter;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public List<RecipeStep> getSteps() {
+        return recipe.getSteps();
+    }
+
+    public List<Notification> getNotifications() {
+        return recipe.getNotifications();
     }
 }

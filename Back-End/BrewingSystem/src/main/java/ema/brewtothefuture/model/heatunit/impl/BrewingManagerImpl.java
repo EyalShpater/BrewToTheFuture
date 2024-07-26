@@ -4,15 +4,15 @@ import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.api.BrewingManager;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
-import ema.brewtothefuture.model.recipe.impl.RecipeManager;
+import ema.brewtothefuture.service.RecipeService;
 
 import java.util.*;
 
 public class BrewingManagerImpl implements BrewingManager {
     private static int                             id                  = 1;
-    private final  RecipeManager                   recipeManager       = RecipeManager.getInstance();
     private final  Map<String, Map<Integer, Brew>> userIdToBrewHistory = new HashMap<>();
     private final  Map<String, Queue<Brew>>        userIdToBrew        = new HashMap<>();
+    private final RecipeService recipeService = RecipeService.getInstance();
 
     @Override
     public Brew brewRecipeInQueue(String userId) {
@@ -57,9 +57,9 @@ public class BrewingManagerImpl implements BrewingManager {
 
     @Override
     public void addRecipeToBrew(int recipeId, String userId) {
-        Recipe recipe = Optional.ofNullable(recipeManager.getRecipe(recipeId))
-                                .orElseThrow(() -> new IllegalArgumentException("Recipe not found"));
+        Recipe recipe = recipeService.getRecipe(recipeId);
         addBrew(userId, recipe);
+        System.out.println("Recipe " + recipe.getRecipeId() + " added to brew");
     }
 
     @Override

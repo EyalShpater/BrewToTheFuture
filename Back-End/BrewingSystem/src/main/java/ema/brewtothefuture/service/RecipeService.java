@@ -8,7 +8,6 @@ import ema.brewtothefuture.db.model.ingredient.RecipeYeastDB;
 import ema.brewtothefuture.db.model.ingredient.data.FermentableDB;
 import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
-import ema.brewtothefuture.model.recipe.api.Hop;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +29,10 @@ public class RecipeService {
     private final RecipeFermentableRepository recipeFermentableRepository;
     private final RecipeHopRepository         recipeHopRepository;
     private final RecipeYeastRepository       recipeYeastRepository;
+    private static RecipeService instance;
 
     @Autowired
-    public RecipeService(RecipeRepository recipeRepository, FermentableRepository fermentableRepository,
+    private RecipeService(RecipeRepository recipeRepository, FermentableRepository fermentableRepository,
                          HopRepository hopRepository, YeastRepository yeastRepository,
                          RecipeFermentableRepository recipeFermentableRepository,
                          RecipeHopRepository recipeHopRepository, RecipeYeastRepository recipeYeastRepository) {
@@ -43,7 +43,13 @@ public class RecipeService {
         this.recipeFermentableRepository = recipeFermentableRepository;
         this.recipeHopRepository = recipeHopRepository;
         this.recipeYeastRepository = recipeYeastRepository;
+        this.instance = this;
     }
+
+    public static RecipeService getInstance() {
+        return instance;
+    }
+
 
     public void loadIngredients() {
         if (fermentableRepository.count() == 0) {
@@ -106,7 +112,7 @@ public class RecipeService {
         }
     }
 
-    public void saveRecipe(Recipe recipe) {
+    public int saveRecipe(Recipe recipe) {
         RecipeDB recipeDB = new RecipeDB(recipe);
         List<RecipeFermentableDB> fermentables = createRecipeFermentablesDBList(recipe, recipeDB);
         List<RecipeHopDB> hops = createRecipeHopsDBList(recipe, recipeDB);
@@ -120,9 +126,14 @@ public class RecipeService {
         recipeFermentableRepository.saveAll(fermentables);
         recipeYeastRepository.saveAll(yeasts);
         recipeHopRepository.saveAll(hops);
-//        recipeFermentableRepository.saveAll(recipeDB.getFermentables());
-//        recipeHopRepository.saveAll(recipeDB.getHops());
-//        recipeYeastRepository.saveAll(recipeDB.getYeasts());
+
+        return recipeDB.getId();
+    }
+
+    public Recipe getRecipe(long recipeId) {
+        return recipeRepository.findById(recipeId)
+                               .map(Recipe::new)
+                               .orElse(null);
     }
 
     private List<RecipeYeastDB> createRecipeYeastsDBList(Recipe recipe, RecipeDB recipeDB) {
@@ -143,20 +154,6 @@ public class RecipeService {
                      .collect(Collectors.toList());
     }
 
-//    private List<RecipeFermentableDB> createFermentables(Recipe recipe) {
-//        List<RecipeFermentableDB> fermentables = new ArrayList<>();
-//
-//        for (Fermentable fermentable : recipe.getFermentables()) {
-//            FermentableDB recipeFermentableDB = fermentableRepository.findById(fermentable.getId()).orElse(null);
-//
-//            if (recipeFermentableDB != null) {
-//                fermentables.add(new RecipeFermentableDB(fermentable, recipeFermentableDB));
-//            }
-//        }
-//
-//        return fermentables;
-//    }
-
     private List<RecipeFermentableDB> createRecipeFermentablesDBList(Recipe recipe, RecipeDB recipeDB) {
         return recipe.getFermentables().stream()
                      .map(fermentable -> fermentableRepository.findById(fermentable.getId())
@@ -165,7 +162,4 @@ public class RecipeService {
                      .filter(Objects::nonNull)
                      .collect(Collectors.toList());
     }
-
-
-    public void saveHops(List<Hop> hops) { }
 }

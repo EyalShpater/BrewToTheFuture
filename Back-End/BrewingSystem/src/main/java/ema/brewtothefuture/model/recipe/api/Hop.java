@@ -1,5 +1,6 @@
 package ema.brewtothefuture.model.recipe.api;
 
+import ema.brewtothefuture.db.model.ingredient.RecipeHopDB;
 import ema.brewtothefuture.dto.api.DTOConvertible;
 import ema.brewtothefuture.dto.front.HopDTO;
 
@@ -16,6 +17,12 @@ public class Hop implements DTOConvertible<HopDTO> {
         this.id = dto.id();
         this.amountG = dto.amount_g();
         this.timeToBrewMinutes = dto.time_minutes();
+    }
+
+    public Hop(RecipeHopDB hopDB) {
+        this.id = hopDB.getId();
+        this.amountG = hopDB.getAmountGrams();
+        this.timeToBrewMinutes = hopDB.getTimeToBrewMinutes();
     }
 
     public long getId() {
