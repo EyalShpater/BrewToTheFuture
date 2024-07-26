@@ -1,6 +1,5 @@
 package ema.brewtothefuture.db.model;
 
-import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -11,12 +10,21 @@ public class BrewDB {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-//    private int recipe_id;
     @ManyToOne
     @JoinColumn(name = "recipe_id")
     private RecipeDB recipe;
-    private int user_id;
-    private long start_time;
+    private String user_id;
+    private long   start_time = System.currentTimeMillis();
     @OneToMany(mappedBy = "brew")
     private List<BrewingReportDB> reports;
+
+    public void setRecipe(RecipeDB recipe) {
+        this.recipe = recipe;
+    }
+
+    public void setUserId(String userId) {
+        this.user_id = userId;
+    }
+
+    public long getId() { return id; }
 }

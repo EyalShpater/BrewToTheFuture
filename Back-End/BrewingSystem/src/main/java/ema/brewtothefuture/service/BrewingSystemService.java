@@ -1,20 +1,21 @@
 package ema.brewtothefuture.service;
 
 import com.opencsv.CSVReader;
+import ema.brewtothefuture.db.model.BrewDB;
+import ema.brewtothefuture.db.model.BrewingReportDB;
 import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.db.model.StyleDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
-import ema.brewtothefuture.model.heatunit.api.BrewingManager;
 import ema.brewtothefuture.model.heatunit.api.DeviceManager;
-import ema.brewtothefuture.model.heatunit.impl.BrewingManagerImpl;
 import ema.brewtothefuture.model.heatunit.impl.DeviceManagerImpl;
 import ema.brewtothefuture.model.recipe.api.BrewMethod;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
-import ema.brewtothefuture.repository.RecipeRepository;
+import ema.brewtothefuture.repository.BrewRepository;
+import ema.brewtothefuture.repository.BrewingReportRepository;
 import ema.brewtothefuture.repository.StyleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -27,25 +28,30 @@ import java.util.stream.Collectors;
 
 @Service
 public class BrewingSystemService implements BrewingSystem {
-    private final BrewingManager brewingManager = new BrewingManagerImpl();
-    private final DeviceManager  deviceManager  = new DeviceManagerImpl();
+    private final DeviceManager deviceManager = new DeviceManagerImpl();
 
-    private final RecipeRepository recipeRepository;
-    private final StyleRepository styleRepository;
-    private final RecipeService   recipeService;
+    private final StyleRepository         styleRepository;
+    private final RecipeService           recipeService;
+    private final BrewingService          brewingService;
+    private final BrewingReportRepository brewingReportRepository;
+    private final BrewRepository          brewRepository;
+    ;
+
 
     @Autowired
-    public BrewingSystemService(RecipeRepository recipeRepository, StyleRepository styleRepository, RecipeService recipeService) {
-        this.recipeRepository = recipeRepository;
+    public BrewingSystemService(StyleRepository styleRepository, RecipeService recipeService,
+                                BrewingService brewingService, BrewingReportRepository brewingReportRepository, BrewRepository brewRepository) {
         this.styleRepository = styleRepository;
         this.recipeService = recipeService;
+        this.brewingService = brewingService;
+        this.brewingReportRepository = brewingReportRepository;
+        this.brewRepository = brewRepository;
     }
 
-    //todo: db
     @Override
     public EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
-        Brew brew = brewingManager.getBrewInQueue(userId);
+        Brew brew = brewingService.getBrewInQueue(userId);
 
         return brew != null ?
                 brew.getEmbeddedRecipe() :
@@ -54,10 +60,10 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public List<RecipeDTO> getAllRecipes() {
-        return recipeRepository.findAll()
-                               .stream()
-                               .map(RecipeDB::convertToDTO)
-                               .collect(Collectors.toList());
+        return recipeService.getAllRecipes()
+                            .stream()
+                            .map(RecipeDB::convertToDTO)
+                            .collect(Collectors.toList());
     }
 
     @Override
@@ -65,39 +71,33 @@ public class BrewingSystemService implements BrewingSystem {
 
     }
 
-    //todo: maybe delete the recipeManager
     @Override
-    public int addNewRecipe(RecipeDTO recipe) {
-//        Recipe newRecipe = recipeManager.addRecipe(recipe);
-//        recipeService.saveRecipe(newRecipe);
-//        return newRecipe.getRecipeId();
-        int id = recipeService.saveRecipe(new Recipe(recipe));
-        System.out.println("Recipe added with id: " + id);
+    public long addNewRecipe(RecipeDTO recipe) {
+        long id = recipeService.saveRecipe(new Recipe(recipe));
         return id;
     }
 
     @Override
-    public void brewRecipe(int recipeId, String userId) {
-        brewingManager.addRecipeToBrew(recipeId, userId);
+    public void brewRecipe(long recipeId, String userId) {
+        brewingService.addRecipeToBrew(recipeId, userId);
     }
 
     @Override
     public void markBrewingAsFinished(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
-        brewingManager.markHeadOfQueueAsBrewedInQueue(userId);
+        brewingService.markHeadOfQueueAsBrewedInQueue(userId);
     }
 
-    //todo: db
     @Override
     public void addBrewingReport(String deviceId, BrewingReportDTO report) {
-        String userId = deviceManager.getUser(deviceId);
-        brewingManager.getBrewInQueue(userId).addBrewingReport(report);
+        BrewDB brew = brewRepository.findById(report.brew_id())
+                                    .orElse(null);
+        brewingReportRepository.save(new BrewingReportDB(report, brew));
     }
 
-    //todo: db
     @Override
     public List<BrewingReportDTO> getBrewingReport(String userId, int brewId) {
-        return brewingManager.getBrewHistory(userId, brewId);
+        return brewingService.getBrewHistory(userId, brewId);
     }
 
     @Override

@@ -44,7 +44,7 @@ public class BrewingSystemController {
 
     @PostMapping("/api/brew/recipe")
     public void brew(@RequestBody RecipeDTO recipeDTO) {
-        int recipeId = brewingSystem.addNewRecipe(recipeDTO);
+        long recipeId = brewingSystem.addNewRecipe(recipeDTO);
 
         brewingSystem.brewRecipe(recipeId, recipeDTO.user_id());
     }

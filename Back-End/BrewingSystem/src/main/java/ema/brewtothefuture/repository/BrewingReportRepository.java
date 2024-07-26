@@ -1,10 +1,12 @@
 package ema.brewtothefuture.repository;
 
 import ema.brewtothefuture.db.model.BrewingReportDB;
-import ema.brewtothefuture.db.model.RecipeDB;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface BrewingReportRepository extends JpaRepository<BrewingReportDB, Long> {
+    List<BrewingReportDB> findAllByBrewId(long brewId);
 }

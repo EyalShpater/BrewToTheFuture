@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Recipe {
 
-    private int                recipeId;
+    private long recipeId;
     private MetaData           metaData;
     private List<RecipeStep>   steps;
     private List<Notification> notifications;
@@ -171,7 +171,7 @@ public class Recipe {
         this.views = views;
     }
 
-    public EmbeddedRecipeDTO createEmbeddedRecipeDTO(int brewId) {
+    public EmbeddedRecipeDTO createEmbeddedRecipeDTO(long brewId) {
         return new EmbeddedRecipeDTO(
                 brewId,
                 recipeId,
@@ -183,7 +183,7 @@ public class Recipe {
                         .collect(Collectors.toList()));
     }
 
-    public int getRecipeId() {
+    public long getRecipeId() {
         return recipeId;
     }
 

@@ -18,13 +18,13 @@ public interface BrewingSystem {
 
     /* Frontend Use Methods */
 
-    int addNewRecipe(RecipeDTO recipe);
+    long addNewRecipe(RecipeDTO recipe);
 
     List<RecipeDTO> getAllRecipes();
 
     void addViewedRecipe(int recipeId);
 
-    void brewRecipe(int recipeId, String userId);
+    void brewRecipe(long recipeId, String userId);
 
     List<BrewingReportDTO> getBrewingReport(String userId, int brewId);
 

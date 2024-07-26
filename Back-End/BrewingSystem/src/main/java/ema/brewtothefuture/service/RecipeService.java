@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -123,16 +124,22 @@ public class RecipeService {
         recipeDB.setHops(hops);
 
         recipeRepository.save(recipeDB);
-        recipeFermentableRepository.saveAll(fermentables);
-        recipeYeastRepository.saveAll(yeasts);
-        recipeHopRepository.saveAll(hops);
+        recipeFermentableRepository.saveAllAndFlush(fermentables);
+        recipeYeastRepository.saveAllAndFlush(yeasts);
+        recipeHopRepository.saveAllAndFlush(hops);
 
+        recipeRepository.flush();
         return recipeDB.getId();
     }
 
     public Recipe getRecipe(long recipeId) {
         return recipeRepository.findById(recipeId)
                                .map(Recipe::new)
+                               .orElse(null);
+    }
+
+    public RecipeDB getRecipeDB(long recipeId) {
+        return recipeRepository.findById(recipeId)
                                .orElse(null);
     }
 
@@ -161,5 +168,9 @@ public class RecipeService {
                                                               .orElse(null))
                      .filter(Objects::nonNull)
                      .collect(Collectors.toList());
+    }
+
+    public Collection<RecipeDB> getAllRecipes() {
+        return recipeRepository.findAll();
     }
 }

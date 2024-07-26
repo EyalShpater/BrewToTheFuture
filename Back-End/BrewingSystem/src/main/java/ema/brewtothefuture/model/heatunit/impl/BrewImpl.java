@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BrewImpl implements Brew {
-    private final int brewId;
+    private final long brewId;
     private final String userId;
     private Recipe recipe;
     private int currentStep;
     private List<FermentationReport> fermentationReports;
     private List<BrewingReportDTO> brewingReports;
 
-    public BrewImpl(int id, String userId, Recipe recipe) {
+    public BrewImpl(long id, String userId, Recipe recipe) {
         this.brewId = id;
         this.userId = userId;
         this.recipe = recipe;
@@ -50,20 +50,20 @@ public class BrewImpl implements Brew {
         return recipe.createEmbeddedRecipeDTO(brewId);
     }
 
-    @Override
-    public void addBrewingReport(BrewingReportDTO report) {
-        if (report != null) {
-            brewingReports.add(report);
-        }
-    }
+//    @Override
+//    public void addBrewingReport(BrewingReportDTO report) {
+//        if (report != null) {
+//            brewingReports.add(report);
+//        }
+//    }
+//
+//    @Override
+//    public List<BrewingReportDTO> getReports() {
+//        return brewingReports;
+//    }
 
     @Override
-    public List<BrewingReportDTO> getReports() {
-        return brewingReports;
-    }
-
-    @Override
-    public int getBrewId() {
+    public long getBrewId() {
         return brewId;
     }
 }
