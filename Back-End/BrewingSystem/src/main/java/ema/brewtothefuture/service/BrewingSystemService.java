@@ -35,8 +35,6 @@ public class BrewingSystemService implements BrewingSystem {
     private final BrewingService          brewingService;
     private final BrewingReportRepository brewingReportRepository;
     private final BrewRepository          brewRepository;
-    ;
-
 
     @Autowired
     public BrewingSystemService(StyleRepository styleRepository, RecipeService recipeService,
