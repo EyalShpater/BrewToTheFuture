@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
-    paddingHorizontal: 10, // Adjust padding as needed
+    paddingHorizontal: 10,
   },
 });
 

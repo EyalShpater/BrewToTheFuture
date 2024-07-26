@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start", // Align to the left side
   },
   menu: {
-    backgroundColor: COLORS.menuColor,
+    backgroundColor: COLORS.beige,
     alignSelf: "flex-start",
     justifyContent: "flex-end",
     paddingVertical: 350,
