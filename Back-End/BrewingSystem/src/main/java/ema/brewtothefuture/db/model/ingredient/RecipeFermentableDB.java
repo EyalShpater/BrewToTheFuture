@@ -34,4 +34,12 @@ public class RecipeFermentableDB {
 
     public RecipeFermentableDB() {
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public double getAmountKG() {
+        return amount_kg;
+    }
 }

@@ -1,5 +1,6 @@
 package ema.brewtothefuture.model.recipe.impl;
 
+import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.recipe.api.*;
@@ -10,16 +11,16 @@ import java.util.stream.Collectors;
 
 public class Recipe {
 
-    private final int                recipeId;
-    private       MetaData           metaData;
-    private       List<RecipeStep>   steps;
-    private       List<Notification> notifications;
-    private       List<Fermentable>  fermentables;
-    private       List<Hop>          hops;
-    private       List<Yeast>        yeast;
-    private       double             rating;
-    private       int                votes;
-    private       int                views;
+    private long recipeId;
+    private MetaData           metaData;
+    private List<RecipeStep>   steps;
+    private List<Notification> notifications;
+    private List<Fermentable>  fermentables;
+    private List<Hop>          hops;
+    private List<Yeast>        yeast;
+    private double             rating;
+    private int                votes;
+    private int                views;
 
     public Recipe(int recipeId, String authorId) {
         this.metaData = new MetaData(authorId);
@@ -31,20 +32,67 @@ public class Recipe {
         this.yeast = new ArrayList<>();
     }
 
-    public Recipe(RecipeDTO recipeDTO, int recipeId) {
-        this.recipeId = recipeId;
+//    public Recipe(RecipeDTO recipeDTO, int recipeId) {
+//        this.recipeId = recipeId;
+//        this.rating = 0;
+//        this.votes = 0;
+//        this.views = 0;
+//        this.metaData = new MetaData(recipeDTO.user_id(),
+//                                     recipeDTO.recipe_name(),
+//                                     BrewMethod.fromString(recipeDTO.method()),
+//                                     BrewStyle.fromString(recipeDTO.style()),
+//                                     recipeDTO.abv(), recipeDTO.ibu(),
+//                                     recipeDTO.original_gravity(),
+//                                     recipeDTO.final_gravity(),
+//                                     recipeDTO.color(),
+//                                     recipeDTO.batch_size_liter()
+//        );
+//        this.steps = recipeDTO.recipe().stream().map(RecipeStep::new).collect(Collectors.toList());
+//        this.notifications = recipeDTO.notifications().stream().map(Notification::new).collect(Collectors.toList());
+//        this.fermentables = recipeDTO.fermentables().stream().map(Fermentable::new).collect(Collectors.toList());
+//        this.hops = recipeDTO.hops().stream().map(Hop::new).collect(Collectors.toList());
+//        this.yeast = recipeDTO.yeast().stream().map(Yeast::new).collect(Collectors.toList());
+//
+//        addHopsSteps();
+//    }
+
+    public Recipe(RecipeDB recipe) {
+        this.recipeId = recipe.getId();
+        this.rating = recipe.getRating();
+        this.votes = recipe.getVotes();
+        this.views = recipe.getViews();
+        this.metaData = new MetaData(recipe.getUserID(),
+                                     recipe.getRecipeName(),
+                                     BrewMethod.fromString(recipe.getMethod()),
+                                     BrewStyle.fromString(recipe.getStyle()),
+                                     recipe.getAbv(), recipe.getIbu(),
+                                     recipe.getOriginalGravity(),
+                                     recipe.getFinalGravity(),
+                                     recipe.getColor(),
+                                     recipe.getBatchSizeLiter()
+        );
+        this.steps = recipe.getSteps();
+        this.notifications = recipe.getNotifications();
+        this.fermentables = recipe.getFermentables().stream().map(Fermentable::new).collect(Collectors.toList());
+        this.hops = recipe.getHops().stream().map(Hop::new).collect(Collectors.toList());
+        this.yeast = recipe.getYeasts().stream().map(Yeast::new).collect(Collectors.toList());
+
+        addHopsSteps();
+    }
+
+    public Recipe(RecipeDTO recipeDTO) {
         this.rating = 0;
         this.votes = 0;
         this.views = 0;
         this.metaData = new MetaData(recipeDTO.user_id(),
-                recipeDTO.recipe_name(),
-                BrewMethod.fromString(recipeDTO.method()),
-                BrewStyle.fromString(recipeDTO.style()),
-                recipeDTO.abv(), recipeDTO.ibu(),
-                recipeDTO.original_gravity(),
-                recipeDTO.final_gravity(),
-                recipeDTO.color(),
-                recipeDTO.batch_size_liter()
+                                     recipeDTO.recipe_name(),
+                                     BrewMethod.fromString(recipeDTO.method()),
+                                     BrewStyle.fromString(recipeDTO.style()),
+                                     recipeDTO.abv(), recipeDTO.ibu(),
+                                     recipeDTO.original_gravity(),
+                                     recipeDTO.final_gravity(),
+                                     recipeDTO.color(),
+                                     recipeDTO.batch_size_liter()
         );
         this.steps = recipeDTO.recipe().stream().map(RecipeStep::new).collect(Collectors.toList());
         this.notifications = recipeDTO.notifications().stream().map(Notification::new).collect(Collectors.toList());
@@ -53,6 +101,10 @@ public class Recipe {
         this.yeast = recipeDTO.yeast().stream().map(Yeast::new).collect(Collectors.toList());
 
         addHopsSteps();
+    }
+
+    public void setRecipeId(int recipeId) {
+        this.recipeId = recipeId;
     }
 
     //todo: complete
@@ -119,7 +171,7 @@ public class Recipe {
         this.views = views;
     }
 
-    public EmbeddedRecipeDTO createEmbeddedRecipeDTO(int brewId) {
+    public EmbeddedRecipeDTO createEmbeddedRecipeDTO(long brewId) {
         return new EmbeddedRecipeDTO(
                 brewId,
                 recipeId,
@@ -131,7 +183,7 @@ public class Recipe {
                         .collect(Collectors.toList()));
     }
 
-    public int getRecipeId() {
+    public long getRecipeId() {
         return recipeId;
     }
 

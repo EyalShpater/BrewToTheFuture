@@ -36,4 +36,32 @@ public class FermentableDB {
 
     public FermentableDB() {
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public double getPpg() {
+        return ppg;
+    }
 }
