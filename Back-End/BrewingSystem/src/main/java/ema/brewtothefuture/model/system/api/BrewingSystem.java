@@ -1,5 +1,8 @@
 package ema.brewtothefuture.model.system.api;
 
+import ema.brewtothefuture.db.model.ingredient.data.FermentableDB;
+import ema.brewtothefuture.db.model.ingredient.data.HopDB;
+import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
@@ -32,7 +35,11 @@ public interface BrewingSystem {
 
     List<String> getBrewingStyle();
 
-    List<String> getIngredients(String type);
+    List<HopDB> getHops();
+
+    List<YeastDB> getYeasts();
+
+    List<FermentableDB> getFermentables();
 
     void loadData();
 }

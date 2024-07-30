@@ -107,16 +107,26 @@ public class Recipe {
         this.recipeId = recipeId;
     }
 
-    //todo: complete
+    //todo: complete! hop steps
     private void addHopsSteps() {
         hops.sort((h1, h2) -> h2.getTimeToBrewMinutes() - h1.getTimeToBrewMinutes());
 
         int maxHopTime = hops.getFirst().getTimeToBrewMinutes();
         int stepId = steps.getLast().stepId() + 1;
+        double temperature = steps.getLast().temperature();
 
 //        for (Hop hop : hops) {
 //            steps.add(new RecipeStep(stepId++, hop.));
 //        }
+
+        for (Hop hop : hops) {
+            steps.add(new RecipeStep(
+                    stepId++,
+                    temperature,
+                    hop.getTimeToBrewMinutes(),
+                    true,
+                    "Add hop #" + hop.getId() + " hops"));
+        }
     }
 
     public String getAuthorId() {

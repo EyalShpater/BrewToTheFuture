@@ -173,4 +173,16 @@ public class RecipeService {
     public Collection<RecipeDB> getAllRecipes() {
         return recipeRepository.findAll();
     }
+
+    public List<FermentableDB> getAllFermentables() {
+        return fermentableRepository.findAll();
+    }
+
+    public List<YeastDB> getAllYeasts() {
+        return yeastRepository.findAll();
+    }
+
+    public List<HopDB> getAllHops() {
+        return hopRepository.findAll();
+    }
 }

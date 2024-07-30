@@ -33,4 +33,24 @@ public class HopDB {
 
     public HopDB() {
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public double getAverageAA() {
+        return averageAA;
+    }
+
+    public String getUse() {
+        return use;
+    }
 }

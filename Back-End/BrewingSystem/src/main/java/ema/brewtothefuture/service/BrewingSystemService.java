@@ -5,6 +5,9 @@ import ema.brewtothefuture.db.model.BrewDB;
 import ema.brewtothefuture.db.model.BrewingReportDB;
 import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.db.model.StyleDB;
+import ema.brewtothefuture.db.model.ingredient.data.FermentableDB;
+import ema.brewtothefuture.db.model.ingredient.data.HopDB;
+import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
@@ -114,12 +117,18 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
-    public List<String> getIngredients(String type) {
-//        return ingredientRepository.findByType(type)
-//                                   .stream()
-//                                   .map(IngredientDB::getName)
-//                                   .collect(Collectors.toList());
-        return null;
+    public List<HopDB> getHops() {
+        return recipeService.getAllHops();
+    }
+
+    @Override
+    public List<YeastDB> getYeasts() {
+        return recipeService.getAllYeasts();
+    }
+
+    @Override
+    public List<FermentableDB> getFermentables() {
+        return recipeService.getAllFermentables();
     }
 
     @Override
