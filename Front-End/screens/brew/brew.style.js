@@ -12,6 +12,12 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 20,
   },
+  scrollContainer: {
+    flexGrow: 1,
+    //alignItems: "center",
+    paddingHorizontal: 20,
+    paddingBottom: 50, // Ensure there is enough padding for the button to be visible
+  },
   welcomeMessage: {
     fontFamily: FONT.bold,
     fontSize: SIZES.xLarge,
@@ -38,12 +44,22 @@ const styles = StyleSheet.create({
     fontSize: SIZES.medium,
     color: COLORS.darkOrange,
   },
-  // timeLineContainer: {
-  //   flex: 1,
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   backgroundColor: COLORS.beige,
-  // },
+  dataContainer: {
+    width: width * 0.8,
+    height: height * 0.07,
+    marginHorizontal: 10,
+    padding: 5,
+    backgroundColor: COLORS.darkBeige,
+    borderRadius: 30,
+    shadowColor: "#000",
+    shadowOffset: { width: 2, height: 3 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
+    justifyContent: "flex-start", // Center vertically
+    alignItems: "stretch",
+    paddingVertical: 1,
+  },
   contentContainer: {
     paddingVertical: 20,
   },
@@ -60,26 +76,6 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 5,
   },
-  // line: {
-  //   position: "absolute",
-  //   left: 0,
-  //   top: "50%",
-  //   height: 2,
-  //   width: "100%",
-  //   backgroundColor: "#ddd",
-  // },
-  // circle: {
-  //   position: "absolute",
-  //   left: -10,
-  //   top: "50%",
-  //   marginTop: -10,
-  //   width: 20,
-  //   height: 20,
-  //   borderRadius: 10,
-  //   backgroundColor: "#3498db",
-  //   borderColor: "#fff",
-  //   borderWidth: 2,
-  // },
   title: {
     fontSize: 18,
     fontWeight: "bold",
@@ -88,6 +84,19 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     color: "#666",
+  },
+  stopButton: {
+    backgroundColor: "red",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    alignItems: "center",
+    marginVertical: 50,
+  },
+  stopButtonText: {
+    color: COLORS.white,
+    fontFamily: FONT.medium,
+    fontSize: SIZES.smallMedium,
   },
 });
 

@@ -10,6 +10,7 @@ const COLORS = {
   date: "#888",
 
   white: "#F3F4F8",
+  black: "#0C0C0C",
   lightWhite: "#FAFAFC",
   backGround: "#F1F1F1",
   backGround2: "#D6E8DB",
@@ -17,6 +18,7 @@ const COLORS = {
   lightOrange: "#FFCF9D",
   yellow: "#FFEEA9",
   beige: "#EDE4E0",
+  darkBeige: "#D4C8C3",
   transparent: "#rgba(0, 0, 0, 0.5)",
 };
 

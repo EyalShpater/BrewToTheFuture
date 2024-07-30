@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styles from "./brew.style";
-import { COLORS, images } from "../../constants";
+import { COLORS } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
+import TemperatureBar from "../../components/temperatureBar/TemperatureBar";
 import {
   SafeAreaView,
   View,
   Text,
   ScrollView,
   TouchableOpacity,
-  ImageBackground,
-  Modal,
-  Button,
   FlatList,
-  Animated,
 } from "react-native";
 
 const data = [
@@ -50,12 +47,22 @@ const HorizontalTimeline = () => {
 
 const Brew = () => {
   const navigation = useNavigation();
+  const [temperature, setTemperature] = useState(50);
+
+  useEffect(() => {
+    // Simulate temperature change
+    const interval = setInterval(() => {
+      setTemperature((prevTemp) => (prevTemp >= 100 ? 0 : prevTemp + 10));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <SafeAreaView
       style={[styles.container, { flex: 1, backgroundColor: COLORS.beige }]}
     >
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
         {/* Return Button */}
         <TouchableOpacity
           style={styles.returnButton}
@@ -72,12 +79,25 @@ const Brew = () => {
         >
           Currently brewing:
         </Text>
-        <Text style={styles.instructions}> Beer name: </Text>
-        <Text style={styles.instructions}> Current step: </Text>
+        <View style={styles.dataContainer}>
+          <Text style={styles.instructions}> Beer name: </Text>
+        </View>
+        <View style={styles.dataContainer}>
+          <Text style={styles.instructions}> Current step: </Text>
+        </View>
+        <View style={styles.dataContainer}>
+          <Text style={styles.instructions}> Remaining step time: </Text>
+        </View>
         <Text style={styles.instructions}> Current temperature: </Text>
-        <Text style={styles.instructions}> Remaining step time: </Text>
+        <TemperatureBar temperature={80} />
 
         <HorizontalTimeline />
+        <TouchableOpacity
+          // onPress={() => handleNavigation("Welcome")}
+          style={[styles.stopButton, { marginTop: 1 }]}
+        >
+          <Text style={styles.stopButtonText}>STOP BREWING</Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
