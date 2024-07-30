@@ -41,4 +41,40 @@ public class YeastDB {
 
     public YeastDB() {
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLaboratory() {
+        return laboratory;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getAlcoholTolerance() {
+        return alcoholTolerance;
+    }
+
+    public String getFlocculation() {
+        return flocculation;
+    }
+
+    public String getAttenuation() {
+        return attenuation;
+    }
+
+    public String getMinTemp() {
+        return minTemp;
+    }
+
+    public String getMaxTemp() {
+        return maxTemp;
+    }
 }

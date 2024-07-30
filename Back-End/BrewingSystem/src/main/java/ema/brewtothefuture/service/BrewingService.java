@@ -2,6 +2,7 @@ package ema.brewtothefuture.service;
 
 import ema.brewtothefuture.db.model.BrewDB;
 import ema.brewtothefuture.db.model.BrewingReportDB;
+import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.impl.BrewImpl;
@@ -26,14 +27,14 @@ public class BrewingService {
         this.brewingReportRepository = brewingReportRepository;
         this.brewRepository = brewRepository;
     }
-
-    public Brew brewRecipeInQueue(String userId) {
-        Recipe toBrew = getRecipeInQueue(userId);
-
-        return (toBrew == null) ?
-                null :
-                addBrew(userId, toBrew);
-    }
+//
+//    public Brew brewRecipeInQueue(String userId) {
+//        Recipe toBrew = getRecipeInQueue(userId);
+//
+//        return (toBrew == null) ?
+//                null :
+//                addBrew(userId, toBrew);
+//    }
 
     public Brew getBrewInQueue(String userId) {
         Queue<Brew> queue = userIdToBrew.get(userId);
@@ -55,19 +56,19 @@ public class BrewingService {
                 brews.peek().getRecipe();
     }
 
-    private Brew addBrew(String userId, Recipe recipe) {
+    private Brew addBrew(String userId, RecipeDB recipe) {
         BrewDB newBrew = new BrewDB();
-        newBrew.setRecipe(recipeService.getRecipeDB(recipe.getRecipeId()));
+
+        newBrew.setRecipe(recipe);
         newBrew.setUserId(userId);
         brewRepository.save(newBrew);
+        userIdToBrew.computeIfAbsent(userId, k -> new LinkedList<>()).add(new BrewImpl(newBrew.getId(), userId, new Recipe(recipe)));
 
-        userIdToBrew.computeIfAbsent(userId, k -> new LinkedList<>()).add(new BrewImpl(newBrew.getId(), userId, recipe));
-
-        return new BrewImpl(newBrew.getId(), userId, recipe);
+        return new BrewImpl(newBrew.getId(), userId, new Recipe(recipe));
     }
 
     public void addRecipeToBrew(long recipeId, String userId) {
-        Recipe recipe = recipeService.getRecipe(recipeId);
+        RecipeDB recipe = recipeService.getRecipeDB(recipeId);
         addBrew(userId, recipe);
     }
 
