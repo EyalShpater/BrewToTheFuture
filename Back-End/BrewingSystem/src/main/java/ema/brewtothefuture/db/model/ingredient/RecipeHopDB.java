@@ -53,6 +53,6 @@ public class RecipeHopDB implements DTOConvertible<HopDTO> {
 
     @Override
     public HopDTO convertToDTO() {
-        return new HopDTO(id, amount_g, time_min);
+        return new HopDTO(hopDB.getId(), amount_g, time_min);
     }
 }

@@ -47,6 +47,6 @@ public class RecipeYeastDB implements DTOConvertible<YeastDTO> {
 
     @Override
     public YeastDTO convertToDTO() {
-        return new YeastDTO(id, temperature_celsius);
+        return new YeastDTO(yeastDB.getId(), temperature_celsius);
     }
 }

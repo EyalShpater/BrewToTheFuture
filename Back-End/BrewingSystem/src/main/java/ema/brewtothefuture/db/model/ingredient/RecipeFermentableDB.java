@@ -47,6 +47,6 @@ public class RecipeFermentableDB implements DTOConvertible<FermentableDTO> {
 
     @Override
     public FermentableDTO convertToDTO() {
-        return new FermentableDTO(id, amount_kg);
+        return new FermentableDTO(fermentableDB.getId(), amount_kg);
     }
 }
