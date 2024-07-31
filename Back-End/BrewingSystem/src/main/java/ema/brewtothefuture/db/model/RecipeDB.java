@@ -120,9 +120,18 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
                       .stream()
                       .map(Notification::convertToDTO)
                       .toList(),
-                null,
-                null,
-                null
+                fermentables
+                        .stream()
+                        .map(RecipeFermentableDB::convertToDTO)
+                        .toList(),
+                hops
+                        .stream()
+                        .map(RecipeHopDB::convertToDTO)
+                        .toList(),
+                yeasts
+                        .stream()
+                        .map(RecipeYeastDB::convertToDTO)
+                        .toList()
         );
     }
 

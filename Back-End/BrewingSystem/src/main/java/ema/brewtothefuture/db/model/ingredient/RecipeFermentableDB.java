@@ -2,12 +2,14 @@ package ema.brewtothefuture.db.model.ingredient;
 
 import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.db.model.ingredient.data.FermentableDB;
+import ema.brewtothefuture.dto.api.DTOConvertible;
+import ema.brewtothefuture.dto.front.FermentableDTO;
 import ema.brewtothefuture.model.recipe.api.Fermentable;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "recipe_fermentable")
-public class RecipeFermentableDB {
+public class RecipeFermentableDB implements DTOConvertible<FermentableDTO> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -41,5 +43,10 @@ public class RecipeFermentableDB {
 
     public double getAmountKG() {
         return amount_kg;
+    }
+
+    @Override
+    public FermentableDTO convertToDTO() {
+        return new FermentableDTO(id, amount_kg);
     }
 }
