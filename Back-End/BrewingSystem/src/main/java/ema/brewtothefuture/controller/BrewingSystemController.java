@@ -62,6 +62,16 @@ public class BrewingSystemController {
         return brewingSystem.getAllRecipes();
     }
 
+    @GetMapping("/api/brew/recipes/{userId}")
+    public List<RecipeDTO> getAllUserRecipes(@PathVariable String userId) {
+        return brewingSystem.getAllUserRecipes(userId);
+    }
+
+    @DeleteMapping("/api/{userId}/brew/recipe/{recipeId}")
+    public void deleteRecipe(@PathVariable int recipeId, @PathVariable String userId) {
+        brewingSystem.deleteRecipe(recipeId, userId);
+    }
+
     @GetMapping("/api/brew/methods")
     public List<String> getMethods() {
         return brewingSystem.getBrewingMethods();

@@ -10,7 +10,7 @@ import ema.brewtothefuture.dto.front.RecipeDTO;
 import java.util.List;
 
 public interface BrewingSystem {
-    /* Embedded Use Methods*/
+    /* Embedded Use Methods */
 
     EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber);
 
@@ -24,6 +24,10 @@ public interface BrewingSystem {
     long addNewRecipe(RecipeDTO recipe);
 
     List<RecipeDTO> getAllRecipes();
+
+    List<RecipeDTO> getAllUserRecipes(String userId);
+
+    void deleteRecipe(long recipeId, String userId);
 
     void addViewedRecipe(int recipeId);
 

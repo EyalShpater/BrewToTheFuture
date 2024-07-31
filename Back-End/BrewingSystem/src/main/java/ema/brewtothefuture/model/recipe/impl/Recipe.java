@@ -70,7 +70,8 @@ public class Recipe {
                                      recipe.getOriginalGravity(),
                                      recipe.getFinalGravity(),
                                      recipe.getColor(),
-                                     recipe.getBatchSizeLiter()
+                                     recipe.getBatchSizeLiter(),
+                                     System.currentTimeMillis()
         );
         this.steps = recipe.getSteps();
         this.notifications = recipe.getNotifications();
@@ -91,7 +92,8 @@ public class Recipe {
                                      recipeDTO.original_gravity(),
                                      recipeDTO.final_gravity(),
                                      recipeDTO.color(),
-                                     recipeDTO.batch_size_liter()
+                                     recipeDTO.batch_size_liter(),
+                                     System.currentTimeMillis()
         );
         this.steps = recipeDTO.recipe().stream().map(RecipeStep::new).collect(Collectors.toList());
         this.notifications = recipeDTO.notifications().stream().map(Notification::new).collect(Collectors.toList());
@@ -217,6 +219,7 @@ public class Recipe {
                 metaData.finalGravity(),
                 metaData.color(),
                 metaData.batchSize(),
+                metaData.timeCreated(),
                 steps.stream().map(RecipeStep::convertToFrontDTO).collect(Collectors.toList()),
                 notifications.stream().map(Notification::convertToDTO).collect(Collectors.toList()),
                 fermentables.stream().map(Fermentable::convertToDTO).collect(Collectors.toList()),

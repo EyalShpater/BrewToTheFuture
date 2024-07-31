@@ -12,5 +12,6 @@ public record MetaDataDTO (
         double original_gravity,
         double final_gravity,
         double color,
-        int batch_size_liter
+        int batch_size_liter,
+        long time_created
 ) implements DTO { }

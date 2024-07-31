@@ -16,6 +16,7 @@ public record RecipeDTO(
         double final_gravity,
         double color,
         int batch_size_liter,
+        long time_created,
         List<RecipeStepDTO> recipe,
         List<NotificationDTO> notifications,
         List<FermentableDTO> fermentables,
