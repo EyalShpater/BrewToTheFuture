@@ -119,7 +119,6 @@ public class BrewingSystemController {
 
     @GetMapping("{userId}/api/brew/data")
     public List<BrewingReportDTO> getBrewingReport(@PathVariable String userId, @RequestParam int brewId) {
-        System.out.println(userId + " " + brewId);
         return brewingSystem.getBrewingReport(userId, brewId);
     }
 

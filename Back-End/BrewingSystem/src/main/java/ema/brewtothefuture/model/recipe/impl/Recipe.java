@@ -33,30 +33,6 @@ public class Recipe {
         this.yeast = new ArrayList<>();
     }
 
-//    public Recipe(RecipeDTO recipeDTO, int recipeId) {
-//        this.recipeId = recipeId;
-//        this.rating = 0;
-//        this.votes = 0;
-//        this.views = 0;
-//        this.metaData = new MetaData(recipeDTO.user_id(),
-//                                     recipeDTO.recipe_name(),
-//                                     BrewMethod.fromString(recipeDTO.method()),
-//                                     BrewStyle.fromString(recipeDTO.style()),
-//                                     recipeDTO.abv(), recipeDTO.ibu(),
-//                                     recipeDTO.original_gravity(),
-//                                     recipeDTO.final_gravity(),
-//                                     recipeDTO.color(),
-//                                     recipeDTO.batch_size_liter()
-//        );
-//        this.steps = recipeDTO.recipe().stream().map(RecipeStep::new).collect(Collectors.toList());
-//        this.notifications = recipeDTO.notifications().stream().map(Notification::new).collect(Collectors.toList());
-//        this.fermentables = recipeDTO.fermentables().stream().map(Fermentable::new).collect(Collectors.toList());
-//        this.hops = recipeDTO.hops().stream().map(Hop::new).collect(Collectors.toList());
-//        this.yeast = recipeDTO.yeast().stream().map(Yeast::new).collect(Collectors.toList());
-//
-//        addHopsSteps();
-//    }
-
     public Recipe(RecipeDB recipe) {
         this.recipeId = recipe.getId();
         this.rating = recipe.getRating();

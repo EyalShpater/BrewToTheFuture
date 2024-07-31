@@ -128,7 +128,6 @@ public class RecipeService {
         recipeYeastRepository.saveAllAndFlush(yeasts);
         recipeHopRepository.saveAllAndFlush(hops);
 
-        recipeRepository.flush();
         return recipeDB.getId();
     }
 
