@@ -7,6 +7,7 @@ import ema.brewtothefuture.model.recipe.api.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Recipe {
@@ -76,8 +77,6 @@ public class Recipe {
         this.fermentables = recipe.getFermentables().stream().map(Fermentable::new).collect(Collectors.toList());
         this.hops = recipe.getHops().stream().map(Hop::new).collect(Collectors.toList());
         this.yeast = recipe.getYeasts().stream().map(Yeast::new).collect(Collectors.toList());
-
-        addHopsSteps();
     }
 
     public Recipe(RecipeDTO recipeDTO) {
@@ -107,26 +106,34 @@ public class Recipe {
         this.recipeId = recipeId;
     }
 
-    //todo: complete! hop steps
     private void addHopsSteps() {
         hops.sort((h1, h2) -> h2.getTimeToBrewMinutes() - h1.getTimeToBrewMinutes());
 
-        int maxHopTime = hops.getFirst().getTimeToBrewMinutes();
-        int stepId = steps.getLast().stepId() + 1;
+        AtomicInteger prevHopTime = new AtomicInteger(hops.getFirst().getTimeToBrewMinutes());
+        AtomicInteger stepId = new AtomicInteger(steps.getLast().stepId() + 1);
         double temperature = steps.getLast().temperature();
 
-//        for (Hop hop : hops) {
-//            steps.add(new RecipeStep(stepId++, hop.));
-//        }
-
-        for (Hop hop : hops) {
+        hops.forEach(hop -> {
+            int timeToBrew = hop.getTimeToBrewMinutes();
+            String description = "Add hop: " + hop.getId();
+            int time = (hops.indexOf(hop) == 0) ?
+                    0 :
+                    prevHopTime.get() - timeToBrew;
             steps.add(new RecipeStep(
-                    stepId++,
+                    stepId.getAndIncrement(),
                     temperature,
-                    hop.getTimeToBrewMinutes(),
+                    time,
                     true,
-                    "Add hop #" + hop.getId() + " hops"));
-        }
+                    description));
+            prevHopTime.set(timeToBrew);
+        });
+
+        steps.add(new RecipeStep(
+                stepId.getAndIncrement(),
+                temperature,
+                hops.getLast().getTimeToBrewMinutes(),
+                true,
+                "End of brewing"));
     }
 
     public String getAuthorId() {
