@@ -42,9 +42,19 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1.5,
     borderBottomColor: "#ccc",
   },
-  headerText: {
+  nameHeader: {
     fontSize: SIZES.medium,
     fontFamily: FONT.bold,
+    marginLeft: 22,
+  },
+  dateHeader: {
+    fontSize: SIZES.medium,
+    fontFamily: FONT.bold,
+  },
+  actionHeader: {
+    fontSize: SIZES.medium,
+    fontFamily: FONT.bold,
+    marginRight: 22,
   },
   nameContainer: {
     flexGrow: 1,
@@ -93,7 +103,7 @@ const styles = StyleSheet.create({
   playButton: {
     backgroundColor: COLORS.primary,
     paddingVertical: 10,
-    paddingHorizontal: 10,
+    paddingHorizontal: 7,
     borderRadius: 5,
     alignItems: "center",
     marginVertical: 40,
@@ -109,6 +119,20 @@ const styles = StyleSheet.create({
   nameRow: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  deleteButton: {
+    backgroundColor: COLORS.red,
+    paddingVertical: 10,
+    paddingHorizontal: 7,
+    borderRadius: 5,
+    alignItems: "center",
+    marginVertical: 40,
+    marginLeft: 10,
+  },
+  deleteButtonText: {
+    color: COLORS.white,
+    fontFamily: FONT.medium,
+    fontSize: SIZES.smallMedium,
   },
 });
 

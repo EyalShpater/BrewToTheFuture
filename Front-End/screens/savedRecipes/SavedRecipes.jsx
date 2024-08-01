@@ -26,7 +26,6 @@ const SavedRecipes = () => {
         "https://brewtothefuture.azurewebsites.net/api/brew/recipes/ilwejkrfhiuy4o3y4ljkblkdj"
       )
       .then((response) => {
-        console.log("API Response:", response.data); // Log the response data
         setRecipes(response.data); // Assuming the API returns a single recipe object
         setLoading(false); // Set loading to false once data is fetched
       })
@@ -131,16 +130,35 @@ const SavedRecipes = () => {
     },
   ];
 
+  const handleDelete = (userId, recipeId) => {
+    axios
+      .delete(
+        `https://brewtothefuture.azurewebsites.net/api/${userId}/brew/recipe/${recipeId}`
+      )
+      .then(() => {
+        setRecipes((prevRecipes) =>
+          prevRecipes.filter((recipe) => recipe.id !== recipeId)
+        );
+      })
+      .catch((error) => {
+        console.error("Error deleting recipe:", error);
+      });
+  };
   const renderHeader = () => (
     <View style={styles.headerRow}>
-      <Text style={styles.headerText}>Name</Text>
-      <Text style={styles.headerText}>Date</Text>
-      <Text style={styles.headerText}>Action</Text>
+      <Text style={styles.nameHeader}>Name</Text>
+      <Text style={styles.dateHeader}>Date</Text>
+      <Text style={styles.actionHeader}>Action</Text>
     </View>
   );
 
   const handleNavigation = (screenName) => {
     navigation.navigate(screenName);
+  };
+
+  const convertTimestampToDate = (timestamp) => {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString(); // This will return the date and time in a readable format
   };
 
   return (
@@ -189,13 +207,21 @@ const SavedRecipes = () => {
                 </View>
               </TouchableOpacity>
               <View>
-                <Text style={styles.date}>{item.time_created}</Text>
+                <Text style={styles.date}>
+                  {convertTimestampToDate(item.time_created)}
+                </Text>
               </View>
               <TouchableOpacity
                 onPress={() => handleNavigation("Brew")}
                 style={styles.playButton}
               >
                 <Text style={styles.playButtonText}>play</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => handleDelete(item.user_id, item.recipe_id)}
+                style={styles.deleteButton}
+              >
+                <Text style={styles.playButtonText}>Delete</Text>
               </TouchableOpacity>
             </View>
           )}

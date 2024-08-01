@@ -8,6 +8,7 @@ const COLORS = {
   gray2: "#C1C0C8",
   gray3: "#E5E1DA",
   date: "#888",
+  red: "#C63D2F",
 
   white: "#F3F4F8",
   black: "#0C0C0C",

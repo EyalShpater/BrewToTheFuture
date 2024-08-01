@@ -88,7 +88,7 @@ const Brew = () => {
         </View>
         <Text style={styles.instructions}> Current temperature: </Text>
 
-        <TemperatureBar temperature={80} />
+        <TemperatureBar temperature={20} />
         <HorizontalTimeline />
 
         <View style={styles.stopButtonContainer}>
