@@ -2,12 +2,14 @@ package ema.brewtothefuture.db.model.ingredient;
 
 import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
+import ema.brewtothefuture.dto.api.DTOConvertible;
+import ema.brewtothefuture.dto.front.YeastDTO;
 import ema.brewtothefuture.model.recipe.api.Yeast;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "recipe_yeast")
-public class RecipeYeastDB {
+public class RecipeYeastDB implements DTOConvertible<YeastDTO> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long   id;
@@ -41,5 +43,10 @@ public class RecipeYeastDB {
 
     public double getTemperatureCelsius() {
         return temperature_celsius;
+    }
+
+    @Override
+    public YeastDTO convertToDTO() {
+        return new YeastDTO(yeastDB.getId(), temperature_celsius);
     }
 }

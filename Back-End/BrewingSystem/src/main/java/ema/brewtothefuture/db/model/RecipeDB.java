@@ -21,7 +21,8 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int                       recipe_id;
-    private String                    user_id;
+    @Column(name = "user_id")
+    private String                    userID;
     private String                    recipe_name;
     private String                    method;
     private String                    style;
@@ -31,17 +32,18 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
     private double                    final_gravity;
     private double                    color;
     private int                       batch_size_liter;
+    private long                      time_created;
     @Convert(converter = StepsAndNotificationsConverter.class)
     @Column(name = "recipe_json", columnDefinition = "text")
     private CombinedStepsNotifications recipe;
     private double                    rating;
     private int                       votes;
     private int                       views;
-    @OneToMany(mappedBy = "recipeDB")
+    @OneToMany(mappedBy = "recipeDB", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RecipeFermentableDB> fermentables;
-    @OneToMany(mappedBy = "recipeDB")
+    @OneToMany(mappedBy = "recipeDB", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RecipeHopDB>         hops;
-    @OneToMany(mappedBy = "recipeDB")
+    @OneToMany(mappedBy = "recipeDB", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RecipeYeastDB>       yeasts;
     @OneToMany(mappedBy = "recipe")
     private List<BrewDB>              brew;
@@ -51,8 +53,7 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
 
     public RecipeDB(Recipe recipe) {
         MetaData metaData = recipe.getMetaData();
-//        this.recipe_id = recipe.getRecipeId();
-        this.user_id = metaData.authorId();
+        this.userID = metaData.authorId();
         this.recipe_name = metaData.name();
         this.method = metaData.method().toString();
         this.style = metaData.style().toString();
@@ -63,6 +64,7 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
         this.color = metaData.color();
         this.batch_size_liter = 0;
         this.recipe = new CombinedStepsNotifications(recipe.getSteps(), recipe.getNotifications());
+        this.time_created = recipe.getMetaData().timeCreated();
     }
 
     public RecipeDB(RecipeDTO recipe) {
@@ -101,7 +103,7 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
     @Override
     public RecipeDTO convertToDTO() {
         return new RecipeDTO(
-                user_id,
+                userID,
                 recipe_id,
                 recipe_name,
                 method,
@@ -112,6 +114,7 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
                 final_gravity,
                 color,
                 batch_size_liter,
+                time_created,
                 recipe.getSteps()
                       .stream()
                       .map(RecipeStep::convertToFrontDTO)
@@ -120,9 +123,18 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
                       .stream()
                       .map(Notification::convertToDTO)
                       .toList(),
-                null,
-                null,
-                null
+                fermentables
+                        .stream()
+                        .map(RecipeFermentableDB::convertToDTO)
+                        .toList(),
+                hops
+                        .stream()
+                        .map(RecipeHopDB::convertToDTO)
+                        .toList(),
+                yeasts
+                        .stream()
+                        .map(RecipeYeastDB::convertToDTO)
+                        .toList()
         );
     }
 
@@ -141,7 +153,7 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
     public int getId() { return recipe_id; }
 
     public String getUserID() {
-        return user_id;
+        return userID;
     }
 
     public String getRecipeName() {

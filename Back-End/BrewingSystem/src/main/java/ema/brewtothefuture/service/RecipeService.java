@@ -23,20 +23,20 @@ import java.util.stream.Collectors;
 
 @Service
 public class RecipeService {
-    private final RecipeRepository            recipeRepository;
-    private final FermentableRepository       fermentableRepository;
-    private final HopRepository               hopRepository;
-    private final YeastRepository             yeastRepository;
-    private final RecipeFermentableRepository recipeFermentableRepository;
-    private final RecipeHopRepository         recipeHopRepository;
-    private final RecipeYeastRepository       recipeYeastRepository;
-    private static RecipeService instance;
+    private final  RecipeRepository            recipeRepository;
+    private final  FermentableRepository       fermentableRepository;
+    private final  HopRepository               hopRepository;
+    private final  YeastRepository             yeastRepository;
+    private final  RecipeFermentableRepository recipeFermentableRepository;
+    private final  RecipeHopRepository         recipeHopRepository;
+    private final  RecipeYeastRepository       recipeYeastRepository;
+    private static RecipeService               instance;
 
     @Autowired
     private RecipeService(RecipeRepository recipeRepository, FermentableRepository fermentableRepository,
-                         HopRepository hopRepository, YeastRepository yeastRepository,
-                         RecipeFermentableRepository recipeFermentableRepository,
-                         RecipeHopRepository recipeHopRepository, RecipeYeastRepository recipeYeastRepository) {
+                          HopRepository hopRepository, YeastRepository yeastRepository,
+                          RecipeFermentableRepository recipeFermentableRepository,
+                          RecipeHopRepository recipeHopRepository, RecipeYeastRepository recipeYeastRepository) {
         this.recipeRepository = recipeRepository;
         this.fermentableRepository = fermentableRepository;
         this.hopRepository = hopRepository;
@@ -128,7 +128,6 @@ public class RecipeService {
         recipeYeastRepository.saveAllAndFlush(yeasts);
         recipeHopRepository.saveAllAndFlush(hops);
 
-        recipeRepository.flush();
         return recipeDB.getId();
     }
 
@@ -184,5 +183,21 @@ public class RecipeService {
 
     public List<HopDB> getAllHops() {
         return hopRepository.findAll();
+    }
+
+    public List<RecipeDB> getAllUserRecipes(String userId) {
+        return recipeRepository.findByUserID(userId);
+    }
+
+    public void deleteRecipe(long recipeId, String userId) {
+        RecipeDB recipe = recipeRepository.findById(recipeId).orElse(null);
+
+        if (recipe != null && recipe.getUserID().equals(userId)) {
+            recipeRepository.delete(recipe);
+        } else if (recipe == null) {
+            throw new IllegalArgumentException("Recipe not found");
+        } else {
+            throw new IllegalArgumentException("User does not have permission to delete this recipe");
+        }
     }
 }

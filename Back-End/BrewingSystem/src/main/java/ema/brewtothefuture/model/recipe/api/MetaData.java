@@ -3,7 +3,7 @@ package ema.brewtothefuture.model.recipe.api;
 import ema.brewtothefuture.dto.api.DTOConvertible;
 import ema.brewtothefuture.dto.front.MetaDataDTO;
 
-public record MetaData (
+public record MetaData(
         String authorId,
         String name,
         BrewMethod method,
@@ -13,20 +13,22 @@ public record MetaData (
         double originalGravity,
         double finalGravity,
         double color,
-        int batchSize
+        int batchSize,
+        long timeCreated
 ) implements DTOConvertible<MetaDataDTO> {
 
     public MetaData(String authorId) {
         this(authorId,
-                "",
-                BrewMethod.ALL_GRAIN,
-                BrewStyle.IPA,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0);
+             "",
+             BrewMethod.ALL_GRAIN,
+             BrewStyle.IPA,
+             0,
+             0,
+             0,
+             0,
+             0,
+             0,
+             System.currentTimeMillis());
     }
 
     public MetaData(MetaDataDTO dto) {
@@ -40,8 +42,9 @@ public record MetaData (
                 dto.original_gravity(),
                 dto.final_gravity(),
                 dto.color(),
-                dto.batch_size_liter()
-        );
+                dto.batch_size_liter(),
+                dto.time_created()
+            );
     }
 
     @Override
@@ -56,7 +59,8 @@ public record MetaData (
                 originalGravity,
                 finalGravity,
                 color,
-                batchSize
+                batchSize,
+                timeCreated
         );
     }
 }

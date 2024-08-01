@@ -2,12 +2,14 @@ package ema.brewtothefuture.db.model.ingredient;
 
 import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.db.model.ingredient.data.HopDB;
+import ema.brewtothefuture.dto.api.DTOConvertible;
+import ema.brewtothefuture.dto.front.HopDTO;
 import ema.brewtothefuture.model.recipe.api.Hop;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "recipe_hops")
-public class RecipeHopDB {
+public class RecipeHopDB implements DTOConvertible<HopDTO> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long   id;
@@ -47,5 +49,10 @@ public class RecipeHopDB {
 
     public int getTimeToBrewMinutes() {
         return time_min;
+    }
+
+    @Override
+    public HopDTO convertToDTO() {
+        return new HopDTO(hopDB.getId(), amount_g, time_min);
     }
 }

@@ -7,6 +7,7 @@ import ema.brewtothefuture.model.recipe.api.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Recipe {
@@ -32,30 +33,6 @@ public class Recipe {
         this.yeast = new ArrayList<>();
     }
 
-//    public Recipe(RecipeDTO recipeDTO, int recipeId) {
-//        this.recipeId = recipeId;
-//        this.rating = 0;
-//        this.votes = 0;
-//        this.views = 0;
-//        this.metaData = new MetaData(recipeDTO.user_id(),
-//                                     recipeDTO.recipe_name(),
-//                                     BrewMethod.fromString(recipeDTO.method()),
-//                                     BrewStyle.fromString(recipeDTO.style()),
-//                                     recipeDTO.abv(), recipeDTO.ibu(),
-//                                     recipeDTO.original_gravity(),
-//                                     recipeDTO.final_gravity(),
-//                                     recipeDTO.color(),
-//                                     recipeDTO.batch_size_liter()
-//        );
-//        this.steps = recipeDTO.recipe().stream().map(RecipeStep::new).collect(Collectors.toList());
-//        this.notifications = recipeDTO.notifications().stream().map(Notification::new).collect(Collectors.toList());
-//        this.fermentables = recipeDTO.fermentables().stream().map(Fermentable::new).collect(Collectors.toList());
-//        this.hops = recipeDTO.hops().stream().map(Hop::new).collect(Collectors.toList());
-//        this.yeast = recipeDTO.yeast().stream().map(Yeast::new).collect(Collectors.toList());
-//
-//        addHopsSteps();
-//    }
-
     public Recipe(RecipeDB recipe) {
         this.recipeId = recipe.getId();
         this.rating = recipe.getRating();
@@ -69,15 +46,14 @@ public class Recipe {
                                      recipe.getOriginalGravity(),
                                      recipe.getFinalGravity(),
                                      recipe.getColor(),
-                                     recipe.getBatchSizeLiter()
+                                     recipe.getBatchSizeLiter(),
+                                     System.currentTimeMillis()
         );
         this.steps = recipe.getSteps();
         this.notifications = recipe.getNotifications();
         this.fermentables = recipe.getFermentables().stream().map(Fermentable::new).collect(Collectors.toList());
         this.hops = recipe.getHops().stream().map(Hop::new).collect(Collectors.toList());
         this.yeast = recipe.getYeasts().stream().map(Yeast::new).collect(Collectors.toList());
-
-        addHopsSteps();
     }
 
     public Recipe(RecipeDTO recipeDTO) {
@@ -92,7 +68,8 @@ public class Recipe {
                                      recipeDTO.original_gravity(),
                                      recipeDTO.final_gravity(),
                                      recipeDTO.color(),
-                                     recipeDTO.batch_size_liter()
+                                     recipeDTO.batch_size_liter(),
+                                     System.currentTimeMillis()
         );
         this.steps = recipeDTO.recipe().stream().map(RecipeStep::new).collect(Collectors.toList());
         this.notifications = recipeDTO.notifications().stream().map(Notification::new).collect(Collectors.toList());
@@ -107,26 +84,34 @@ public class Recipe {
         this.recipeId = recipeId;
     }
 
-    //todo: complete! hop steps
     private void addHopsSteps() {
         hops.sort((h1, h2) -> h2.getTimeToBrewMinutes() - h1.getTimeToBrewMinutes());
 
-        int maxHopTime = hops.getFirst().getTimeToBrewMinutes();
-        int stepId = steps.getLast().stepId() + 1;
+        AtomicInteger prevHopTime = new AtomicInteger(hops.getFirst().getTimeToBrewMinutes());
+        AtomicInteger stepId = new AtomicInteger(steps.getLast().stepId() + 1);
         double temperature = steps.getLast().temperature();
 
-//        for (Hop hop : hops) {
-//            steps.add(new RecipeStep(stepId++, hop.));
-//        }
-
-        for (Hop hop : hops) {
+        hops.forEach(hop -> {
+            int timeToBrew = hop.getTimeToBrewMinutes();
+            String description = "Add hop: " + hop.getId();
+            int time = (hops.indexOf(hop) == 0) ?
+                    0 :
+                    prevHopTime.get() - timeToBrew;
             steps.add(new RecipeStep(
-                    stepId++,
+                    stepId.getAndIncrement(),
                     temperature,
-                    hop.getTimeToBrewMinutes(),
+                    time,
                     true,
-                    "Add hop #" + hop.getId() + " hops"));
-        }
+                    description));
+            prevHopTime.set(timeToBrew);
+        });
+
+        steps.add(new RecipeStep(
+                stepId.getAndIncrement(),
+                temperature,
+                hops.getLast().getTimeToBrewMinutes(),
+                true,
+                "End of brewing"));
     }
 
     public String getAuthorId() {
@@ -210,6 +195,7 @@ public class Recipe {
                 metaData.finalGravity(),
                 metaData.color(),
                 metaData.batchSize(),
+                metaData.timeCreated(),
                 steps.stream().map(RecipeStep::convertToFrontDTO).collect(Collectors.toList()),
                 notifications.stream().map(Notification::convertToDTO).collect(Collectors.toList()),
                 fermentables.stream().map(Fermentable::convertToDTO).collect(Collectors.toList()),

@@ -68,14 +68,26 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
+    public List<RecipeDTO> getAllUserRecipes(String userId) {
+        return recipeService.getAllUserRecipes(userId)
+                            .stream()
+                            .map(RecipeDB::convertToDTO)
+                            .collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteRecipe(long recipeId, String userId) {
+        recipeService.deleteRecipe(recipeId, userId);
+    }
+
+    @Override
     public void addViewedRecipe(int recipeId) {
 
     }
 
     @Override
     public long addNewRecipe(RecipeDTO recipe) {
-        long id = recipeService.saveRecipe(new Recipe(recipe));
-        return id;
+        return recipeService.saveRecipe(new Recipe(recipe));
     }
 
     @Override
