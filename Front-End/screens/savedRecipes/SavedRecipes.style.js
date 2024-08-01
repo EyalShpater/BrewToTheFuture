@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   recipeName: {
     fontSize: SIZES.medium,
     fontFamily: FONT.bold,
+    color: COLORS.buttonBlue,
   },
   date: {
     fontSize: SIZES.medium,
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     width: "90%",
+    maxHeight: "80%",
     backgroundColor: COLORS.gray3,
     padding: 20,
     borderRadius: 30,

@@ -59,9 +59,7 @@ const Brew = () => {
   }, []);
 
   return (
-    <SafeAreaView
-      style={[styles.container, { flex: 1, backgroundColor: COLORS.beige }]}
-    >
+    <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {/* Return Button */}
         <TouchableOpacity
@@ -89,15 +87,15 @@ const Brew = () => {
           <Text style={styles.instructions}> Remaining step time: </Text>
         </View>
         <Text style={styles.instructions}> Current temperature: </Text>
-        <TemperatureBar temperature={80} />
 
+        <TemperatureBar temperature={80} />
         <HorizontalTimeline />
-        <TouchableOpacity
-          // onPress={() => handleNavigation("Welcome")}
-          style={[styles.stopButton, { marginTop: 1 }]}
-        >
-          <Text style={styles.stopButtonText}>STOP BREWING</Text>
-        </TouchableOpacity>
+
+        <View style={styles.stopButtonContainer}>
+          <TouchableOpacity style={styles.stopButton}>
+            <Text style={styles.stopButtonText}>STOP BREWING</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

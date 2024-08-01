@@ -7,16 +7,15 @@ const { height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
     alignItems: "center",
     paddingTop: 20,
     paddingHorizontal: 20,
+    backgroundColor: COLORS.beige,
   },
   scrollContainer: {
     flexGrow: 1,
-    //alignItems: "center",
-    paddingHorizontal: 20,
-    paddingBottom: 50, // Ensure there is enough padding for the button to be visible
+    alignItems: "center",
   },
   welcomeMessage: {
     fontFamily: FONT.bold,
@@ -85,13 +84,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#666",
   },
+  stopButtonContainer: {
+    width: "100%",
+    alignItems: "center",
+    marginVertical: 50,
+  },
   stopButton: {
     backgroundColor: "red",
+    borderWidth: 1.5,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
     alignItems: "center",
-    marginVertical: 50,
+    marginVertical: 20,
   },
   stopButtonText: {
     color: COLORS.white,

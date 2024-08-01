@@ -20,6 +20,7 @@ const COLORS = {
   beige: "#EDE4E0",
   darkBeige: "#D4C8C3",
   transparent: "#rgba(0, 0, 0, 0.5)",
+  buttonBlue: "#007AFF",
 };
 
 const FONT = {
