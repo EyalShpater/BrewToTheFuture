@@ -89,13 +89,16 @@ const Brew = () => {
         <Text style={styles.instructions}> Current temperature: </Text>
 
         <TemperatureBar temperature={20} />
-        <HorizontalTimeline />
 
         <View style={styles.stopButtonContainer}>
           <TouchableOpacity style={styles.stopButton}>
             <Text style={styles.stopButtonText}>STOP BREWING</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.pauseButton}>
+            <Text style={styles.pauseButtonText}>PAUSE BREWING</Text>
+          </TouchableOpacity>
         </View>
+        <HorizontalTimeline />
       </ScrollView>
     </SafeAreaView>
   );

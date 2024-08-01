@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
   },
   contentContainer: {
-    paddingVertical: 20,
+    paddingVertical: 5,
   },
   itemContainer: {
     width: width * 0.8,
@@ -87,18 +87,34 @@ const styles = StyleSheet.create({
   stopButtonContainer: {
     width: "100%",
     alignItems: "center",
-    marginVertical: 50,
+    marginVertical: 40,
   },
   stopButton: {
-    backgroundColor: "red",
+    backgroundColor: COLORS.red,
+    borderColor: COLORS.red,
     borderWidth: 1.5,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
     alignItems: "center",
-    marginVertical: 20,
+    marginVertical: 5,
   },
   stopButtonText: {
+    color: COLORS.white,
+    fontFamily: FONT.medium,
+    fontSize: SIZES.smallMedium,
+  },
+  pauseButton: {
+    backgroundColor: COLORS.darkOrange,
+    borderColor: COLORS.darkOrange,
+    borderWidth: 1.5,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 5,
+    alignItems: "center",
+    marginVertical: 5,
+  },
+  pauseButtonText: {
     color: COLORS.white,
     fontFamily: FONT.medium,
     fontSize: SIZES.smallMedium,
