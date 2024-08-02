@@ -35,16 +35,16 @@ public class BrewingSystemService implements BrewingSystem {
 
     private final StyleRepository         styleRepository;
     private final RecipeService           recipeService;
-    private final BrewingService          brewingService;
+    private final BrewProcessService brewProcessService;
     private final BrewingReportRepository brewingReportRepository;
     private final BrewRepository          brewRepository;
 
     @Autowired
     public BrewingSystemService(StyleRepository styleRepository, RecipeService recipeService,
-                                BrewingService brewingService, BrewingReportRepository brewingReportRepository, BrewRepository brewRepository) {
+                                BrewProcessService brewProcessService, BrewingReportRepository brewingReportRepository, BrewRepository brewRepository) {
         this.styleRepository = styleRepository;
         this.recipeService = recipeService;
-        this.brewingService = brewingService;
+        this.brewProcessService = brewProcessService;
         this.brewingReportRepository = brewingReportRepository;
         this.brewRepository = brewRepository;
     }
@@ -52,7 +52,7 @@ public class BrewingSystemService implements BrewingSystem {
     @Override
     public EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
-        Brew brew = brewingService.getBrewInQueue(userId);
+        Brew brew = brewProcessService.getBrewInQueue(userId);
 
         return brew != null ?
                 brew.getEmbeddedRecipe() :
@@ -92,13 +92,13 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public void brewRecipe(long recipeId, String userId) {
-        brewingService.addRecipeToBrew(recipeId, userId);
+        brewProcessService.addRecipeToBrew(recipeId, userId);
     }
 
     @Override
     public void markBrewingAsFinished(String deviceSerialNumber) {
         String userId = deviceManager.getUser(deviceSerialNumber);
-        brewingService.markHeadOfQueueAsBrewedInQueue(userId);
+        brewProcessService.markHeadOfQueueAsBrewedInQueue(userId);
     }
 
     @Override
@@ -110,7 +110,7 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public List<BrewingReportDTO> getBrewingReport(String userId, int brewId) {
-        return brewingService.getBrewHistory(userId, brewId);
+        return brewProcessService.getBrewHistory(userId, brewId);
     }
 
     @Override

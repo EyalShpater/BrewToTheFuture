@@ -15,19 +15,21 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class BrewingService {
+public class BrewProcessService {
     private final Map<String, Queue<Brew>> userIdToBrew = new HashMap<>();
     private final RecipeService            recipeService;
     private final BrewingReportRepository  brewingReportRepository;
     private final BrewRepository           brewRepository;
 
     @Autowired
-    public BrewingService(RecipeService recipeService, BrewingReportRepository brewingReportRepository, BrewRepository brewRepository) {
+    public BrewProcessService(RecipeService recipeService, BrewingReportRepository brewingReportRepository,
+                              BrewRepository brewRepository) {
         this.recipeService = recipeService;
         this.brewingReportRepository = brewingReportRepository;
         this.brewRepository = brewRepository;
     }
-//
+
+    //todo: 2.8.24
 //    public Brew brewRecipeInQueue(String userId) {
 //        Recipe toBrew = getRecipeInQueue(userId);
 //

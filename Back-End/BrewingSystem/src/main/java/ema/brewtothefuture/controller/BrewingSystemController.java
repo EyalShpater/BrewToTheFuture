@@ -24,7 +24,7 @@ public class BrewingSystemController {
         this.brewingSystem = brewingSystemService;
     }
 
-    @GetMapping("/api/health")
+    @GetMapping({ "/api/health", "/" })
     public String health() {
         List<String> sentences = List.of(
                 "Why did the scarecrow win an award? Because he was outstanding in his field!",
@@ -125,5 +125,12 @@ public class BrewingSystemController {
     @GetMapping("api/init/load_data")
     public void loadData() {
         brewingSystem.loadData();
+    }
+
+    @GetMapping("/error")
+    public String error(Exception e) {
+        return e == null ?
+                "Some Error" :
+                e.getMessage();
     }
 }
