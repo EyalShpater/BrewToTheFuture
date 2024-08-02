@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   bar: {
     height: "100%",
     borderRadius: 20,
+    maxWidth: "%100",
   },
   temperatureTextContainer: {
     position: "absolute",

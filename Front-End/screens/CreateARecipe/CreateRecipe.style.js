@@ -27,16 +27,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
     width: "100%",
+    maxWidth: "100%",
   },
-  pickerInputContainer: {
-    flex: 1,
-    height: 32,
-    borderWidth: 1.5,
-    borderColor: COLORS.primary,
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    backgroundColor: COLORS.gray3,
-  },
+
   label: {
     fontFamily: FONT.bold,
     fontSize: SIZES.smallMedium,
@@ -47,6 +40,16 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 32,
+    borderWidth: 1.5,
+    borderColor: COLORS.primary,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    backgroundColor: COLORS.gray3,
+    textAlign: "center",
+  },
+  pickerInput: {
+    flex: 1,
+    height: 62,
     borderWidth: 1.5,
     borderColor: COLORS.primary,
     borderRadius: 10,
@@ -69,6 +72,16 @@ const styles = StyleSheet.create({
   picker: {
     height: 200,
     width: "100%",
+  },
+  pickerInputContainer: {
+    flex: 1,
+    height: 40,
+    borderWidth: 1.5,
+    borderColor: COLORS.primary,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    backgroundColor: COLORS.gray3,
+    justifyContent: "center",
   },
   ingredientTitle: {
     fontFamily: FONT.bold,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import {
   SafeAreaView,
@@ -14,6 +14,7 @@ import {
 import styles from "./CreateRecipe.style";
 import { Picker } from "@react-native-picker/picker";
 import { images } from "../../constants";
+import axios from "axios";
 
 const CreateRecipeTwo = () => {
   const [fermentables, setFermentables] = useState(0);
@@ -25,6 +26,11 @@ const CreateRecipeTwo = () => {
       amount_kg: 0,
     },
   ]);
+  const [fermentablesOptions, setFermentablesOptions] = useState(null);
+  const [selectedFermentableType, setSelectedFermentableType] = useState(null);
+  const [isFermentablesTypePickerVisible, setIsFermentablesTypePickerVisible] =
+    useState(false);
+
   const [hops, setHops] = useState(0);
   const [isHopsPickerVisible, setIsHopsPickerVisible] = useState(false);
   const [hopsDetails, setHopsDetails] = useState([
@@ -34,6 +40,10 @@ const CreateRecipeTwo = () => {
       time_minutes: 0,
     },
   ]);
+  const [hopsOptions, setHopsOptions] = useState(null);
+  const [selectedHopsType, setSelectedHopsType] = useState(null);
+  const [isHopsTypePickerVisible, setIsHopsTypePickerVisible] = useState(false);
+
   const [yeast, setYeast] = useState(0);
   const [isYeastPickerVisible, setIsYeastPickerVisible] = useState(false);
   const [yeastDetails, setYeastDetails] = useState([
@@ -42,6 +52,11 @@ const CreateRecipeTwo = () => {
       temperature_celsius: 0,
     },
   ]);
+  const [yeastOptions, setYeastOptions] = useState(null);
+  const [selectedYeastType, setSelectedYeastType] = useState(null);
+  const [isYeastTypePickerVisible, setIsYeastTypePickerVisible] =
+    useState(false);
+
   const navigation = useNavigation();
   const route = useRoute();
 
@@ -157,22 +172,41 @@ const CreateRecipeTwo = () => {
   };
 
   const getFermentableDetails = () => {
+    useEffect(() => {
+      axios
+        .get(
+          "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables"
+        )
+        .then((response) => {
+          setFermentablesOptions(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching Fermentables data:", error);
+        });
+    }, []);
+
     if (fermentables > 0) {
       return fermentableDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>
           <Text style={[styles.ingredientTitle, styles.underlineText]}>
             Fermentable {index + 1}:
           </Text>
-          <View style={styles.inputContainer}>
+
+          <TouchableOpacity
+            style={styles.inputContainer}
+            onPress={() => setIsFermentablesTypePickerVisible(true)}
+          >
             <Text style={styles.label}>Grain Type:</Text>
             <TextInput
-              style={styles.input}
-              value={fermentableDetails[index].id}
-              onChangeText={(text) =>
-                handleFermentableChange(index, "id", parseInt(text))
-              }
+              style={[styles.pickerInput, { textAlign: "center" }]}
+              value={selectedFermentableType}
+              placeholder="Choose option"
+              placeholderTextColor="#999"
+              editable={false}
+              pointerEvents="none"
             />
-          </View>
+          </TouchableOpacity>
+          {modalForFermentablesTypesPicker(index)}
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Amount (kg):</Text>
             <TextInput
@@ -188,6 +222,50 @@ const CreateRecipeTwo = () => {
     } else {
       return null;
     }
+  };
+
+  const modalForFermentablesTypesPicker = (index) => {
+    return (
+      <Modal
+        visible={isFermentablesTypePickerVisible}
+        transparent={true}
+        animationType="slide"
+      >
+        <View style={styles.pickerModal}>
+          <View style={styles.pickerContainer}>
+            <Picker
+              selectedValue={selectedFermentableType}
+              onValueChange={(itemValue) =>
+                handleFermentablesTypesPickerSelect(index, itemValue)
+              }
+              style={styles.picker}
+            >
+              {fermentablesOptions.map((item, idx) => (
+                <Picker.Item key={idx} label={item.name} value={item.name} />
+              ))}
+            </Picker>
+            <Button
+              title="Done"
+              onPress={() => setIsFermentablesTypePickerVisible(false)}
+            />
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  const handleFermentablesTypesPickerSelect = (index, name) => {
+    const selectedOption = fermentablesOptions.find(
+      (option) => option.name === name
+    );
+    if (selectedOption) {
+      const updatedFermentableDetails = fermentableDetails.map((detail, i) =>
+        i === index ? { ...detail, id: selectedOption.id } : detail
+      );
+      setFermentableDetails(updatedFermentableDetails);
+    }
+    setSelectedFermentableType(name);
+    setIsFermentablesTypePickerVisible(false);
   };
 
   const hopsPicker = () => {
@@ -238,22 +316,40 @@ const CreateRecipeTwo = () => {
   };
 
   const getHopsDetails = () => {
+    useEffect(() => {
+      axios
+        .get(
+          "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops"
+        )
+        .then((response) => {
+          setHopsOptions(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching hops data:", error);
+        });
+    }, []);
+
     if (hops > 0) {
       return hopsDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>
           <Text style={[styles.ingredientTitle, styles.underlineText]}>
             Hops {index + 1}:
           </Text>
-          <View style={styles.inputContainer}>
+          <TouchableOpacity
+            style={styles.inputContainer}
+            onPress={() => setIsHopsTypePickerVisible(true)}
+          >
             <Text style={styles.label}>Hops Type:</Text>
             <TextInput
-              style={styles.input}
-              value={hopsDetails[index].id}
-              onChangeText={(text) =>
-                handleHopsChange(index, "id", parseInt(text))
-              }
+              style={[styles.pickerInput, { textAlign: "center" }]}
+              value={selectedHopsType}
+              placeholder="Choose option"
+              placeholderTextColor="#999"
+              editable={false}
+              pointerEvents="none"
             />
-          </View>
+          </TouchableOpacity>
+          {modalForHopsTypesPicker(index)}
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Amount (g):</Text>
             <TextInput
@@ -279,6 +375,48 @@ const CreateRecipeTwo = () => {
     } else {
       return null;
     }
+  };
+
+  const modalForHopsTypesPicker = (index) => {
+    return (
+      <Modal
+        visible={isHopsTypePickerVisible}
+        transparent={true}
+        animationType="slide"
+      >
+        <View style={styles.pickerModal}>
+          <View style={styles.pickerContainer}>
+            <Picker
+              selectedValue={selectedHopsType}
+              onValueChange={(itemValue) =>
+                handleHopsTypesPickerSelect(index, itemValue)
+              }
+              style={styles.picker}
+            >
+              {hopsOptions.map((item, idx) => (
+                <Picker.Item key={idx} label={item.name} value={item.name} />
+              ))}
+            </Picker>
+            <Button
+              title="Done"
+              onPress={() => setIsHopsTypePickerVisible(false)}
+            />
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  const handleHopsTypesPickerSelect = (index, name) => {
+    const selectedOption = hopsOptions.find((option) => option.name === name);
+    if (selectedOption) {
+      const updatedHopDetails = hopsDetails.map((detail, i) =>
+        i === index ? { ...detail, id: selectedOption.id } : detail
+      );
+      setHopsDetails(updatedHopDetails);
+    }
+    setSelectedHopsType(name);
+    setIsHopsTypePickerVisible(false);
   };
 
   const yeastPicker = () => {
@@ -329,22 +467,40 @@ const CreateRecipeTwo = () => {
   };
 
   const getYeastDetails = () => {
+    useEffect(() => {
+      axios
+        .get(
+          "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts"
+        )
+        .then((response) => {
+          setYeastOptions(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching yeasts data:", error);
+        });
+    }, []);
     if (yeast > 0) {
       return yeastDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>
           <Text style={[styles.ingredientTitle, styles.underlineText]}>
             Yeast {index + 1}:
           </Text>
-          <View style={styles.inputContainer}>
+
+          <TouchableOpacity
+            style={styles.inputContainer}
+            onPress={() => setIsYeastTypePickerVisible(true)}
+          >
             <Text style={styles.label}>Yeast Type:</Text>
             <TextInput
-              style={styles.input}
-              value={yeastDetails[index].id}
-              onChangeText={(text) =>
-                handleYeastChange(index, "id", parseInt(text))
-              }
+              style={[styles.pickerInput, { textAlign: "center" }]}
+              value={selectedYeastType}
+              placeholder="Choose option"
+              placeholderTextColor="#999"
+              editable={false}
+              pointerEvents="none"
             />
-          </View>
+          </TouchableOpacity>
+          {modalForYeastsTypesPicker(index)}
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Temperature (°C):</Text>
             <TextInput
@@ -364,6 +520,48 @@ const CreateRecipeTwo = () => {
     } else {
       return null;
     }
+  };
+
+  const modalForYeastsTypesPicker = (index) => {
+    return (
+      <Modal
+        visible={isYeastTypePickerVisible}
+        transparent={true}
+        animationType="slide"
+      >
+        <View style={styles.pickerModal}>
+          <View style={styles.pickerContainer}>
+            <Picker
+              selectedValue={selectedYeastType}
+              onValueChange={(itemValue) =>
+                handleYeastsTypesPickerSelect(index, itemValue)
+              }
+              style={styles.picker}
+            >
+              {yeastOptions.map((item, idx) => (
+                <Picker.Item key={idx} label={item.name} value={item.name} />
+              ))}
+            </Picker>
+            <Button
+              title="Done"
+              onPress={() => setIsYeastTypePickerVisible(false)}
+            />
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  const handleYeastsTypesPickerSelect = (index, name) => {
+    const selectedOption = yeastOptions.find((option) => option.name === name);
+    if (selectedOption) {
+      const updatedYeastDetails = yeastDetails.map((detail, i) =>
+        i === index ? { ...detail, id: selectedOption.id } : detail
+      );
+      setYeastDetails(updatedYeastDetails);
+    }
+    setSelectedYeastType(name);
+    setIsYeastTypePickerVisible(false);
   };
 
   const handleNavigation = (screenName) => {
