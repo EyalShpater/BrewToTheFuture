@@ -126,12 +126,4 @@ public class BrewingSystemController {
     public void loadData() {
         brewingSystem.loadData();
     }
-
-    @ExceptionHandler(Exception.class)
-    @GetMapping("/error")
-    public String error(Exception e) {
-        return e == null ?
-                "Some Error" :
-                e.getMessage();
-    }
 }
