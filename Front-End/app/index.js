@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   createStackNavigator,
   TransitionPresets,
@@ -9,10 +10,43 @@ import CreateRecipeThree from "../screens/CreateARecipe/CreateRecipeThree.js";
 import CreateRecipeFour from "../screens/CreateARecipe/CreateRecipeFour.js";
 import SavedRecipes from "../screens/savedRecipes/SavedRecipes";
 import Brew from "../screens/brew/Brew";
+import registerNNPushToken from "native-notify";
+import { registerForPushNotificationsAsync } from "../utils/notifications";
+import * as Notifications from "expo-notifications";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+  }),
+});
 
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
+  useEffect(() => {
+    registerForPushNotificationsAsync();
+
+    const subscription = Notifications.addNotificationReceivedListener(
+      (notification) => {
+        console.log("Notification Received:", notification);
+      }
+    );
+
+    const responseSubscription =
+      Notifications.addNotificationResponseReceivedListener((response) => {
+        console.log("Notification Response:", response);
+      });
+
+    return () => {
+      subscription.remove();
+      responseSubscription.remove();
+    };
+  }, []);
+
+  registerNNPushToken(22838, "j8DkJVYmAbfUq04B2jEvYB");
+
   return (
     <Stack.Navigator
       screenOptions={{

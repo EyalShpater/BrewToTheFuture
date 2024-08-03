@@ -15,6 +15,7 @@ import { icons, SIZES, images } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
 import Bubbles from "../../components/bubbles";
 import router from "expo-router";
+import NotificationButton from "../../components/NotificationButton";
 
 const searchTypes = ["My beers", "My brewing history"];
 
@@ -94,6 +95,7 @@ const Home = () => {
 
           {/* Animated Bubbles */}
           <Bubbles />
+          <NotificationButton />
         </ScrollView>
       </SafeAreaView>
     </ImageBackground>
