@@ -112,6 +112,66 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: 10,
   },
+
+  notificationContainer: {
+    backgroundColor: COLORS.beige,
+    width: "90%", // Adjust as needed
+    padding: 10,
+    borderRadius: 20,
+    margin: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginBottom: 1,
+  },
+  notificationMessage: {
+    fontSize: SIZES.mediumLarge,
+    marginBottom: 10,
+    textAlign: "center",
+  },
+  notificationButton: {
+    backgroundColor: COLORS.buttonBlue,
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  notificationButtonText: {
+    color: "#fff",
+    fontSize: 16,
+  },
+  brewingSessionContainer: {
+    backgroundColor: COLORS.beige,
+    padding: 15,
+    margin: 20,
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
+    alignItems: "center",
+    width: "90%",
+    minHeight: 150, // Set a minimum height if needed
+    marginBottom: 10,
+  },
+  brewingSessionTitle: {
+    color: COLORS.primary,
+    fontSize: SIZES.mediumLarge,
+    fontWeight: "bold",
+    fontFamily: FONT.bold,
+    marginBottom: 10,
+  },
+  brewingSessionDetail: {
+    fontSize: SIZES.medium,
+    marginBottom: 10,
+  },
+  seeMoreText: {
+    color: COLORS.buttonBlue,
+    fontFamily: FONT.bold,
+    fontSize: SIZES.mediumLarge,
+  },
 });
 
 export default styles;

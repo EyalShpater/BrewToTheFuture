@@ -28,23 +28,42 @@ const HomeStack = () => {
   useEffect(() => {
     registerForPushNotificationsAsync();
 
-    const subscription = Notifications.addNotificationReceivedListener(
-      (notification) => {
-        console.log("Notification Received:", notification);
+    const pollNotifications = async () => {
+      try {
+        const response = await fetch("YOUR_SERVER_ENDPOINT", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await response.json();
+
+        // Check if there's a new notification
+        if (data.hasNewNotification) {
+          Notifications.scheduleNotificationAsync({
+            content: {
+              title: "New Notification",
+              body: data.message,
+              data: { userId: data.userId },
+            },
+            trigger: null, // Immediate notification
+          });
+        }
+      } catch (error) {
+        console.error("Error polling notifications:", error);
       }
-    );
+    };
 
-    const responseSubscription =
-      Notifications.addNotificationResponseReceivedListener((response) => {
-        console.log("Notification Response:", response);
-      });
+    // Set up the interval for polling every 200 milliseconds
+    const interval = setInterval(pollNotifications, 200);
 
+    // Clean up the interval on component unmount
     return () => {
-      subscription.remove();
-      responseSubscription.remove();
+      clearInterval(interval);
     };
   }, []);
 
+  // Register native-notify push token
   registerNNPushToken(22838, "j8DkJVYmAbfUq04B2jEvYB");
 
   return (

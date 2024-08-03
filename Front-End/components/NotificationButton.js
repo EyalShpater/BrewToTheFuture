@@ -6,9 +6,9 @@ const scheduleNotification = async () => {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: "Brew To The Future!",
-      body: "Add grains.",
+      body: "Add grains",
     },
-    trigger: { seconds: 5 },
+    trigger: { seconds: 2 },
   });
 };
 
