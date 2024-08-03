@@ -55,7 +55,7 @@ const HomeStack = () => {
     };
 
     // Set up the interval for polling every 200 milliseconds
-    const interval = setInterval(pollNotifications, 200);
+    const interval = setInterval(pollNotifications, 80000000);
 
     // Clean up the interval on component unmount
     return () => {
