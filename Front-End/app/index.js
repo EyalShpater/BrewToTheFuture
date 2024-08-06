@@ -30,32 +30,35 @@ const HomeStack = () => {
 
     const pollNotifications = async () => {
       try {
-        const response = await fetch("YOUR_SERVER_ENDPOINT", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://brewtothefuture.azurewebsites.net/api/notification/ilwejkrfhiuy4o3y4ljkblkdj",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await response.json();
 
         // Check if there's a new notification
-        if (data.hasNewNotification) {
+        if (data != null) {
           Notifications.scheduleNotificationAsync({
             content: {
-              title: "New Notification",
+              title: "Brew To The Future",
               body: data.message,
-              data: { userId: data.userId },
+              data: { userId: "ilwejkrfhiuy4o3y4ljkblkdj" },
             },
             trigger: null, // Immediate notification
           });
         }
       } catch (error) {
-        console.error("Error polling notifications:", error);
+        // console.error("Error polling notifications:", error);
       }
     };
 
     // Set up the interval for polling every 200 milliseconds
-    const interval = setInterval(pollNotifications, 80000000);
+    const interval = setInterval(pollNotifications, 200);
 
     // Clean up the interval on component unmount
     return () => {

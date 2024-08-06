@@ -149,7 +149,7 @@ const Home = () => {
           {/* <Savedrecipes /> */}
 
           <Bubbles />
-          <NotificationButton />
+          {/* <NotificationButton /> */}
         </ScrollView>
       </SafeAreaView>
     </ImageBackground>
