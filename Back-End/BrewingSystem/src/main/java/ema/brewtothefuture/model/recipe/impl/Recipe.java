@@ -23,6 +23,8 @@ public class Recipe {
     private int                votes;
     private int                views;
 
+    public static final int END_OF_STEP_ID = -1;
+
     public Recipe(int recipeId, String authorId) {
         this.metaData = new MetaData(authorId);
         this.recipeId = recipeId;
@@ -166,6 +168,7 @@ public class Recipe {
         this.views = views;
     }
 
+
     public EmbeddedRecipeDTO createEmbeddedRecipeDTO(long brewId) {
         return new EmbeddedRecipeDTO(
                 brewId,
@@ -180,6 +183,14 @@ public class Recipe {
 
     public long getRecipeId() {
         return recipeId;
+    }
+
+    public RecipeStep getStepById(int stepId) {
+        return steps
+                .stream()
+                .filter(step -> step.stepId() == stepId)
+                .findFirst()
+                .orElse(null);
     }
 
     public RecipeDTO convertToDTO() {
@@ -202,5 +213,13 @@ public class Recipe {
                 hops.stream().map(Hop::convertToDTO).collect(Collectors.toList()),
                 yeast.stream().map(Yeast::convertToDTO).collect(Collectors.toList())
         );
+    }
+
+    public int getNextStepID(int currentStepID) {
+        int currentStepIndex = steps.indexOf(getStepById(currentStepID));
+
+        return (currentStepIndex == steps.size() - 1) ?
+                END_OF_STEP_ID :
+                steps.get(currentStepIndex + 1).stepId();
     }
 }

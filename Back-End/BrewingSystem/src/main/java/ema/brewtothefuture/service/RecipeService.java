@@ -200,4 +200,16 @@ public class RecipeService {
             throw new IllegalArgumentException("User does not have permission to delete this recipe");
         }
     }
+
+    public HopDB getHopById(long id) {
+        return hopRepository.findById(id).orElse(null);
+    }
+
+    public YeastDB getYeastById(long id) {
+        return yeastRepository.findById(id).orElse(null);
+    }
+
+    public FermentableDB getFermentableById(long id) {
+        return fermentableRepository.findById(id).orElse(null);
+    }
 }

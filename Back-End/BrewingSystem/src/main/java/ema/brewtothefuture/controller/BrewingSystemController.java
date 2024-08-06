@@ -5,11 +5,14 @@ import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
+import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.service.BrewingSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Random;
@@ -64,6 +67,8 @@ public class BrewingSystemController {
 
     @GetMapping("/api/brew/recipes/{userId}")
     public List<RecipeDTO> getAllUserRecipes(@PathVariable String userId) {
+        // if user not found, return 404
+
         return brewingSystem.getAllUserRecipes(userId);
     }
 
@@ -87,14 +92,47 @@ public class BrewingSystemController {
         return brewingSystem.getHops();
     }
 
+    @GetMapping("api/brew/ingredients/hops/{id}")
+    public HopDB getHopById(@PathVariable long id) {
+        HopDB hop = brewingSystem.getHopById(id);
+
+        if (hop == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Hop not found");
+        }
+
+        return hop;
+    }
+
     @GetMapping("api/brew/ingredients/yeasts")
     public List<YeastDB> getYeasts() {
         return brewingSystem.getYeasts();
     }
 
+    @GetMapping("api/brew/ingredients/yeasts/{id}")
+    public YeastDB getYeastById(@PathVariable long id) {
+        YeastDB yeast = brewingSystem.getYeastById(id);
+
+        if (yeast == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Yeast not found");
+        }
+
+        return yeast;
+    }
+
     @GetMapping("api/brew/ingredients/fermentables")
     public List<FermentableDB> getFermentables() {
         return brewingSystem.getFermentables();
+    }
+
+    @GetMapping("api/brew/ingredients/fermentables/{id}")
+    public FermentableDB getFermentableById(@PathVariable int id) {
+        FermentableDB fermentable = brewingSystem.getFermentableById(id);
+
+        if (fermentable == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Fermentable not found");
+        }
+
+        return fermentable;
     }
 
     @PostMapping("/api/{userId}/brew/recipe/{recipeId}")
@@ -105,6 +143,11 @@ public class BrewingSystemController {
     @GetMapping("/api/embedded/{deviceSerialNumber}/brew/recipe")
     public EmbeddedRecipeDTO getRecipeToBrew(@PathVariable String deviceSerialNumber) {
         return brewingSystem.getRecipeToBrew(deviceSerialNumber);
+    }
+
+    @PostMapping("/api/embedded/{deviceSerialNumber}/brew/start")
+    public void startBrewing(@PathVariable String deviceSerialNumber, @RequestParam long embeddedReportInterval) {
+        brewingSystem.startBrewing(deviceSerialNumber, embeddedReportInterval);
     }
 
     @PutMapping("api/embedded/{deviceSerialNumber}/brew/recipe/marks_as_completed")
@@ -122,16 +165,31 @@ public class BrewingSystemController {
         return brewingSystem.getBrewingReport(userId, brewId);
     }
 
+    @GetMapping("api/notification/{userId}")
+    public NotificationDTO getNotification(@PathVariable String userId) {
+        NotificationDTO notification = brewingSystem.getNotification(userId);
+        System.out.println("Notification for user " + userId + ": " + notification);
+        return notification;
+    }
+
+    @PostMapping("api/{userId}/brew/recipe/current_brewing/step/complete")
+    public void markStepAsComplete(@PathVariable String userId) {
+        try {
+            brewingSystem.markCurrentStepAsComplete(userId);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No brews for user " + userId);
+        }
+    }
+
+    /******* debug endpoint *******/
+    @PostMapping("debug/notification/")
+    public void debugNotification(@RequestParam String notification, @RequestParam String userId) {
+        brewingSystem.addNotification(userId, notification);
+    }
+
+
     @GetMapping("api/init/load_data")
     public void loadData() {
         brewingSystem.loadData();
-    }
-
-    @ExceptionHandler(Exception.class)
-    @GetMapping("/error")
-    public String error(Exception e) {
-        return e == null ?
-                "Some Error" :
-                e.getMessage();
     }
 }

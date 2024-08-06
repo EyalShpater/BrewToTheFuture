@@ -5,6 +5,7 @@ import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
+import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public interface BrewingSystem {
     /* Embedded Use Methods */
 
     EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber);
+
+    void startBrewing(String deviceSerialNumber, long embeddedReportInterval);
 
     void markBrewingAsFinished(String deviceSerialNumber);
 
@@ -41,9 +44,22 @@ public interface BrewingSystem {
 
     List<HopDB> getHops();
 
+    HopDB getHopById(long id);
+
     List<YeastDB> getYeasts();
+
+    YeastDB getYeastById(long id);
 
     List<FermentableDB> getFermentables();
 
+    FermentableDB getFermentableById(long id);
+
+    NotificationDTO getNotification(String userID);
+
     void loadData();
+
+    void markCurrentStepAsComplete(String userId);
+
+    /***** debug methods *****/
+    void addNotification(String userId, String message);
 }

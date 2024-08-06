@@ -4,6 +4,8 @@ import ema.brewtothefuture.dto.api.DTOConvertible;
 import ema.brewtothefuture.dto.embedded.BrewStepDTO;
 import ema.brewtothefuture.dto.front.RecipeStepDTO;
 
+import java.util.Objects;
+
 public record RecipeStep (
         int stepId,
         double temperature,
@@ -39,5 +41,18 @@ public record RecipeStep (
                 durationMinutes,
                 notifyOnComplete
         );
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (o == null || getClass() != o.getClass()) { return false; }
+        RecipeStep that = (RecipeStep) o;
+        return stepId == that.stepId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(stepId);
     }
 }
