@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   createStackNavigator,
   TransitionPresets,
@@ -9,10 +10,62 @@ import CreateRecipeThree from "../screens/CreateARecipe/CreateRecipeThree.js";
 import CreateRecipeFour from "../screens/CreateARecipe/CreateRecipeFour.js";
 import SavedRecipes from "../screens/savedRecipes/SavedRecipes";
 import Brew from "../screens/brew/Brew";
+import registerNNPushToken from "native-notify";
+import { registerForPushNotificationsAsync } from "../utils/notifications";
+import * as Notifications from "expo-notifications";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+  }),
+});
 
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
+  useEffect(() => {
+    registerForPushNotificationsAsync();
+
+    const pollNotifications = async () => {
+      try {
+        const response = await fetch("YOUR_SERVER_ENDPOINT", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await response.json();
+
+        // Check if there's a new notification
+        if (data.hasNewNotification) {
+          Notifications.scheduleNotificationAsync({
+            content: {
+              title: "New Notification",
+              body: data.message,
+              data: { userId: data.userId },
+            },
+            trigger: null, // Immediate notification
+          });
+        }
+      } catch (error) {
+        console.error("Error polling notifications:", error);
+      }
+    };
+
+    // Set up the interval for polling every 200 milliseconds
+    const interval = setInterval(pollNotifications, 80000000);
+
+    // Clean up the interval on component unmount
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Register native-notify push token
+  registerNNPushToken(22838, "j8DkJVYmAbfUq04B2jEvYB");
+
   return (
     <Stack.Navigator
       screenOptions={{

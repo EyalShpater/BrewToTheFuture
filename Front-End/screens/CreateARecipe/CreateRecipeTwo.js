@@ -17,43 +17,52 @@ import { images } from "../../constants";
 import axios from "axios";
 
 const CreateRecipeTwo = () => {
-  const [fermentables, setFermentables] = useState(0);
-  const [isFermentablesPickerVisible, setIsFermentablesPickerVisible] =
-    useState(false);
+  const [fermentablesAmount, setFermentablesAmount] = useState(0);
+  const [
+    isFermentablesAmountPickerVisible,
+    setIsFermentablesAmountPickerVisible,
+  ] = useState(false);
   const [fermentableDetails, setFermentableDetails] = useState([
     {
       id: 0,
       amount_kg: 0,
+      type: null, // Added type property
     },
   ]);
   const [fermentablesOptions, setFermentablesOptions] = useState(null);
-  const [selectedFermentableType, setSelectedFermentableType] = useState(null);
+  const [fermentableTypePickerIndex, setFermentableTypePickerIndex] =
+    useState(null); // Added to keep track of which index to update
+
   const [isFermentablesTypePickerVisible, setIsFermentablesTypePickerVisible] =
     useState(false);
 
-  const [hops, setHops] = useState(0);
-  const [isHopsPickerVisible, setIsHopsPickerVisible] = useState(false);
+  const [hopsAmount, setHopsAmount] = useState(0);
+  const [isHopsAmountPickerVisible, setIsHopsAmountPickerVisible] =
+    useState(false);
   const [hopsDetails, setHopsDetails] = useState([
     {
       id: 0,
       amount_g: 0,
       time_minutes: 0,
+      type: null, // Added type property
     },
   ]);
   const [hopsOptions, setHopsOptions] = useState(null);
-  const [selectedHopsType, setSelectedHopsType] = useState(null);
+  const [hopsTypePickerIndex, setHopsTypePickerIndex] = useState(null); // Added to keep track of which index to update
   const [isHopsTypePickerVisible, setIsHopsTypePickerVisible] = useState(false);
 
-  const [yeast, setYeast] = useState(0);
-  const [isYeastPickerVisible, setIsYeastPickerVisible] = useState(false);
+  const [yeastAmount, setYeastAmount] = useState(0);
+  const [isYeastAmountPickerVisible, setIsYeastAmountPickerVisible] =
+    useState(false);
   const [yeastDetails, setYeastDetails] = useState([
     {
       id: 0,
       temperature_celsius: 0,
+      type: null, // Added type property
     },
   ]);
   const [yeastOptions, setYeastOptions] = useState(null);
-  const [selectedYeastType, setSelectedYeastType] = useState(null);
+  const [yeastTypePickerIndex, setYeastTypePickerIndex] = useState(null); // Added to keep track of which index to update
   const [isYeastTypePickerVisible, setIsYeastTypePickerVisible] =
     useState(false);
 
@@ -74,30 +83,39 @@ const CreateRecipeTwo = () => {
   // } = route.params;
 
   const handleFermentablesPickerSelect = (value) => {
-    setFermentables(value);
-    setIsFermentablesPickerVisible(false);
+    setFermentablesAmount(value);
+    setIsFermentablesAmountPickerVisible(false);
     setFermentableDetails(
-      Array.from({ length: value }, () => ({ id: 0, amount_kg: 0 }))
+      Array.from({ length: value }, () => ({
+        id: 0,
+        amount_kg: 0,
+        type: null, // Added type property
+      }))
     );
   };
 
   const handleHopsPickerSelect = (value) => {
-    setHops(value);
-    setIsHopsPickerVisible(false);
+    setHopsAmount(value);
+    setIsHopsAmountPickerVisible(false);
     setHopsDetails(
       Array.from({ length: value }, () => ({
         id: 0,
         amount_g: 0,
         time_minutes: 0,
+        type: null, // Added type property
       }))
     );
   };
 
   const handleYeastPickerSelect = (value) => {
-    setYeast(value);
-    setIsYeastPickerVisible(false);
+    setYeastAmount(value);
+    setIsYeastAmountPickerVisible(false);
     setYeastDetails(
-      Array.from({ length: value }, () => ({ id: 0, temperature_celsius: 0 }))
+      Array.from({ length: value }, () => ({
+        id: 0,
+        temperature_celsius: 0,
+        type: null, // Added type property
+      }))
     );
   };
 
@@ -127,12 +145,12 @@ const CreateRecipeTwo = () => {
       <View style={{ marginTop: 2 }}>
         <TouchableOpacity
           style={styles.inputContainer}
-          onPress={() => setIsFermentablesPickerVisible(true)}
+          onPress={() => setIsFermentablesAmountPickerVisible(true)}
         >
           <Text style={styles.label}>Choose amount:</Text>
           <TextInput
             style={styles.input}
-            value={String(fermentables)}
+            value={String(fermentablesAmount)}
             editable={false}
             pointerEvents="none"
           />
@@ -144,14 +162,14 @@ const CreateRecipeTwo = () => {
   const modalForFermentablesPicker = () => {
     return (
       <Modal
-        visible={isFermentablesPickerVisible}
+        visible={isFermentablesAmountPickerVisible}
         transparent={true}
         animationType="slide"
       >
         <View style={styles.pickerModal}>
           <View style={styles.pickerContainer}>
             <Picker
-              selectedValue={fermentables}
+              selectedValue={fermentablesAmount}
               onValueChange={(itemValue) =>
                 handleFermentablesPickerSelect(itemValue)
               }
@@ -163,7 +181,7 @@ const CreateRecipeTwo = () => {
             </Picker>
             <Button
               title="Done"
-              onPress={() => setIsFermentablesPickerVisible(false)}
+              onPress={() => setIsFermentablesAmountPickerVisible(false)}
             />
           </View>
         </View>
@@ -185,7 +203,7 @@ const CreateRecipeTwo = () => {
         });
     }, []);
 
-    if (fermentables > 0) {
+    if (fermentablesAmount > 0) {
       return fermentableDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>
           <Text style={[styles.ingredientTitle, styles.underlineText]}>
@@ -194,12 +212,15 @@ const CreateRecipeTwo = () => {
 
           <TouchableOpacity
             style={styles.inputContainer}
-            onPress={() => setIsFermentablesTypePickerVisible(true)}
+            onPress={() => {
+              setFermentableTypePickerIndex(index);
+              setIsFermentablesTypePickerVisible(true);
+            }}
           >
             <Text style={styles.label}>Grain Type:</Text>
             <TextInput
               style={[styles.pickerInput, { textAlign: "center" }]}
-              value={selectedFermentableType}
+              value={fermentableDetails[index].type}
               placeholder="Choose option"
               placeholderTextColor="#999"
               editable={false}
@@ -227,14 +248,17 @@ const CreateRecipeTwo = () => {
   const modalForFermentablesTypesPicker = (index) => {
     return (
       <Modal
-        visible={isFermentablesTypePickerVisible}
+        visible={
+          isFermentablesTypePickerVisible &&
+          fermentableTypePickerIndex === index
+        }
         transparent={true}
         animationType="slide"
       >
         <View style={styles.pickerModal}>
           <View style={styles.pickerContainer}>
             <Picker
-              selectedValue={selectedFermentableType}
+              selectedValue={fermentableDetails[index]?.type}
               onValueChange={(itemValue) =>
                 handleFermentablesTypesPickerSelect(index, itemValue)
               }
@@ -260,11 +284,10 @@ const CreateRecipeTwo = () => {
     );
     if (selectedOption) {
       const updatedFermentableDetails = fermentableDetails.map((detail, i) =>
-        i === index ? { ...detail, id: selectedOption.id } : detail
+        i === index ? { ...detail, id: selectedOption.id, type: name } : detail
       );
       setFermentableDetails(updatedFermentableDetails);
     }
-    setSelectedFermentableType(name);
     setIsFermentablesTypePickerVisible(false);
   };
 
@@ -273,12 +296,12 @@ const CreateRecipeTwo = () => {
       <View style={{ marginTop: 2 }}>
         <TouchableOpacity
           style={styles.inputContainer}
-          onPress={() => setIsHopsPickerVisible(true)}
+          onPress={() => setIsHopsAmountPickerVisible(true)}
         >
           <Text style={styles.label}>Choose amount:</Text>
           <TextInput
             style={styles.input}
-            value={String(hops)}
+            value={String(hopsAmount)}
             editable={false}
             pointerEvents="none"
           />
@@ -290,14 +313,14 @@ const CreateRecipeTwo = () => {
   const modalForHopsPicker = () => {
     return (
       <Modal
-        visible={isHopsPickerVisible}
+        visible={isHopsAmountPickerVisible}
         transparent={true}
         animationType="slide"
       >
         <View style={styles.pickerModal}>
           <View style={styles.pickerContainer}>
             <Picker
-              selectedValue={hops}
+              selectedValue={hopsAmount}
               onValueChange={(itemValue) => handleHopsPickerSelect(itemValue)}
               style={styles.picker}
             >
@@ -307,7 +330,7 @@ const CreateRecipeTwo = () => {
             </Picker>
             <Button
               title="Done"
-              onPress={() => setIsHopsPickerVisible(false)}
+              onPress={() => setIsHopsAmountPickerVisible(false)}
             />
           </View>
         </View>
@@ -329,7 +352,7 @@ const CreateRecipeTwo = () => {
         });
     }, []);
 
-    if (hops > 0) {
+    if (hopsAmount > 0) {
       return hopsDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>
           <Text style={[styles.ingredientTitle, styles.underlineText]}>
@@ -337,18 +360,22 @@ const CreateRecipeTwo = () => {
           </Text>
           <TouchableOpacity
             style={styles.inputContainer}
-            onPress={() => setIsHopsTypePickerVisible(true)}
+            onPress={() => {
+              setHopsTypePickerIndex(index);
+              setIsHopsTypePickerVisible(true);
+            }}
           >
             <Text style={styles.label}>Hops Type:</Text>
             <TextInput
               style={[styles.pickerInput, { textAlign: "center" }]}
-              value={selectedHopsType}
+              value={hopsDetails[index].type}
               placeholder="Choose option"
               placeholderTextColor="#999"
               editable={false}
               pointerEvents="none"
             />
           </TouchableOpacity>
+
           {modalForHopsTypesPicker(index)}
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Amount (g):</Text>
@@ -380,14 +407,14 @@ const CreateRecipeTwo = () => {
   const modalForHopsTypesPicker = (index) => {
     return (
       <Modal
-        visible={isHopsTypePickerVisible}
+        visible={isHopsTypePickerVisible && hopsTypePickerIndex === index}
         transparent={true}
         animationType="slide"
       >
         <View style={styles.pickerModal}>
           <View style={styles.pickerContainer}>
             <Picker
-              selectedValue={selectedHopsType}
+              selectedValue={hopsDetails[index]?.type}
               onValueChange={(itemValue) =>
                 handleHopsTypesPickerSelect(index, itemValue)
               }
@@ -409,13 +436,13 @@ const CreateRecipeTwo = () => {
 
   const handleHopsTypesPickerSelect = (index, name) => {
     const selectedOption = hopsOptions.find((option) => option.name === name);
+
     if (selectedOption) {
-      const updatedHopDetails = hopsDetails.map((detail, i) =>
-        i === index ? { ...detail, id: selectedOption.id } : detail
+      const updatedHopsDetails = hopsDetails.map((detail, i) =>
+        i === index ? { ...detail, id: selectedOption.id, type: name } : detail
       );
-      setHopsDetails(updatedHopDetails);
+      setHopsDetails(updatedHopsDetails);
     }
-    setSelectedHopsType(name);
     setIsHopsTypePickerVisible(false);
   };
 
@@ -424,12 +451,12 @@ const CreateRecipeTwo = () => {
       <View style={{ marginTop: 2 }}>
         <TouchableOpacity
           style={styles.inputContainer}
-          onPress={() => setIsYeastPickerVisible(true)}
+          onPress={() => setIsYeastAmountPickerVisible(true)}
         >
           <Text style={styles.label}>Choose amount:</Text>
           <TextInput
             style={styles.input}
-            value={String(yeast)}
+            value={String(yeastAmount)}
             editable={false}
             pointerEvents="none"
           />
@@ -441,14 +468,14 @@ const CreateRecipeTwo = () => {
   const modalForYeastPicker = () => {
     return (
       <Modal
-        visible={isYeastPickerVisible}
+        visible={isYeastAmountPickerVisible}
         transparent={true}
         animationType="slide"
       >
         <View style={styles.pickerModal}>
           <View style={styles.pickerContainer}>
             <Picker
-              selectedValue={yeast}
+              selectedValue={yeastAmount}
               onValueChange={(itemValue) => handleYeastPickerSelect(itemValue)}
               style={styles.picker}
             >
@@ -458,7 +485,7 @@ const CreateRecipeTwo = () => {
             </Picker>
             <Button
               title="Done"
-              onPress={() => setIsYeastPickerVisible(false)}
+              onPress={() => setIsYeastAmountPickerVisible(false)}
             />
           </View>
         </View>
@@ -479,7 +506,7 @@ const CreateRecipeTwo = () => {
           console.error("Error fetching yeasts data:", error);
         });
     }, []);
-    if (yeast > 0) {
+    if (yeastAmount > 0) {
       return yeastDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>
           <Text style={[styles.ingredientTitle, styles.underlineText]}>
@@ -488,12 +515,15 @@ const CreateRecipeTwo = () => {
 
           <TouchableOpacity
             style={styles.inputContainer}
-            onPress={() => setIsYeastTypePickerVisible(true)}
+            onPress={() => {
+              setYeastTypePickerIndex(index);
+              setIsYeastTypePickerVisible(true);
+            }}
           >
             <Text style={styles.label}>Yeast Type:</Text>
             <TextInput
               style={[styles.pickerInput, { textAlign: "center" }]}
-              value={selectedYeastType}
+              value={yeastDetails[index].type}
               placeholder="Choose option"
               placeholderTextColor="#999"
               editable={false}
@@ -525,14 +555,14 @@ const CreateRecipeTwo = () => {
   const modalForYeastsTypesPicker = (index) => {
     return (
       <Modal
-        visible={isYeastTypePickerVisible}
+        visible={isYeastTypePickerVisible && yeastTypePickerIndex === index}
         transparent={true}
         animationType="slide"
       >
         <View style={styles.pickerModal}>
           <View style={styles.pickerContainer}>
             <Picker
-              selectedValue={selectedYeastType}
+              selectedValue={yeastDetails[index]?.type}
               onValueChange={(itemValue) =>
                 handleYeastsTypesPickerSelect(index, itemValue)
               }
@@ -556,11 +586,10 @@ const CreateRecipeTwo = () => {
     const selectedOption = yeastOptions.find((option) => option.name === name);
     if (selectedOption) {
       const updatedYeastDetails = yeastDetails.map((detail, i) =>
-        i === index ? { ...detail, id: selectedOption.id } : detail
+        i === index ? { ...detail, id: selectedOption.id, type: name } : detail
       );
       setYeastDetails(updatedYeastDetails);
     }
-    setSelectedYeastType(name);
     setIsYeastTypePickerVisible(false);
   };
 
