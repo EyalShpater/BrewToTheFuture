@@ -10,6 +10,7 @@ import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
+import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.api.DeviceManager;
@@ -57,6 +58,18 @@ public class BrewingSystemService implements BrewingSystem {
         return brew != null ?
                 brew.getEmbeddedRecipe() :
                 null;
+    }
+
+    @Override
+    public void startBrewing(String deviceSerialNumber, long embeddedReportInterval) {
+        String userId = deviceManager.getUser(deviceSerialNumber);
+        Brew brew = brewProcessService.getBrewInQueue(userId);
+
+        if (brew == null) {
+            throw new IllegalArgumentException("No brews for user " + userId);
+        }
+
+        brew.start(embeddedReportInterval);
     }
 
     @Override
@@ -134,13 +147,39 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
+    public HopDB getHopById(long id) {
+        return recipeService.getHopById(id);
+    }
+
+    @Override
     public List<YeastDB> getYeasts() {
         return recipeService.getAllYeasts();
     }
 
     @Override
+    public YeastDB getYeastById(long id) {
+        return recipeService.getYeastById(id);
+    }
+
+    @Override
     public List<FermentableDB> getFermentables() {
         return recipeService.getAllFermentables();
+    }
+
+    @Override
+    public FermentableDB getFermentableById(long id) {
+        return recipeService.getFermentableById(id);
+    }
+
+    @Override
+    public NotificationDTO getNotification(String userID) {
+        Brew brew = brewProcessService.getBrewInQueue(userID);
+
+        if (brew == null) {
+            throw new IllegalArgumentException("No brews for user " + userID);
+        }
+
+        return brew.getNotification();
     }
 
     @Override

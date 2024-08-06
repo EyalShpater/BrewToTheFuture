@@ -5,6 +5,7 @@ import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
+import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.service.BrewingSystemService;
@@ -64,6 +65,8 @@ public class BrewingSystemController {
 
     @GetMapping("/api/brew/recipes/{userId}")
     public List<RecipeDTO> getAllUserRecipes(@PathVariable String userId) {
+        // if user not found, return 404
+
         return brewingSystem.getAllUserRecipes(userId);
     }
 
@@ -87,14 +90,47 @@ public class BrewingSystemController {
         return brewingSystem.getHops();
     }
 
+    @GetMapping("api/brew/ingredients/hops/{id}")
+    public HopDB getHopById(@PathVariable long id) {
+        HopDB hop = brewingSystem.getHopById(id);
+
+        if (hop == null) {
+            throw new IllegalArgumentException("Hop not found");
+        }
+
+        return hop;
+    }
+
     @GetMapping("api/brew/ingredients/yeasts")
     public List<YeastDB> getYeasts() {
         return brewingSystem.getYeasts();
     }
 
+    @GetMapping("api/brew/ingredients/yeasts/{id}")
+    public YeastDB getYeastById(@PathVariable long id) {
+        YeastDB yeast = brewingSystem.getYeastById(id);
+
+        if (yeast == null) {
+            throw new IllegalArgumentException("Yeast not found");
+        }
+
+        return yeast;
+    }
+
     @GetMapping("api/brew/ingredients/fermentables")
     public List<FermentableDB> getFermentables() {
         return brewingSystem.getFermentables();
+    }
+
+    @GetMapping("api/brew/ingredients/fermentables/{id}")
+    public FermentableDB getFermentableById(@PathVariable int id) {
+        FermentableDB fermentable = brewingSystem.getFermentableById(id);
+
+        if (fermentable == null) {
+            throw new IllegalArgumentException("Fermentable not found");
+        }
+
+        return fermentable;
     }
 
     @PostMapping("/api/{userId}/brew/recipe/{recipeId}")
@@ -105,6 +141,11 @@ public class BrewingSystemController {
     @GetMapping("/api/embedded/{deviceSerialNumber}/brew/recipe")
     public EmbeddedRecipeDTO getRecipeToBrew(@PathVariable String deviceSerialNumber) {
         return brewingSystem.getRecipeToBrew(deviceSerialNumber);
+    }
+
+    @PostMapping("/api/embedded/{deviceSerialNumber}/brew/start")
+    public void startBrewing(@PathVariable String deviceSerialNumber, @RequestParam long embeddedReportInterval) {
+        brewingSystem.startBrewing(deviceSerialNumber, embeddedReportInterval);
     }
 
     @PutMapping("api/embedded/{deviceSerialNumber}/brew/recipe/marks_as_completed")
@@ -120,6 +161,13 @@ public class BrewingSystemController {
     @GetMapping("{userId}/api/brew/data")
     public List<BrewingReportDTO> getBrewingReport(@PathVariable String userId, @RequestParam int brewId) {
         return brewingSystem.getBrewingReport(userId, brewId);
+    }
+
+    @GetMapping("api/notification/{userId}")
+    public NotificationDTO getNotification(@PathVariable String userId) {
+        NotificationDTO notification = brewingSystem.getNotification(userId);
+        System.out.println("Notification for user " + userId + ": " + notification);
+        return notification;
     }
 
     @GetMapping("api/init/load_data")

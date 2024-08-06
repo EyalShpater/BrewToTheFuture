@@ -18,7 +18,7 @@ public record RecipeDTO(
         int batch_size_liter,
         long time_created,
         List<RecipeStepDTO> recipe,
-        List<NotificationDTO> notifications,
+        List<RecipeNotificationDTO> notifications,
         List<FermentableDTO> fermentables,
         List<HopDTO> hops,
         List<YeastDTO> yeast
