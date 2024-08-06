@@ -27,4 +27,7 @@ public interface Brew {
     long getBrewId();
 
     void markCurrentStepAsComplete();
+
+    /***** debug *****/
+    void addNotification(NotificationDTO notification);
 }

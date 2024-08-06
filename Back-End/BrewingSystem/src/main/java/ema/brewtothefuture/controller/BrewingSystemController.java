@@ -10,7 +10,9 @@ import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.service.BrewingSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Random;
@@ -95,7 +97,7 @@ public class BrewingSystemController {
         HopDB hop = brewingSystem.getHopById(id);
 
         if (hop == null) {
-            throw new IllegalArgumentException("Hop not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Hop not found");
         }
 
         return hop;
@@ -111,7 +113,7 @@ public class BrewingSystemController {
         YeastDB yeast = brewingSystem.getYeastById(id);
 
         if (yeast == null) {
-            throw new IllegalArgumentException("Yeast not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Yeast not found");
         }
 
         return yeast;
@@ -127,7 +129,7 @@ public class BrewingSystemController {
         FermentableDB fermentable = brewingSystem.getFermentableById(id);
 
         if (fermentable == null) {
-            throw new IllegalArgumentException("Fermentable not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Fermentable not found");
         }
 
         return fermentable;
@@ -169,6 +171,22 @@ public class BrewingSystemController {
         System.out.println("Notification for user " + userId + ": " + notification);
         return notification;
     }
+
+    @PostMapping("api/{userId}/brew/recipe/current_brewing/step/complete")
+    public void markStepAsComplete(@PathVariable String userId) {
+        try {
+            brewingSystem.markCurrentStepAsComplete(userId);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No brews for user " + userId);
+        }
+    }
+
+    /******* debug endpoint *******/
+    @PostMapping("debug/notification/")
+    public void debugNotification(@RequestParam String notification, @RequestParam String userId) {
+        brewingSystem.addNotification(userId, notification);
+    }
+
 
     @GetMapping("api/init/load_data")
     public void loadData() {

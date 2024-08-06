@@ -57,4 +57,9 @@ public interface BrewingSystem {
     NotificationDTO getNotification(String userID);
 
     void loadData();
+
+    void markCurrentStepAsComplete(String userId);
+
+    /***** debug methods *****/
+    void addNotification(String userId, String message);
 }

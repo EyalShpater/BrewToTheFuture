@@ -185,4 +185,11 @@ public class BrewImpl implements Brew {
             }
         }
     }
+
+
+    /***** debug *****/
+    @Override
+    public void addNotification(NotificationDTO notification) {
+        notifications.addNotification(notification);
+    }
 }

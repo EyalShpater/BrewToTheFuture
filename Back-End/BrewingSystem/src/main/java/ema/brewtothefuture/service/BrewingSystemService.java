@@ -191,6 +191,17 @@ public class BrewingSystemService implements BrewingSystem {
         recipeService.loadIngredients();
     }
 
+    @Override
+    public void markCurrentStepAsComplete(String userId) {
+        Brew brew = brewProcessService.getBrewInQueue(userId);
+
+        if (brew == null) {
+            throw new IllegalArgumentException("No brews for user " + userId);
+        }
+
+        brew.markCurrentStepAsComplete();
+    }
+
     private void loadStyle() {
         try (CSVReader csvReader = new CSVReader(new InputStreamReader(new ClassPathResource("dataset/styleData.csv").getInputStream()))) {
             csvReader.readNext();
@@ -203,4 +214,16 @@ public class BrewingSystemService implements BrewingSystem {
         }
     }
 
+
+    /****** debug methods *****/
+    @Override
+    public void addNotification(String userId, String message) {
+        Brew brew = brewProcessService.getBrewInQueue(userId);
+
+        if (brew == null) {
+            throw new IllegalArgumentException("No brews for user " + userId);
+        }
+
+        brew.addNotification(new NotificationDTO(message, System.currentTimeMillis(), false, 200));
+    }
 }
