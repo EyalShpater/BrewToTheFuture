@@ -23,34 +23,13 @@ const SavedRecipes = () => {
   const [hopsNames, setHopsNames] = useState([]);
   const [yeastsNames, setYeastsNames] = useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       "https://brewtothefuture.azurewebsites.net/api/brew/recipes/ilwejkrfhiuy4o3y4ljkblkdj"
-  //     )
-  //     .then((response) => {
-  //       setRecipes(response.data); // Assuming the API returns a single recipe object
-  //       setLoading(false); // Set loading to false once data is fetched
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       setLoading(false); // Set loading to false in case of error
-  //     });
-  // }, []);
-
   useEffect(() => {
     axios
       .get(
         "https://brewtothefuture.azurewebsites.net/api/brew/recipes/ilwejkrfhiuy4o3y4ljkblkdj"
       )
-      .then(async (response) => {
+      .then((response) => {
         setRecipes(response.data); // Assuming the API returns a single recipe object
-        {
-          console.log("");
-        }
-        await fetchFermentableNames(recipes[0].fermentables);
-        await fetchHopsNames(recipes[0].hops);
-        await fetchYeastNames(recipes[0].yeast);
         setLoading(false); // Set loading to false once data is fetched
       })
       .catch((error) => {
@@ -59,60 +38,157 @@ const SavedRecipes = () => {
       });
   }, []);
 
-  const fetchFermentableNames = async (fermentables) => {
-    try {
-      const namesPromises = fermentables.map(async (fermentable) => {
-        const response = await axios.get(
+  const fetchFermentableNames = (fermentables) => {
+    const namesPromises = fermentables.map((fermentable) =>
+      axios
+        .get(
           `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`
-        );
+        )
+        .then((response) => response.data.name)
+    );
 
-        return response.data.name; // Assuming the response contains a `name` field
-      });
-
-      const names = await Promise.all(namesPromises);
+    return Promise.all(namesPromises).then((names) => {
       setFermentablesNames(names);
-    } catch (error) {
-      console.error("Error fetching fermentable names:", error);
-    }
+      return names;
+    });
   };
 
-  const fetchHopsNames = async (hops) => {
-    try {
-      const namesPromises = hops.map(async (hop) => {
-        const response = await axios.get(
+  const fetchHopsNames = (hops) => {
+    const namesPromises = hops.map((hop) =>
+      axios
+        .get(
           `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops/${hop.id}`
-        );
+        )
+        .then((response) => response.data.name)
+    );
 
-        return response.data.name; // Assuming the response contains a `name` field
-      });
-
-      const names = await Promise.all(namesPromises);
+    return Promise.all(namesPromises).then((names) => {
       setHopsNames(names);
-    } catch (error) {
-      console.error("Error fetching hops names:", error);
-    }
+      return names;
+    });
   };
 
-  const fetchYeastNames = async (yeasts) => {
-    try {
-      const namesPromises = yeasts.map(async (yeast) => {
-        const response = await axios.get(
+  const fetchYeastNames = (yeasts) => {
+    const namesPromises = yeasts.map((yeast) =>
+      axios
+        .get(
           `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts/${yeast.id}`
-        );
+        )
+        .then((response) => response.data.name)
+    );
 
-        return response.data.name; // Assuming the response contains a `name` field
-      });
-
-      const names = await Promise.all(namesPromises);
+    return Promise.all(namesPromises).then((names) => {
       setYeastsNames(names);
-    } catch (error) {
-      console.error("Error fetching Yeasts names:", error);
-    }
+      return names;
+    });
   };
 
   const openModal = (recipe) => {
-    setSelectedRecipe(recipe);
+    setLoading(true); // Set loading to true while fetching data
+    Promise.all([
+      fetchFermentableNames(recipe.fermentables),
+      fetchHopsNames(recipe.hops),
+      fetchYeastNames(recipe.yeast),
+    ])
+      .then(() => {
+        setSelectedRecipe(recipe);
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch((error) => {
+        console.error("Error fetching ingredient names:", error);
+        setLoading(false); // Set loading to false in case of error
+      });
   };
+
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "https://brewtothefuture.azurewebsites.net/api/brew/recipes/ilwejkrfhiuy4o3y4ljkblkdj"
+  //     )
+  //     .then(async (response) => {
+  //       setRecipes(response.data); // Assuming the API returns a single recipe object
+  //       {
+  //         console.log("");
+  //       }
+  //       await fetchFermentableNames(recipes[0].fermentables);
+  //       await fetchHopsNames(recipes[0].hops);
+  //       await fetchYeastNames(recipes[0].yeast);
+  //       setLoading(false); // Set loading to false once data is fetched
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       setLoading(false); // Set loading to false in case of error
+  //     });
+  // }, []);
+
+  // const fetchFermentableNames = async (fermentables) => {
+  //   try {
+  //     const namesPromises = fermentables.map(async (fermentable) => {
+  //       const response = await axios.get(
+  //         `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`
+  //       );
+
+  //       return response.data.name; // Assuming the response contains a `name` field
+  //     });
+
+  //     const names = await Promise.all(namesPromises);
+  //     setFermentablesNames(names);
+  //   } catch (error) {
+  //     console.error("Error fetching fermentable names:", error);
+  //   }
+  // };
+
+  // const fetchHopsNames = async (hops) => {
+  //   try {
+  //     const namesPromises = hops.map(async (hop) => {
+  //       const response = await axios.get(
+  //         `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops/${hop.id}`
+  //       );
+
+  //       return response.data.name; // Assuming the response contains a `name` field
+  //     });
+
+  //     const names = await Promise.all(namesPromises);
+  //     setHopsNames(names);
+  //   } catch (error) {
+  //     console.error("Error fetching hops names:", error);
+  //   }
+  // };
+
+  // const fetchYeastNames = async (yeasts) => {
+  //   try {
+  //     const namesPromises = yeasts.map(async (yeast) => {
+  //       const response = await axios.get(
+  //         `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts/${yeast.id}`
+  //       );
+
+  //       return response.data.name; // Assuming the response contains a `name` field
+  //     });
+
+  //     const names = await Promise.all(namesPromises);
+  //     setYeastsNames(names);
+  //   } catch (error) {
+  //     console.error("Error fetching Yeasts names:", error);
+  //   }
+  // };
+
+  // const openModal = async (recipe) => {
+  //   setSelectedRecipe(recipe);
+  //   {
+  //     console.log(recipe);
+  //   }
+  //   await fetchFermentableNames(recipe.fermentables);
+  //   await fetchHopsNames(recipe.hops);
+  //   await fetchYeastNames(recipe.yeast);
+  // };
+  // const openModal = async (recipe) => {
+  //   setLoading(true); // Set loading to true while fetching data
+  //   await fetchFermentableNames(recipe.fermentables);
+  //   await fetchHopsNames(recipe.hops);
+  //   await fetchYeastNames(recipe.yeast);
+  //   setSelectedRecipe(recipe);
+  //   setLoading(false); // Set loading to false once data is fetched
+  // };
 
   const closeModal = () => {
     setSelectedRecipe(null);
@@ -137,18 +213,6 @@ const SavedRecipes = () => {
       label: "Batch Size",
       value: `${recipe.batch_size_liter}L`,
     },
-    // {
-    //   label: "Fermentables",
-    //   value:
-    //     Array.isArray(recipe.fermentables) && recipe.fermentables.length
-    //       ? recipe.fermentables
-    //           .map(
-    //             (f, index) =>
-    //               `\n${index + 1}. Id: ${f.id}, Amount: ${f.amount_kg}kg`
-    //           )
-    //           .join("")
-    //       : "N/A",
-    // },
     {
       label: "Fermentables",
       value:
@@ -233,6 +297,7 @@ const SavedRecipes = () => {
         console.error("Error deleting recipe:", error);
       });
   };
+
   const renderHeader = () => (
     <View style={styles.headerRow}>
       <Text style={styles.nameHeader}>Name</Text>
@@ -317,7 +382,7 @@ const SavedRecipes = () => {
         />
       )}
 
-      {selectedRecipe && (
+      {selectedRecipe && !loading && (
         <Modal
           visible={!!selectedRecipe}
           transparent={true}
