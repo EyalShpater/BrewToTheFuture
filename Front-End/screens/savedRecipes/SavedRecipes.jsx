@@ -315,6 +315,21 @@ const SavedRecipes = () => {
     return date.toLocaleDateString(); // This will return the date and time in a readable format
   };
 
+  const handlePlayPress = (userId, recipeId) => {
+    axios
+      .post(
+        `https://brewtothefuture.azurewebsites.net/api/${userId}/brew/recipe/${recipeId}`
+      )
+      .then((response) => {
+        console.log("POST request successful:", response.data);
+
+        navigation.navigate("Brew");
+      })
+      .catch((error) => {
+        console.error("Error sending POST request:", error);
+      });
+  };
+
   return (
     <SafeAreaView
       style={[styles.container, { flex: 1, backgroundColor: COLORS.beige }]}
@@ -366,7 +381,7 @@ const SavedRecipes = () => {
                 </Text>
               </View>
               <TouchableOpacity
-                onPress={() => handleNavigation("Brew")}
+                onPress={() => handlePlayPress(item.user_id, item.recipe_id)}
                 style={styles.playButton}
               >
                 <Text style={styles.playButtonText}>play</Text>

@@ -99,7 +99,7 @@ const CreateRecipeFour = () => {
       yeast: route.params.yeastDetails,
     };
 
-    const url = "https://brewtothefuture.azurewebsites.net/api/brew/recipe";
+    const url = "https://brewtothefuture.azurewebsites.net/api/brew/recipe/add";
 
     (async () => {
       try {
