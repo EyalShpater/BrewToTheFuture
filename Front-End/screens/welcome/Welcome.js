@@ -15,7 +15,6 @@ import { icons, SIZES, images } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
 import Bubbles from "../../components/bubbles";
 import router from "expo-router";
-import NotificationButton from "../../components/NotificationButton";
 import * as Notifications from "expo-notifications";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";

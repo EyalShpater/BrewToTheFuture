@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./brew.style";
+import styles from "./brew.style.js";
 import { COLORS } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
 import TemperatureBar from "../../components/temperatureBar/TemperatureBar";
@@ -13,11 +13,23 @@ import {
 } from "react-native";
 
 const data = [
-  { key: "1", title: "Step 1", description: "This is the first step." },
-  { key: "2", title: "Step 2", description: "This is the second step." },
-  { key: "3", title: "Step 3", description: "This is the third step." },
-  { key: "4", title: "Step 4", description: "This is the fourth step." },
-  { key: "5", title: "Step 5", description: "This is the fifth step." },
+  {
+    key: "1",
+    title: "Step 1 - Brew Day",
+    description: "This is the first step.",
+  },
+  {
+    key: "2",
+    title: "Step 2 - Fermentation",
+    description: "This is the second step.",
+  },
+  {
+    key: "3",
+    title: "Step 3 - Bottling",
+    description: "This is the third step.",
+  },
+  // { key: "4", title: "Step 4", description: "This is the fourth step." },
+  // { key: "5", title: "Step 5", description: "This is the fifth step." },
 ];
 
 const TimelineItem = ({ item }) => (
@@ -94,9 +106,9 @@ const Brew = () => {
           <TouchableOpacity style={styles.stopButton}>
             <Text style={styles.stopButtonText}>STOP BREWING</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.pauseButton}>
+          {/* <TouchableOpacity style={styles.pauseButton}>
             <Text style={styles.pauseButtonText}>PAUSE BREWING</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <HorizontalTimeline />
       </ScrollView>

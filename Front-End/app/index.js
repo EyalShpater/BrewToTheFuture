@@ -4,13 +4,14 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 import Welcome from "../screens/welcome/Welcome";
-import CreateRecipeOne from "../screens/CreateARecipe/CreateRecipeOne";
-import CreateRecipeTwo from "../screens/CreateARecipe/CreateRecipeTwo";
-import CreateRecipeThree from "../screens/CreateARecipe/CreateRecipeThree.js";
-import CreateRecipeFour from "../screens/CreateARecipe/CreateRecipeFour.js";
+import CreateRecipeOne from "../screens/createARecipe/CreateRecipeOne";
+import CreateRecipeTwo from "../screens/createARecipe/CreateRecipeTwo";
+import CreateRecipeThree from "../screens/createARecipe/CreateRecipeThree.js";
+import CreateRecipeFour from "../screens/createARecipe/CreateRecipeFour.js";
 import SavedRecipes from "../screens/savedRecipes/SavedRecipes";
 import Brew from "../screens/brew/Brew";
 import AIRecipe from "../screens/AI/AIRecipe";
+import ExploreRecipes from "../screens/explore/ExploreRecipes";
 import registerNNPushToken from "native-notify";
 import { registerForPushNotificationsAsync } from "../utils/notifications";
 import * as Notifications from "expo-notifications";
@@ -114,6 +115,11 @@ const HomeStack = () => {
       <Stack.Screen
         name="AIRecipe"
         component={AIRecipe}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ExploreRecipes"
+        component={ExploreRecipes}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

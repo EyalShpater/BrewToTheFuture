@@ -79,10 +79,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
+    textAlign: "center",
+    color: COLORS.primary,
   },
   description: {
     fontSize: 14,
-    color: "#666",
+    color: COLORS.black,
+    textAlign: "center",
   },
   stopButtonContainer: {
     width: "100%",
