@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
     paddingHorizontal: 20,
+    backgroundColor: COLORS.beige,
   },
   welcomeMessage: {
     fontFamily: FONT.bold,
@@ -133,6 +134,12 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontFamily: FONT.medium,
     fontSize: SIZES.smallMedium,
+  },
+  loadingText: {
+    fontSize: SIZES.mediumLarge,
+    color: "gray",
+    textAlign: "center",
+    marginTop: 20,
   },
 });
 

@@ -306,10 +306,6 @@ const SavedRecipes = () => {
     </View>
   );
 
-  const handleNavigation = (screenName) => {
-    navigation.navigate(screenName);
-  };
-
   const convertTimestampToDate = (timestamp) => {
     const date = new Date(timestamp);
     return date.toLocaleDateString(); // This will return the date and time in a readable format
@@ -331,9 +327,7 @@ const SavedRecipes = () => {
   };
 
   return (
-    <SafeAreaView
-      style={[styles.container, { flex: 1, backgroundColor: COLORS.beige }]}
-    >
+    <SafeAreaView style={[styles.container, { flex: 1 }]}>
       {/* Return Button */}
       <TouchableOpacity
         style={styles.returnButton}
