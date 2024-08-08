@@ -75,7 +75,7 @@ const Brew = () => {
             { marginBottom: 30 },
           ]}
         >
-          Currently brewing:
+          Currently Brewing:
         </Text>
         <View style={styles.dataContainer}>
           <Text style={styles.instructions}> Beer name: </Text>

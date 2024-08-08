@@ -10,6 +10,7 @@ import CreateRecipeThree from "../screens/CreateARecipe/CreateRecipeThree.js";
 import CreateRecipeFour from "../screens/CreateARecipe/CreateRecipeFour.js";
 import SavedRecipes from "../screens/savedRecipes/SavedRecipes";
 import Brew from "../screens/brew/Brew";
+import AIRecipe from "../screens/AI/AIRecipe";
 import registerNNPushToken from "native-notify";
 import { registerForPushNotificationsAsync } from "../utils/notifications";
 import * as Notifications from "expo-notifications";
@@ -108,6 +109,11 @@ const HomeStack = () => {
       <Stack.Screen
         name="Brew"
         component={Brew}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="AIRecipe"
+        component={AIRecipe}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

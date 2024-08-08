@@ -342,7 +342,7 @@ const SavedRecipes = () => {
                   { marginBottom: 30 },
                 ]}
               >
-                My saved recipes:
+                My Saved Recipes:
               </Text>
               {renderHeader()}
             </>

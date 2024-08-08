@@ -289,7 +289,7 @@ const CreateRecipeOne = () => {
             <Text style={styles.returnButtonText}>{"< Back"}</Text>
           </TouchableOpacity>
           <Text style={[styles.welcomeMessage, { marginTop: 20 }]}>
-            Let's craft your perfect brew!
+            Let's Craft Your Perfect Brew!
           </Text>
           <Text style={styles.instructions}>Edit your recipe below:</Text>
           {getRecipeName()}
