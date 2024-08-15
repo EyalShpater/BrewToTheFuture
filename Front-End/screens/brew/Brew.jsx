@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./brew.style.js";
+import styles from "./Brew.style.js";
 import { COLORS } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
 import TemperatureBar from "../../components/temperatureBar/TemperatureBar";

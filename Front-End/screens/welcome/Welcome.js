@@ -10,7 +10,7 @@ import {
   ScrollView,
   ImageBackground,
 } from "react-native";
-import styles from "./welcome.style";
+import styles from "./Welcome.style";
 import { icons, SIZES, images } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
 import Bubbles from "../../components/bubbles";
