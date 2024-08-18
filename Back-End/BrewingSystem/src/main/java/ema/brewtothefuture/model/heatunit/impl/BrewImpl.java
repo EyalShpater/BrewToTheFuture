@@ -186,6 +186,10 @@ public class BrewImpl implements Brew {
         }
     }
 
+    @Override
+    public int getStatus() {
+        return status.getCode();
+    }
 
     /***** debug *****/
     @Override

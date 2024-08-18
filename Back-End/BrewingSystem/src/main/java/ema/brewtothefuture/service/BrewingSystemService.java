@@ -13,6 +13,7 @@ import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
+import ema.brewtothefuture.model.heatunit.api.BrewingStatus;
 import ema.brewtothefuture.model.heatunit.api.DeviceManager;
 import ema.brewtothefuture.model.heatunit.impl.DeviceManagerImpl;
 import ema.brewtothefuture.model.recipe.api.BrewMethod;
@@ -200,6 +201,15 @@ public class BrewingSystemService implements BrewingSystem {
         }
 
         brew.markCurrentStepAsComplete();
+    }
+
+    @Override
+    public int getBrewStatus(String deviceSerialNumber) {
+        Brew brew = brewProcessService.getBrewInQueue(deviceManager.getUser(deviceSerialNumber));
+
+        return brew != null ?
+                brew.getStatus() :
+                BrewingStatus.ERROR.getCode();
     }
 
     private void loadStyle() {
