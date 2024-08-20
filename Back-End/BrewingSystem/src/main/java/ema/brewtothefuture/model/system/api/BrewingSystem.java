@@ -60,6 +60,8 @@ public interface BrewingSystem {
 
     void markCurrentStepAsComplete(String userId);
 
+    int getBrewStatus(String deviceSerialNumber);
+
     /***** debug methods *****/
     void addNotification(String userId, String message);
 }

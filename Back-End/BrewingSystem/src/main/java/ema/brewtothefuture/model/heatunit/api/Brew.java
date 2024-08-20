@@ -28,6 +28,8 @@ public interface Brew {
 
     void markCurrentStepAsComplete();
 
+    int getStatus();
+
     /***** debug *****/
     void addNotification(NotificationDTO notification);
 }
