@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   instructions: {
     fontFamily: FONT.bold,
-    fontSize: SIZES.mediumLarge,
+    fontSize: SIZES.medium,
     color: COLORS.primary,
     marginTop: SIZES.large,
     textAlign: "left",

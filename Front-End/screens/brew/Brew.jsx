@@ -16,7 +16,7 @@ const data = [
   {
     key: "1",
     title: "Step 1 - Brew Day",
-    description: "This is the first step.",
+    description: "In process...",
   },
   {
     key: "2",
@@ -90,17 +90,19 @@ const Brew = () => {
           Currently Brewing:
         </Text>
         <View style={styles.dataContainer}>
-          <Text style={styles.instructions}> Beer name: </Text>
+          <Text style={styles.instructions}> Beer name: Maredsous</Text>
         </View>
         <View style={styles.dataContainer}>
-          <Text style={styles.instructions}> Current step: </Text>
+          <Text style={styles.instructions}> Current step: Boiling</Text>
         </View>
         <View style={styles.dataContainer}>
-          <Text style={styles.instructions}> Remaining step time: </Text>
+          <Text style={styles.instructions}>
+            Remaining step time: 40 minutes
+          </Text>
         </View>
         <Text style={styles.instructions}> Current temperature: </Text>
 
-        <TemperatureBar temperature={100} />
+        <TemperatureBar temperature={60} />
 
         <View style={styles.stopButtonContainer}>
           <TouchableOpacity style={styles.stopButton}>

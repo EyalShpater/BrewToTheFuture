@@ -8,6 +8,9 @@
       "expo-router"
     ],
     "name": "breww",
-    "slug": "breww"
+    "slug": "breww",
+    "android": {
+      "package": "com.anonymous.breww"
+    }
   }
 }

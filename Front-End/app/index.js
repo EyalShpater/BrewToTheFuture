@@ -12,6 +12,7 @@ import SavedRecipes from "../screens/savedRecipes/SavedRecipes";
 import Brew from "../screens/brew/Brew";
 import AIRecipe from "../screens/AI/AIRecipe";
 import ExploreRecipes from "../screens/explore/ExploreRecipes";
+import SignIn from "../screens/signIn/SignIn";
 import registerNNPushToken from "native-notify";
 import { registerForPushNotificationsAsync } from "../utils/notifications";
 import * as Notifications from "expo-notifications";
@@ -59,8 +60,7 @@ const HomeStack = () => {
       }
     };
 
-    // Set up the interval for polling every 200 milliseconds
-    const interval = setInterval(pollNotifications, 200);
+    const interval = setInterval(pollNotifications, 50000000000000000000);
 
     // Clean up the interval on component unmount
     return () => {
@@ -77,6 +77,11 @@ const HomeStack = () => {
         ...TransitionPresets.ModalSlideFromBottomIOS,
       }}
     >
+      {/* <Stack.Screen
+        name="SignIn"
+        component={SignIn}
+        options={{ headerShown: false }}
+      /> */}
       <Stack.Screen
         name="Welcome"
         component={Welcome}

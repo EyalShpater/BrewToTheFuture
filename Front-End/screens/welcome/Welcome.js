@@ -13,6 +13,7 @@ import {
 import styles from "./Welcome.style";
 import { icons, SIZES, images } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
+import UserManagementMenu from "../../components/common/userManagement/UserManagementMenu";
 import Bubbles from "../../components/bubbles";
 import router from "expo-router";
 import * as Notifications from "expo-notifications";
@@ -25,9 +26,9 @@ const Welcome = () => {
   // const [activeChoice, setActiveChoice] = useState("Explore new beers");
   const [notificationMessage, setNotificationMessage] = useState(null);
   const [brewingSession, setBrewingSession] = useState({
-    beerName: "IPA",
-    currentStep: "Fermentation",
-    timeRemaining: "2 hours",
+    beerName: "Maredsous",
+    currentStep: "Boiling",
+    timeRemaining: "40 minutes",
   });
   const navigation = useNavigation();
 
@@ -135,9 +136,9 @@ const Home = () => {
     >
       <SafeAreaView style={{ flex: 1, marginTop: 120 }}>
         <View style={styles.mainMenu}>
-          <ScreenHeaderBtn iconUrl={icons.menu} dimensions="60%" />
+          <ScreenHeaderBtn iconUrl={icons.menu} />
           <View style={styles.userMenu}>
-            <ScreenHeaderBtn iconUrl={images.user} dimensions="100%" />
+            <UserManagementMenu iconUrl={images.user} />
           </View>
         </View>
 

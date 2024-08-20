@@ -190,6 +190,11 @@ const ExploreRecipes = () => {
     },
   ];
 
+  const convertTimestampToDate = (timestamp) => {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString(); // This will return the date and time in a readable format
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -216,10 +221,17 @@ const ExploreRecipes = () => {
           recipes.map((recipe, index) => (
             <TouchableOpacity
               key={index}
-              style={styles.recipeContainer}
+              style={styles.dataContainer}
               onPress={() => openModal(recipe)}
             >
-              <Text style={styles.recipeName}>{recipe.recipe_name}</Text>
+              <Text style={styles.recipeName}>
+                Beer name: {recipe.recipe_name}{" "}
+              </Text>
+              <Text style={styles.date}>
+                Creation date: {convertTimestampToDate(recipe.time_created)}
+              </Text>
+              <Text style={styles.recipeName}>Created by: Adi Kapuri</Text>
+              <Text style={styles.touchOrder}>Touch to see more details</Text>
             </TouchableOpacity>
           ))
         )}
