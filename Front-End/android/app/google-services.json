@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "134554762243",
+    "project_id": "brew-to-the-future-24354",
+    "storage_bucket": "brew-to-the-future-24354.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134554762243:android:817f3e9d6997bba7c32236",
+        "android_client_info": {
+          "package_name": "com.anonymous.breww"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4h93hOezvTbww2v60ZhqpQ9VEXOliqTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

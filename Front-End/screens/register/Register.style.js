@@ -8,6 +8,22 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 20,
   },
+  registerButton: {
+    width: "60%",
+    padding: 15,
+    backgroundColor: COLORS.beige,
+    borderRadius: 5,
+    marginVertical: 10,
+    alignItems: "center",
+  },
+  registerButtonText: {
+    color: COLORS.black,
+    fontSize: 16,
+  },
+  signInLink: {
+    color: COLORS.darkOrange,
+    marginTop: 20,
+  },
   welcomeMessage: {
     fontFamily: FONT.bold,
     fontSize: SIZES.xLarge,

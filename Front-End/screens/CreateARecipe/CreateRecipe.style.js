@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     width: "100%",
     maxWidth: "100%",
   },
-
   label: {
     fontFamily: FONT.bold,
     fontSize: SIZES.smallMedium,

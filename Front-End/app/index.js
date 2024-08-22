@@ -13,6 +13,7 @@ import Brew from "../screens/brew/Brew";
 import AIRecipe from "../screens/AI/AIRecipe";
 import ExploreRecipes from "../screens/explore/ExploreRecipes";
 import SignIn from "../screens/signIn/SignIn";
+import Register from "../screens/register/Register";
 import registerNNPushToken from "native-notify";
 import { registerForPushNotificationsAsync } from "../utils/notifications";
 import * as Notifications from "expo-notifications";
@@ -77,11 +78,16 @@ const HomeStack = () => {
         ...TransitionPresets.ModalSlideFromBottomIOS,
       }}
     >
-      {/* <Stack.Screen
+      <Stack.Screen
         name="SignIn"
         component={SignIn}
         options={{ headerShown: false }}
-      /> */}
+      />
+      <Stack.Screen
+        name="Register"
+        component={Register}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="Welcome"
         component={Welcome}
