@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     alignItems: "center",
-    paddingTop: 20,
+    paddingTop: 2,
     paddingHorizontal: 20,
   },
   registerButton: {
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     color: COLORS.darkOrange,
     marginTop: 1,
     textAlign: "center",
-    marginBottom: 40,
+    marginBottom: 30,
     marginTop: 40,
   },
   label: {
@@ -43,9 +43,10 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 2,
     width: "80%",
     maxWidth: "80%",
+    height: "10%",
   },
   title: {
     fontSize: 24,

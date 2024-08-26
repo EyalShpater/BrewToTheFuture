@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     color: COLORS.darkOrange,
     marginTop: 1,
     textAlign: "center",
-    marginBottom: 40,
+    marginBottom: 30,
     marginTop: 40,
   },
   label: {

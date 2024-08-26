@@ -13,14 +13,16 @@ import { useNavigation } from "@react-navigation/native";
 import { images } from "../../constants";
 
 const Register = () => {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [secondName, setSecondName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
 
   const handleRegister = () => {
     // Implement registration logic here
-    console.log("Name:", name);
+    console.log("Name:", username);
     console.log("Email:", email);
     console.log("Password:", password);
   };
@@ -40,11 +42,29 @@ const Register = () => {
           <Text style={styles.welcomeMessage}>Sign Up</Text>
 
           <View style={styles.inputContainer}>
+            <Text style={styles.label}>First Name:</Text>
+            <TextInput
+              style={styles.input}
+              value={firstName}
+              onChangeText={setFirstName}
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>Second Name:</Text>
+            <TextInput
+              style={styles.input}
+              value={secondName}
+              onChangeText={setSecondName}
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
             <Text style={styles.label}>Username:</Text>
             <TextInput
               style={styles.input}
-              value={name}
-              onChangeText={setName}
+              value={username}
+              onChangeText={setUsername}
             />
           </View>
 
