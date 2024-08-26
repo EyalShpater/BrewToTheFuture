@@ -8,9 +8,12 @@ import {
   ImageBackground,
   SafeAreaView,
   ScrollView,
+  Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { images } from "../../constants";
+import { auth } from "../../firebaseConfig";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -20,11 +23,42 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
 
-  const handleRegister = () => {
-    // Implement registration logic here
-    console.log("Name:", username);
-    console.log("Email:", email);
-    console.log("Password:", password);
+  const handleRegister = async () => {
+    if (email === "" || password === "") {
+      Alert.alert("Error", "Please fill in all the required fields.");
+      return;
+    }
+
+    try {
+      // Create a new user with email and password
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Get the newly created user
+      const user = userCredential.user;
+
+      // Update the user's profile with their name
+      await updateProfile(user, {
+        displayName: `${firstName} ${secondName}`,
+      });
+
+      // Navigate to the Sign In screen after successful registration
+      Alert.alert("Success", "Account created successfully!");
+      navigation.navigate("Welcome");
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        Alert.alert("Error", "The email address is already in use.");
+      } else if (error.code === "auth/invalid-email") {
+        Alert.alert("Error", "The email address is not valid.");
+      } else if (error.code === "auth/weak-password") {
+        Alert.alert("Error", "The password is too weak.");
+      } else {
+        Alert.alert("Error", error.message);
+      }
+    }
   };
 
   const handleNavigateToSignIn = () => {
@@ -83,6 +117,8 @@ const Register = () => {
               style={styles.input}
               value={email}
               onChangeText={setEmail}
+              keyboardType="email-address"
+              autoCapitalize="none"
             />
           </View>
 

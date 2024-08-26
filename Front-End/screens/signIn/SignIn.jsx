@@ -7,25 +7,72 @@ import {
   SafeAreaView,
   ScrollView,
   ImageBackground,
+  Alert,
 } from "react-native";
 import { images } from "../../constants";
-import { COLORS } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./SignIn.style";
+import { auth } from "../../firebaseConfig"; // Import the Firebase JS auth instance
+import {
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
 const SignIn = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
 
-  const handleSignIn = () => {
-    // Implement sign-in logic here
-    console.log("Username:", username);
-    console.log("Password:", password);
+  const handleSignIn = async () => {
+    try {
+      // Firebase sign-in method
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // If sign-in is successful, navigate to the "Welcome" screen
+      navigation.navigate("Welcome");
+    } catch (error) {
+      if (error.code === "auth/user-not-found") {
+        // If the user does not exist, show an alert
+        Alert.alert("User Not Found", "The username or password is incorrect.");
+      } else if (error.code === "auth/wrong-password") {
+        // If the password is incorrect, show an alert
+        Alert.alert(
+          "Incorrect Password",
+          "The username or password is incorrect."
+        );
+      } else {
+        // Handle other errors
+        Alert.alert("Error", error.message);
+      }
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    if (!email) {
+      Alert.alert(
+        "Enter Email",
+        "Please enter your email to reset your password."
+      );
+      return;
+    }
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      Alert.alert(
+        "Password Reset",
+        "If an account with that email exists, a password reset email has been sent."
+      );
+    } catch (error) {
+      Alert.alert("Error", error.message);
+    }
   };
 
   const handleNavigateToRegister = () => {
-    navigation.navigate("Register"); // Navigate to Register screen
+    navigation.navigate("Register");
   };
 
   return (
@@ -39,11 +86,13 @@ const SignIn = () => {
           <Text style={styles.welcomeMessage}>Sign In</Text>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Username:</Text>
+            <Text style={styles.label}>Email:</Text>
             <TextInput
               style={styles.input}
-              value={username}
-              onChangeText={setUsername}
+              value={email}
+              onChangeText={setEmail}
+              keyboardType="email-address"
+              autoCapitalize="none"
             />
           </View>
 
@@ -53,6 +102,7 @@ const SignIn = () => {
               style={styles.input}
               value={password}
               onChangeText={setPassword}
+              secureTextEntry={true}
             />
           </View>
 
@@ -60,6 +110,9 @@ const SignIn = () => {
             <Text style={styles.signInButtonText}>Sign In</Text>
           </TouchableOpacity>
 
+          <TouchableOpacity onPress={handleForgotPassword}>
+            <Text style={styles.registerLink}>Forgot your password?</Text>
+          </TouchableOpacity>
           <TouchableOpacity onPress={handleNavigateToRegister}>
             <Text style={styles.registerLink}>
               Don't have an account? Register

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   signInLink: {
     color: COLORS.darkOrange,
-    marginTop: 20,
+    marginTop: 12,
   },
   welcomeMessage: {
     fontFamily: FONT.bold,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     color: COLORS.darkOrange,
     marginTop: 1,
     textAlign: "center",
-    marginBottom: 30,
+    marginBottom: 15,
     marginTop: 40,
   },
   label: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
     width: "80%",
     maxWidth: "80%",
-    height: "10%",
+    height: "12%",
   },
   title: {
     fontSize: 24,

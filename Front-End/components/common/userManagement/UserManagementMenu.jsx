@@ -8,8 +8,11 @@ import {
   Image,
   Dimensions,
   PanResponder,
+  Alert,
 } from "react-native";
 import styles from "./UserManagementMenu.styles";
+import { auth } from "../../../firebaseConfig";
+import { deleteUser } from "firebase/auth";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -39,6 +42,33 @@ const Menu = ({ isVisible, closeMenu }) => {
     }
   };
 
+  const handleDeleteAccount = () => {
+    Alert.alert(
+      "Delete Account",
+      "Are you sure you want to delete your account?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: async () => {
+            try {
+              const user = auth.currentUser;
+              await deleteUser(user);
+              Alert.alert("Success", "Your account has been deleted.");
+              navigation.navigate("SignIn");
+            } catch (error) {
+              Alert.alert("Error", error.message);
+            }
+          },
+        },
+      ]
+    );
+  };
+
   return (
     <Modal
       visible={isVisible}
@@ -55,11 +85,11 @@ const Menu = ({ isVisible, closeMenu }) => {
           style={[styles.menu, { width: windowWidth * 0.5 }]}
           {...panResponder.panHandlers}
         >
-          <TouchableOpacity onPress={() => handleNavigation("CreateRecipeOne")}>
+          <TouchableOpacity onPress={() => handleNavigation("SignIn")}>
             <Text style={styles.menuText}>Log out</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleNavigation("SavedRecipes")}>
-            <Text style={styles.menuText}>Change account</Text>
+          <TouchableOpacity onPress={handleDeleteAccount}>
+            <Text style={styles.menuText}>Delete account</Text>
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
