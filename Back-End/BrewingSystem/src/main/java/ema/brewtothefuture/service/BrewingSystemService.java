@@ -1,15 +1,13 @@
 package ema.brewtothefuture.service;
 
 import com.opencsv.CSVReader;
-import ema.brewtothefuture.db.model.BrewDB;
-import ema.brewtothefuture.db.model.BrewingReportDB;
-import ema.brewtothefuture.db.model.RecipeDB;
-import ema.brewtothefuture.db.model.StyleDB;
+import ema.brewtothefuture.db.model.*;
 import ema.brewtothefuture.db.model.ingredient.data.FermentableDB;
 import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
+import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
 import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
@@ -21,6 +19,7 @@ import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.repository.BrewRepository;
 import ema.brewtothefuture.repository.BrewingReportRepository;
+import ema.brewtothefuture.repository.FermentationReportRepository;
 import ema.brewtothefuture.repository.StyleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -35,20 +34,23 @@ import java.util.stream.Collectors;
 public class BrewingSystemService implements BrewingSystem {
     private final DeviceManager deviceManager = new DeviceManagerImpl();
 
-    private final StyleRepository         styleRepository;
-    private final RecipeService           recipeService;
-    private final BrewProcessService brewProcessService;
-    private final BrewingReportRepository brewingReportRepository;
-    private final BrewRepository          brewRepository;
+    private final StyleRepository              styleRepository;
+    private final RecipeService                recipeService;
+    private final BrewProcessService           brewProcessService;
+    private final BrewingReportRepository      brewingReportRepository;
+    private final FermentationReportRepository fermentationReportRepository;
+    private final BrewRepository               brewRepository;
 
     @Autowired
     public BrewingSystemService(StyleRepository styleRepository, RecipeService recipeService,
-                                BrewProcessService brewProcessService, BrewingReportRepository brewingReportRepository, BrewRepository brewRepository) {
+                                BrewProcessService brewProcessService, BrewingReportRepository brewingReportRepository, BrewRepository brewRepository,
+                                FermentationReportRepository fermentationReportRepository) {
         this.styleRepository = styleRepository;
         this.recipeService = recipeService;
         this.brewProcessService = brewProcessService;
         this.brewingReportRepository = brewingReportRepository;
         this.brewRepository = brewRepository;
+        this.fermentationReportRepository = fermentationReportRepository;
     }
 
     @Override
@@ -123,8 +125,34 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
+    public void addFermentationReport(String deviceSerialNumber, FermentationReportDTO report) {
+        BrewDB brew = brewRepository.findById(report.brew_id())
+                                    .orElse(null);
+
+        fermentationReportRepository.save(new FermentationReportDB(report, brew));
+    }
+
+    @Override
     public List<BrewingReportDTO> getBrewingReport(String userId, int brewId) {
         return brewProcessService.getBrewHistory(userId, brewId);
+    }
+
+    @Override
+    public BrewingReportDTO getLatestBrewingReport(long brewId) {
+        return brewProcessService.getLatestBrewingReport(brewId);
+    }
+
+    @Override
+    public List<FermentationReportDTO> getFermentationReport(String userId, int brewId) {
+        return fermentationReportRepository.findAllByBrewId(brewId)
+                                           .stream()
+                                           .map(FermentationReportDB::convertToDTO)
+                                           .collect(Collectors.toList());
+    }
+
+    @Override
+    public FermentationReportDTO getLatestFermentationReport(long brewId) {
+        return brewProcessService.getLatestFermentationReport(brewId);
     }
 
     @Override

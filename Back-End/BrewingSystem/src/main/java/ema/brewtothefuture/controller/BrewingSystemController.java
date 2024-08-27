@@ -4,6 +4,7 @@ import ema.brewtothefuture.db.model.ingredient.data.FermentableDB;
 import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
+import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
 import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
@@ -120,6 +121,21 @@ public class BrewingSystemController {
     @GetMapping("{userId}/api/brew/data")
     public List<BrewingReportDTO> getBrewingReport(@PathVariable String userId, @RequestParam int brewId) {
         return brewingSystem.getBrewingReport(userId, brewId);
+    }
+
+    @GetMapping("{userId}/api/brew/data/latest")
+    public BrewingReportDTO getLatestBrewingReport(String userId, int brewId) {
+        return brewingSystem.getLatestBrewingReport(brewId);
+    }
+
+    @GetMapping("{userId}/api/fermentation/data")
+    public List<FermentationReportDTO> getFermentationReport(@PathVariable String userId, @RequestParam int brewId) {
+        return brewingSystem.getFermentationReport(userId, brewId);
+    }
+
+    @GetMapping("{userId}/api/fermentation/data/latest")
+    public FermentationReportDTO getLatestFermentationReport(@PathVariable String userId, @RequestParam long brewId) {
+        return brewingSystem.getLatestFermentationReport(brewId);
     }
 
     @GetMapping("api/notification/{userId}")
