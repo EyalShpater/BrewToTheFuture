@@ -47,7 +47,9 @@ const Register = () => {
 
       // Navigate to the Sign In screen after successful registration
       Alert.alert("Success", "Account created successfully!");
-      navigation.navigate("Welcome");
+      navigation.navigate("Welcome", {
+        userUid: userCredential.user.uid,
+      });
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         Alert.alert("Error", "The email address is already in use.");
