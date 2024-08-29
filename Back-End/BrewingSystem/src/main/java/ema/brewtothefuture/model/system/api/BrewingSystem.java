@@ -5,6 +5,7 @@ import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
+import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
 import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 
@@ -20,6 +21,8 @@ public interface BrewingSystem {
     void markBrewingAsFinished(String deviceSerialNumber);
 
     void addBrewingReport(String deviceId, BrewingReportDTO report);
+
+    void addFermentationReport(String deviceSerialNumber, FermentationReportDTO report);
 
 
     /* Frontend Use Methods */
@@ -37,6 +40,12 @@ public interface BrewingSystem {
     void brewRecipe(long recipeId, String userId);
 
     List<BrewingReportDTO> getBrewingReport(String userId, int brewId);
+
+    BrewingReportDTO getLatestBrewingReport(long brewId);
+
+    List<FermentationReportDTO> getFermentationReport(String userId, int brewId);
+
+    FermentationReportDTO getLatestFermentationReport(long brewId);
 
     List<String> getBrewingMethods();
 

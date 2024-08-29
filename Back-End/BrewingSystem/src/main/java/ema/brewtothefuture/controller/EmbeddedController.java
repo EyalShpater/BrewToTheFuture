@@ -2,6 +2,7 @@ package ema.brewtothefuture.controller;
 
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
+import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.service.BrewingSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class EmbeddedController {
         return brewingSystem.getRecipeToBrew(deviceSerialNumber);
     }
 
+    // return status
     @PostMapping("{deviceSerialNumber}/brew/start")
     public void startBrewing(@PathVariable String deviceSerialNumber, @RequestParam long interval) {
         brewingSystem.startBrewing(deviceSerialNumber, interval);
@@ -35,6 +37,13 @@ public class EmbeddedController {
     @PostMapping("{deviceSerialNumber}/report/brewing")
     public int addBrewingReport(@PathVariable String deviceSerialNumber, @RequestBody BrewingReportDTO report) {
         brewingSystem.addBrewingReport(deviceSerialNumber, report);
+
+        return brewingSystem.getBrewStatus(deviceSerialNumber);
+    }
+
+    @PostMapping("{deviceSerialNumber}/report/fermentation")
+    public int addFermentationReport(@PathVariable String deviceSerialNumber, @RequestBody FermentationReportDTO report) {
+        brewingSystem.addFermentationReport(deviceSerialNumber, report);
 
         return brewingSystem.getBrewStatus(deviceSerialNumber);
     }

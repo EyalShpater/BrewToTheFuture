@@ -4,11 +4,13 @@ import ema.brewtothefuture.db.model.BrewDB;
 import ema.brewtothefuture.db.model.BrewingReportDB;
 import ema.brewtothefuture.db.model.RecipeDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
+import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.impl.BrewImpl;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.repository.BrewRepository;
 import ema.brewtothefuture.repository.BrewingReportRepository;
+import ema.brewtothefuture.repository.FermentationReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +18,19 @@ import java.util.*;
 
 @Service
 public class BrewProcessService {
-    private final Map<String, Queue<Brew>> userIdToBrew = new HashMap<>();
-    private final RecipeService            recipeService;
-    private final BrewingReportRepository  brewingReportRepository;
-    private final BrewRepository           brewRepository;
+    private final Map<String, Queue<Brew>>     userIdToBrew = new HashMap<>();
+    private final RecipeService                recipeService;
+    private final BrewingReportRepository      brewingReportRepository;
+    private final BrewRepository               brewRepository;
+    private final FermentationReportRepository fermentationReportRepository;
 
     @Autowired
     public BrewProcessService(RecipeService recipeService, BrewingReportRepository brewingReportRepository,
-                              BrewRepository brewRepository) {
+                              BrewRepository brewRepository, FermentationReportRepository fermentationReportRepository) {
         this.recipeService = recipeService;
         this.brewingReportRepository = brewingReportRepository;
         this.brewRepository = brewRepository;
+        this.fermentationReportRepository = fermentationReportRepository;
     }
 
     //todo: 2.8.24
@@ -87,6 +91,15 @@ public class BrewProcessService {
                                       .stream()
                                       .map(BrewingReportDB::convertToDTO)
                                       .toList();
+    }
+
+    public BrewingReportDTO getLatestBrewingReport(long brewId) {
+        return brewingReportRepository.findFirstByBrewIdOrderByTimestampDesc(brewId).convertToDTO();
+    }
+
+    public FermentationReportDTO getLatestFermentationReport(long brewId) {
+        return fermentationReportRepository.findFirstByBrewIdOrderByTimestampDesc(brewId)
+                                           .convertToDTO();
     }
 }
 
