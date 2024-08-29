@@ -15,9 +15,9 @@ import styles from "./CreateRecipe.style";
 import { images } from "../../constants";
 import axios from "axios";
 import { Picker } from "@react-native-picker/picker";
+import { useRoute } from "@react-navigation/native";
 
 const CreateRecipeOne = () => {
-  const userId = "ilwejkrfhiuy4o3y4ljkblkdj";
   const [recipeName, setRecipeName] = useState("");
   const [method, setMethod] = useState("");
   const [methodsData, setMethodsData] = useState([]);
@@ -32,6 +32,8 @@ const CreateRecipeOne = () => {
   const [color, setColor] = useState("");
   const [batchSizeLiter, setBatchSizeLiter] = useState("");
   const navigation = useNavigation();
+  const route = useRoute();
+  const { userId } = route.params;
 
   const getRecipeName = () => {
     return (

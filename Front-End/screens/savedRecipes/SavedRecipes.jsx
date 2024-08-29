@@ -22,11 +22,13 @@ const SavedRecipes = () => {
   const [fermentablesNames, setFermentablesNames] = useState([]);
   const [hopsNames, setHopsNames] = useState([]);
   const [yeastsNames, setYeastsNames] = useState([]);
+  const route = useRoute();
+  const { userId } = route.params;
 
   useEffect(() => {
     axios
       .get(
-        "https://brewtothefuture.azurewebsites.net/api/brew/recipes/ilwejkrfhiuy4o3y4ljkblkdj"
+        `https://brewtothefuture.azurewebsites.net/api/brew/recipes/${userId}`
       )
       .then((response) => {
         setRecipes(response.data); // Assuming the API returns a single recipe object

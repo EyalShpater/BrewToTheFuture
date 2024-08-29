@@ -11,6 +11,7 @@ import {
   ImageBackground,
 } from "react-native";
 import styles from "./Welcome.style";
+import { useRoute } from "@react-navigation/native";
 import { icons, SIZES, images } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
 import UserManagementMenu from "../../components/common/userManagement/UserManagementMenu";
@@ -23,6 +24,8 @@ import { useNavigation } from "@react-navigation/native";
 // const searchTypes = ["My beers", "My brewing history"];
 
 const Welcome = () => {
+  const route = useRoute();
+  const { userUid } = route.params;
   // const [activeChoice, setActiveChoice] = useState("Explore new beers");
   const [notificationMessage, setNotificationMessage] = useState(null);
   const [brewingSession, setBrewingSession] = useState({
@@ -136,7 +139,7 @@ const Home = () => {
     >
       <SafeAreaView style={{ flex: 1, marginTop: 120 }}>
         <View style={styles.mainMenu}>
-          <ScreenHeaderBtn iconUrl={icons.menu} />
+          <ScreenHeaderBtn iconUrl={icons.menu} userId={userUid} />
           <View style={styles.userMenu}>
             <UserManagementMenu iconUrl={images.user} />
           </View>

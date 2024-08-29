@@ -14,8 +14,8 @@ import styles from "./screenheader.style";
 const windowWidth = Dimensions.get("window").width;
 
 //menu
-const Menu = ({ isVisible, closeMenu }) => {
-  let navigation = useNavigation();
+const Menu = ({ isVisible, closeMenu, userId }) => {
+  const navigation = useNavigation();
   const [gestureState, setGestureState] = useState({ dx: 0, dy: 0 });
 
   const handlePanResponderMove = (e, gestureState) => {
@@ -30,7 +30,7 @@ const Menu = ({ isVisible, closeMenu }) => {
   });
 
   const handleNavigation = (screenName) => {
-    navigation.navigate(screenName);
+    navigation.navigate(screenName, { userId });
     closeMenu();
   };
 
@@ -84,7 +84,7 @@ const Menu = ({ isVisible, closeMenu }) => {
 };
 
 //menu button
-const ScreenHeaderBtn = ({ iconUrl, dimension, handlePress }) => {
+const ScreenHeaderBtn = ({ iconUrl, userId, dimension, handlePress }) => {
   const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -100,7 +100,11 @@ const ScreenHeaderBtn = ({ iconUrl, dimension, handlePress }) => {
           style={styles.btnContainer}
         />
       </TouchableOpacity>
-      <Menu isVisible={menuVisible} closeMenu={() => setMenuVisible(false)} />
+      <Menu
+        isVisible={menuVisible}
+        closeMenu={() => setMenuVisible(false)}
+        userId={userId}
+      />
     </View>
   );
 };
