@@ -21,8 +21,9 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int                       recipe_id;
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     private String                    userID;
+    @Column(nullable = false)
     private String                    recipe_name;
     private String                    method;
     private String                    style;
