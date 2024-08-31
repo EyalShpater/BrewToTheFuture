@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
+@RequestMapping("api/")
 public class BrewingSystemController {
 
     private final BrewingSystem brewingSystem;
@@ -26,51 +27,51 @@ public class BrewingSystemController {
         this.brewingSystem = brewingSystemService;
     }
 
-    @PostMapping("/api/brew/recipe")
+    @PostMapping("brew/recipe")
     public void brew(@RequestBody RecipeDTO recipeDTO) {
         long recipeId = brewingSystem.addNewRecipe(recipeDTO);
 
         brewingSystem.brewRecipe(recipeId, recipeDTO.user_id());
     }
 
-    @PostMapping("/api/brew/recipe/add")
+    @PostMapping("brew/recipe/add")
     public void addRecipe(@RequestBody RecipeDTO recipeDTO) {
         brewingSystem.addNewRecipe(recipeDTO);
     }
 
-    @GetMapping("/api/brew/recipes/all")
+    @GetMapping("brew/recipes/all")
     public List<RecipeDTO> getAllRecipes() {
         return brewingSystem.getAllRecipes();
     }
 
-    @GetMapping("/api/brew/recipes/{userId}")
+    @GetMapping("brew/recipes/{userId}")
     public List<RecipeDTO> getAllUserRecipes(@PathVariable String userId) {
         // if user not found, return 404
 
         return brewingSystem.getAllUserRecipes(userId);
     }
 
-    @DeleteMapping("/api/{userId}/brew/recipe/{recipeId}")
+    @DeleteMapping("{userId}/brew/recipe/{recipeId}")
     public void deleteRecipe(@PathVariable int recipeId, @PathVariable String userId) {
         brewingSystem.deleteRecipe(recipeId, userId);
     }
 
-    @GetMapping("/api/brew/methods")
+    @GetMapping("brew/methods")
     public List<String> getMethods() {
         return brewingSystem.getBrewingMethods();
     }
 
-    @GetMapping("/api/brew/styles")
+    @GetMapping("brew/styles")
     public List<String> getStyles() {
         return brewingSystem.getBrewingStyle();
     }
 
-    @GetMapping("api/brew/ingredients/hops")
+    @GetMapping("brew/ingredients/hops")
     public List<HopDB> getHops() {
         return brewingSystem.getHops();
     }
 
-    @GetMapping("api/brew/ingredients/hops/{id}")
+    @GetMapping("brew/ingredients/hops/{id}")
     public HopDB getHopById(@PathVariable long id) {
         HopDB hop = brewingSystem.getHopById(id);
 
@@ -81,12 +82,12 @@ public class BrewingSystemController {
         return hop;
     }
 
-    @GetMapping("api/brew/ingredients/yeasts")
+    @GetMapping("brew/ingredients/yeasts")
     public List<YeastDB> getYeasts() {
         return brewingSystem.getYeasts();
     }
 
-    @GetMapping("api/brew/ingredients/yeasts/{id}")
+    @GetMapping("brew/ingredients/yeasts/{id}")
     public YeastDB getYeastById(@PathVariable long id) {
         YeastDB yeast = brewingSystem.getYeastById(id);
 
@@ -97,12 +98,12 @@ public class BrewingSystemController {
         return yeast;
     }
 
-    @GetMapping("api/brew/ingredients/fermentables")
+    @GetMapping("brew/ingredients/fermentables")
     public List<FermentableDB> getFermentables() {
         return brewingSystem.getFermentables();
     }
 
-    @GetMapping("api/brew/ingredients/fermentables/{id}")
+    @GetMapping("brew/ingredients/fermentables/{id}")
     public FermentableDB getFermentableById(@PathVariable int id) {
         FermentableDB fermentable = brewingSystem.getFermentableById(id);
 
@@ -113,39 +114,39 @@ public class BrewingSystemController {
         return fermentable;
     }
 
-    @PostMapping("/api/{userId}/brew/recipe/{recipeId}")
+    @PostMapping("{userId}/brew/recipe/{recipeId}")
     public void brewRecipe(@PathVariable int recipeId, @PathVariable String userId) {
         brewingSystem.brewRecipe(recipeId, userId);
     }
 
-    @GetMapping("{userId}/api/brew/data")
+    @GetMapping("{userId}/brew/data")
     public List<BrewingReportDTO> getBrewingReport(@PathVariable String userId, @RequestParam int brewId) {
         return brewingSystem.getBrewingReport(userId, brewId);
     }
 
-    @GetMapping("{userId}/api/brew/data/latest")
-    public BrewingReportDTO getLatestBrewingReport(String userId, int brewId) {
+    @GetMapping("{userId}/brew/data/latest")
+    public BrewingReportDTO getLatestBrewingReport(@PathVariable String userId, @RequestParam int brewId) {
         return brewingSystem.getLatestBrewingReport(brewId);
     }
 
-    @GetMapping("{userId}/api/fermentation/data")
+    @GetMapping("{userId}/fermentation/data")
     public List<FermentationReportDTO> getFermentationReport(@PathVariable String userId, @RequestParam int brewId) {
         return brewingSystem.getFermentationReport(userId, brewId);
     }
 
-    @GetMapping("{userId}/api/fermentation/data/latest")
+    @GetMapping("{userId}/fermentation/data/latest")
     public FermentationReportDTO getLatestFermentationReport(@PathVariable String userId, @RequestParam long brewId) {
         return brewingSystem.getLatestFermentationReport(brewId);
     }
 
-    @GetMapping("api/notification/{userId}")
+    @GetMapping("notification/{userId}")
     public NotificationDTO getNotification(@PathVariable String userId) {
         NotificationDTO notification = brewingSystem.getNotification(userId);
         System.out.println("Notification for user " + userId + ": " + notification);
         return notification;
     }
 
-    @PostMapping("api/{userId}/brew/recipe/current_brewing/step/complete")
+    @PostMapping("{userId}/brew/recipe/current_brewing/step/complete")
     public void markStepAsComplete(@PathVariable String userId) {
         try {
             brewingSystem.markCurrentStepAsComplete(userId);

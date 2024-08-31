@@ -8,6 +8,7 @@ public class StyleDB {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(nullable = false)
     private String name;
 
     public StyleDB(String name) {

@@ -13,6 +13,7 @@ public class BrewingReportDB implements DTOConvertible<BrewingReportDTO> {
     @ManyToOne
     @JoinColumn(name = "brew_id")
     private BrewDB brew;
+    @Column(nullable = false)
     private String user_id;
     private long   timestamp;
     private double temperature_celsius;

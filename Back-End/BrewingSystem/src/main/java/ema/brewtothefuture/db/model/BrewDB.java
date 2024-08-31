@@ -9,12 +9,14 @@ import java.util.List;
 public class BrewDB {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long     id;
     @ManyToOne
     @JoinColumn(name = "recipe_id")
     private RecipeDB recipe;
-    private String user_id;
-    private long   start_time = System.currentTimeMillis();
+    @Column(nullable = false)
+    private String   user_id;
+    @Column(nullable = false)
+    private long     start_time = System.currentTimeMillis();
     @OneToMany(mappedBy = "brew")
     private List<BrewingReportDB> reports;
 
