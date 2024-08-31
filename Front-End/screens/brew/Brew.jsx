@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Brew.style.js";
 import { COLORS } from "../../constants";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import TemperatureBar from "../../components/temperatureBar/TemperatureBar";
+import axios from "axios";
 import {
   SafeAreaView,
   View,
@@ -60,15 +61,68 @@ const HorizontalTimeline = () => {
 const Brew = () => {
   const navigation = useNavigation();
   const [temperature, setTemperature] = useState(50);
+  const route = useRoute();
+  const { userId } = route.params;
+  const [brewData, setBrewData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate temperature change
+    // Fetch the data from the API
+    const fetchBrewData = async () => {
+      try {
+        const response = await axios.get(
+          `https://brewtothefuture.azurewebsites.net/${userId}/api/brew/data/latest?brewId=${brewData.brewId}`
+        );
+        setBrewData(response.data); // Save the fetched data to state
+      } catch (error) {
+        console.error("Error fetching brew data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBrewData();
+  }, [userId]);
+
+  // useEffect(() => {
+  //   // Simulate temperature change
+  //   const interval = setInterval(() => {
+  //     setTemperature((prevTemp) => (prevTemp >= 100 ? 0 : prevTemp + 10));
+  //   }, 1000);
+
+  //   return () => clearInterval(interval);
+  // }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
-      setTemperature((prevTemp) => (prevTemp >= 100 ? 0 : prevTemp + 10));
+      setBrewData((prevData) =>
+        prevData
+          ? {
+              ...prevData,
+              temperature_celsius: prevData.temperature_celsius + 1,
+            }
+          : null
+      );
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
+
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>Loading...</Text>
+      </SafeAreaView>
+    );
+  }
+
+  if (!brewData) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>No data available</Text>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -93,7 +147,9 @@ const Brew = () => {
           <Text style={styles.instructions}> Beer name: Maredsous</Text>
         </View>
         <View style={styles.dataContainer}>
-          <Text style={styles.instructions}> Current step: Boiling</Text>
+          <Text style={styles.instructions}>
+            Current step:{brewData.current_step}
+          </Text>
         </View>
         <View style={styles.dataContainer}>
           <Text style={styles.instructions}>
@@ -102,7 +158,7 @@ const Brew = () => {
         </View>
         <Text style={styles.instructions}> Current temperature: </Text>
 
-        <TemperatureBar temperature={60} />
+        <TemperatureBar temperature={brewData.temperature_celsius} />
 
         <View style={styles.stopButtonContainer}>
           <TouchableOpacity style={styles.stopButton}>

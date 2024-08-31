@@ -24,8 +24,6 @@ import { useNavigation } from "@react-navigation/native";
 // const searchTypes = ["My beers", "My brewing history"];
 
 const Welcome = () => {
-  const route = useRoute();
-  const { userUid } = route.params;
   // const [activeChoice, setActiveChoice] = useState("Explore new beers");
   const [notificationMessage, setNotificationMessage] = useState(null);
   const [brewingSession, setBrewingSession] = useState({
@@ -131,6 +129,9 @@ const Welcome = () => {
 };
 
 const Home = () => {
+  const route = useRoute();
+  const { userUid } = route.params;
+
   return (
     <ImageBackground
       source={images.beer}

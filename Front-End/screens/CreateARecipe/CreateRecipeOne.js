@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import {
   SafeAreaView,
   View,
@@ -15,7 +15,6 @@ import styles from "./CreateRecipe.style";
 import { images } from "../../constants";
 import axios from "axios";
 import { Picker } from "@react-native-picker/picker";
-import { useRoute } from "@react-navigation/native";
 
 const CreateRecipeOne = () => {
   const [recipeName, setRecipeName] = useState("");
