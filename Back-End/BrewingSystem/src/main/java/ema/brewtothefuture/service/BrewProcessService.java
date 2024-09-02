@@ -97,8 +97,11 @@ public class BrewProcessService {
 
     public BrewingReportDTO getLatestBrewingReport(String userId) {
         long brewId = getBrewId(userId);
+        BrewingReportDB reportDB = brewingReportRepository.findFirstByBrewIdOrderByTimestampDesc(brewId);
 
-        return brewingReportRepository.findFirstByBrewIdOrderByTimestampDesc(brewId).convertToDTO();
+        return reportDB != null ?
+                reportDB.convertToDTO() :
+                null;
     }
 
     public FermentationReportDTO getLatestFermentationReport(String userId) {
