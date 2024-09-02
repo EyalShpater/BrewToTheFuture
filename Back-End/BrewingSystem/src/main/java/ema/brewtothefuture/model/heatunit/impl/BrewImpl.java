@@ -120,7 +120,7 @@ public class BrewImpl implements Brew {
     }
 
     @Override
-    public long getBrewId() {
+    public long getId() {
         return brewId;
     }
 

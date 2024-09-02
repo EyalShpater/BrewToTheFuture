@@ -24,7 +24,7 @@ public interface Brew {
 
     List<BrewingReportDTO> getReports();
 
-    long getBrewId();
+    long getId();
 
     void markCurrentStepAsComplete();
 

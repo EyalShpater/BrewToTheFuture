@@ -33,19 +33,21 @@ public interface BrewingSystem {
 
     List<RecipeDTO> getAllUserRecipes(String userId);
 
+    RecipeDTO getRecipe(long recipeId);
+
     void deleteRecipe(long recipeId, String userId);
 
     void addViewedRecipe(int recipeId);
 
     void brewRecipe(long recipeId, String userId);
 
-    List<BrewingReportDTO> getBrewingReport(String userId, int brewId);
+    List<BrewingReportDTO> getBrewingReport(String userId);
 
-    BrewingReportDTO getLatestBrewingReport(long brewId);
+    BrewingReportDTO getLatestBrewingReport(String userId);
 
-    List<FermentationReportDTO> getFermentationReport(String userId, int brewId);
+    List<FermentationReportDTO> getFermentationReport(String userId);
 
-    FermentationReportDTO getLatestFermentationReport(long brewId);
+    FermentationReportDTO getLatestFermentationReport(String userId);
 
     List<String> getBrewingMethods();
 

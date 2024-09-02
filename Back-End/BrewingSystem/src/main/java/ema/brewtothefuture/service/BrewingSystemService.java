@@ -92,6 +92,12 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
+    public RecipeDTO getRecipe(long recipeId) {
+        return recipeService.getRecipe(recipeId)
+                            .convertToDTO();
+    }
+
+    @Override
     public void deleteRecipe(long recipeId, String userId) {
         recipeService.deleteRecipe(recipeId, userId);
     }
@@ -133,17 +139,18 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
-    public List<BrewingReportDTO> getBrewingReport(String userId, int brewId) {
-        return brewProcessService.getBrewHistory(userId, brewId);
+    public List<BrewingReportDTO> getBrewingReport(String userId) {
+        return brewProcessService.getBrewHistory(userId);
     }
 
     @Override
-    public BrewingReportDTO getLatestBrewingReport(long brewId) {
-        return brewProcessService.getLatestBrewingReport(brewId);
+    public BrewingReportDTO getLatestBrewingReport(String userId) {
+        return brewProcessService.getLatestBrewingReport(userId);
     }
 
     @Override
-    public List<FermentationReportDTO> getFermentationReport(String userId, int brewId) {
+    public List<FermentationReportDTO> getFermentationReport(String userId) {
+        long brewId = brewProcessService.getBrewId(userId);
         return fermentationReportRepository.findAllByBrewId(brewId)
                                            .stream()
                                            .map(FermentationReportDB::convertToDTO)
@@ -151,8 +158,8 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
-    public FermentationReportDTO getLatestFermentationReport(long brewId) {
-        return brewProcessService.getLatestFermentationReport(brewId);
+    public FermentationReportDTO getLatestFermentationReport(String userId) {
+        return brewProcessService.getLatestFermentationReport(userId);
     }
 
     @Override

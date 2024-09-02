@@ -86,20 +86,43 @@ public class BrewProcessService {
         }
     }
 
-    public List<BrewingReportDTO> getBrewHistory(String userId, long brewId) {
+    public List<BrewingReportDTO> getBrewHistory(String userId) {
+        long brewId = getBrewId(userId);
+
         return brewingReportRepository.findAllByBrewId(brewId)
                                       .stream()
                                       .map(BrewingReportDB::convertToDTO)
                                       .toList();
     }
 
-    public BrewingReportDTO getLatestBrewingReport(long brewId) {
-        return brewingReportRepository.findFirstByBrewIdOrderByTimestampDesc(brewId).convertToDTO();
+    public BrewingReportDTO getLatestBrewingReport(String userId) {
+        long brewId = getBrewId(userId);
+        BrewingReportDB reportDB = brewingReportRepository.findFirstByBrewIdOrderByTimestampDesc(brewId);
+
+        return reportDB != null ?
+                reportDB.convertToDTO() :
+                null;
     }
 
-    public FermentationReportDTO getLatestFermentationReport(long brewId) {
+    public FermentationReportDTO getLatestFermentationReport(String userId) {
+        long brewId = getBrewId(userId);
+
         return fermentationReportRepository.findFirstByBrewIdOrderByTimestampDesc(brewId)
                                            .convertToDTO();
+    }
+
+    public long getBrewId(String userId) {
+        if (userIdToBrew.get(userId) == null) {
+            throw new IllegalArgumentException("No brews for user " + userId);
+        }
+
+        Brew brew = userIdToBrew.get(userId).peek();
+
+        if (brew == null) {
+            throw new IllegalArgumentException("No brews for user " + userId);
+        }
+
+        return brew.getId();
     }
 }
 
