@@ -120,23 +120,23 @@ public class BrewingSystemController {
     }
 
     @GetMapping("{userId}/brew/data")
-    public List<BrewingReportDTO> getBrewingReport(@PathVariable String userId, @RequestParam int brewId) {
-        return brewingSystem.getBrewingReport(userId, brewId);
+    public List<BrewingReportDTO> getBrewingReport(@PathVariable String userId) {
+        return brewingSystem.getBrewingReport(userId);
     }
 
     @GetMapping("{userId}/brew/data/latest")
-    public BrewingReportDTO getLatestBrewingReport(@PathVariable String userId, @RequestParam int brewId) {
-        return brewingSystem.getLatestBrewingReport(brewId);
+    public BrewingReportDTO getLatestBrewingReport(@PathVariable String userId) {
+        return brewingSystem.getLatestBrewingReport(userId);
     }
 
     @GetMapping("{userId}/fermentation/data")
-    public List<FermentationReportDTO> getFermentationReport(@PathVariable String userId, @RequestParam int brewId) {
-        return brewingSystem.getFermentationReport(userId, brewId);
+    public List<FermentationReportDTO> getFermentationReport(@PathVariable String userId) {
+        return brewingSystem.getFermentationReport(userId);
     }
 
     @GetMapping("{userId}/fermentation/data/latest")
-    public FermentationReportDTO getLatestFermentationReport(@PathVariable String userId, @RequestParam long brewId) {
-        return brewingSystem.getLatestFermentationReport(brewId);
+    public FermentationReportDTO getLatestFermentationReport(@PathVariable String userId) {
+        return brewingSystem.getLatestFermentationReport(userId);
     }
 
     @GetMapping("notification/{userId}")
