@@ -33,6 +33,8 @@ public interface BrewingSystem {
 
     List<RecipeDTO> getAllUserRecipes(String userId);
 
+    RecipeDTO getRecipe(long recipeId);
+
     void deleteRecipe(long recipeId, String userId);
 
     void addViewedRecipe(int recipeId);

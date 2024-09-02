@@ -92,6 +92,12 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
+    public RecipeDTO getRecipe(long recipeId) {
+        return recipeService.getRecipe(recipeId)
+                            .convertToDTO();
+    }
+
+    @Override
     public void deleteRecipe(long recipeId, String userId) {
         recipeService.deleteRecipe(recipeId, userId);
     }

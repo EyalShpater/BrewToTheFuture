@@ -39,16 +39,21 @@ public class BrewingSystemController {
         brewingSystem.addNewRecipe(recipeDTO);
     }
 
-    @GetMapping("brew/recipes/all")
+    @GetMapping("brew/recipe/all")
     public List<RecipeDTO> getAllRecipes() {
         return brewingSystem.getAllRecipes();
     }
 
-    @GetMapping("brew/recipes/{userId}")
+    @GetMapping("brew/recipe/user/{userId}")
     public List<RecipeDTO> getAllUserRecipes(@PathVariable String userId) {
-        // if user not found, return 404
+        //todo: if user not found, return 404
 
         return brewingSystem.getAllUserRecipes(userId);
+    }
+
+    @GetMapping("brew/recipe/id/{recipeId}")
+    public RecipeDTO getRecipe(@PathVariable int recipeId) {
+        return brewingSystem.getRecipe(recipeId);
     }
 
     @DeleteMapping("{userId}/brew/recipe/{recipeId}")
