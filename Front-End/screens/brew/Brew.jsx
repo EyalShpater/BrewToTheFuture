@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Brew.style.js";
-import { COLORS } from "../../constants";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import TemperatureBar from "../../components/temperatureBar/TemperatureBar";
 import axios from "axios";
@@ -22,15 +21,13 @@ const data = [
   {
     key: "2",
     title: "Step 2 - Fermentation",
-    description: "This is the second step.",
+    description: "Not started yet",
   },
   {
     key: "3",
     title: "Step 3 - Bottling",
-    description: "This is the third step.",
+    description: "Not started yet",
   },
-  // { key: "4", title: "Step 4", description: "This is the fourth step." },
-  // { key: "5", title: "Step 5", description: "This is the fifth step." },
 ];
 
 const TimelineItem = ({ item }) => (
@@ -62,8 +59,9 @@ const Brew = () => {
   const navigation = useNavigation();
   const [temperature, setTemperature] = useState(50);
   const route = useRoute();
-  const { userId } = route.params;
-  const [brewData, setBrewData] = useState(null);
+  // const { userId, recipeId } = route.params;
+  const [brewData, setBrewData] = useState([]);
+  const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -71,8 +69,11 @@ const Brew = () => {
     const fetchBrewData = async () => {
       try {
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/${userId}/api/brew/data/latest?brewId=${brewData.brewId}`
+          `https://brewtothefuture.azurewebsites.net/api/ilwejkrfhiuy4o3y4ljkblkdj/brew/data/latest`
         );
+        // const response = await axios.get(
+        //   `https://brewtothefuture.azurewebsites.net/{userId}/api/brew/data/latest`
+        // );
         setBrewData(response.data); // Save the fetched data to state
       } catch (error) {
         console.error("Error fetching brew data:", error);
@@ -82,7 +83,33 @@ const Brew = () => {
     };
 
     fetchBrewData();
-  }, [userId]);
+    // }, [userId]);
+  }, []);
+
+  useEffect(() => {
+    // Fetch the data from the API
+    const fetchBrewData = async () => {
+      try {
+        const response = await axios.get(
+          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/652`
+        );
+        // const response = await axios.get(
+        // `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/{recipeId}`;
+        // );
+        setRecipeData(response.data); // Save the fetched data to state
+        {
+          console.log(recipeData);
+        }
+      } catch (error) {
+        console.error("Error fetching brew data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBrewData();
+    // }, [brewData.recipeId]);
+  }, []);
 
   // useEffect(() => {
   //   // Simulate temperature change
@@ -99,7 +126,7 @@ const Brew = () => {
         prevData
           ? {
               ...prevData,
-              temperature_celsius: prevData.temperature_celsius + 1,
+              temperature_celsius: prevData.temperature_celsius,
             }
           : null
       );
@@ -124,6 +151,19 @@ const Brew = () => {
     );
   }
 
+  const calculateTimeDifference = (stepStartTime) => {
+    const currentTime = Date.now();
+    const timeDifference = currentTime - stepStartTime;
+
+    const date = new Date(timeDifference);
+
+    // Extract hours and minutes from the Date object
+    const hours = date.getUTCHours(); // Use getUTCHours to handle the difference correctly
+    const minutes = date.getUTCMinutes(); // Use getUTCMinutes for consistent time
+
+    // Return the formatted time as a string
+    return `${hours}h ${minutes}m`;
+  };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -144,16 +184,19 @@ const Brew = () => {
           Currently Brewing:
         </Text>
         <View style={styles.dataContainer}>
-          <Text style={styles.instructions}> Beer name: Maredsous</Text>
-        </View>
-        <View style={styles.dataContainer}>
           <Text style={styles.instructions}>
-            Current step:{brewData.current_step}
+            Beer name: {recipeData.recipe_name}
           </Text>
         </View>
         <View style={styles.dataContainer}>
           <Text style={styles.instructions}>
-            Remaining step time: 40 minutes
+            Current step: {brewData.current_step}
+          </Text>
+        </View>
+        <View style={styles.dataContainer}>
+          <Text style={styles.instructions}>
+            Remaining step time:{" "}
+            {calculateTimeDifference(brewData.step_start_time)}
           </Text>
         </View>
         <Text style={styles.instructions}> Current temperature: </Text>

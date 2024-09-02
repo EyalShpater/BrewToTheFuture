@@ -18,6 +18,31 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 
+// import InAppBrowser from "react-native-inappbrowser-reborn";
+
+// const GoogleLogin = () => {
+//   const openGoogleLogin = async () => {
+//     const url = "https://your-server.com/auth/google";
+//     try {
+//       if (await InAppBrowser.isAvailable()) {
+//         const result = await InAppBrowser.open(url, {
+//           // Customize the browser if needed
+//         });
+//         console.log(result);
+//       } else {
+//         // Fallback to opening the URL in the default browser
+//         Linking.openURL(url);
+//       }
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//   return <Button title="Login with Google" onPress={openGoogleLogin} />;
+// };
+
+// export default GoogleLogin;
+
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

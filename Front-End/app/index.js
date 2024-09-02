@@ -12,7 +12,7 @@ import SavedRecipes from "../screens/savedRecipes/SavedRecipes";
 import Brew from "../screens/brew/Brew";
 import AIRecipe from "../screens/AI/AIRecipe";
 import ExploreRecipes from "../screens/explore/ExploreRecipes";
-import SignIn from "../screens/signIn/SignIn";
+import GoogleLogin from "../screens/signIn/SignIn";
 import Register from "../screens/register/Register";
 import registerNNPushToken from "native-notify";
 import { registerForPushNotificationsAsync } from "../utils/notifications";
@@ -79,8 +79,8 @@ const HomeStack = () => {
       }}
     >
       <Stack.Screen
-        name="SignIn"
-        component={SignIn}
+        name="GoogleLogin"
+        component={GoogleLogin}
         options={{ headerShown: false }}
       />
       <Stack.Screen
