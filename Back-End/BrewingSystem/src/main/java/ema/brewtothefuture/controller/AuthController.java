@@ -1,18 +1,13 @@
 package ema.brewtothefuture.controller;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-//
-//import static org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames.REDIRECT_URI;
 
 @RestController
 public class AuthController {
 
-    @Value("${GOOGLE_CLIENT_ID}")
-    private static String CLIENT_ID;
 
 //    @GetMapping("/auth/google")
 //    public void googleLogin(HttpServletResponse response) throws IOException {
@@ -30,7 +25,7 @@ public class AuthController {
         // Return user information or tokens to the client
         return ResponseEntity.ok().build();
     }
-//
+
 //    @GetMapping("/login/oauth2/code/google")
 //    public String handleGoogleCallback(Authentication authentication) {
 //        OAuth2User oauth2User = (OAuth2User) authentication.getPrincipal();

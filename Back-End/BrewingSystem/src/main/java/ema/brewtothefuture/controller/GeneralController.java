@@ -3,6 +3,8 @@ package ema.brewtothefuture.controller;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.service.BrewingSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,6 +41,14 @@ public class GeneralController {
         int index = random.nextInt(sentences.size());
 
         return sentences.get(index);
+    }
+
+    @GetMapping("/user/details")
+    public String getUserDetails(@AuthenticationPrincipal OAuth2User principal) {
+        String username = principal.getAttribute("name");
+        String email = principal.getAttribute("email");
+        String picture = principal.getAttribute("picture");
+        return "Username: " + username + ", Email: " + email + ", Picture: " + picture;
     }
 
     /******* debug endpoint *******/
