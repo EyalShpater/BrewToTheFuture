@@ -25,7 +25,7 @@ public class SecurityConfig {
                 .csrf().disable() // Disable CSRF for simplicity (use cautiously in production)
                 .authorizeHttpRequests(authorizeRequests ->
                                                authorizeRequests
-                                                       .requestMatchers("/api/public/**", "/").permitAll() // Public endpoints
+                                                       .requestMatchers("/api/public/**", "/", "api/embedded/**").permitAll() // Public endpoints
                                                        .anyRequest().authenticated() // Secure all other endpoints
                                       )
                 .oauth2Login() // Enable OAuth2 Login
