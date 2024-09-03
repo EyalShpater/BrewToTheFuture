@@ -25,7 +25,10 @@ jobs:
           java-version: '21'
 
       - name: Build with Maven
-        run: mvn -f Back-End/BrewingSystem/pom.xml clean install -Dgoogle.client.id=${{ secrets.GOOGLE_CLIENT_ID }} -Dgoogle.client.secret=${{ secrets.GOOGLE_CLIENT_SECRET }}
+        run: mvn -f Back-End/BrewingSystem/pom.xml clean install
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
