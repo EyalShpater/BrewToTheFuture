@@ -3,6 +3,7 @@ package ema.brewtothefuture.controller;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.service.BrewingSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,9 @@ import java.util.Random;
 @RestController
 public class GeneralController {
     private final BrewingSystem brewingSystem;
+
+    @Value("${GOOGLE_CLIENT_ID}")
+    private String clientId;
 
     @Autowired
     public GeneralController(BrewingSystemService brewingSystemService) {
@@ -61,4 +65,10 @@ public class GeneralController {
     public void loadData() {
         brewingSystem.loadData();
     }
+
+    @GetMapping("/api/public/client_id")
+    public String getClientId() {
+        return clientId;
+    }
 }
+
