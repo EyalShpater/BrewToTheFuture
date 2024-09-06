@@ -3,14 +3,14 @@ package ema.brewtothefuture.service;
 import ema.brewtothefuture.db.model.BrewDB;
 import ema.brewtothefuture.db.model.BrewingReportDB;
 import ema.brewtothefuture.db.model.RecipeDB;
+import ema.brewtothefuture.db.repository.BrewRepository;
+import ema.brewtothefuture.db.repository.BrewingReportRepository;
+import ema.brewtothefuture.db.repository.FermentationReportRepository;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.impl.BrewImpl;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
-import ema.brewtothefuture.repository.BrewRepository;
-import ema.brewtothefuture.repository.BrewingReportRepository;
-import ema.brewtothefuture.repository.FermentationReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

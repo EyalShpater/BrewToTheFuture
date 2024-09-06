@@ -5,6 +5,7 @@ import ema.brewtothefuture.db.model.*;
 import ema.brewtothefuture.db.model.ingredient.data.FermentableDB;
 import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
+import ema.brewtothefuture.db.repository.*;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
@@ -12,15 +13,9 @@ import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.api.BrewingStatus;
-import ema.brewtothefuture.model.heatunit.api.DeviceManager;
-import ema.brewtothefuture.model.heatunit.impl.DeviceManagerImpl;
 import ema.brewtothefuture.model.recipe.api.BrewMethod;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
-import ema.brewtothefuture.repository.BrewRepository;
-import ema.brewtothefuture.repository.BrewingReportRepository;
-import ema.brewtothefuture.repository.FermentationReportRepository;
-import ema.brewtothefuture.repository.StyleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -32,7 +27,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class BrewingSystemService implements BrewingSystem {
-    private final DeviceManager deviceManager = new DeviceManagerImpl();
+//    private final DeviceManager deviceManager = new DeviceManagerImpl();
 
     private final StyleRepository              styleRepository;
     private final RecipeService                recipeService;
@@ -40,22 +35,24 @@ public class BrewingSystemService implements BrewingSystem {
     private final BrewingReportRepository      brewingReportRepository;
     private final FermentationReportRepository fermentationReportRepository;
     private final BrewRepository               brewRepository;
+    private final DeviceRepository deviceRepository;
 
     @Autowired
     public BrewingSystemService(StyleRepository styleRepository, RecipeService recipeService,
                                 BrewProcessService brewProcessService, BrewingReportRepository brewingReportRepository, BrewRepository brewRepository,
-                                FermentationReportRepository fermentationReportRepository) {
+                                FermentationReportRepository fermentationReportRepository, DeviceRepository deviceRepository) {
         this.styleRepository = styleRepository;
         this.recipeService = recipeService;
         this.brewProcessService = brewProcessService;
         this.brewingReportRepository = brewingReportRepository;
         this.brewRepository = brewRepository;
         this.fermentationReportRepository = fermentationReportRepository;
+        this.deviceRepository = deviceRepository;
     }
 
     @Override
     public EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber) {
-        String userId = deviceManager.getUser(deviceSerialNumber);
+        String userId = getUserIdByDeviceId(deviceSerialNumber);
         Brew brew = brewProcessService.getBrewInQueue(userId);
 
         return brew != null ?
@@ -65,7 +62,7 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public void startBrewing(String deviceSerialNumber, long embeddedReportInterval) {
-        String userId = deviceManager.getUser(deviceSerialNumber);
+        String userId = getUserIdByDeviceId(deviceSerialNumber);
         Brew brew = brewProcessService.getBrewInQueue(userId);
 
         if (brew == null) {
@@ -103,11 +100,6 @@ public class BrewingSystemService implements BrewingSystem {
     }
 
     @Override
-    public void addViewedRecipe(int recipeId) {
-
-    }
-
-    @Override
     public long addNewRecipe(RecipeDTO recipe) {
         return recipeService.saveRecipe(new Recipe(recipe));
     }
@@ -119,7 +111,8 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public void markBrewingAsFinished(String deviceSerialNumber) {
-        String userId = deviceManager.getUser(deviceSerialNumber);
+        String userId = getUserIdByDeviceId(deviceSerialNumber);
+
         brewProcessService.markHeadOfQueueAsBrewedInQueue(userId);
     }
 
@@ -240,11 +233,25 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public int getBrewStatus(String deviceSerialNumber) {
-        Brew brew = brewProcessService.getBrewInQueue(deviceManager.getUser(deviceSerialNumber));
+        Brew brew = brewProcessService.getBrewInQueue(getUserIdByDeviceId(deviceSerialNumber));
 
         return brew != null ?
                 brew.getStatus() :
                 BrewingStatus.ERROR.getCode();
+    }
+
+    @Override
+    public void addDeviceToUser(String userId, String deviceSerialNumber, String type) {
+        DeviceDB device = new DeviceDB();
+        device.setSerialNumber(deviceSerialNumber);
+        device.setUserId(userId);
+        device.setType(type);
+
+        if (deviceRepository.findBySerialNumber(deviceSerialNumber) != null) {
+            throw new IllegalArgumentException("Device with serial number " + deviceSerialNumber + " already exists");
+        }
+
+        deviceRepository.save(device);
     }
 
     private void loadStyle() {
@@ -259,6 +266,15 @@ public class BrewingSystemService implements BrewingSystem {
         }
     }
 
+    private String getUserIdByDeviceId(String deviceSerialNumber) {
+        DeviceDB device = deviceRepository.findBySerialNumber(deviceSerialNumber);
+
+        if (device == null) {
+            throw new IllegalArgumentException("No device with serial number " + deviceSerialNumber);
+        }
+
+        return device.getUserId();
+    }
 
     /****** debug methods *****/
     @Override

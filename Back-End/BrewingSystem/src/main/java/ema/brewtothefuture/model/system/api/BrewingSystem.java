@@ -37,8 +37,6 @@ public interface BrewingSystem {
 
     void deleteRecipe(long recipeId, String userId);
 
-    void addViewedRecipe(int recipeId);
-
     void brewRecipe(long recipeId, String userId);
 
     List<BrewingReportDTO> getBrewingReport(String userId);
@@ -72,6 +70,8 @@ public interface BrewingSystem {
     void markCurrentStepAsComplete(String userId);
 
     int getBrewStatus(String deviceSerialNumber);
+
+    void addDeviceToUser(String userId, String deviceSerialNumber, String type);
 
     /***** debug methods *****/
     void addNotification(String userId, String message);
