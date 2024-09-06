@@ -13,8 +13,6 @@ import ema.brewtothefuture.dto.front.NotificationDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.api.BrewingStatus;
-import ema.brewtothefuture.model.heatunit.api.DeviceManager;
-import ema.brewtothefuture.model.heatunit.impl.DeviceManagerImpl;
 import ema.brewtothefuture.model.recipe.api.BrewMethod;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
@@ -29,7 +27,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class BrewingSystemService implements BrewingSystem {
-    private final DeviceManager deviceManager = new DeviceManagerImpl();
+//    private final DeviceManager deviceManager = new DeviceManagerImpl();
 
     private final StyleRepository              styleRepository;
     private final RecipeService                recipeService;
@@ -54,7 +52,7 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public EmbeddedRecipeDTO getRecipeToBrew(String deviceSerialNumber) {
-        String userId = deviceManager.getUser(deviceSerialNumber);
+        String userId = getUserIdByDeviceId(deviceSerialNumber);
         Brew brew = brewProcessService.getBrewInQueue(userId);
 
         return brew != null ?
@@ -64,7 +62,7 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public void startBrewing(String deviceSerialNumber, long embeddedReportInterval) {
-        String userId = deviceManager.getUser(deviceSerialNumber);
+        String userId = getUserIdByDeviceId(deviceSerialNumber);
         Brew brew = brewProcessService.getBrewInQueue(userId);
 
         if (brew == null) {
@@ -113,7 +111,8 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public void markBrewingAsFinished(String deviceSerialNumber) {
-        String userId = deviceManager.getUser(deviceSerialNumber);
+        String userId = getUserIdByDeviceId(deviceSerialNumber);
+
         brewProcessService.markHeadOfQueueAsBrewedInQueue(userId);
     }
 
@@ -234,7 +233,7 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public int getBrewStatus(String deviceSerialNumber) {
-        Brew brew = brewProcessService.getBrewInQueue(deviceManager.getUser(deviceSerialNumber));
+        Brew brew = brewProcessService.getBrewInQueue(getUserIdByDeviceId(deviceSerialNumber));
 
         return brew != null ?
                 brew.getStatus() :
@@ -247,6 +246,10 @@ public class BrewingSystemService implements BrewingSystem {
         device.setSerialNumber(deviceSerialNumber);
         device.setUserId(userId);
         device.setType(type);
+
+        if (deviceRepository.findBySerialNumber(deviceSerialNumber) != null) {
+            throw new IllegalArgumentException("Device with serial number " + deviceSerialNumber + " already exists");
+        }
 
         deviceRepository.save(device);
     }
@@ -263,6 +266,15 @@ public class BrewingSystemService implements BrewingSystem {
         }
     }
 
+    private String getUserIdByDeviceId(String deviceSerialNumber) {
+        DeviceDB device = deviceRepository.findBySerialNumber(deviceSerialNumber);
+
+        if (device == null) {
+            throw new IllegalArgumentException("No device with serial number " + deviceSerialNumber);
+        }
+
+        return device.getUserId();
+    }
 
     /****** debug methods *****/
     @Override

@@ -180,6 +180,10 @@ public class BrewingSystemController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Missing parameters");
         }
 
+        if (!type.equalsIgnoreCase("brewing") && !type.equalsIgnoreCase("fermentation")) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid device type");
+        }
+
         String userId = GeneralController.getUserId();
         brewingSystem.addDeviceToUser(userId, deviceSerialNumber, type);
     }
