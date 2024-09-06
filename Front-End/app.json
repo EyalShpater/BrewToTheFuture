@@ -1,12 +1,19 @@
 {
   "expo": {
     "scheme": "acme",
-    "web": {
-      "bundler": "metro"
+    "exta": {
+      "googleClientId": "849504804240-4hav6ge0onf789q7v7spf1m455guet8r.apps.googleusercontent.com"
     },
-    "plugins": [
-      "expo-router"
-    ],
+    "web": {
+      "bundler": "metro",
+      "authSessionRedirect": "https://auth.expo.io/@adi19/breww",
+      "config": {
+        "googleSignIn": {
+          "clientId": "849504804240-4hav6ge0onf789q7v7spf1m455guet8r.apps.googleusercontent.com"
+        }
+      }
+    },
+    "plugins": ["expo-router"],
     "name": "breww",
     "slug": "breww",
     "android": {

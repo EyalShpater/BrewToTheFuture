@@ -70,8 +70,8 @@ const Menu = ({ isVisible, closeMenu, userId }) => {
           <TouchableOpacity onPress={() => handleNavigation("Brew")}>
             <Text style={styles.menuText}>Current brewing</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleNavigation("AIRecipe")}>
-            <Text style={styles.menuText}>Get AI beer recipe</Text>
+          <TouchableOpacity onPress={() => handleNavigation("Statistics")}>
+            <Text style={styles.menuText}>Statistics</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleNavigation("ExploreRecipes")}>
             <Text style={styles.menuText}>Explore new beers</Text>

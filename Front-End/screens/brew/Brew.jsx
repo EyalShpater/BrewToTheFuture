@@ -97,9 +97,6 @@ const Brew = () => {
         // `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/{recipeId}`;
         // );
         setRecipeData(response.data); // Save the fetched data to state
-        {
-          console.log(recipeData);
-        }
       } catch (error) {
         console.error("Error fetching brew data:", error);
       } finally {
@@ -111,45 +108,45 @@ const Brew = () => {
     // }, [brewData.recipeId]);
   }, []);
 
-  // useEffect(() => {
-  //   // Simulate temperature change
-  //   const interval = setInterval(() => {
-  //     setTemperature((prevTemp) => (prevTemp >= 100 ? 0 : prevTemp + 10));
-  //   }, 1000);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
   useEffect(() => {
+    // Simulate temperature change
     const interval = setInterval(() => {
-      setBrewData((prevData) =>
-        prevData
-          ? {
-              ...prevData,
-              temperature_celsius: prevData.temperature_celsius,
-            }
-          : null
-      );
+      setTemperature((prevTemp) => (prevTemp >= 100 ? 0 : prevTemp + 10));
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  if (loading) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>Loading...</Text>
-      </SafeAreaView>
-    );
-  }
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setBrewData((prevData) =>
+  //       prevData
+  //         ? {
+  //             ...prevData,
+  //             temperature_celsius: prevData.temperature_celsius,
+  //           }
+  //         : null
+  //     );
+  //   }, 1000);
 
-  if (!brewData) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>No data available</Text>
-      </SafeAreaView>
-    );
-  }
+  //   return () => clearInterval(interval);
+  // }, []);
+
+  // if (loading) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <Text>Loading...</Text>
+  //     </SafeAreaView>
+  //   );
+  // }
+
+  // if (!brewData) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <Text>No data available</Text>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   const calculateTimeDifference = (stepStartTime) => {
     const currentTime = Date.now();

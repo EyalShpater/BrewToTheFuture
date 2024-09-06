@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
     paddingHorizontal: 20,
+    backgroundColor: COLORS.beige,
   },
   welcomeMessage: {
     fontFamily: FONT.bold,
@@ -14,6 +15,17 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     marginTop: 1,
     textAlign: "center",
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    alignItems: "center",
+  },
+  instructions: {
+    fontFamily: FONT.bold,
+    fontSize: SIZES.medium,
+    color: COLORS.primary,
+    marginTop: SIZES.large,
+    textAlign: "left",
   },
   returnButton: {
     position: "absolute",

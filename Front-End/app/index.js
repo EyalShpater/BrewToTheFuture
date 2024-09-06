@@ -10,7 +10,7 @@ import CreateRecipeThree from "../screens/createARecipe/CreateRecipeThree.js";
 import CreateRecipeFour from "../screens/createARecipe/CreateRecipeFour.js";
 import SavedRecipes from "../screens/savedRecipes/SavedRecipes";
 import Brew from "../screens/brew/Brew";
-import AIRecipe from "../screens/AI/AIRecipe";
+import Statistics from "../screens/stats/Statistics";
 import ExploreRecipes from "../screens/explore/ExploreRecipes";
 import GoogleLogin from "../screens/signIn/SignIn";
 import Register from "../screens/register/Register";
@@ -124,8 +124,8 @@ const HomeStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="AIRecipe"
-        component={AIRecipe}
+        name="Statistics"
+        component={Statistics}
         options={{ headerShown: false }}
       />
       <Stack.Screen
