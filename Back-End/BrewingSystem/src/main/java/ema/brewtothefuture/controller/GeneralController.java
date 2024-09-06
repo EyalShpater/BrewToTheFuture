@@ -4,8 +4,8 @@ import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.service.BrewingSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,11 +48,13 @@ public class GeneralController {
     }
 
     @GetMapping("/user/details")
-    public String getUserDetails(@AuthenticationPrincipal OAuth2User principal) {
-        String username = principal.getAttribute("name");
-        String email = principal.getAttribute("email");
-        String picture = principal.getAttribute("picture");
-        return "Username: " + username + ", Email: " + email + ", Picture: " + picture;
+    public String getUserDetails(/*@AuthenticationPrincipal OAuth2User principal*/) {
+//        OAuth2User principal = getCurrentUser();
+        String username = getUserId();
+//        String email = principal.getAttribute("email");
+//        String picture = principal.getAttribute("picture");
+//        return "Username: " + username + ", Email: " + email + ", Picture: " + picture;
+        return username;
     }
 
     /******* debug endpoint *******/
@@ -69,6 +71,19 @@ public class GeneralController {
     @GetMapping("/api/public/client_id")
     public String getClientId() {
         return clientId;
+    }
+
+//    public OAuth2User getCurrentUser() {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication != null && authentication.getPrincipal() instanceof OAuth2User) {
+//            return (OAuth2User) authentication.getPrincipal();
+//        }
+//        return null;
+//    }
+
+    public static String getUserId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName();
     }
 }
 

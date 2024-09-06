@@ -1,4 +1,4 @@
-package ema.brewtothefuture.repository;
+package ema.brewtothefuture.db.repository;
 
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import org.springframework.data.jpa.repository.JpaRepository;

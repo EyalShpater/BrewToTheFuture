@@ -44,9 +44,9 @@ public class BrewingSystemController {
         return brewingSystem.getAllRecipes();
     }
 
-    @GetMapping("brew/recipe/user/{userId}")
-    public List<RecipeDTO> getAllUserRecipes(@PathVariable String userId) {
-        //todo: if user not found, return 404
+    @GetMapping("brew/recipe/user")
+    public List<RecipeDTO> getAllUserRecipes() {
+        String userId = GeneralController.getUserId();
 
         return brewingSystem.getAllUserRecipes(userId);
     }
@@ -56,8 +56,10 @@ public class BrewingSystemController {
         return brewingSystem.getRecipe(recipeId);
     }
 
-    @DeleteMapping("{userId}/brew/recipe/{recipeId}")
-    public void deleteRecipe(@PathVariable int recipeId, @PathVariable String userId) {
+    @DeleteMapping("brew/recipe/{recipeId}")
+    public void deleteRecipe(@PathVariable int recipeId) {
+        String userId = GeneralController.getUserId();
+
         brewingSystem.deleteRecipe(recipeId, userId);
     }
 
@@ -119,44 +121,66 @@ public class BrewingSystemController {
         return fermentable;
     }
 
-    @PostMapping("{userId}/brew/recipe/{recipeId}")
-    public void brewRecipe(@PathVariable int recipeId, @PathVariable String userId) {
+    @PostMapping("brew/recipe/{recipeId}")
+    public void brewRecipe(@PathVariable int recipeId) {
+        String userId = GeneralController.getUserId();
+
         brewingSystem.brewRecipe(recipeId, userId);
     }
 
-    @GetMapping("{userId}/brew/data")
-    public List<BrewingReportDTO> getBrewingReport(@PathVariable String userId) {
+    @GetMapping("brew/data")
+    public List<BrewingReportDTO> getBrewingReport() {
+        String userId = GeneralController.getUserId();
+
         return brewingSystem.getBrewingReport(userId);
     }
 
-    @GetMapping("{userId}/brew/data/latest")
-    public BrewingReportDTO getLatestBrewingReport(@PathVariable String userId) {
+    @GetMapping("brew/data/latest")
+    public BrewingReportDTO getLatestBrewingReport() {
+        String userId = GeneralController.getUserId();
+
         return brewingSystem.getLatestBrewingReport(userId);
     }
 
-    @GetMapping("{userId}/fermentation/data")
-    public List<FermentationReportDTO> getFermentationReport(@PathVariable String userId) {
+    @GetMapping("fermentation/data")
+    public List<FermentationReportDTO> getFermentationReport() {
+        String userId = GeneralController.getUserId();
+
         return brewingSystem.getFermentationReport(userId);
     }
 
-    @GetMapping("{userId}/fermentation/data/latest")
-    public FermentationReportDTO getLatestFermentationReport(@PathVariable String userId) {
+    @GetMapping("fermentation/data/latest")
+    public FermentationReportDTO getLatestFermentationReport() {
+        String userId = GeneralController.getUserId();
+
         return brewingSystem.getLatestFermentationReport(userId);
     }
 
-    @GetMapping("notification/{userId}")
-    public NotificationDTO getNotification(@PathVariable String userId) {
-        NotificationDTO notification = brewingSystem.getNotification(userId);
-        System.out.println("Notification for user " + userId + ": " + notification);
-        return notification;
+    @GetMapping("notification")
+    public NotificationDTO getNotification() {
+        String userId = GeneralController.getUserId();
+
+        return brewingSystem.getNotification(userId);
     }
 
-    @PostMapping("{userId}/brew/recipe/current_brewing/step/complete")
-    public void markStepAsComplete(@PathVariable String userId) {
+    @PostMapping("brew/recipe/current_brewing/step/complete")
+    public void markStepAsComplete() {
+        String userId = GeneralController.getUserId();
+
         try {
             brewingSystem.markCurrentStepAsComplete(userId);
         } catch (IllegalArgumentException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No brews for user " + userId);
         }
+    }
+
+    @PostMapping("/device/add")
+    public void addDevice(@RequestParam String deviceSerialNumber, @RequestParam String type) {
+        if (deviceSerialNumber == null || type == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Missing parameters");
+        }
+
+        String userId = GeneralController.getUserId();
+        brewingSystem.addDeviceToUser(userId, deviceSerialNumber, type);
     }
 }

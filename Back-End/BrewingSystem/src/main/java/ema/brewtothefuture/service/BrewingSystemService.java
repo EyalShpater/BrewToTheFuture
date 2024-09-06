@@ -5,6 +5,7 @@ import ema.brewtothefuture.db.model.*;
 import ema.brewtothefuture.db.model.ingredient.data.FermentableDB;
 import ema.brewtothefuture.db.model.ingredient.data.HopDB;
 import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
+import ema.brewtothefuture.db.repository.*;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
@@ -17,10 +18,6 @@ import ema.brewtothefuture.model.heatunit.impl.DeviceManagerImpl;
 import ema.brewtothefuture.model.recipe.api.BrewMethod;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
-import ema.brewtothefuture.repository.BrewRepository;
-import ema.brewtothefuture.repository.BrewingReportRepository;
-import ema.brewtothefuture.repository.FermentationReportRepository;
-import ema.brewtothefuture.repository.StyleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -40,17 +37,19 @@ public class BrewingSystemService implements BrewingSystem {
     private final BrewingReportRepository      brewingReportRepository;
     private final FermentationReportRepository fermentationReportRepository;
     private final BrewRepository               brewRepository;
+    private final DeviceRepository deviceRepository;
 
     @Autowired
     public BrewingSystemService(StyleRepository styleRepository, RecipeService recipeService,
                                 BrewProcessService brewProcessService, BrewingReportRepository brewingReportRepository, BrewRepository brewRepository,
-                                FermentationReportRepository fermentationReportRepository) {
+                                FermentationReportRepository fermentationReportRepository, DeviceRepository deviceRepository) {
         this.styleRepository = styleRepository;
         this.recipeService = recipeService;
         this.brewProcessService = brewProcessService;
         this.brewingReportRepository = brewingReportRepository;
         this.brewRepository = brewRepository;
         this.fermentationReportRepository = fermentationReportRepository;
+        this.deviceRepository = deviceRepository;
     }
 
     @Override
@@ -100,11 +99,6 @@ public class BrewingSystemService implements BrewingSystem {
     @Override
     public void deleteRecipe(long recipeId, String userId) {
         recipeService.deleteRecipe(recipeId, userId);
-    }
-
-    @Override
-    public void addViewedRecipe(int recipeId) {
-
     }
 
     @Override
@@ -245,6 +239,16 @@ public class BrewingSystemService implements BrewingSystem {
         return brew != null ?
                 brew.getStatus() :
                 BrewingStatus.ERROR.getCode();
+    }
+
+    @Override
+    public void addDeviceToUser(String userId, String deviceSerialNumber, String type) {
+        DeviceDB device = new DeviceDB();
+        device.setSerialNumber(deviceSerialNumber);
+        device.setUserId(userId);
+        device.setType(type);
+
+        deviceRepository.save(device);
     }
 
     private void loadStyle() {

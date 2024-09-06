@@ -31,7 +31,7 @@ public class SecurityConfig {
                 .oauth2Login() // Enable OAuth2 Login
                 .and()
                 .oauth2ResourceServer(oauth2 ->
-                                              oauth2.jwt() // Configuring the resource server to accept JWT tokens
+                                              oauth2.jwt()// Configuring the resource server to accept JWT tokens
                                      );
 
         return http.build();
@@ -41,6 +41,7 @@ public class SecurityConfig {
     public JwtDecoder jwtDecoder() {
         // Replace this with your actual JWT issuer's public key or JWKS URI
         String jwkSetUri = "https://www.googleapis.com/oauth2/v3/certs";
-        return NimbusJwtDecoder.withJwkSetUri(jwkSetUri).build();
+        return NimbusJwtDecoder.withJwkSetUri(jwkSetUri)
+                               .build();
     }
 }
