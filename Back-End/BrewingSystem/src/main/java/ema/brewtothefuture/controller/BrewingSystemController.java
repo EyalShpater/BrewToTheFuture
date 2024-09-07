@@ -6,9 +6,12 @@ import ema.brewtothefuture.db.model.ingredient.data.YeastDB;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
 import ema.brewtothefuture.dto.front.NotificationDTO;
+import ema.brewtothefuture.dto.front.RatingDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
 import ema.brewtothefuture.service.BrewingSystemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +23,7 @@ import java.util.List;
 @RequestMapping("api/")
 public class BrewingSystemController {
 
+    private static final Logger log = LoggerFactory.getLogger(BrewingSystemController.class);
     private final BrewingSystem brewingSystem;
 
     @Autowired
@@ -186,5 +190,24 @@ public class BrewingSystemController {
 
         String userId = GeneralController.getUserId();
         brewingSystem.addDeviceToUser(userId, deviceSerialNumber, type);
+    }
+
+    @PostMapping("brew/rate/rating/{recipeId}")
+    public void rateRecipe(@PathVariable int recipeId, @RequestParam double rating) {
+        String userId = GeneralController.getUserId();
+        log.info("Rating recipe {} with {}", recipeId, rating);
+        brewingSystem.addRating(userId, recipeId, rating);
+    }
+
+    @PostMapping("brew/rate/review/{recipeId}")
+    public void addReviewToRecipe(@PathVariable int recipeId, @RequestParam String review) {
+        String userId = GeneralController.getUserId();
+
+        brewingSystem.addComment(userId, recipeId, review);
+    }
+
+    @GetMapping("brew/rate/{recipeId}")
+    public List<RatingDTO> getRatingByRecipeId(@PathVariable int recipeId) {
+        return brewingSystem.getRatings(recipeId);
     }
 }

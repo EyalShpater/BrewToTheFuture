@@ -23,7 +23,7 @@ public class EmbeddedController {
         return brewingSystem.getRecipeToBrew(deviceSerialNumber);
     }
 
-    // return status
+    // todo: return status
     @PostMapping("{deviceSerialNumber}/brew/start")
     public void startBrewing(@PathVariable String deviceSerialNumber, @RequestParam long interval) {
         brewingSystem.startBrewing(deviceSerialNumber, interval);

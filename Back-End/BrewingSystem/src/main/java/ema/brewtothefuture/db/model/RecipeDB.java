@@ -37,9 +37,7 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
     @Convert(converter = StepsAndNotificationsConverter.class)
     @Column(name = "recipe_json", columnDefinition = "text")
     private CombinedStepsNotifications recipe;
-    private double                    rating;
     private int                       votes;
-    private int                       views;
     @OneToMany(mappedBy = "recipeDB", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RecipeFermentableDB> fermentables;
     @OneToMany(mappedBy = "recipeDB", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -48,6 +46,8 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
     private List<RecipeYeastDB>       yeasts;
     @OneToMany(mappedBy = "recipe")
     private List<BrewDB>              brew;
+    @OneToMany(mappedBy = "rating")
+    private List<RatingDB> ratings;
 
     public RecipeDB() {
     }
@@ -194,7 +194,8 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
     }
 
     public double getRating() {
-        return rating;
+//        return rating;
+        return 0;
     }
 
     public int getVotes() {
@@ -202,7 +203,8 @@ public class RecipeDB implements DTOConvertible<RecipeDTO> {
     }
 
     public int getViews() {
-        return views;
+//        return views;
+        return 0;
     }
 
     public List<RecipeStep> getSteps() {
