@@ -33,7 +33,7 @@ const CreateRecipeOne = () => {
   const [batchSizeLiter, setBatchSizeLiter] = useState("");
   const navigation = useNavigation();
   const route = useRoute();
-  const { userId } = route.params;
+  // const { userId } = route.params;
 
   const getRecipeName = () => {
     return (
@@ -282,7 +282,7 @@ const CreateRecipeOne = () => {
 
   const handleNavigation = (screenName) => {
     navigation.navigate(screenName, {
-      userId,
+      // userId,
       recipeName,
       method,
       style,

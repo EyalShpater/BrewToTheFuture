@@ -83,7 +83,7 @@ const CreateRecipeFour = () => {
 
   const handleSubmit = async () => {
     const recipeObj = {
-      user_id: route.params.userId,
+      // user_id: route.params.userId,
       recipe_name: route.params.recipeName,
       method: route.params.method,
       style: route.params.style,

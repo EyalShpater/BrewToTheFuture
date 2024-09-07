@@ -37,7 +37,6 @@ const ModalBrew = () => {
   // });
 
   useEffect(() => {
-    // Fetch the data from the API
     const fetchBrewData = async () => {
       try {
         const response = await axios.get(
@@ -58,7 +57,6 @@ const ModalBrew = () => {
     };
 
     fetchBrewData();
-    // }, [userId]);
   }, []);
 
   useEffect(() => {
@@ -225,7 +223,6 @@ const Welcome = () => {
 
 const Home = () => {
   const route = useRoute();
-  const { userUid } = route.params;
 
   return (
     <ImageBackground
@@ -235,7 +232,7 @@ const Home = () => {
     >
       <SafeAreaView style={{ flex: 1, marginTop: 120 }}>
         <View style={styles.mainMenu}>
-          <ScreenHeaderBtn iconUrl={icons.menu} userId={userUid} />
+          <ScreenHeaderBtn iconUrl={icons.menu} />
           <View style={styles.userMenu}>
             <UserManagementMenu iconUrl={images.user} />
           </View>

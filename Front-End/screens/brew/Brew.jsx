@@ -69,7 +69,7 @@ const Brew = () => {
     const fetchBrewData = async () => {
       try {
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api//brew/data/latest`,
+          `https://brewtothefuture.azurewebsites.net/api/brew/data/latest`,
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,

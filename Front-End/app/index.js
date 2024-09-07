@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   createStackNavigator,
   TransitionPresets,
@@ -19,30 +19,6 @@ import { registerForPushNotificationsAsync } from "../utils/notifications";
 import * as Notifications from "expo-notifications";
 import { ID_TOKEN } from "../utils/idToken";
 
-const [userId, setUserId] = useState(null);
-
-useEffect(() => {
-  const fetchUserId = async () => {
-    try {
-      const response = await axios.get(
-        "https://brewtothefuture.azurewebsites.net/user/details",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${ID_TOKEN}`, // Pass the token in Authorization header
-          },
-        }
-      );
-
-      setUserId(response.data); // Assuming the API returns userId in response.data
-    } catch (error) {
-      console.error("Error fetching userId:", error);
-    }
-  };
-
-  fetchUserId();
-}, []);
-
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -54,6 +30,30 @@ Notifications.setNotificationHandler({
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      try {
+        const response = await axios.get(
+          "https://brewtothefuture.azurewebsites.net/user/details",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${ID_TOKEN}`, // Pass the token in Authorization header
+            },
+          }
+        );
+
+        setUserId(response.data); // Assuming the API returns userId in response.data
+      } catch (error) {
+        console.error("Error fetching userId:", error);
+      }
+    };
+
+    fetchUserId();
+  }, []);
+
   useEffect(() => {
     registerForPushNotificationsAsync();
 

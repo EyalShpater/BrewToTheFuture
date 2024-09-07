@@ -135,11 +135,14 @@ const Statistics = () => {
               style={{ marginVertical: 10, borderRadius: 16 }}
               onDataPointClick={handleDataPointClick}
             />
+            <Text style={[styles.dotsInstructions, { marginTop: 10 }]}>
+              Touch the dots to see the time of each temperature
+            </Text>
           </View>
         ) : (
           <>
             <Text style={styles.emptyChartMessage}>
-              The brewing hasn't started
+              There is no brewing happening right now
             </Text>
             <LineChart
               data={{
@@ -165,9 +168,6 @@ const Statistics = () => {
             />
           </>
         )}
-        <Text style={[styles.dotsInstructions, { marginTop: 10 }]}>
-          Touch the dots to see the time of each temperature
-        </Text>
 
         {/* Modal for displaying the time */}
         <Modal

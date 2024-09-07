@@ -141,6 +141,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
   },
+  emptyText: {
+    fontSize: SIZES.xLarge,
+    textAlign: "center",
+    color: "gray",
+    marginTop: 20,
+  },
+  emptyTextcontainer: {
+    flex: 1, // Take full screen height
+    justifyContent: "center", // Center vertically
+    alignItems: "center", // Center horizontally
+    backgroundColor: COLORS.beige, // Optional: define a background color
+  },
 });
 
 export default styles;

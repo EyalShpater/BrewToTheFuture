@@ -618,7 +618,7 @@ const CreateRecipeTwo = () => {
 
   const handleNavigation = (screenName) => {
     navigation.navigate(screenName, {
-      userId: route.params.userId,
+      //userId: route.params.userId,
       recipeName: route.params.recipeName,
       method: route.params.method,
       style: route.params.style,

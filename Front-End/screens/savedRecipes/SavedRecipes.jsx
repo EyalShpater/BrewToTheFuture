@@ -22,8 +22,8 @@ const SavedRecipes = () => {
   const [fermentablesNames, setFermentablesNames] = useState([]);
   const [hopsNames, setHopsNames] = useState([]);
   const [yeastsNames, setYeastsNames] = useState([]);
-  const route = useRoute();
-  const { userId } = route.params;
+  // const route = useRoute();
+  //const { userId } = route.params;
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -46,7 +46,7 @@ const SavedRecipes = () => {
     };
 
     fetchRecipes();
-  }, [userId]);
+  }, []);
 
   // const fetchFermentableNames = (fermentables) => {
   //   const namesPromises = fermentables.map((fermentable) =>
@@ -332,7 +332,7 @@ const SavedRecipes = () => {
     },
   ];
 
-  const handleDelete = async (userId, recipeId) => {
+  const handleDelete = async (recipeId) => {
     try {
       await axios.delete(
         `https://brewtothefuture.azurewebsites.net/api/brew/recipe/${recipeId}`,
@@ -364,7 +364,7 @@ const SavedRecipes = () => {
     return date.toLocaleDateString(); // This will return the date and time in a readable format
   };
 
-  const handlePlayPress = async (userId, recipeId) => {
+  const handlePlayPress = async (recipeId) => {
     try {
       const response = await axios.post(
         `https://brewtothefuture.azurewebsites.net/api/brew/recipe/${recipeId}`,
@@ -395,6 +395,10 @@ const SavedRecipes = () => {
 
       {loading ? (
         <Text style={styles.loadingText}>Loading...</Text>
+      ) : recipes.length === 0 ? (
+        <View style={styles.emptyTextcontainer}>
+          <Text style={styles.emptyText}>There are no recipes</Text>
+        </View>
       ) : (
         <FlatList
           data={recipes}
@@ -432,13 +436,13 @@ const SavedRecipes = () => {
                 </Text>
               </View>
               <TouchableOpacity
-                onPress={() => handlePlayPress(item.user_id, item.recipe_id)}
+                onPress={() => handlePlayPress(item.recipe_id)}
                 style={styles.playButton}
               >
                 <Text style={styles.playButtonText}>play</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => handleDelete(item.user_id, item.recipe_id)}
+                onPress={() => handleDelete(item.recipe_id)}
                 style={styles.deleteButton}
               >
                 <Text style={styles.playButtonText}>Delete</Text>
