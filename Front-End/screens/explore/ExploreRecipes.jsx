@@ -22,17 +22,68 @@ const ExploreRecipes = () => {
   const [hopsNames, setHopsNames] = useState([]);
   const [yeastsNames, setYeastsNames] = useState([]);
 
+  // useEffect(() => {
+  //   try {
+  //     const idToken ="eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ3YjkzOTc3MWE3ODAwYzQxM2Y5MDA1MTAxMmQ5NzU5ODE5MTZkNzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzMTkyNjA5MTQxOTM4ODIwMDUzIiwiZW1haWwiOiJhZGlrYXAxOTA0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoibVJKX3JDRjQ1cmJQV0NwbTZCSmx5dyIsImlhdCI6MTcyNTcwMzkzOSwiZXhwIjoxNzI1NzA3NTM5fQ.fOTiDRv2vcmoyCf-2OItHl3E3PhzacthmGGVnI6A6sSqXH-3CQPPQCY98lJwYZxuaO4NwitZTr1VxzZK9TY06uhMmdYOVduW75C6PSmAbuN0qdXKHawnKPBf1omKRJ01bcDb39Anpue_q5VbmUs92l7y3QWXTTWnFV_dEbdaOHZ66-8Q0SAHExLSYhvVMxB6V3Z9SQLJI3jhgF5JTbhYjtGmeivh-WisaNp4Veq6qcd2cRve_gI6zeLVzpXk64YWlRJVvnYnD_oLQCtdVKjyXa4NH1tJbyCC6t7goLg8eFdEbUPBLjvciSQwYz4dbaWU-LfkozUGQllhCllw3AXR-A";
+  //         const response = await axios.get(
+  //           "https://brewtothefuture.azurewebsites.net/api/brew/recipes/all",
+  //           {
+  //             headers: {
+  //               Authorization: `Bearer ${idToken}`,
+  //             },
+  //           }
+  //         );
+  //     if (response.data) {
+  //       setRecipes(response.data);
+  //       setLoading(false);
+  //     } else {
+  //       console.error("No temperature data available.");
+  //     }
+  //   } catch {
+  //     console.error("Error fetching temperature data:", error);
+  //     setLoading(false);
+  //   }
+
+  //   // axios
+  //   //   .get("https://brewtothefuture.azurewebsites.net/api/brew/recipes/all")
+  //   //   .then((response) => {
+  //   //     setRecipes(response.data);
+  //   //     setLoading(false);
+  //   //   })
+  //   //   .catch((error) => {
+  //   //     console.error("Error fetching recipes:", error);
+  //   //     setLoading(false);
+  //   //   });
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get("https://brewtothefuture.azurewebsites.net/api/brew/recipes/all")
-      .then((response) => {
-        setRecipes(response.data);
+    // Define the async function
+    const fetchData = async () => {
+      try {
+        const idToken =
+          "eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ3YjkzOTc3MWE3ODAwYzQxM2Y5MDA1MTAxMmQ5NzU5ODE5MTZkNzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzMTkyNjA5MTQxOTM4ODIwMDUzIiwiZW1haWwiOiJhZGlrYXAxOTA0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoibVJKX3JDRjQ1cmJQV0NwbTZCSmx5dyIsImlhdCI6MTcyNTcwMzkzOSwiZXhwIjoxNzI1NzA3NTM5fQ.fOTiDRv2vcmoyCf-2OItHl3E3PhzacthmGGVnI6A6sSqXH-3CQPPQCY98lJwYZxuaO4NwitZTr1VxzZK9TY06uhMmdYOVduW75C6PSmAbuN0qdXKHawnKPBf1omKRJ01bcDb39Anpue_q5VbmUs92l7y3QWXTTWnFV_dEbdaOHZ66-8Q0SAHExLSYhvVMxB6V3Z9SQLJI3jhgF5JTbhYjtGmeivh-WisaNp4Veq6qcd2cRve_gI6zeLVzpXk64YWlRJVvnYnD_oLQCtdVKjyXa4NH1tJbyCC6t7goLg8eFdEbUPBLjvciSQwYz4dbaWU-LfkozUGQllhCllw3AXR-A";
+        const response = await axios.get(
+          "https://brewtothefuture.azurewebsites.net/api/brew/recipes/all",
+          {
+            headers: {
+              Authorization: `Bearer ${idToken}`,
+            },
+          }
+        );
+
+        if (response.data) {
+          setRecipes(response.data);
+        } else {
+          console.error("No data available.");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
         setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching recipes:", error);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   const fetchFermentableNames = (fermentables) => {

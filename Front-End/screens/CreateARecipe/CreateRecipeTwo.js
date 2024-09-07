@@ -191,16 +191,31 @@ const CreateRecipeTwo = () => {
 
   const getFermentableDetails = () => {
     useEffect(() => {
-      axios
-        .get(
-          "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables"
-        )
-        .then((response) => {
+      // Define the async function
+      const fetchFermentables = async () => {
+        try {
+          // Replace with actual logic to get the token
+          const idToken =
+            "eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ3YjkzOTc3MWE3ODAwYzQxM2Y5MDA1MTAxMmQ5NzU5ODE5MTZkNzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzMTkyNjA5MTQxOTM4ODIwMDUzIiwiZW1haWwiOiJhZGlrYXAxOTA0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoic3FDYXh6Wkp3QjRwcm1Wb2VFTl9kZyIsImlhdCI6MTcyNTcwNzUyNywiZXhwIjoxNzI1NzExMTI3fQ.pXYud-RVoS6_pkTgm2JZEsQLkSksNNFaSQtjlp3aDzT9BRMHLDgB3VJxthoLj4p6GYVLs8cftSBfp9bezAeBEGaDgdF83DXlz2efQ0v2GuW2uEX4NlW-rIIIAFnT_aIUDKdrK3Ys7vLG0nTtIcOnGRbScONQTxpRObsd_se62IXuGBEvXB0rPyecq7uwpgM-aWIalnYUt-eERH794VCu2UZobZo_B1kw46Hzuyl6n-BnehOBHtxlJcFOWHGV9AdyCa2xPHVVjQ3YVBCJMSMWVISYtoCqlQNuYz7W-Gsg2N6yq96uYTTQ2JTGEHHDpskwgE_F1IJZGtn_-A1kxrkVfg";
+
+          // Make the API request with the token in headers
+          const response = await axios.get(
+            "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables",
+            {
+              headers: {
+                Authorization: `Bearer ${idToken}`,
+              },
+            }
+          );
+
+          // Update the state with the fetched data
           setFermentablesOptions(response.data);
-        })
-        .catch((error) => {
+        } catch (error) {
+          // Handle errors
           console.error("Error fetching Fermentables data:", error);
-        });
+        }
+      };
+      fetchFermentables();
     }, []);
 
     if (fermentablesAmount > 0) {
@@ -340,16 +355,32 @@ const CreateRecipeTwo = () => {
 
   const getHopsDetails = () => {
     useEffect(() => {
-      axios
-        .get(
-          "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops"
-        )
-        .then((response) => {
+      // Define the async function
+      const fetchHops = async () => {
+        try {
+          // Replace with actual logic to get the token
+          const idToken = "your-id-token-here";
+
+          // Make the API request with the token in headers
+          const response = await axios.get(
+            "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops",
+            {
+              headers: {
+                Authorization: `Bearer ${idToken}`,
+              },
+            }
+          );
+
+          // Update the state with the fetched data
           setHopsOptions(response.data);
-        })
-        .catch((error) => {
+        } catch (error) {
+          // Handle errors
           console.error("Error fetching hops data:", error);
-        });
+        }
+      };
+
+      // Call the async function
+      fetchHops();
     }, []);
 
     if (hopsAmount > 0) {
@@ -495,17 +526,34 @@ const CreateRecipeTwo = () => {
 
   const getYeastDetails = () => {
     useEffect(() => {
-      axios
-        .get(
-          "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts"
-        )
-        .then((response) => {
+      // Define the async function
+      const fetchYeasts = async () => {
+        try {
+          // Replace with actual logic to get the token
+          const idToken = "your-id-token-here";
+
+          // Make the API request with the token in headers
+          const response = await axios.get(
+            "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts",
+            {
+              headers: {
+                Authorization: `Bearer ${idToken}`,
+              },
+            }
+          );
+
+          // Update the state with the fetched data
           setYeastOptions(response.data);
-        })
-        .catch((error) => {
+        } catch (error) {
+          // Handle errors
           console.error("Error fetching yeasts data:", error);
-        });
+        }
+      };
+
+      // Call the async function
+      fetchYeasts();
     }, []);
+
     if (yeastAmount > 0) {
       return yeastDetails.map((_, index) => (
         <View key={index} style={{ marginTop: 2 }}>

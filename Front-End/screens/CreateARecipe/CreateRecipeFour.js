@@ -101,25 +101,27 @@ const CreateRecipeFour = () => {
 
     const url = "https://brewtothefuture.azurewebsites.net/api/brew/recipe/add";
 
-    (async () => {
-      try {
-        const response = await axios.post(url, recipeObj, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+    try {
+      // Replace with actual logic to get the token
+      const idToken = "your-id-token-here";
 
-        if (response.status === 200) {
-          console.log("Recipe created successfully!");
-          console.log(response.data);
-        } else {
-          console.error(`Error: ${response.status}`);
-          console.error(response.data);
-        }
-      } catch (error) {
-        console.error("Error:", error);
+      const response = await axios.post(url, recipeObj, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${idToken}`, // Include the token in the headers
+        },
+      });
+
+      if (response.status === 200) {
+        console.log("Recipe created successfully!");
+        console.log(response.data);
+      } else {
+        console.error(`Error: ${response.status}`);
+        console.error(response.data);
       }
-    })();
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   const handleNavigation = (screenName) => {

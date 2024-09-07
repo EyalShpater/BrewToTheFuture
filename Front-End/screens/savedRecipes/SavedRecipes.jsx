@@ -23,65 +23,127 @@ const SavedRecipes = () => {
   const [yeastsNames, setYeastsNames] = useState([]);
   const route = useRoute();
   const { userId } = route.params;
+  {
+    console.log(userId);
+  }
 
   useEffect(() => {
-    axios
-      .get(
-        `https://brewtothefuture.azurewebsites.net/api/brew/recipes/${userId}`
-      )
-      .then((response) => {
+    const fetchRecipes = async () => {
+      try {
+        // Replace with actual logic to get the token
+        const idToken = "your-id-token-here";
+
+        const response = await axios.get(
+          `https://brewtothefuture.azurewebsites.net/api/brew/recipes/${userId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${idToken}`, // Include the token in the headers
+            },
+          }
+        );
+
         setRecipes(response.data); // Assuming the API returns a single recipe object
         setLoading(false); // Set loading to false once data is fetched
-      })
-      .catch((error) => {
-        console.error(error);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
         setLoading(false); // Set loading to false in case of error
-      });
-  }, []);
+      }
+    };
 
-  const fetchFermentableNames = (fermentables) => {
-    const namesPromises = fermentables.map((fermentable) =>
-      axios
-        .get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`
-        )
-        .then((response) => response.data.name)
-    );
+    fetchRecipes();
+  }, [userId]);
 
-    return Promise.all(namesPromises).then((names) => {
-      setFermentablesNames(names);
+  // const fetchFermentableNames = (fermentables) => {
+  //   const namesPromises = fermentables.map((fermentable) =>
+  //     axios
+  //       .get(
+  //         `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`
+  //       )
+  //       .then((response) => response.data.name)
+  //   );
+
+  //   return Promise.all(namesPromises).then((names) => {
+  //     setFermentablesNames(names);
+  //     return names;
+  //   });
+  // };
+
+  const fetchFermentableNames = async (fermentables) => {
+    try {
+      // Replace with actual logic to get the token
+      const idToken = "your-id-token-here";
+
+      const namesPromises = fermentables.map((fermentable) =>
+        axios
+          .get(
+            `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${idToken}`, // Include the token in the headers
+              },
+            }
+          )
+          .then((response) => response.data.name)
+      );
+
+      const names = await Promise.all(namesPromises);
+      setFermentablesNames(names); // Update state with fetched names
       return names;
-    });
+    } catch (error) {
+      console.error("Error fetching fermentable names:", error);
+    }
   };
 
-  const fetchHopsNames = (hops) => {
-    const namesPromises = hops.map((hop) =>
-      axios
-        .get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops/${hop.id}`
-        )
-        .then((response) => response.data.name)
-    );
+  const fetchHopsNames = async (hops) => {
+    try {
+      // Replace with actual logic to get the token
+      const idToken = "your-id-token-here";
 
-    return Promise.all(namesPromises).then((names) => {
+      const namesPromises = hops.map((hop) =>
+        axios
+          .get(
+            `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops/${hop.id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${idToken}`, // Include the token in the headers
+              },
+            }
+          )
+          .then((response) => response.data.name)
+      );
+
+      const names = await Promise.all(namesPromises);
       setHopsNames(names);
       return names;
-    });
+    } catch (error) {
+      console.error("Error fetching hops names:", error);
+    }
   };
 
-  const fetchYeastNames = (yeasts) => {
-    const namesPromises = yeasts.map((yeast) =>
-      axios
-        .get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts/${yeast.id}`
-        )
-        .then((response) => response.data.name)
-    );
+  const fetchYeastNames = async (yeasts) => {
+    try {
+      // Replace with actual logic to get the token
+      const idToken = "your-id-token-here";
 
-    return Promise.all(namesPromises).then((names) => {
+      const namesPromises = yeasts.map((yeast) =>
+        axios
+          .get(
+            `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts/${yeast.id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${idToken}`, // Include the token in the headers
+              },
+            }
+          )
+          .then((response) => response.data.name)
+      );
+
+      const names = await Promise.all(namesPromises);
       setYeastsNames(names);
       return names;
-    });
+    } catch (error) {
+      console.error("Error fetching yeast names:", error);
+    }
   };
 
   const openModal = (recipe) => {
@@ -284,19 +346,29 @@ const SavedRecipes = () => {
     },
   ];
 
-  const handleDelete = (userId, recipeId) => {
-    axios
-      .delete(
-        `https://brewtothefuture.azurewebsites.net/api/${userId}/brew/recipe/${recipeId}`
-      )
-      .then(() => {
-        setRecipes((prevRecipes) =>
-          prevRecipes.filter((recipe) => recipe.id !== recipeId)
-        );
-      })
-      .catch((error) => {
-        console.error("Error deleting recipe:", error);
-      });
+  const handleDelete = async (userId, recipeId) => {
+    try {
+      // Replace with actual logic to get the token
+      const idToken = "your-id-token-here";
+
+      await axios.delete(
+        `https://brewtothefuture.azurewebsites.net/api/${userId}/brew/recipe/${recipeId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${idToken}`, // Include the token in the headers
+          },
+        }
+      );
+
+      // Update the state to remove the deleted recipe
+      setRecipes((prevRecipes) =>
+        prevRecipes.filter((recipe) => recipe.id !== recipeId)
+      );
+
+      console.log("Recipe deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting recipe:", error);
+    }
   };
 
   const renderHeader = () => (
@@ -312,19 +384,26 @@ const SavedRecipes = () => {
     return date.toLocaleDateString(); // This will return the date and time in a readable format
   };
 
-  const handlePlayPress = (userId, recipeId) => {
-    axios
-      .post(
-        `https://brewtothefuture.azurewebsites.net/api/${userId}/brew/recipe/${recipeId}`
-      )
-      .then((response) => {
-        console.log("POST request successful:", response.data);
+  const handlePlayPress = async (userId, recipeId) => {
+    try {
+      // Replace with actual logic to get the token
+      const idToken = "your-id-token-here";
 
-        navigation.navigate(Brew, { recipeId });
-      })
-      .catch((error) => {
-        console.error("Error sending POST request:", error);
-      });
+      const response = await axios.post(
+        `https://brewtothefuture.azurewebsites.net/api/${userId}/brew/recipe/${recipeId}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${idToken}`, // Include the token in the headers
+          },
+        }
+      );
+
+      console.log("POST request successful:", response.data);
+      navigation.navigate(Brew, { recipeId });
+    } catch (error) {
+      console.error("Error sending POST request:", error);
+    }
   };
 
   return (

@@ -68,12 +68,18 @@ const Brew = () => {
     // Fetch the data from the API
     const fetchBrewData = async () => {
       try {
+        // Replace with actual logic to get the token
+        const idToken = "your-id-token-here";
+
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/ilwejkrfhiuy4o3y4ljkblkdj/brew/data/latest`
+          `https://brewtothefuture.azurewebsites.net/api/ilwejkrfhiuy4o3y4ljkblkdj/brew/data/latest`,
+          {
+            headers: {
+              Authorization: `Bearer ${idToken}`, // Include the token in the headers
+            },
+          }
         );
-        // const response = await axios.get(
-        //   `https://brewtothefuture.azurewebsites.net/{userId}/api/brew/data/latest`
-        // );
+
         setBrewData(response.data); // Save the fetched data to state
       } catch (error) {
         console.error("Error fetching brew data:", error);
@@ -90,12 +96,21 @@ const Brew = () => {
     // Fetch the data from the API
     const fetchBrewData = async () => {
       try {
+        // Replace with actual logic to get the token
+        const idToken = "your-id-token-here";
+
+        // Replace with actual recipeId from props or state
+        const recipeId = 652; // Update this with your dynamic recipe ID if needed
+
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/652`
+          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${recipeId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${idToken}`, // Include the token in the headers
+            },
+          }
         );
-        // const response = await axios.get(
-        // `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/{recipeId}`;
-        // );
+
         setRecipeData(response.data); // Save the fetched data to state
       } catch (error) {
         console.error("Error fetching brew data:", error);
@@ -105,7 +120,6 @@ const Brew = () => {
     };
 
     fetchBrewData();
-    // }, [brewData.recipeId]);
   }, []);
 
   useEffect(() => {
