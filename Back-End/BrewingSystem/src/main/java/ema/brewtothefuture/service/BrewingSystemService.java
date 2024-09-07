@@ -10,6 +10,7 @@ import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.embedded.FermentationReportDTO;
 import ema.brewtothefuture.dto.front.NotificationDTO;
+import ema.brewtothefuture.dto.front.RatingDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.api.BrewingStatus;
@@ -36,11 +37,13 @@ public class BrewingSystemService implements BrewingSystem {
     private final FermentationReportRepository fermentationReportRepository;
     private final BrewRepository               brewRepository;
     private final DeviceRepository deviceRepository;
+    private final RatingRepository ratingRepository;
 
     @Autowired
     public BrewingSystemService(StyleRepository styleRepository, RecipeService recipeService,
                                 BrewProcessService brewProcessService, BrewingReportRepository brewingReportRepository, BrewRepository brewRepository,
-                                FermentationReportRepository fermentationReportRepository, DeviceRepository deviceRepository) {
+                                FermentationReportRepository fermentationReportRepository, DeviceRepository deviceRepository,
+                                RatingRepository ratingRepository) {
         this.styleRepository = styleRepository;
         this.recipeService = recipeService;
         this.brewProcessService = brewProcessService;
@@ -48,6 +51,7 @@ public class BrewingSystemService implements BrewingSystem {
         this.brewRepository = brewRepository;
         this.fermentationReportRepository = fermentationReportRepository;
         this.deviceRepository = deviceRepository;
+        this.ratingRepository = ratingRepository;
     }
 
     @Override
@@ -134,6 +138,39 @@ public class BrewingSystemService implements BrewingSystem {
     @Override
     public List<BrewingReportDTO> getBrewingReport(String userId) {
         return brewProcessService.getBrewHistory(userId);
+    }
+
+    @Override
+    public void addRating(String userId, int recipeId, double rating) {
+        RatingDB ratingDB = ratingRepository.getRatingByRecipeIdAndUserId(recipeId, userId);
+
+        if (ratingDB == null) {
+            ratingDB = new RatingDB();
+            ratingDB.setRating(rating);
+            ratingDB.setUserId(userId);
+            ratingDB.setRecipe(recipeService.getRecipeDB(recipeId));
+        } else {
+            ratingDB.setRating(rating);
+        }
+
+        ratingRepository.save(ratingDB);
+    }
+
+    @Override
+    public void addComment(String userId, int recipeId, String comment) {
+        RatingDB ratingDB = ratingRepository.getRatingByRecipeIdAndUserId(recipeId, userId);
+
+        if (ratingDB == null) {
+            ratingDB = new RatingDB();
+            ratingDB.setReview(comment);
+            ratingDB.setUserId(userId);
+            ratingDB.setRecipe(recipeService.getRecipeDB(recipeId));
+        } else {
+            ratingDB.setReview(comment);
+            ratingDB.setReviewDate(System.currentTimeMillis());
+        }
+
+        ratingRepository.save(ratingDB);
     }
 
     @Override
@@ -274,6 +311,18 @@ public class BrewingSystemService implements BrewingSystem {
         }
 
         return device.getUserId();
+    }
+
+    @Override
+    public List<RatingDTO> getRatings(int recipeId) {
+        return ratingRepository.getRatingByRecipeId(recipeId).stream()
+                               .map(RatingDB::convertToDTO)
+                               .collect(Collectors.toList());
+    }
+
+    @Override
+    public RatingDB getRating(String userId, int recipeId) {
+        return ratingRepository.getRatingByRecipeIdAndUserId(recipeId, userId);
     }
 
     /****** debug methods *****/
