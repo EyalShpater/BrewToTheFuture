@@ -17,6 +17,31 @@ import Register from "../screens/register/Register";
 import registerNNPushToken from "native-notify";
 import { registerForPushNotificationsAsync } from "../utils/notifications";
 import * as Notifications from "expo-notifications";
+import { ID_TOKEN } from "../utils/idToken";
+
+const [userId, setUserId] = useState(null);
+
+useEffect(() => {
+  const fetchUserId = async () => {
+    try {
+      const response = await axios.get(
+        "https://brewtothefuture.azurewebsites.net/user/details",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${ID_TOKEN}`, // Pass the token in Authorization header
+          },
+        }
+      );
+
+      setUserId(response.data); // Assuming the API returns userId in response.data
+    } catch (error) {
+      console.error("Error fetching userId:", error);
+    }
+  };
+
+  fetchUserId();
+}, []);
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -35,11 +60,12 @@ const HomeStack = () => {
     const pollNotifications = async () => {
       try {
         const response = await fetch(
-          "https://brewtothefuture.azurewebsites.net/api/notification/ilwejkrfhiuy4o3y4ljkblkdj",
+          "https://brewtothefuture.azurewebsites.net/api/notification",
           {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
+              Authorization: `Bearer ${ID_TOKEN}`, // Include the idToken here
             },
           }
         );
@@ -51,7 +77,7 @@ const HomeStack = () => {
             content: {
               title: "Brew To The Future",
               body: data.message,
-              data: { userId: "ilwejkrfhiuy4o3y4ljkblkdj" },
+              data: { userId },
             },
             trigger: null, // Immediate notification
           });
@@ -70,7 +96,7 @@ const HomeStack = () => {
   }, []);
 
   // Register native-notify push token
-  registerNNPushToken(22838, "j8DkJVYmAbfUq04B2jEvYB");
+  registerNNPushToken(22838, userId);
 
   return (
     <Stack.Navigator

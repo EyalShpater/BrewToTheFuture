@@ -15,6 +15,7 @@ import styles from "./CreateRecipe.style";
 import { images } from "../../constants";
 import axios from "axios";
 import { Picker } from "@react-native-picker/picker";
+import { ID_TOKEN } from "../../utils/idToken.js";
 
 const CreateRecipeOne = () => {
   const [recipeName, setRecipeName] = useState("");
@@ -51,32 +52,22 @@ const CreateRecipeOne = () => {
 
   const getMethod = () => {
     useEffect(() => {
-      // Define the async function
       const fetchMethods = async () => {
         try {
-          // Replace with actual logic to get the token
-          const idToken =
-            "eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ3YjkzOTc3MWE3ODAwYzQxM2Y5MDA1MTAxMmQ5NzU5ODE5MTZkNzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzMTkyNjA5MTQxOTM4ODIwMDUzIiwiZW1haWwiOiJhZGlrYXAxOTA0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoic3FDYXh6Wkp3QjRwcm1Wb2VFTl9kZyIsImlhdCI6MTcyNTcwNzUyNywiZXhwIjoxNzI1NzExMTI3fQ.pXYud-RVoS6_pkTgm2JZEsQLkSksNNFaSQtjlp3aDzT9BRMHLDgB3VJxthoLj4p6GYVLs8cftSBfp9bezAeBEGaDgdF83DXlz2efQ0v2GuW2uEX4NlW-rIIIAFnT_aIUDKdrK3Ys7vLG0nTtIcOnGRbScONQTxpRObsd_se62IXuGBEvXB0rPyecq7uwpgM-aWIalnYUt-eERH794VCu2UZobZo_B1kw46Hzuyl6n-BnehOBHtxlJcFOWHGV9AdyCa2xPHVVjQ3YVBCJMSMWVISYtoCqlQNuYz7W-Gsg2N6yq96uYTTQ2JTGEHHDpskwgE_F1IJZGtn_-A1kxrkVfg";
-
-          // Make the API request with the token in headers
           const response = await axios.get(
             "https://brewtothefuture.azurewebsites.net/api/brew/methods",
             {
               headers: {
-                Authorization: `Bearer ${idToken}`,
+                Authorization: `Bearer ${ID_TOKEN}`,
               },
             }
           );
-
-          // Update the state with the fetched data
           setMethodsData(response.data);
         } catch (error) {
-          // Handle errors
           console.error("Error fetching methods:", error);
         }
       };
 
-      // Call the async function
       fetchMethods();
     }, []);
 
@@ -140,29 +131,21 @@ const CreateRecipeOne = () => {
       // Define the async function
       const fetchStyles = async () => {
         try {
-          // Replace with actual logic to get the token
-          const idToken =
-            "eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ3YjkzOTc3MWE3ODAwYzQxM2Y5MDA1MTAxMmQ5NzU5ODE5MTZkNzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzMTkyNjA5MTQxOTM4ODIwMDUzIiwiZW1haWwiOiJhZGlrYXAxOTA0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoic3FDYXh6Wkp3QjRwcm1Wb2VFTl9kZyIsImlhdCI6MTcyNTcwNzUyNywiZXhwIjoxNzI1NzExMTI3fQ.pXYud-RVoS6_pkTgm2JZEsQLkSksNNFaSQtjlp3aDzT9BRMHLDgB3VJxthoLj4p6GYVLs8cftSBfp9bezAeBEGaDgdF83DXlz2efQ0v2GuW2uEX4NlW-rIIIAFnT_aIUDKdrK3Ys7vLG0nTtIcOnGRbScONQTxpRObsd_se62IXuGBEvXB0rPyecq7uwpgM-aWIalnYUt-eERH794VCu2UZobZo_B1kw46Hzuyl6n-BnehOBHtxlJcFOWHGV9AdyCa2xPHVVjQ3YVBCJMSMWVISYtoCqlQNuYz7W-Gsg2N6yq96uYTTQ2JTGEHHDpskwgE_F1IJZGtn_-A1kxrkVfg";
-
           // Make the API request with the token in headers
           const response = await axios.get(
             "https://brewtothefuture.azurewebsites.net/api/brew/styles",
             {
               headers: {
-                Authorization: `Bearer ${idToken}`,
+                Authorization: `Bearer ${ID_TOKEN}`,
               },
             }
           );
-
-          // Update the state with the fetched data
           setStylesData(response.data);
         } catch (error) {
-          // Handle errors
           console.error("Error fetching styles:", error);
         }
       };
 
-      // Call the async function
       fetchStyles();
     }, []);
 

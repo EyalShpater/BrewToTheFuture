@@ -12,6 +12,7 @@ import {
   FlatList,
   ScrollView,
 } from "react-native";
+import { ID_TOKEN } from "../../utils/idToken.js";
 
 const SavedRecipes = () => {
   const navigation = useNavigation();
@@ -23,30 +24,24 @@ const SavedRecipes = () => {
   const [yeastsNames, setYeastsNames] = useState([]);
   const route = useRoute();
   const { userId } = route.params;
-  {
-    console.log(userId);
-  }
 
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        // Replace with actual logic to get the token
-        const idToken = "your-id-token-here";
-
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/recipes/${userId}`,
+          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/user`,
           {
             headers: {
-              Authorization: `Bearer ${idToken}`, // Include the token in the headers
+              Authorization: `Bearer ${ID_TOKEN}`,
             },
           }
         );
 
-        setRecipes(response.data); // Assuming the API returns a single recipe object
-        setLoading(false); // Set loading to false once data is fetched
+        setRecipes(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching recipes:", error);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false);
       }
     };
 
@@ -70,16 +65,13 @@ const SavedRecipes = () => {
 
   const fetchFermentableNames = async (fermentables) => {
     try {
-      // Replace with actual logic to get the token
-      const idToken = "your-id-token-here";
-
       const namesPromises = fermentables.map((fermentable) =>
         axios
           .get(
             `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`,
             {
               headers: {
-                Authorization: `Bearer ${idToken}`, // Include the token in the headers
+                Authorization: `Bearer ${ID_TOKEN}`,
               },
             }
           )
@@ -87,7 +79,7 @@ const SavedRecipes = () => {
       );
 
       const names = await Promise.all(namesPromises);
-      setFermentablesNames(names); // Update state with fetched names
+      setFermentablesNames(names);
       return names;
     } catch (error) {
       console.error("Error fetching fermentable names:", error);
@@ -96,16 +88,13 @@ const SavedRecipes = () => {
 
   const fetchHopsNames = async (hops) => {
     try {
-      // Replace with actual logic to get the token
-      const idToken = "your-id-token-here";
-
       const namesPromises = hops.map((hop) =>
         axios
           .get(
             `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops/${hop.id}`,
             {
               headers: {
-                Authorization: `Bearer ${idToken}`, // Include the token in the headers
+                Authorization: `Bearer ${ID_TOKEN}`,
               },
             }
           )
@@ -122,16 +111,13 @@ const SavedRecipes = () => {
 
   const fetchYeastNames = async (yeasts) => {
     try {
-      // Replace with actual logic to get the token
-      const idToken = "your-id-token-here";
-
       const namesPromises = yeasts.map((yeast) =>
         axios
           .get(
             `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts/${yeast.id}`,
             {
               headers: {
-                Authorization: `Bearer ${idToken}`, // Include the token in the headers
+                Authorization: `Bearer ${ID_TOKEN}`,
               },
             }
           )
@@ -348,23 +334,17 @@ const SavedRecipes = () => {
 
   const handleDelete = async (userId, recipeId) => {
     try {
-      // Replace with actual logic to get the token
-      const idToken = "your-id-token-here";
-
       await axios.delete(
-        `https://brewtothefuture.azurewebsites.net/api/${userId}/brew/recipe/${recipeId}`,
+        `https://brewtothefuture.azurewebsites.net/api/brew/recipe/${recipeId}`,
         {
           headers: {
-            Authorization: `Bearer ${idToken}`, // Include the token in the headers
+            Authorization: `Bearer ${ID_TOKEN}`,
           },
         }
       );
-
-      // Update the state to remove the deleted recipe
       setRecipes((prevRecipes) =>
         prevRecipes.filter((recipe) => recipe.id !== recipeId)
       );
-
       console.log("Recipe deleted successfully!");
     } catch (error) {
       console.error("Error deleting recipe:", error);
@@ -386,15 +366,12 @@ const SavedRecipes = () => {
 
   const handlePlayPress = async (userId, recipeId) => {
     try {
-      // Replace with actual logic to get the token
-      const idToken = "your-id-token-here";
-
       const response = await axios.post(
-        `https://brewtothefuture.azurewebsites.net/api/${userId}/brew/recipe/${recipeId}`,
+        `https://brewtothefuture.azurewebsites.net/api/brew/recipe/${recipeId}`,
         {},
         {
           headers: {
-            Authorization: `Bearer ${idToken}`, // Include the token in the headers
+            Authorization: `Bearer ${ID_TOKEN}`,
           },
         }
       );

@@ -20,18 +20,128 @@ import router from "expo-router";
 import * as Notifications from "expo-notifications";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import { ID_TOKEN } from "../../utils/idToken.js";
 
 // const searchTypes = ["My beers", "My brewing history"];
+
+const ModalBrew = () => {
+  const [brewData, setBrewData] = useState([]);
+  const [recipeData, setRecipeData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigation = useNavigation();
+
+  // const [brewingSession, setBrewingSession] = useState({
+  //   beerName: "Maredsous",
+  //   currentStep: "Boiling",
+  //   timeRemaining: "40 minutes",
+  // });
+
+  useEffect(() => {
+    // Fetch the data from the API
+    const fetchBrewData = async () => {
+      try {
+        const response = await axios.get(
+          `https://brewtothefuture.azurewebsites.net/api/brew/data/latest`,
+          {
+            headers: {
+              Authorization: `Bearer ${ID_TOKEN}`,
+            },
+          }
+        );
+
+        setBrewData(response.data);
+      } catch (error) {
+        console.error("Error fetching brew data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBrewData();
+    // }, [userId]);
+  }, []);
+
+  useEffect(() => {
+    // Fetch the data from the API
+    const fetchBrewData = async () => {
+      try {
+        const recipeId = 652;
+
+        const response = await axios.get(
+          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${recipeId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${ID_TOKEN}`,
+            },
+          }
+        );
+
+        setRecipeData(response.data);
+      } catch (error) {
+        console.error("Error fetching brew data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBrewData();
+  }, []);
+
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>Loading...</Text>
+      </SafeAreaView>
+    );
+  }
+
+  if (!brewData) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>No data available</Text>
+      </SafeAreaView>
+    );
+  }
+
+  const calculateTimeDifference = (stepStartTime) => {
+    const currentTime = Date.now();
+    const timeDifference = currentTime - stepStartTime;
+
+    const date = new Date(timeDifference);
+
+    // Extract hours and minutes from the Date object
+    const hours = date.getUTCHours(); // Use getUTCHours to handle the difference correctly
+    const minutes = date.getUTCMinutes(); // Use getUTCMinutes for consistent time
+
+    // Return the formatted time as a string
+    return `${hours}h ${minutes}m`;
+  };
+
+  return (
+    <View>
+      <TouchableOpacity
+        style={styles.brewingSessionContainer}
+        onPress={() => navigation.navigate("Brew")}
+      >
+        <Text style={styles.brewingSessionTitle}>Current Brewing Session</Text>
+        <Text style={styles.brewingSessionDetail}>
+          Beer Name: {recipeData.recipe_name}
+        </Text>
+        <Text style={styles.brewingSessionDetail}>
+          Current Step: {brewData.current_step}
+        </Text>
+        <Text style={styles.brewingSessionDetail}>
+          Time Remaining: {calculateTimeDifference(brewData.step_start_time)}
+        </Text>
+        <Text style={styles.seeMoreText}>Touch to see more</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 const Welcome = () => {
   // const [activeChoice, setActiveChoice] = useState("Explore new beers");
   const [notificationMessage, setNotificationMessage] = useState(null);
-  const [brewingSession, setBrewingSession] = useState({
-    beerName: "Maredsous",
-    currentStep: "Boiling",
-    timeRemaining: "40 minutes",
-  });
-  const navigation = useNavigation();
 
   useEffect(() => {
     const subscription = Notifications.addNotificationReceivedListener(
@@ -96,22 +206,7 @@ const Welcome = () => {
         />
       </View> */}
 
-      <TouchableOpacity
-        style={styles.brewingSessionContainer}
-        onPress={() => navigation.navigate("Brew")}
-      >
-        <Text style={styles.brewingSessionTitle}>Current Brewing Session</Text>
-        <Text style={styles.brewingSessionDetail}>
-          Beer Name: {brewingSession.beerName}
-        </Text>
-        <Text style={styles.brewingSessionDetail}>
-          Current Step: {brewingSession.currentStep}
-        </Text>
-        <Text style={styles.brewingSessionDetail}>
-          Time Remaining: {brewingSession.timeRemaining}
-        </Text>
-        <Text style={styles.seeMoreText}>Touch to see more</Text>
-      </TouchableOpacity>
+      <ModalBrew />
 
       {notificationMessage && (
         <View style={styles.notificationContainer}>

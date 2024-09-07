@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { images } from "../../constants";
 import axios from "axios";
+import { ID_TOKEN } from "../../utils/idToken.js";
 
 const CreateRecipeFour = () => {
   const navigation = useNavigation();
@@ -102,13 +103,10 @@ const CreateRecipeFour = () => {
     const url = "https://brewtothefuture.azurewebsites.net/api/brew/recipe/add";
 
     try {
-      // Replace with actual logic to get the token
-      const idToken = "your-id-token-here";
-
       const response = await axios.post(url, recipeObj, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${idToken}`, // Include the token in the headers
+          Authorization: `Bearer ${ID_TOKEN}`,
         },
       });
 
