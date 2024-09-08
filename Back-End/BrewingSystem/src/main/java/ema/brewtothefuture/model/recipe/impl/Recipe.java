@@ -19,7 +19,7 @@ public class Recipe {
     private List<Fermentable>  fermentables;
     private List<Hop>          hops;
     private List<Yeast>        yeast;
-    private double             rating;
+    //    private double             rating;
     private int                votes;
     private int                views;
 
@@ -37,8 +37,8 @@ public class Recipe {
 
     public Recipe(RecipeDB recipe) {
         this.recipeId = recipe.getId();
-        this.rating = recipe.getRating();
-        this.votes = recipe.getVotes();
+//        this.rating = recipe.getRating();
+//        this.votes = recipe.getVotes();
         this.views = recipe.getViews();
         this.metaData = new MetaData(recipe.getUserID(),
                                      recipe.getRecipeName(),
@@ -59,9 +59,9 @@ public class Recipe {
     }
 
     public Recipe(RecipeDTO recipeDTO) {
-        this.rating = 0;
-        this.votes = 0;
-        this.views = 0;
+//        this.rating = 0;
+//        this.votes = 0;
+//        this.views = 0;
         this.metaData = new MetaData(recipeDTO.user_id(),
                                      recipeDTO.recipe_name(),
                                      BrewMethod.fromString(recipeDTO.method()),
@@ -120,9 +120,9 @@ public class Recipe {
         return metaData.authorId();
     }
 
-    public double getRating() {
-        return rating;
-    }
+//    public double getRating() {
+//        return rating;
+//    }
 
     public int getVotes() {
         return votes;
@@ -156,9 +156,9 @@ public class Recipe {
         return yeast;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
+//    public void setRating(double rating) {
+//        this.rating = rating;
+//    }
 
     public void setVotes(int votes) {
         this.votes = votes;
