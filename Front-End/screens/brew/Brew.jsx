@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
+import { ID_TOKEN } from "../../utils/idToken.js";
 
 const data = [
   {
@@ -58,29 +59,25 @@ const HorizontalTimeline = () => {
 const Brew = () => {
   const navigation = useNavigation();
   const [temperature, setTemperature] = useState(50);
-  const route = useRoute();
-  // const { userId, recipeId } = route.params;
+  // const route = useRoute();
+  // const { recipeId } = route.params;
   const [brewData, setBrewData] = useState([]);
   const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch the data from the API
     const fetchBrewData = async () => {
       try {
-        // Replace with actual logic to get the token
-        const idToken = "your-id-token-here";
-
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/ilwejkrfhiuy4o3y4ljkblkdj/brew/data/latest`,
+          `https://brewtothefuture.azurewebsites.net/api/brew/data/latest`,
           {
             headers: {
-              Authorization: `Bearer ${idToken}`, // Include the token in the headers
+              Authorization: `Bearer ${ID_TOKEN}`,
             },
           }
         );
 
-        setBrewData(response.data); // Save the fetched data to state
+        setBrewData(response.data);
       } catch (error) {
         console.error("Error fetching brew data:", error);
       } finally {
@@ -96,17 +93,13 @@ const Brew = () => {
     // Fetch the data from the API
     const fetchBrewData = async () => {
       try {
-        // Replace with actual logic to get the token
-        const idToken = "your-id-token-here";
-
-        // Replace with actual recipeId from props or state
-        const recipeId = 652; // Update this with your dynamic recipe ID if needed
+        const recipeId = 652;
 
         const response = await axios.get(
           `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${recipeId}`,
           {
             headers: {
-              Authorization: `Bearer ${idToken}`, // Include the token in the headers
+              Authorization: `Bearer ${ID_TOKEN}`, // Include the token in the headers
             },
           }
         );
@@ -122,45 +115,45 @@ const Brew = () => {
     fetchBrewData();
   }, []);
 
-  useEffect(() => {
-    // Simulate temperature change
-    const interval = setInterval(() => {
-      setTemperature((prevTemp) => (prevTemp >= 100 ? 0 : prevTemp + 10));
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   // useEffect(() => {
+  //   // Simulate temperature change
   //   const interval = setInterval(() => {
-  //     setBrewData((prevData) =>
-  //       prevData
-  //         ? {
-  //             ...prevData,
-  //             temperature_celsius: prevData.temperature_celsius,
-  //           }
-  //         : null
-  //     );
+  //     setTemperature((prevTemp) => (prevTemp >= 100 ? 0 : prevTemp + 10));
   //   }, 1000);
 
   //   return () => clearInterval(interval);
   // }, []);
 
-  // if (loading) {
-  //   return (
-  //     <SafeAreaView style={styles.container}>
-  //       <Text>Loading...</Text>
-  //     </SafeAreaView>
-  //   );
-  // }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBrewData((prevData) =>
+        prevData
+          ? {
+              ...prevData,
+              temperature_celsius: prevData.temperature_celsius,
+            }
+          : null
+      );
+    }, 1000);
 
-  // if (!brewData) {
-  //   return (
-  //     <SafeAreaView style={styles.container}>
-  //       <Text>No data available</Text>
-  //     </SafeAreaView>
-  //   );
-  // }
+    return () => clearInterval(interval);
+  }, []);
+
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>Loading...</Text>
+      </SafeAreaView>
+    );
+  }
+
+  if (!brewData) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>No data available</Text>
+      </SafeAreaView>
+    );
+  }
 
   const calculateTimeDifference = (stepStartTime) => {
     const currentTime = Date.now();
@@ -175,6 +168,7 @@ const Brew = () => {
     // Return the formatted time as a string
     return `${hours}h ${minutes}m`;
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -206,8 +200,7 @@ const Brew = () => {
         </View>
         <View style={styles.dataContainer}>
           <Text style={styles.instructions}>
-            Remaining step time:{" "}
-            {calculateTimeDifference(brewData.step_start_time)}
+            Time passed: {calculateTimeDifference(brewData.step_start_time)}
           </Text>
         </View>
         <Text style={styles.instructions}> Current temperature: </Text>
@@ -218,9 +211,6 @@ const Brew = () => {
           <TouchableOpacity style={styles.stopButton}>
             <Text style={styles.stopButtonText}>STOP BREWING</Text>
           </TouchableOpacity>
-          {/* <TouchableOpacity style={styles.pauseButton}>
-            <Text style={styles.pauseButtonText}>PAUSE BREWING</Text>
-          </TouchableOpacity> */}
         </View>
         <HorizontalTimeline />
       </ScrollView>

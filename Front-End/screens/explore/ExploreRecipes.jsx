@@ -12,6 +12,7 @@ import {
   FlatList,
   Button,
 } from "react-native";
+import { ID_TOKEN } from "../../utils/idToken";
 
 const ExploreRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -60,13 +61,11 @@ const ExploreRecipes = () => {
     // Define the async function
     const fetchData = async () => {
       try {
-        const idToken =
-          "eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ3YjkzOTc3MWE3ODAwYzQxM2Y5MDA1MTAxMmQ5NzU5ODE5MTZkNzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ5NTA0ODA0MjQwLWpwbjdodDY3NjFkaGYyNzlidXU4ZmdxZ29mOTBjamUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzMTkyNjA5MTQxOTM4ODIwMDUzIiwiZW1haWwiOiJhZGlrYXAxOTA0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoibVJKX3JDRjQ1cmJQV0NwbTZCSmx5dyIsImlhdCI6MTcyNTcwMzkzOSwiZXhwIjoxNzI1NzA3NTM5fQ.fOTiDRv2vcmoyCf-2OItHl3E3PhzacthmGGVnI6A6sSqXH-3CQPPQCY98lJwYZxuaO4NwitZTr1VxzZK9TY06uhMmdYOVduW75C6PSmAbuN0qdXKHawnKPBf1omKRJ01bcDb39Anpue_q5VbmUs92l7y3QWXTTWnFV_dEbdaOHZ66-8Q0SAHExLSYhvVMxB6V3Z9SQLJI3jhgF5JTbhYjtGmeivh-WisaNp4Veq6qcd2cRve_gI6zeLVzpXk64YWlRJVvnYnD_oLQCtdVKjyXa4NH1tJbyCC6t7goLg8eFdEbUPBLjvciSQwYz4dbaWU-LfkozUGQllhCllw3AXR-A";
         const response = await axios.get(
-          "https://brewtothefuture.azurewebsites.net/api/brew/recipes/all",
+          "https://brewtothefuture.azurewebsites.net/api/brew/recipe/all",
           {
             headers: {
-              Authorization: `Bearer ${idToken}`,
+              Authorization: `Bearer ${ID_TOKEN}`,
             },
           }
         );
@@ -86,49 +85,76 @@ const ExploreRecipes = () => {
     fetchData();
   }, []);
 
-  const fetchFermentableNames = (fermentables) => {
+  const fetchFermentableNames = async (fermentables) => {
     const namesPromises = fermentables.map((fermentable) =>
       axios
         .get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`
+          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${ID_TOKEN}`,
+            },
+          }
         )
         .then((response) => response.data.name)
     );
 
-    return Promise.all(namesPromises).then((names) => {
-      setFermentablesNames(names);
-      return names;
-    });
+    return Promise.all(namesPromises)
+      .then((names) => {
+        setFermentablesNames(names);
+        return names;
+      })
+      .catch((error) => {
+        console.error("Error fetching fermentable names:", error);
+      });
   };
 
-  const fetchHopsNames = (hops) => {
+  const fetchHopsNames = async (hops) => {
     const namesPromises = hops.map((hop) =>
       axios
         .get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops/${hop.id}`
+          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops/${hop.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${ID_TOKEN}`,
+            },
+          }
         )
         .then((response) => response.data.name)
     );
 
-    return Promise.all(namesPromises).then((names) => {
-      setHopsNames(names);
-      return names;
-    });
+    return Promise.all(namesPromises)
+      .then((names) => {
+        setHopsNames(names);
+        return names;
+      })
+      .catch((error) => {
+        console.error("Error fetching hops names:", error);
+      });
   };
 
-  const fetchYeastNames = (yeasts) => {
+  const fetchYeastNames = async (yeasts) => {
     const namesPromises = yeasts.map((yeast) =>
       axios
         .get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts/${yeast.id}`
+          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts/${yeast.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${ID_TOKEN}`,
+            },
+          }
         )
         .then((response) => response.data.name)
     );
 
-    return Promise.all(namesPromises).then((names) => {
-      setYeastsNames(names);
-      return names;
-    });
+    return Promise.all(namesPromises)
+      .then((names) => {
+        setYeastsNames(names);
+        return names;
+      })
+      .catch((error) => {
+        console.error("Error fetching yeast names:", error);
+      });
   };
 
   const openModal = (recipe) => {

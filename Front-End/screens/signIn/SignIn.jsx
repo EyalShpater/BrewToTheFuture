@@ -132,9 +132,7 @@ const SignIn = () => {
       );
 
       // If sign-in is successful, navigate to the "Welcome" screen
-      navigation.navigate("Welcome", {
-        userUid: userCredential.user.uid,
-      });
+      navigation.navigate("Welcome");
     } catch (error) {
       if (error.code === "auth/user-not-found") {
         // If the user does not exist, show an alert
