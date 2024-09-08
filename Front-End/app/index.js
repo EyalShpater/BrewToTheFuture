@@ -41,12 +41,12 @@ const HomeStack = () => {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${ID_TOKEN}`, // Pass the token in Authorization header
+              Authorization: `Bearer ${ID_TOKEN}`,
             },
           }
         );
 
-        setUserId(response.data); // Assuming the API returns userId in response.data
+        setUserId(response.data);
       } catch (error) {
         console.error("Error fetching userId:", error);
       }
@@ -66,7 +66,7 @@ const HomeStack = () => {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${ID_TOKEN}`, // Include the idToken here
+              Authorization: `Bearer ${ID_TOKEN}`,
             },
           }
         );

@@ -29,7 +29,6 @@ const ModalBrew = () => {
   useEffect(() => {
     const fetchBrewData = async () => {
       try {
-        // First GET request to fetch the latest brew data
         const response = await axios.get(
           `https://brewtothefuture.azurewebsites.net/api/brew/data/latest`,
           {
@@ -54,12 +53,12 @@ const ModalBrew = () => {
             }
           );
 
-          setRecipeData(recipeResponse.data); // Set the fetched recipe data
+          setRecipeData(recipeResponse.data);
         }
       } catch (error) {
         console.error("Error fetching brew or recipe data:", error);
       } finally {
-        setLoading(false); // Stop loading after both requests are completed
+        setLoading(false);
       }
     };
 
@@ -73,14 +72,6 @@ const ModalBrew = () => {
       </SafeAreaView>
     );
   }
-
-  // if (!brewData) {
-  //   return (
-  //     <SafeAreaView style={styles.container}>
-  //       <Text>No data available</Text>
-  //     </SafeAreaView>
-  //   );
-  // }
 
   const calculateTimeDifference = (stepStartTime) => {
     const currentTime = Date.now();
@@ -147,6 +138,27 @@ const Welcome = () => {
 
   const handleNotificationAction = () => {
     setNotificationMessage(null);
+    useEffect(() => {
+      const acceptNotification = async () => {
+        try {
+          const response = await axios.post(
+            "https://brewtothefuture.azurewebsites.net/api/brew/recipe/current_brewing/step/complete",
+            {},
+            {
+              headers: {
+                Authorization: `Bearer ${ID_TOKEN}`,
+              },
+            }
+          );
+
+          console.log("Step completed successfully:", response.data);
+        } catch (error) {
+          console.error("Error completing the current step:", error);
+        }
+      };
+
+      acceptNotification();
+    }, []);
   };
 
   return (
@@ -175,26 +187,6 @@ const Welcome = () => {
           />
         </TouchableOpacity>
       </View>
-
-      {/* <View style={styles.tabsContainer}>
-        <FlatList
-          data={searchTypes}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.tab(activeChoice, item)}
-              onPress={() => {
-                setActiveChoice(item);
-                router.push("/search/${item}");
-              }}
-            >
-              <Text style={styles.tabText(activeChoice, item)}>{item}</Text>
-            </TouchableOpacity>
-          )}
-          keyExtractor={(item) => item}
-          contentContainerStyle={{ columnGap: SIZES.small }}
-          horizontal
-        />
-      </View> */}
 
       <ModalBrew />
 
@@ -234,10 +226,8 @@ const Home = () => {
           <View style={{ flex: 1, padding: SIZES.medium }}>
             <Welcome />
           </View>
-          {/* <Savedrecipes /> */}
 
           <Bubbles />
-          {/* <NotificationButton /> */}
         </ScrollView>
       </SafeAreaView>
     </ImageBackground>
