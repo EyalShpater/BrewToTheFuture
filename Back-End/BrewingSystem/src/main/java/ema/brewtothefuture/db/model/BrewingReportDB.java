@@ -24,7 +24,7 @@ public class BrewingReportDB implements DTOConvertible<BrewingReportDTO> {
 
     public BrewingReportDB(BrewingReportDTO dto, BrewDB brew) {
         this.brew = brew;
-        this.user_id = dto.user_id();
+        this.user_id = brew.getUserId();
         this.timestamp = dto.timestamp();
         this.temperature_celsius = dto.temperature_celsius();
         this.current_step = dto.current_step();
@@ -41,6 +41,7 @@ public class BrewingReportDB implements DTOConvertible<BrewingReportDTO> {
         return new BrewingReportDTO(
                 brew.getId(),
                 user_id,
+                brew.getRecipe().getId(),
                 timestamp,
                 temperature_celsius,
                 current_step,
@@ -48,5 +49,9 @@ public class BrewingReportDB implements DTOConvertible<BrewingReportDTO> {
                 status_code,
                 error_message
         );
+    }
+
+    public void setUserId(String userId) {
+        this.user_id = userId;
     }
 }
