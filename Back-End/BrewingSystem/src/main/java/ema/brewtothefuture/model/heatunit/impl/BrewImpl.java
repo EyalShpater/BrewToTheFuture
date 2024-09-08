@@ -55,6 +55,7 @@ public class BrewImpl implements Brew {
         this.brewingReportInterval = TimeUnit.SECONDS.toMillis(5);
         this.fermentationReportInterval = TimeUnit.MINUTES.toMillis(5);
         this.brewValidator = new BrewValidator(notifications, brewId);
+        this.currentStepID = 1;
     }
 
     @Override
