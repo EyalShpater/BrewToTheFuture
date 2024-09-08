@@ -14,6 +14,7 @@ import ema.brewtothefuture.dto.front.RatingDTO;
 import ema.brewtothefuture.dto.front.RecipeDTO;
 import ema.brewtothefuture.model.heatunit.api.Brew;
 import ema.brewtothefuture.model.heatunit.api.BrewingStatus;
+import ema.brewtothefuture.model.heatunit.impl.BrewImpl;
 import ema.brewtothefuture.model.recipe.api.BrewMethod;
 import ema.brewtothefuture.model.recipe.impl.Recipe;
 import ema.brewtothefuture.model.system.api.BrewingSystem;
@@ -52,6 +53,8 @@ public class BrewingSystemService implements BrewingSystem {
         this.fermentationReportRepository = fermentationReportRepository;
         this.deviceRepository = deviceRepository;
         this.ratingRepository = ratingRepository;
+        BrewImpl.setBrewingReportRepository(brewingReportRepository);
+        BrewImpl.setBrewRepository(brewRepository);
     }
 
     @Override
@@ -122,14 +125,10 @@ public class BrewingSystemService implements BrewingSystem {
 
     @Override
     public void addBrewingReport(String deviceId, BrewingReportDTO report) {
-        BrewDB brew = brewRepository.findById(report.brew_id())
-                                    .orElse(null);
+        String userId = getUserIdByDeviceId(deviceId);
+        Brew brew = brewProcessService.getBrewInQueue(userId);
 
-        if (brew == null) {
-            throw new IllegalArgumentException("No brews for user " + report.user_id());
-        }
-
-        brewingReportRepository.save(new BrewingReportDB(report, brew));
+        brew.addBrewingReport(report);
     }
 
     @Override

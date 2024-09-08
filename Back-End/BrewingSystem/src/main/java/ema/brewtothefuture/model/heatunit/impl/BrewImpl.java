@@ -1,5 +1,9 @@
 package ema.brewtothefuture.model.heatunit.impl;
 
+import ema.brewtothefuture.db.model.BrewDB;
+import ema.brewtothefuture.db.model.BrewingReportDB;
+import ema.brewtothefuture.db.repository.BrewRepository;
+import ema.brewtothefuture.db.repository.BrewingReportRepository;
 import ema.brewtothefuture.dto.embedded.BrewingReportDTO;
 import ema.brewtothefuture.dto.embedded.EmbeddedRecipeDTO;
 import ema.brewtothefuture.dto.front.NotificationDTO;
@@ -14,23 +18,25 @@ import ema.brewtothefuture.model.recipe.impl.Recipe;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 public class BrewImpl implements Brew {
-    private final long                     brewId;
-    private final String                   userId;
-    private       Recipe                   recipe;
-    private       int                      currentStepID;
-    private       List<FermentationReport> fermentationReports;
-    private       BrewingReportDTO         lastBrewingReport;
-    private       Notification             notifications;
-    private       BrewingStatus            status;
-    private       long                     embeddedBrewingReportInterval;
-    private final long                     brewingReportInterval;
-    private final long                     fermentationReportInterval;
-    private final BrewValidator            brewValidator;
+    private final  long                     brewId;
+    private final  String                   userId;
+    private        Recipe                   recipe;
+    private        int                      currentStepID;
+    private        List<FermentationReport> fermentationReports;
+    private        BrewingReportDTO         lastBrewingReport;
+    private        Notification             notifications;
+    private        BrewingStatus            status;
+    private        long                     embeddedBrewingReportInterval;
+    private final  long                     brewingReportInterval;
+    private final  long                     fermentationReportInterval;
+    private        long                     lastReportTime;
+    private final  BrewValidator            brewValidator;
+    private static BrewingReportRepository  brewingReportRepository;
+    private static BrewRepository           brewRepository;
 
     private final Object statusLock = new Object();
     private final Logger logger     = Logger.getLogger(BrewImpl.class.getName());
@@ -49,6 +55,7 @@ public class BrewImpl implements Brew {
         this.brewingReportInterval = TimeUnit.SECONDS.toMillis(5);
         this.fermentationReportInterval = TimeUnit.MINUTES.toMillis(5);
         this.brewValidator = new BrewValidator(notifications, brewId);
+        this.currentStepID = 1;
     }
 
     @Override
@@ -78,16 +85,7 @@ public class BrewImpl implements Brew {
             logger.info("starting brewing " + brewId + " for user " + userId);
         }
 
-
         this.embeddedBrewingReportInterval = embeddedReportInterval;
-        TimerTask brewingReportTask = new TimerTask() {
-            @Override
-            public void run() {
-                saveBrewingReportToDB();
-            }
-        };
-
-        timer.schedule(brewingReportTask, 0, brewingReportInterval);
         brewValidator.setEmbeddedBrewingReportInterval(embeddedBrewingReportInterval);
         brewValidator.startTimeOutTimer();
     }
@@ -102,14 +100,28 @@ public class BrewImpl implements Brew {
         return recipe.createEmbeddedRecipeDTO(brewId);
     }
 
-    //todo: 3.8.24
     @Override
     public void addBrewingReport(BrewingReportDTO report) {
         if (report != null) {
             checkValidation(report);
-            //add to db
+            saveBrewingReportToDB(report);
         } else {
             throw new IllegalArgumentException("Report cannot be null");
+        }
+    }
+
+    private void saveBrewingReportToDB(BrewingReportDTO report) {
+        if (System.currentTimeMillis() - lastReportTime > brewingReportInterval) {
+            logger.info("saving brewing report to db for brew " + brewId);
+
+            BrewDB brew = brewRepository.findById(report.brew_id())
+                                        .orElse(null);
+
+            if (brew == null) {
+                throw new IllegalArgumentException("No brews for user " + report.user_id());
+            }
+
+            brewingReportRepository.save(new BrewingReportDB(report, brew));
         }
     }
 
@@ -170,10 +182,6 @@ public class BrewImpl implements Brew {
                                       NotificationImpl.STATUS_ERROR);
     }
 
-    private void saveBrewingReportToDB() {
-        logger.info("saving brewing report to db for brew " + brewId);
-    }
-
     @Override
     public void markCurrentStepAsComplete() {
         synchronized (statusLock) {
@@ -189,6 +197,18 @@ public class BrewImpl implements Brew {
     @Override
     public int getStatus() {
         return status.getCode();
+    }
+
+    public static void setBrewingReportRepository(BrewingReportRepository brewingReportRepository) {
+        if (brewingReportRepository != null) {
+            BrewImpl.brewingReportRepository = brewingReportRepository;
+        }
+    }
+
+    public static void setBrewRepository(BrewRepository brewRepository) {
+        if (brewRepository != null) {
+            BrewImpl.brewRepository = brewRepository;
+        }
     }
 
     /***** debug *****/
