@@ -124,6 +124,11 @@ public class BrewingSystemService implements BrewingSystem {
     public void addBrewingReport(String deviceId, BrewingReportDTO report) {
         BrewDB brew = brewRepository.findById(report.brew_id())
                                     .orElse(null);
+
+        if (brew == null) {
+            throw new IllegalArgumentException("No brews for user " + report.user_id());
+        }
+
         brewingReportRepository.save(new BrewingReportDB(report, brew));
     }
 

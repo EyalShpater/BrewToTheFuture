@@ -3,6 +3,7 @@ package ema.brewtothefuture.dto.embedded;
 public record BrewingReportDTO(
         long brew_id,
         String user_id,
+        long recipe_id,
         long timestamp,
         double temperature_celsius,
         int current_step,

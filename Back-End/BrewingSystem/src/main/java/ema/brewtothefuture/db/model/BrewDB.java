@@ -29,4 +29,8 @@ public class BrewDB {
     }
 
     public long getId() { return id; }
+
+    public RecipeDB getRecipe() { return recipe; }
+
+    public String getUserId() { return user_id; }
 }
