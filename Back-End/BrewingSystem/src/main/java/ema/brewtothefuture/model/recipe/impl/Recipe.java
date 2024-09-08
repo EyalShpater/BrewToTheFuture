@@ -156,10 +156,6 @@ public class Recipe {
         return yeast;
     }
 
-//    public void setRating(double rating) {
-//        this.rating = rating;
-//    }
-
     public void setVotes(int votes) {
         this.votes = votes;
     }
