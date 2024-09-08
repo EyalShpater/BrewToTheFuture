@@ -108,7 +108,6 @@ const Brew = () => {
 
         setBrewData(response.data);
       } catch (error) {
-        console.log("lalala", brewData);
         console.log("Error fetching brew data:", error);
       } finally {
         setLoading(false);
@@ -134,7 +133,7 @@ const Brew = () => {
 
         setRecipeData(response.data); // Save the fetched data to state
       } catch (error) {
-        console.error("Error fetching brew data:", error);
+        console.error("Error fetching recipe data:", error);
       } finally {
         setLoading(false);
       }
@@ -218,7 +217,7 @@ const Brew = () => {
         >
           Currently Brewing:
         </Text>
-        {brewData == null ? (
+        {brewData != null ? (
           <>
             <View style={styles.dataContainer}>
               <Text style={styles.instructions}>
@@ -244,7 +243,7 @@ const Brew = () => {
                 <Text style={styles.stopButtonText}>STOP BREWING</Text>
               </TouchableOpacity>
             </View>
-            <HorizontalTimeline stepNumber={currentStepNumber} />
+            <HorizontalTimeline stepNumber={brewData.current_step} />
           </>
         ) : (
           <View style={styles.emptyTextContainer}>

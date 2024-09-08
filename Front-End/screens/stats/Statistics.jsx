@@ -22,7 +22,7 @@ const Statistics = () => {
   const [temperatureData, setTemperatureData] = useState([]);
   const [labels, setLabels] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalData, setModalData] = useState({ time: "" });
+  const [modalData, setModalData] = useState({});
 
   useEffect(() => {
     const fetchTemperatureData = async () => {
@@ -76,7 +76,9 @@ const Statistics = () => {
     const { index } = data;
     if (index >= 0 && index < labels.length) {
       const { time, date } = labels[index];
+      const temperature = temperatureData[index];
       setModalData({
+        temperature,
         time,
         date,
       });
@@ -178,6 +180,7 @@ const Statistics = () => {
         >
           <View style={styles.modalOverlay}>
             <View style={styles.modalContent}>
+              <Text style={styles.modalText}>{modalData.temperature}</Text>
               <Text style={styles.modalText}>{modalData.date}</Text>
               <Text style={styles.modalText}>{modalData.time}</Text>
               <TouchableOpacity

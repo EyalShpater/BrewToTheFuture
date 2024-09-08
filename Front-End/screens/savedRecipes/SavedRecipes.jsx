@@ -377,7 +377,7 @@ const SavedRecipes = () => {
       );
 
       console.log("POST request successful:", response.data);
-      navigation.navigate(Brew, { recipeId });
+      navigation.navigate("Brew");
     } catch (error) {
       console.error("Error sending POST request:", error);
     }
