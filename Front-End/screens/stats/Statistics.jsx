@@ -180,9 +180,11 @@ const Statistics = () => {
         >
           <View style={styles.modalOverlay}>
             <View style={styles.modalContent}>
-              <Text style={styles.modalText}>{modalData.temperature}</Text>
-              <Text style={styles.modalText}>{modalData.date}</Text>
-              <Text style={styles.modalText}>{modalData.time}</Text>
+              <Text style={styles.modalText}>
+                Temperature: {modalData.temperature}
+              </Text>
+              <Text style={styles.modalText}>Date: {modalData.date}</Text>
+              <Text style={styles.modalText}>Time: {modalData.time}</Text>
               <TouchableOpacity
                 style={styles.closeButton}
                 onPress={() => setModalVisible(false)}

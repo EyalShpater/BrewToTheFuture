@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   modalText: {
+    fontFamily: FONT.bold,
     fontSize: FONT.mediumLarge,
     color: COLORS.black,
   },

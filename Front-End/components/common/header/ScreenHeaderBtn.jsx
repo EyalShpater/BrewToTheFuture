@@ -62,19 +62,19 @@ const Menu = ({ isVisible, closeMenu }) => {
           {...panResponder.panHandlers}
         > */}
           <TouchableOpacity onPress={() => handleNavigation("CreateRecipeOne")}>
-            <Text style={styles.menuText}>Add new recipe</Text>
+            <Text style={styles.menuText}>Add New Recipe</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleNavigation("SavedRecipes")}>
-            <Text style={styles.menuText}>My saved recipes</Text>
+            <Text style={styles.menuText}>My Saved Recipes</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleNavigation("Brew")}>
-            <Text style={styles.menuText}>Current brewing</Text>
+            <Text style={styles.menuText}>Current Brewing</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleNavigation("Statistics")}>
-            <Text style={styles.menuText}>Statistics</Text>
+            <Text style={styles.menuText}>Temperature Track</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleNavigation("ExploreRecipes")}>
-            <Text style={styles.menuText}>Explore new beers</Text>
+            <Text style={styles.menuText}>Explore New Beers</Text>
           </TouchableOpacity>
         </View>
         {/* </ImageBackground> */}
@@ -84,7 +84,7 @@ const Menu = ({ isVisible, closeMenu }) => {
 };
 
 //menu button
-const ScreenHeaderBtn = ({ iconUrl, dimension, handlePress }) => {
+const ScreenHeaderBtn = ({ iconUrl }) => {
   const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = () => {
