@@ -129,7 +129,7 @@ const Statistics = () => {
                 labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 style: { borderRadius: 16 },
                 propsForDots: {
-                  r: "6",
+                  r: "5",
                   strokeWidth: "2",
                   stroke: COLORS.primary,
                 },

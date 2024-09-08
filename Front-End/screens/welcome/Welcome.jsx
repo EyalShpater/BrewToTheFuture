@@ -39,16 +39,14 @@ const ModalBrew = () => {
         );
 
         const brewDataResponse = response.data;
-        setBrewData(brewDataResponse); // Set brewData after the first request completes
+        setBrewData(brewDataResponse);
 
-        // Check if recipe_id exists before making the second request
         if (brewDataResponse.recipe_id) {
-          // Second GET request to fetch recipe data using recipe_id from the first response
           const recipeResponse = await axios.get(
             `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${brewDataResponse.recipe_id}`,
             {
               headers: {
-                Authorization: `Bearer ${ID_TOKEN}`, // Include the token in the headers
+                Authorization: `Bearer ${ID_TOKEN}`,
               },
             }
           );
@@ -63,6 +61,9 @@ const ModalBrew = () => {
     };
 
     fetchBrewData();
+    const interval = setInterval(fetchBrewData, 100);
+
+    return () => clearInterval(interval);
   }, []);
 
   if (loading) {
@@ -121,7 +122,6 @@ const ModalBrew = () => {
 };
 
 const Welcome = () => {
-  // const [activeChoice, setActiveChoice] = useState("Explore new beers");
   const [notificationMessage, setNotificationMessage] = useState(null);
 
   useEffect(() => {
@@ -136,29 +136,24 @@ const Welcome = () => {
     };
   }, []);
 
-  const handleNotificationAction = () => {
+  const handleNotificationAction = async () => {
     setNotificationMessage(null);
-    useEffect(() => {
-      const acceptNotification = async () => {
-        try {
-          const response = await axios.post(
-            "https://brewtothefuture.azurewebsites.net/api/brew/recipe/current_brewing/step/complete",
-            {},
-            {
-              headers: {
-                Authorization: `Bearer ${ID_TOKEN}`,
-              },
-            }
-          );
 
-          console.log("Step completed successfully:", response.data);
-        } catch (error) {
-          console.error("Error completing the current step:", error);
+    try {
+      const response = await axios.post(
+        "https://brewtothefuture.azurewebsites.net/api/brew/recipe/current_brewing/step/complete",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${ID_TOKEN}`,
+          },
         }
-      };
+      );
 
-      acceptNotification();
-    }, []);
+      console.log("Step completed successfully:", response.data);
+    } catch (error) {
+      console.error("Error completing the current step:", error);
+    }
   };
 
   return (

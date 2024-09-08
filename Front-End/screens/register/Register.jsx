@@ -45,7 +45,6 @@ const Register = () => {
         displayName: `${firstName} ${secondName}`,
       });
 
-      // Navigate to the Sign In screen after successful registration
       Alert.alert("Success", "Account created successfully!");
       navigation.navigate("Welcome");
     } catch (error) {

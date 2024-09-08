@@ -111,9 +111,9 @@ const Brew = () => {
     };
 
     fetchBrewData();
-    const interval = setInterval(fetchBrewData, 5000); // fetch every 15 seconds
+    const interval = setInterval(fetchBrewData, 5000);
 
-    return () => clearInterval(interval); // cleanup on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   const calculateTimeDifference = (stepStartTime) => {

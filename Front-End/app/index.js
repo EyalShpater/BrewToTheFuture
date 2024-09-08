@@ -80,15 +80,15 @@ const HomeStack = () => {
               body: data.message,
               data: { userId },
             },
-            trigger: null, // Immediate notification
+            trigger: null,
           });
         }
       } catch (error) {
-        // console.error("Error polling notifications:", error);
+        console.log("Error polling notifications:", error);
       }
     };
 
-    const interval = setInterval(pollNotifications, 500000);
+    const interval = setInterval(pollNotifications, 1000);
 
     // Clean up the interval on component unmount
     return () => {
