@@ -7,7 +7,7 @@ const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 
 const Bubbles = () => {
-  const bubble = Array.from({ length: 6 }).map((_, index) => ({
+  const bubble = Array.from({ length: 10 }).map((_, index) => ({
     id: index.toString(),
     translateX: new Animated.Value(Math.random() * (windowWidth - 100)),
     translateY: new Animated.Value(windowHeight + Math.random() * windowHeight),

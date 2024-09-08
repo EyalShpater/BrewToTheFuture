@@ -52,10 +52,8 @@ const ModalBrew = () => {
   useEffect(() => {
     const fetchBrewData = async () => {
       try {
-        const recipeId = 652;
-
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${recipeId}`,
+          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${brewData.recipe_id}`,
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,
