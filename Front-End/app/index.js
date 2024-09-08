@@ -12,12 +12,13 @@ import SavedRecipes from "../screens/savedRecipes/SavedRecipes";
 import Brew from "../screens/brew/Brew";
 import Statistics from "../screens/stats/Statistics";
 import ExploreRecipes from "../screens/explore/ExploreRecipes";
-import GoogleLogin from "../screens/signIn/SignIn";
+import SignIn from "../screens/signIn/SignIn";
 import Register from "../screens/register/Register";
 import registerNNPushToken from "native-notify";
 import { registerForPushNotificationsAsync } from "../utils/notifications";
 import * as Notifications from "expo-notifications";
 import { ID_TOKEN } from "../utils/idToken";
+import axios from "axios";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -87,7 +88,7 @@ const HomeStack = () => {
       }
     };
 
-    const interval = setInterval(pollNotifications, 50000000000000000000);
+    const interval = setInterval(pollNotifications, 500000);
 
     // Clean up the interval on component unmount
     return () => {
@@ -105,8 +106,8 @@ const HomeStack = () => {
       }}
     >
       <Stack.Screen
-        name="GoogleLogin"
-        component={GoogleLogin}
+        name="SignIn"
+        component={SignIn}
         options={{ headerShown: false }}
       />
       <Stack.Screen

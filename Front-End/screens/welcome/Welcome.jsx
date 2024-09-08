@@ -5,7 +5,6 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  FlatList,
   SafeAreaView,
   ScrollView,
   ImageBackground,
@@ -16,25 +15,16 @@ import { icons, SIZES, images } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
 import UserManagementMenu from "../../components/common/userManagement/UserManagementMenu";
 import Bubbles from "../../components/bubbles";
-import router from "expo-router";
 import * as Notifications from "expo-notifications";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { ID_TOKEN } from "../../utils/idToken.js";
-
-// const searchTypes = ["My beers", "My brewing history"];
 
 const ModalBrew = () => {
   const [brewData, setBrewData] = useState([]);
   const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
-
-  // const [brewingSession, setBrewingSession] = useState({
-  //   beerName: "Maredsous",
-  //   currentStep: "Boiling",
-  //   timeRemaining: "40 minutes",
-  // });
 
   useEffect(() => {
     const fetchBrewData = async () => {
@@ -60,7 +50,6 @@ const ModalBrew = () => {
   }, []);
 
   useEffect(() => {
-    // Fetch the data from the API
     const fetchBrewData = async () => {
       try {
         const recipeId = 652;
@@ -93,13 +82,13 @@ const ModalBrew = () => {
     );
   }
 
-  if (!brewData) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>No data available</Text>
-      </SafeAreaView>
-    );
-  }
+  // if (!brewData) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <Text>No data available</Text>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   const calculateTimeDifference = (stepStartTime) => {
     const currentTime = Date.now();
@@ -121,17 +110,28 @@ const ModalBrew = () => {
         style={styles.brewingSessionContainer}
         onPress={() => navigation.navigate("Brew")}
       >
-        <Text style={styles.brewingSessionTitle}>Current Brewing Session</Text>
-        <Text style={styles.brewingSessionDetail}>
-          Beer Name: {recipeData.recipe_name}
-        </Text>
-        <Text style={styles.brewingSessionDetail}>
-          Current Step: {brewData.current_step}
-        </Text>
-        <Text style={styles.brewingSessionDetail}>
-          Time Remaining: {calculateTimeDifference(brewData.step_start_time)}
-        </Text>
-        <Text style={styles.seeMoreText}>Touch to see more</Text>
+        {brewData.length != 0 ? (
+          <>
+            <Text style={styles.brewingSessionTitle}>
+              Current Brewing Session
+            </Text>
+            <Text style={styles.brewingSessionDetail}>
+              Beer Name: {recipeData.recipe_name}
+            </Text>
+            <Text style={styles.brewingSessionDetail}>
+              Current Step: {brewData.current_step}
+            </Text>
+            <Text style={styles.brewingSessionDetail}>
+              Time Remaining:{" "}
+              {calculateTimeDifference(brewData.step_start_time)}
+            </Text>
+            <Text style={styles.seeMoreText}>Touch to see more</Text>
+          </>
+        ) : (
+          <Text style={styles.noSessionText}>
+            There is no brewing session occurring right now
+          </Text>
+        )}
       </TouchableOpacity>
     </View>
   );

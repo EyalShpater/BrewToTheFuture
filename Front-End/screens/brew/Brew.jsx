@@ -3,6 +3,7 @@ import styles from "./Brew.style.js";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import TemperatureBar from "../../components/temperatureBar/TemperatureBar";
 import axios from "axios";
+import Icon from "react-native-vector-icons/FontAwesome";
 import {
   SafeAreaView,
   View,
@@ -31,21 +32,50 @@ const data = [
   },
 ];
 
+// const TimelineItem = ({ item }) => (
+//   <View style={styles.itemContainer}>
+//     <Text style={styles.title}>{item.title}</Text>
+//     <Text style={styles.description}>{item.description}</Text>
+//   </View>
+// );
+
 const TimelineItem = ({ item }) => (
   <View style={styles.itemContainer}>
-    {/* <View style={styles.line} />
-    <View style={styles.circle} /> */}
     <Text style={styles.title}>{item.title}</Text>
-    <Text style={styles.description}>{item.description}</Text>
+    <View style={styles.descriptionContainer}>
+      <Text style={styles.description}>{item.description}</Text>
+      {item.description === "Done" && (
+        <Icon
+          name="check-circle"
+          size={24}
+          color="green"
+          style={styles.checkIcon}
+        />
+      )}
+    </View>
   </View>
 );
 
-const HorizontalTimeline = () => {
+const HorizontalTimeline = ({ stepNumber }) => {
+  const updatedData = data.map((item) => {
+    let newDescription = "Not started yet";
+
+    if (parseInt(item.key) < stepNumber) {
+      newDescription = "Done";
+    } else if (parseInt(item.key) === stepNumber) {
+      newDescription = "In process";
+    }
+
+    return {
+      ...item,
+      description: newDescription,
+    };
+  });
+
   return (
-    // <SafeAreaView style={styles.timeLineContainer}>
     <SafeAreaView>
       <FlatList
-        data={data}
+        data={updatedData}
         renderItem={({ item }) => <TimelineItem item={item} />}
         keyExtractor={(item) => item.key}
         horizontal
@@ -58,7 +88,6 @@ const HorizontalTimeline = () => {
 
 const Brew = () => {
   const navigation = useNavigation();
-  const [temperature, setTemperature] = useState(50);
   // const route = useRoute();
   // const { recipeId } = route.params;
   const [brewData, setBrewData] = useState([]);
@@ -79,7 +108,8 @@ const Brew = () => {
 
         setBrewData(response.data);
       } catch (error) {
-        console.error("Error fetching brew data:", error);
+        console.log("lalala", brewData);
+        console.log("Error fetching brew data:", error);
       } finally {
         setLoading(false);
       }
@@ -125,35 +155,37 @@ const Brew = () => {
   // }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setBrewData((prevData) =>
-        prevData
-          ? {
-              ...prevData,
-              temperature_celsius: prevData.temperature_celsius,
-            }
-          : null
-      );
-    }, 1000);
+    if (!brewData) {
+      const interval = setInterval(() => {
+        setBrewData((prevData) =>
+          prevData
+            ? {
+                ...prevData,
+                temperature_celsius: prevData.temperature_celsius,
+              }
+            : null
+        );
+      }, 1000);
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, []);
 
   if (loading) {
     return (
       <SafeAreaView style={styles.container}>
-        <Text>Loading...</Text>
+        <Text style={styles.loadingText}>Loading...</Text>
       </SafeAreaView>
     );
   }
 
-  if (!brewData) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>No data available</Text>
-      </SafeAreaView>
-    );
-  }
+  // if (!brewData) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <Text>No data available</Text>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   const calculateTimeDifference = (stepStartTime) => {
     const currentTime = Date.now();
@@ -188,31 +220,42 @@ const Brew = () => {
         >
           Currently Brewing:
         </Text>
-        <View style={styles.dataContainer}>
-          <Text style={styles.instructions}>
-            Beer name: {recipeData.recipe_name}
-          </Text>
-        </View>
-        <View style={styles.dataContainer}>
-          <Text style={styles.instructions}>
-            Current step: {brewData.current_step}
-          </Text>
-        </View>
-        <View style={styles.dataContainer}>
-          <Text style={styles.instructions}>
-            Time passed: {calculateTimeDifference(brewData.step_start_time)}
-          </Text>
-        </View>
-        <Text style={styles.instructions}> Current temperature: </Text>
+        {brewData == null ? (
+          <>
+            <View style={styles.dataContainer}>
+              <Text style={styles.instructions}>
+                Beer name: {recipeData.recipe_name}
+              </Text>
+            </View>
+            <View style={styles.dataContainer}>
+              <Text style={styles.instructions}>
+                Current step: {brewData.current_step}
+              </Text>
+            </View>
+            <View style={styles.dataContainer}>
+              <Text style={styles.instructions}>
+                Time passed: {calculateTimeDifference(brewData.step_start_time)}
+              </Text>
+            </View>
+            <Text style={styles.instructions}> Current temperature: </Text>
 
-        <TemperatureBar temperature={brewData.temperature_celsius} />
+            <TemperatureBar temperature={brewData.current_step} />
 
-        <View style={styles.stopButtonContainer}>
-          <TouchableOpacity style={styles.stopButton}>
-            <Text style={styles.stopButtonText}>STOP BREWING</Text>
-          </TouchableOpacity>
-        </View>
-        <HorizontalTimeline />
+            <View style={styles.stopButtonContainer}>
+              <TouchableOpacity style={styles.stopButton}>
+                <Text style={styles.stopButtonText}>STOP BREWING</Text>
+              </TouchableOpacity>
+            </View>
+            <HorizontalTimeline stepNumber={currentStepNumber} />
+          </>
+        ) : (
+          <View style={styles.emptyTextContainer}>
+            <Text style={styles.emptyText}>
+              There is no brewing session occurring right now
+            </Text>
+            <HorizontalTimeline stepNumber={0} />
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );

@@ -147,11 +147,11 @@ const styles = StyleSheet.create({
     color: "gray",
     marginTop: 20,
   },
-  emptyTextcontainer: {
-    flex: 1, // Take full screen height
-    justifyContent: "center", // Center vertically
-    alignItems: "center", // Center horizontally
-    backgroundColor: COLORS.beige, // Optional: define a background color
+  emptyTextContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: COLORS.beige,
   },
 });
 

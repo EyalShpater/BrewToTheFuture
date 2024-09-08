@@ -83,8 +83,9 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
   },
   description: {
-    fontSize: 14,
-    color: COLORS.black,
+    fontSize: SIZES.medium,
+    fontFamily: FONT.bold,
+    color: COLORS.darkOrange,
     textAlign: "center",
   },
   stopButtonContainer: {
@@ -121,6 +122,34 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontFamily: FONT.medium,
     fontSize: SIZES.smallMedium,
+  },
+  emptyText: {
+    fontSize: SIZES.xLarge,
+    textAlign: "center",
+    color: "gray",
+    marginTop: 110,
+    marginBottom: 50,
+  },
+  emptyTextContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: COLORS.beige,
+  },
+  descriptionContainer: {
+    flexDirection: "row", // Align text and icon horizontally
+    alignItems: "center", // Center items vertically
+    justifyContent: "center",
+  },
+  checkIcon: {
+    marginTop: 1,
+    marginLeft: 10,
+  },
+  loadingText: {
+    fontSize: SIZES.mediumLarge,
+    color: "gray",
+    textAlign: "center",
+    marginTop: 20,
   },
 });
 
