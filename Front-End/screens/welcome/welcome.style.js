@@ -172,6 +172,12 @@ const styles = StyleSheet.create({
     fontFamily: FONT.bold,
     fontSize: SIZES.mediumLarge,
   },
+  noSessionText: {
+    fontFamily: FONT.medium,
+    fontSize: SIZES.medium,
+    color: COLORS.primary, // Text color
+    textAlign: "center", // Center the text within the text container
+  },
 });
 
 export default styles;

@@ -396,7 +396,7 @@ const SavedRecipes = () => {
       {loading ? (
         <Text style={styles.loadingText}>Loading...</Text>
       ) : recipes.length === 0 ? (
-        <View style={styles.emptyTextcontainer}>
+        <View style={styles.emptyTextContainer}>
           <Text style={styles.emptyText}>There are no recipes</Text>
         </View>
       ) : (
