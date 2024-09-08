@@ -5,7 +5,6 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  FlatList,
   SafeAreaView,
   ScrollView,
   ImageBackground,
@@ -16,7 +15,6 @@ import { icons, SIZES, images } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
 import UserManagementMenu from "../../components/common/userManagement/UserManagementMenu";
 import Bubbles from "../../components/bubbles";
-import router from "expo-router";
 import * as Notifications from "expo-notifications";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
@@ -42,7 +40,7 @@ const ModalBrew = () => {
 
         setBrewData(response.data);
       } catch (error) {
-        console.log("Error fetching brew data:", error);
+        console.error("Error fetching brew data:", error);
       } finally {
         setLoading(false);
       }
@@ -67,7 +65,7 @@ const ModalBrew = () => {
 
         setRecipeData(response.data);
       } catch (error) {
-        console.log("Error fetching brew data:", error);
+        console.error("Error fetching brew data:", error);
       } finally {
         setLoading(false);
       }
@@ -84,13 +82,13 @@ const ModalBrew = () => {
     );
   }
 
-  if (!brewData) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>No data available</Text>
-      </SafeAreaView>
-    );
-  }
+  // if (!brewData) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <Text>No data available</Text>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   const calculateTimeDifference = (stepStartTime) => {
     const currentTime = Date.now();

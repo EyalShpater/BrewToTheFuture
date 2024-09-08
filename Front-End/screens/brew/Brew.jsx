@@ -174,18 +174,18 @@ const Brew = () => {
   if (loading) {
     return (
       <SafeAreaView style={styles.container}>
-        <Text>Loading...</Text>
+        <Text style={styles.loadingText}>Loading...</Text>
       </SafeAreaView>
     );
   }
 
-  if (!brewData) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>No data available</Text>
-      </SafeAreaView>
-    );
-  }
+  // if (!brewData) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <Text>No data available</Text>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   const calculateTimeDifference = (stepStartTime) => {
     const currentTime = Date.now();
@@ -220,7 +220,7 @@ const Brew = () => {
         >
           Currently Brewing:
         </Text>
-        {brewData.length != 0 ? (
+        {brewData == null ? (
           <>
             <View style={styles.dataContainer}>
               <Text style={styles.instructions}>

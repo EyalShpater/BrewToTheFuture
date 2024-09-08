@@ -18,6 +18,7 @@ import registerNNPushToken from "native-notify";
 import { registerForPushNotificationsAsync } from "../utils/notifications";
 import * as Notifications from "expo-notifications";
 import { ID_TOKEN } from "../utils/idToken";
+import axios from "axios";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -87,7 +88,7 @@ const HomeStack = () => {
       }
     };
 
-    const interval = setInterval(pollNotifications, 50000000000000000000);
+    const interval = setInterval(pollNotifications, 500000);
 
     // Clean up the interval on component unmount
     return () => {

@@ -145,6 +145,12 @@ const styles = StyleSheet.create({
     marginTop: 1,
     marginLeft: 10,
   },
+  loadingText: {
+    fontSize: SIZES.mediumLarge,
+    color: "gray",
+    textAlign: "center",
+    marginTop: 20,
+  },
 });
 
 export default styles;
