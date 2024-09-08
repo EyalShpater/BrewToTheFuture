@@ -3,6 +3,7 @@ import styles from "./Brew.style.js";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import TemperatureBar from "../../components/temperatureBar/TemperatureBar";
 import axios from "axios";
+import Icon from "react-native-vector-icons/FontAwesome";
 import {
   SafeAreaView,
   View,
@@ -31,10 +32,27 @@ const data = [
   },
 ];
 
+// const TimelineItem = ({ item }) => (
+//   <View style={styles.itemContainer}>
+//     <Text style={styles.title}>{item.title}</Text>
+//     <Text style={styles.description}>{item.description}</Text>
+//   </View>
+// );
+
 const TimelineItem = ({ item }) => (
   <View style={styles.itemContainer}>
     <Text style={styles.title}>{item.title}</Text>
-    <Text style={styles.description}>{item.description}</Text>
+    <View style={styles.descriptionContainer}>
+      <Text style={styles.description}>{item.description}</Text>
+      {item.description === "Done" && (
+        <Icon
+          name="check-circle"
+          size={24}
+          color="green"
+          style={styles.checkIcon}
+        />
+      )}
+    </View>
   </View>
 );
 

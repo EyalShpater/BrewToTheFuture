@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: SIZES.medium,
     fontFamily: FONT.bold,
-    color: "#F39F5A",
+    color: COLORS.darkOrange,
     textAlign: "center",
   },
   stopButtonContainer: {
@@ -135,6 +135,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: COLORS.beige,
+  },
+  descriptionContainer: {
+    flexDirection: "row", // Align text and icon horizontally
+    alignItems: "center", // Center items vertically
+    justifyContent: "center",
+  },
+  checkIcon: {
+    marginTop: 1,
+    marginLeft: 10,
   },
 });
 
