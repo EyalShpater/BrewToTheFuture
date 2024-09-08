@@ -94,9 +94,59 @@ const Brew = () => {
   const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   const fetchBrewData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `https://brewtothefuture.azurewebsites.net/api/brew/data/latest`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${ID_TOKEN}`,
+  //           },
+  //         }
+  //       );
+
+  //       setBrewData(response.data);
+  //     } catch (error) {
+  //       console.log("Error fetching brew data:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchBrewData();
+  //   // }, [userId]);
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log(brewData.recipe_id);
+  //   // Fetch the data from the API
+  //   const fetchBrewData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${brewData.recipe_id}`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${ID_TOKEN}`, // Include the token in the headers
+  //           },
+  //         }
+  //       );
+
+  //       setRecipeData(response.data); // Save the fetched data to state
+  //     } catch (error) {
+  //       console.error("Error fetching recipe data:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchBrewData();
+  // }, []);
+
   useEffect(() => {
     const fetchBrewData = async () => {
       try {
+        // First GET request to fetch the latest brew data
         const response = await axios.get(
           `https://brewtothefuture.azurewebsites.net/api/brew/data/latest`,
           {
@@ -106,36 +156,27 @@ const Brew = () => {
           }
         );
 
-        setBrewData(response.data);
+        const brewDataResponse = response.data;
+        setBrewData(brewDataResponse); // Set brewData after the first request completes
+
+        // Check if recipe_id exists before making the second request
+        if (brewDataResponse.recipe_id) {
+          // Second GET request to fetch recipe data using recipe_id from the first response
+          const recipeResponse = await axios.get(
+            `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${brewDataResponse.recipe_id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${ID_TOKEN}`, // Include the token in the headers
+              },
+            }
+          );
+
+          setRecipeData(recipeResponse.data); // Set the fetched recipe data
+        }
       } catch (error) {
-        console.log("Error fetching brew data:", error);
+        console.error("Error fetching brew or recipe data:", error);
       } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBrewData();
-    // }, [userId]);
-  }, []);
-
-  useEffect(() => {
-    // Fetch the data from the API
-    const fetchBrewData = async () => {
-      try {
-        const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${brewData.recipe_id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${ID_TOKEN}`, // Include the token in the headers
-            },
-          }
-        );
-
-        setRecipeData(response.data); // Save the fetched data to state
-      } catch (error) {
-        console.error("Error fetching recipe data:", error);
-      } finally {
-        setLoading(false);
+        setLoading(false); // Stop loading after both requests are completed
       }
     };
 
@@ -236,7 +277,9 @@ const Brew = () => {
             </View>
             <Text style={styles.instructions}> Current temperature: </Text>
 
-            <TemperatureBar temperature={brewData.current_step} />
+            <TemperatureBar
+              temperature={brewData.temperature_celsius.toFixed(2)}
+            />
 
             <View style={styles.stopButtonContainer}>
               <TouchableOpacity style={styles.stopButton}>

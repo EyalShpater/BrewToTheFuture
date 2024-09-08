@@ -29,6 +29,7 @@ const ModalBrew = () => {
   useEffect(() => {
     const fetchBrewData = async () => {
       try {
+        // First GET request to fetch the latest brew data
         const response = await axios.get(
           `https://brewtothefuture.azurewebsites.net/api/brew/data/latest`,
           {
@@ -38,34 +39,27 @@ const ModalBrew = () => {
           }
         );
 
-        setBrewData(response.data);
+        const brewDataResponse = response.data;
+        setBrewData(brewDataResponse); // Set brewData after the first request completes
+
+        // Check if recipe_id exists before making the second request
+        if (brewDataResponse.recipe_id) {
+          // Second GET request to fetch recipe data using recipe_id from the first response
+          const recipeResponse = await axios.get(
+            `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${brewDataResponse.recipe_id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${ID_TOKEN}`, // Include the token in the headers
+              },
+            }
+          );
+
+          setRecipeData(recipeResponse.data); // Set the fetched recipe data
+        }
       } catch (error) {
-        console.error("Error fetching brew data:", error);
+        console.error("Error fetching brew or recipe data:", error);
       } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBrewData();
-  }, []);
-
-  useEffect(() => {
-    const fetchBrewData = async () => {
-      try {
-        const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${brewData.recipe_id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${ID_TOKEN}`,
-            },
-          }
-        );
-
-        setRecipeData(response.data);
-      } catch (error) {
-        console.error("Error fetching brew data:", error);
-      } finally {
-        setLoading(false);
+        setLoading(false); // Stop loading after both requests are completed
       }
     };
 
