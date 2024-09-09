@@ -157,6 +157,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#888",
   },
+  input: {
+    flex: 1,
+    height: 32,
+    borderWidth: 1.5,
+    borderColor: COLORS.primary,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    backgroundColor: COLORS.gray3,
+    textAlign: "center",
+  },
 });
 
 export default styles;

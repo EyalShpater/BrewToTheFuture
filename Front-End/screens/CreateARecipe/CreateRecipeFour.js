@@ -115,10 +115,10 @@ const CreateRecipeFour = () => {
         console.log(response.data);
       } else {
         console.error(`Error: ${response.status}`);
-        console.error(response.data);
+        console.error(response.data, error.message);
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error, error.message);
     }
   };
 

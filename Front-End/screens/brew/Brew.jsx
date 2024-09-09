@@ -11,6 +11,9 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
+  Modal,
+  Pressable,
+  Button,
 } from "react-native";
 import { ID_TOKEN } from "../../utils/idToken.js";
 
@@ -21,7 +24,7 @@ const HorizontalTimeline = ({ stepNumber, recipe }) => {
     if (index + 1 < stepNumber) {
       newDescription = "Done";
     } else if (index + 1 === stepNumber) {
-      newDescription = `In process - Total step time: ${item.duration_minutes}`;
+      newDescription = `In process - Total step time: ${item.duration_minutes} minutes`;
     }
 
     let newTitle;
@@ -140,6 +143,33 @@ const Brew = () => {
     );
   }
 
+  const handleStopBrewing = async () => {
+    try {
+      const response = await axios.post(
+        "https://brewtothefuture.azurewebsites.net/api/brew/stop",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${ID_TOKEN}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        console.log("Brewing stopped successfully:", response.data);
+        Alert.alert("Success", "Brewing has been stopped.");
+        navigation.navigate("Welcome");
+      } else {
+        // Handle unexpected status codes
+        console.log("Unexpected response status:", response.status);
+        Alert.alert("Error", "Failed to stop brewing. Please try again.");
+      }
+    } catch (error) {
+      Alert.alert("Error", "Failed to stop brewing. Please try again.");
+      console.log("Error stopping brew:", error);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -181,7 +211,10 @@ const Brew = () => {
               temperature={brewData.temperature_celsius.toFixed(2)}
             />
             <View style={styles.stopButtonContainer}>
-              <TouchableOpacity style={styles.stopButton}>
+              <TouchableOpacity
+                style={styles.stopButton}
+                onPress={handleStopBrewing}
+              >
                 <Text style={styles.stopButtonText}>STOP BREWING</Text>
               </TouchableOpacity>
             </View>

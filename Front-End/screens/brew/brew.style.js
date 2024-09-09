@@ -151,6 +151,41 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
   },
+  stopMessage: {
+    marginTop: 10,
+    fontSize: SIZES.medium,
+    color: "red",
+    textAlign: "center",
+  },
+  modalBackground: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+
+  modalContainer: {
+    width: "60%",
+    padding: 20,
+    backgroundColor: COLORS.gray3,
+    borderRadius: 18,
+    alignItems: "center",
+  },
+  modalMessage: {
+    fontSize: 18,
+    color: "black",
+    marginBottom: 20,
+  },
+  closeButton: {
+    backgroundColor: COLORS.stopButton,
+    padding: 8,
+    borderRadius: 5,
+  },
+
+  closeButtonText: {
+    color: "white",
+    fontSize: 16,
+  },
 });
 
 export default styles;

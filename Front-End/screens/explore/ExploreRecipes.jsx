@@ -11,6 +11,7 @@ import {
   Modal,
   FlatList,
   Button,
+  TextInput,
 } from "react-native";
 import { ID_TOKEN } from "../../utils/idToken";
 import BasicRating from "../../components/rateStarts";
@@ -24,6 +25,7 @@ const ExploreRecipes = () => {
   const [hopsNames, setHopsNames] = useState([]);
   const [yeastsNames, setYeastsNames] = useState([]);
   const [ratings, setRatings] = useState({});
+  const [reviewText, setReviewText] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -279,10 +281,10 @@ const ExploreRecipes = () => {
       }));
 
       const response = await axios.post(
-        `https://brewtothefuture.azurewebsites.net/api/brew/rate/rating/${recipeId}`,
-        {
-          rating: newValue,
-        },
+        `https://brewtothefuture.azurewebsites.net/api/brew/rate/rating/${recipeId}?rating=${newValue}`,
+        // {
+        //   rating: newValue,
+        // },
         {
           headers: {
             Authorization: `Bearer ${ID_TOKEN}`,
@@ -293,6 +295,32 @@ const ExploreRecipes = () => {
       console.log("Rating submitted successfully:", response.data);
     } catch (error) {
       console.error("Error submitting rating:", error);
+    }
+  };
+
+  const handleReviewSubmit = async (recipeId) => {
+    try {
+      const response = await axios.post(
+        `https://brewtothefuture.azurewebsites.net/api/brew/rate/review/${recipeId}?review=${reviewText}`,
+        // {
+        //   review: reviewText, // Review inputted by the user
+        // },
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${ID_TOKEN}`,
+          },
+        }
+      );
+      console.log("Review submitted successfully:", response.data);
+
+      // Optionally clear the input after submission
+      setReviewText("");
+
+      // Update the recipe with new review after successful submission
+      // Optionally refetch or update the reviews for the recipe.
+    } catch (error) {
+      console.error("Error submitting review:", error);
     }
   };
 
@@ -343,7 +371,7 @@ const ExploreRecipes = () => {
                 onChange={(newValue) => handleRatingChange(newValue, recipe.id)}
               />
 
-              {recipe.reviews && recipe.reviews.length > 0 && (
+              {recipe.reviews && recipe.reviews.length > 0 ? (
                 <View style={styles.reviewsContainer}>
                   <Text style={styles.reviewsTitle}>Reviews:</Text>
                   {recipe.reviews.map((review, reviewIndex) => (
@@ -360,7 +388,24 @@ const ExploreRecipes = () => {
                     </View>
                   ))}
                 </View>
+              ) : (
+                <View style={styles.reviewsContainer}>
+                  <Text style={styles.reviewsTitle}>
+                    There are no reviews on this recipe yet
+                  </Text>
+                </View>
               )}
+              <Text style={styles.reviewsTitle}>Add a review:</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Write your review"
+                value={reviewText}
+                onChangeText={setReviewText}
+              />
+              <Button
+                title="Submit Review"
+                onPress={() => handleReviewSubmit(recipe.recipe_id)}
+              />
             </View>
           ))
         )}
@@ -391,5 +436,4 @@ const ExploreRecipes = () => {
     </SafeAreaView>
   );
 };
-
 export default ExploreRecipes;

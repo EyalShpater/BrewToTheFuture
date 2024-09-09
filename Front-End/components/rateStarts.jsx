@@ -21,7 +21,7 @@
 // export default BasicRating;
 
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text } from "react-native";
 import { Rating } from "react-native-ratings"; // Ensure you have this package installed
 
 const BasicRating = ({ value, onChange }) => {

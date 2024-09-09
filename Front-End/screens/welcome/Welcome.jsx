@@ -136,26 +136,6 @@ const Welcome = () => {
     };
   }, []);
 
-  // const handleNotificationAction = async () => {
-  //   setNotificationMessage(null);
-
-  //   try {
-  //     const response = await axios.post(
-  //       "https://brewtothefuture.azurewebsites.net/api/brew/recipe/current_brewing/step/complete",
-  //       {},
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${ID_TOKEN}`,
-  //         },
-  //       }
-  //     );
-
-  //     console.log("Step completed successfully:", response.data);
-  //   } catch (error) {
-  //     console.error("Error completing the current step:", error);
-  //   }
-  // };
-
   const handleNotificationAction = async () => {
     setNotificationMessage(null);
 
@@ -180,7 +160,7 @@ const Welcome = () => {
           console.log(`Received status code ${response.status}. Retrying...`);
         }
       } catch (error) {
-        console.log("Error completing the current step:", error);
+        //console.log("Error completing the current step:", error);
         // Optionally, you can add a delay here before retrying
         await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for 2 second before retrying
       }
