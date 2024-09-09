@@ -83,7 +83,7 @@ const CreateRecipeFour = () => {
 
   const handleSubmit = async () => {
     const recipeObj = {
-      // user_id: route.params.userId,
+      user_id: route.params.userId,
       recipe_name: route.params.recipeName,
       method: route.params.method,
       style: route.params.style,
@@ -99,6 +99,7 @@ const CreateRecipeFour = () => {
       hops: route.params.hopsDetails,
       yeast: route.params.yeastDetails,
     };
+    console.log(recipeObj);
 
     const url =
       "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/add";
@@ -111,7 +112,7 @@ const CreateRecipeFour = () => {
         },
       });
 
-      if (response.status === 200) {
+      if (response.status == 200) {
         console.log("Recipe created successfully!");
         console.log(response.data);
       } else {

@@ -18,6 +18,7 @@ import { Picker } from "@react-native-picker/picker";
 import { ID_TOKEN } from "../../utils/idToken.js";
 
 const CreateRecipeOne = () => {
+  const [userId, setUserId] = useState(null);
   const [recipeName, setRecipeName] = useState("");
   const [method, setMethod] = useState("");
   const [methodsData, setMethodsData] = useState([]);
@@ -32,8 +33,28 @@ const CreateRecipeOne = () => {
   const [color, setColor] = useState("");
   const [batchSizeLiter, setBatchSizeLiter] = useState("");
   const navigation = useNavigation();
-  const route = useRoute();
-  // const { userId } = route.params;
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      try {
+        const response = await axios.get(
+          "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/user/details",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${ID_TOKEN}`,
+            },
+          }
+        );
+
+        setUserId(response.data);
+      } catch (error) {
+        console.error("Error fetching userId:", error);
+      }
+    };
+
+    fetchUserId();
+  }, []);
 
   const getRecipeName = () => {
     return (
@@ -282,7 +303,7 @@ const CreateRecipeOne = () => {
 
   const handleNavigation = (screenName) => {
     navigation.navigate(screenName, {
-      // userId,
+      userId,
       recipeName,
       method,
       style,
