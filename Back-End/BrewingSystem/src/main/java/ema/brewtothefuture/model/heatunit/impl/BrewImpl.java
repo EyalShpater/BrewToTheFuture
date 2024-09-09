@@ -199,6 +199,13 @@ public class BrewImpl implements Brew {
         return status.getCode();
     }
 
+    @Override
+    public void complete() {
+        synchronized (statusLock) {
+            status = BrewingStatus.COMPLETED;
+        }
+    }
+
     public static void setBrewingReportRepository(BrewingReportRepository brewingReportRepository) {
         if (brewingReportRepository != null) {
             BrewImpl.brewingReportRepository = brewingReportRepository;
