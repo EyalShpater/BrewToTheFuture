@@ -73,7 +73,7 @@ const HomeStack = () => {
         const data = await response.json();
 
         // Check if there's a new notification
-        if (data != null) {
+        if (data != null && response.status == 200) {
           Notifications.scheduleNotificationAsync({
             content: {
               title: "Brew To The Future",
@@ -84,7 +84,7 @@ const HomeStack = () => {
           });
         }
       } catch (error) {
-        console.log("Error polling notifications:", error);
+        //console.log("Error polling notifications:", error);
       }
     };
 
