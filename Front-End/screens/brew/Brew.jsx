@@ -21,13 +21,15 @@ const HorizontalTimeline = ({ stepNumber, recipe }) => {
     if (index + 1 < stepNumber) {
       newDescription = "Done";
     } else if (index + 1 === stepNumber) {
-      newDescription = "In process";
+      newDescription = `In process - Total step time: ${item.duration_minutes}`;
     }
 
     let newTitle;
 
     if (item.message == null) {
-      newTitle = `Step ${index + 1} - Temperature Rest`;
+      newTitle = `Step ${index + 1} - Maintaining ${
+        item.temperature_celsius
+      }°C for ${item.duration_minutes} minutes`;
     } else {
       newTitle = `Step ${index + 1} - ${item.message}`;
     }
@@ -104,7 +106,7 @@ const Brew = () => {
           setRecipeData(recipeResponse.data);
         }
       } catch (error) {
-        console.log("Error fetching brew or recipe data:", error);
+        //console.log("Error fetching brew or recipe data:", error);
       } finally {
         setLoading(false);
       }

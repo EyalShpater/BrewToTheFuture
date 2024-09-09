@@ -13,6 +13,7 @@ import {
   Button,
 } from "react-native";
 import { ID_TOKEN } from "../../utils/idToken";
+import BasicRating from "../../components/rateStarts";
 
 const ExploreRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -22,9 +23,9 @@ const ExploreRecipes = () => {
   const [fermentablesNames, setFermentablesNames] = useState([]);
   const [hopsNames, setHopsNames] = useState([]);
   const [yeastsNames, setYeastsNames] = useState([]);
+  const [ratings, setRatings] = useState({});
 
   useEffect(() => {
-    // Define the async function
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -37,7 +38,39 @@ const ExploreRecipes = () => {
         );
 
         if (response.data) {
-          setRecipes(response.data);
+          const recipesData = response.data;
+
+          // Fetch ratings and reviews for each recipe
+          const ratingsPromises = recipesData.map(async (recipe) => {
+            try {
+              const ratingResponse = await axios.get(
+                `https://brewtothefuture.azurewebsites.net/api/brew/rate/${recipe.recipe_id}`,
+                {
+                  headers: {
+                    Authorization: `Bearer ${ID_TOKEN}`,
+                  },
+                }
+              );
+
+              const ratingsArray = ratingResponse.data;
+
+              // Calculate average rating
+              const totalRating = ratingsArray.reduce(
+                (acc, obj) => acc + obj.rating,
+                0
+              );
+              const averageRating =
+                ratingsArray.length > 0 ? totalRating / ratingsArray.length : 0;
+
+              return { ...recipe, averageRating, reviews: ratingsArray };
+            } catch (error) {
+              console.error("Error fetching ratings:", error);
+              return { ...recipe, averageRating: 0, reviews: [] };
+            }
+          });
+
+          const recipesWithRatings = await Promise.all(ratingsPromises);
+          setRecipes(recipesWithRatings);
         } else {
           console.error("No data available.");
         }
@@ -238,6 +271,31 @@ const ExploreRecipes = () => {
     return date.toLocaleDateString();
   };
 
+  const handleRatingChange = async (newValue, recipeId) => {
+    try {
+      setRatings((prevRatings) => ({
+        ...prevRatings,
+        [recipeId]: newValue,
+      }));
+
+      const response = await axios.post(
+        `https://brewtothefuture.azurewebsites.net/api/brew/rate/rating/${recipeId}`,
+        {
+          rating: newValue,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${ID_TOKEN}`,
+          },
+        }
+      );
+
+      console.log("Rating submitted successfully:", response.data);
+    } catch (error) {
+      console.error("Error submitting rating:", error);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -262,20 +320,48 @@ const ExploreRecipes = () => {
           <Text style={styles.loadingText}>Loading...</Text>
         ) : (
           recipes.map((recipe, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.dataContainer}
-              onPress={() => openModal(recipe)}
-            >
-              <Text style={styles.recipeName}>
-                Beer name: {recipe.recipe_name}{" "}
-              </Text>
-              <Text style={styles.date}>
-                Creation date: {convertTimestampToDate(recipe.time_created)}
-              </Text>
-              <Text style={styles.recipeName}>Created by: Adi Kapuri</Text>
-              <Text style={styles.touchOrder}>Touch to see more details</Text>
-            </TouchableOpacity>
+            <View key={index} style={styles.recipeContainer}>
+              <TouchableOpacity
+                key={index}
+                style={styles.dataContainer}
+                onPress={() => openModal(recipe)}
+              >
+                <Text style={styles.recipeName}>
+                  Beer name: {recipe.recipe_name}{" "}
+                </Text>
+                <Text style={styles.date}>
+                  Creation date: {convertTimestampToDate(recipe.time_created)}
+                </Text>
+                <Text style={styles.recipeName}>Created by: Adi Kapuri</Text>
+                <Text style={styles.recipeName}>
+                  Rating: {recipe.averageRating.toFixed(1)}
+                </Text>
+                <Text style={styles.touchOrder}>Touch to see more details</Text>
+              </TouchableOpacity>
+              <BasicRating
+                defaultValue={0} // default value from the state
+                onChange={(newValue) => handleRatingChange(newValue, recipe.id)}
+              />
+
+              {recipe.reviews && recipe.reviews.length > 0 && (
+                <View style={styles.reviewsContainer}>
+                  <Text style={styles.reviewsTitle}>Reviews:</Text>
+                  {recipe.reviews.map((review, reviewIndex) => (
+                    <View key={reviewIndex} style={styles.review}>
+                      <Text style={styles.reviewRating}>
+                        Rating: {review.rating}
+                      </Text>
+                      <Text style={styles.reviewComment}>
+                        Review: {review.review || "No review"}
+                      </Text>
+                      <Text style={styles.reviewDate}>
+                        Date: {convertTimestampToDate(review.reviewDate)}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
+              )}
+            </View>
           ))
         )}
 

@@ -95,14 +95,14 @@ const styles = StyleSheet.create({
     fontFamily: FONT.bold,
     fontSize: SIZES.medium,
     color: COLORS.black,
-    marginTop: SIZES.large,
+    marginTop: 10,
     textAlign: "center",
   },
   date: {
     fontFamily: FONT.bold,
     fontSize: SIZES.medium,
     color: COLORS.date,
-    marginTop: SIZES.large,
+    marginTop: 10,
     textAlign: "center",
   },
   touchOrder: {
@@ -111,6 +111,51 @@ const styles = StyleSheet.create({
     color: COLORS.buttonBlue,
     marginTop: SIZES.large,
     textAlign: "center",
+  },
+  recipeContainer: {
+    width: width * 0.9, // Adjusting width based on screen width
+    marginHorizontal: 10,
+    padding: 10,
+    backgroundColor: COLORS.beige, // Match your theme color
+    borderRadius: 20,
+    borderBottomEndRadius: 1,
+    borderStartStartRadius: 1,
+    shadowColor: "#000",
+    shadowOffset: { width: 2, height: 3 },
+    shadowOpacity: 0.4,
+    shadowRadius: 7,
+    elevation: 5,
+    justifyContent: "flex-start",
+    alignItems: "stretch",
+    marginBottom: 15,
+  },
+  reviewsContainer: {
+    marginTop: 10,
+    padding: 10,
+    borderTopWidth: 1,
+    borderTopColor: "#ddd",
+  },
+  reviewsTitle: {
+    fontSize: SIZES.medium,
+    fontFamily: FONT.bold,
+    marginBottom: 8,
+    textAlign: "center",
+    color: COLORS.primary,
+  },
+  review: {
+    marginBottom: 10,
+  },
+  reviewRating: {
+    fontSize: SIZES.smallMedium,
+    fontFamily: FONT.bold,
+    color: COLORS.darkOrange,
+  },
+  reviewComment: {
+    fontSize: 14,
+  },
+  reviewDate: {
+    fontSize: 14,
+    color: "#888",
   },
 });
 
