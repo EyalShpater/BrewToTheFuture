@@ -171,7 +171,6 @@ public class BrewingSystemService implements BrewingSystem {
             ratingDB.setRecipe(recipeService.getRecipeDB(recipeId));
         } else {
             ratingDB.setReview(comment);
-            ratingDB.setReviewDate(System.currentTimeMillis());
         }
 
         ratingRepository.save(ratingDB);
