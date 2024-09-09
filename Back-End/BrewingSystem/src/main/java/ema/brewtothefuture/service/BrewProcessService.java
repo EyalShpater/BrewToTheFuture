@@ -81,6 +81,7 @@ public class BrewProcessService {
     public void markHeadOfQueueAsBrewedInQueue(String userId) {
         try {
             Brew brewed = userIdToBrew.get(userId).remove();
+            brewed.complete();
         } catch (NoSuchElementException e) {
             throw new IllegalArgumentException("No brews for user " + userId);
         }
@@ -123,6 +124,16 @@ public class BrewProcessService {
         }
 
         return brew.getId();
+    }
+
+    public void stopBrewing(String userId) {
+        Queue<Brew> q = userIdToBrew.get(userId);
+
+        if (q == null || q.isEmpty()) {
+            throw new IllegalArgumentException("No brews for user " + userId);
+        }
+
+        q.remove().stop();
     }
 }
 

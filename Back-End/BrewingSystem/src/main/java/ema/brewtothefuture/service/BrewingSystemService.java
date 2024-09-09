@@ -328,6 +328,11 @@ public class BrewingSystemService implements BrewingSystem {
         return ratingRepository.getRatingByRecipeIdAndUserId(recipeId, userId);
     }
 
+    @Override
+    public void stopBrewing(String userId) {
+        brewProcessService.stopBrewing(userId);
+    }
+
     /****** debug methods *****/
     @Override
     public void addNotification(String userId, String message) {

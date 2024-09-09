@@ -30,6 +30,9 @@ public interface Brew {
 
     int getStatus();
 
+    void complete();
+
     /***** debug *****/
     void addNotification(NotificationDTO notification);
+
 }

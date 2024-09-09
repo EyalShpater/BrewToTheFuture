@@ -210,4 +210,11 @@ public class BrewingSystemController {
     public List<RatingDTO> getRatingByRecipeId(@PathVariable int recipeId) {
         return brewingSystem.getRatings(recipeId);
     }
+
+    @PostMapping("brew/stop")
+    public void stopBrewing() {
+        String userId = GeneralController.getUserId();
+
+        brewingSystem.stopBrewing(userId);
+    }
 }

@@ -83,6 +83,8 @@ public interface BrewingSystem {
 
     RatingDB getRating(String userId, int recipeId);
 
+    void stopBrewing(String userId);
+
     /***** debug methods *****/
     void addNotification(String userId, String message);
 }
