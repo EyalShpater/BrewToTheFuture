@@ -141,10 +141,10 @@ const ExploreRecipes = () => {
           fetchRatings();
 
           // Set interval to fetch ratings every 4 seconds
-          // const intervalId = setInterval(fetchRatings, 15000);
+          const intervalId = setInterval(fetchRatings, 15000);
 
           // Clear interval on component unmount
-          // return () => clearInterval(intervalId);
+          return () => clearInterval(intervalId);
         } else {
           console.error("No data available.");
         }
@@ -360,6 +360,7 @@ const ExploreRecipes = () => {
       );
 
       console.log("Rating submitted successfully:", response.data);
+      setRating(null);
     } catch (error) {
       console.error("Error submitting rating:", error);
     }
