@@ -12,7 +12,8 @@ public class BrewValidator {
     private       long             embeddedBrewingReportInterval;
     private       BrewingReportDTO lastBrewingReport;
     private       int              numOfMissedReports;
-    private       boolean          isRunning = false;
+    private boolean isRunning            = false;
+    private boolean isEmbeddedResponding = true;
     private final long             brewId;
     private final Notification     notifications;
     private final Timer            timer;
@@ -82,13 +83,15 @@ public class BrewValidator {
         long timeDiff = currentTime - lastReportTime;
 
         if (timeDiff > embeddedBrewingReportInterval) {
-            if (++numOfMissedReports >= MAX_MISSED_REPORTS) {
+            if (++numOfMissedReports >= MAX_MISSED_REPORTS && isEmbeddedResponding) {
                 notifications.addNotification("Embedded system is not responding");
                 numOfMissedReports = 0;
+                isEmbeddedResponding = false;
                 logger.warning("Embedded system is not responding for brew with id: " + brewId);
             }
         } else {
             numOfMissedReports = 0;
+            isEmbeddedResponding = true;
         }
     }
 

@@ -3,29 +3,29 @@ package ema.brewtothefuture.dto.front;
 import ema.brewtothefuture.dto.api.DTO;
 
 public class RatingDTO implements DTO {
-    private String userId;
-    private long   recipeId;
+    private String user_id;
+    private long   recipe_id;
     private double rating;
     private String review;
-    private long   reviewDate;
+    private long   review_date;
 
     public RatingDTO() {
     }
 
     public RatingDTO(String userId, long recipeId, double rating, String review, long reviewDate) {
-        this.userId = userId;
-        this.recipeId = recipeId;
+        this.user_id = userId;
+        this.recipe_id = recipeId;
         this.rating = rating;
         this.review = review;
-        this.reviewDate = reviewDate;
+        this.review_date = reviewDate;
     }
 
     public String getUserId() {
-        return userId;
+        return user_id;
     }
 
     public long getRecipeId() {
-        return recipeId;
+        return recipe_id;
     }
 
     public double getRating() {
@@ -37,6 +37,6 @@ public class RatingDTO implements DTO {
     }
 
     public long getReviewDate() {
-        return reviewDate;
+        return review_date;
     }
 }

@@ -50,14 +50,11 @@ public class RatingDB implements DTOConvertible<RatingDTO> {
 
     public void setReview(String review) {
         this.review = review;
+        this.reviewDate = System.currentTimeMillis();
     }
 
     public long getReviewDate() {
         return reviewDate;
-    }
-
-    public void setReviewDate(long date) {
-        this.reviewDate = date;
     }
 
     @Override
