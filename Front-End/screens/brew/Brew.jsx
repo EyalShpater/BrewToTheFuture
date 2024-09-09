@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Brew.style.js";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import TemperatureBar from "../../components/temperatureBar/TemperatureBar";
 import axios from "axios";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -11,9 +11,6 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
-  Modal,
-  Pressable,
-  Button,
 } from "react-native";
 import { ID_TOKEN } from "../../utils/idToken.js";
 
@@ -159,6 +156,7 @@ const Brew = () => {
         console.log("Brewing stopped successfully:", response.data);
         Alert.alert("Success", "Brewing has been stopped.");
         navigation.navigate("Welcome");
+        navigation.goBack();
       } else {
         // Handle unexpected status codes
         console.log("Unexpected response status:", response.status);

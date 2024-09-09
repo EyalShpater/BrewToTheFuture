@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
-import { COLORS, images } from "../../constants";
+import { images } from "../../constants";
 
 const CreateRecipeThree = () => {
   const navigation = useNavigation();
