@@ -28,7 +28,7 @@ const Statistics = () => {
     const fetchTemperatureData = async () => {
       try {
         const response = await axios.get(
-          "https://brewtothefuture.azurewebsites.net/api/brew/data",
+          "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/data",
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,

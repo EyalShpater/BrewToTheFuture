@@ -85,7 +85,7 @@ const Brew = () => {
     const fetchBrewData = async () => {
       try {
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/data/latest`,
+          `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/data/latest`,
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,
@@ -98,7 +98,7 @@ const Brew = () => {
 
         if (brewDataResponse.recipe_id) {
           const recipeResponse = await axios.get(
-            `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${brewDataResponse.recipe_id}`,
+            `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/id/${brewDataResponse.recipe_id}`,
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,
@@ -146,7 +146,7 @@ const Brew = () => {
   const handleStopBrewing = async () => {
     try {
       const response = await axios.post(
-        "https://brewtothefuture.azurewebsites.net/api/brew/stop",
+        "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/stop",
         {},
         {
           headers: {

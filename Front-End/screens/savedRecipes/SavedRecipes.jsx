@@ -29,7 +29,7 @@ const SavedRecipes = () => {
     const fetchRecipes = async () => {
       try {
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/recipe/user`,
+          `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/user`,
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,
@@ -53,7 +53,7 @@ const SavedRecipes = () => {
       const namesPromises = fermentables.map((fermentable) =>
         axios
           .get(
-            `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`,
+            `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/ingredients/fermentables/${fermentable.id}`,
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,
@@ -76,7 +76,7 @@ const SavedRecipes = () => {
       const namesPromises = hops.map((hop) =>
         axios
           .get(
-            `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops/${hop.id}`,
+            `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/ingredients/hops/${hop.id}`,
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,
@@ -99,7 +99,7 @@ const SavedRecipes = () => {
       const namesPromises = yeasts.map((yeast) =>
         axios
           .get(
-            `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts/${yeast.id}`,
+            `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/ingredients/yeasts/${yeast.id}`,
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,
@@ -230,7 +230,7 @@ const SavedRecipes = () => {
   const handleDelete = async (recipeId) => {
     try {
       await axios.delete(
-        `https://brewtothefuture.azurewebsites.net/api/brew/recipe/${recipeId}`,
+        `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/${recipeId}`,
         {
           headers: {
             Authorization: `Bearer ${ID_TOKEN}`,
@@ -262,7 +262,7 @@ const SavedRecipes = () => {
   const handlePlayPress = async (recipeId) => {
     try {
       const response = await axios.post(
-        `https://brewtothefuture.azurewebsites.net/api/brew/recipe/${recipeId}`,
+        `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/${recipeId}`,
         {},
         {
           headers: {

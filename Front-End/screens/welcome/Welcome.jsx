@@ -30,7 +30,7 @@ const ModalBrew = () => {
     const fetchBrewData = async () => {
       try {
         const response = await axios.get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/data/latest`,
+          `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/data/latest`,
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,
@@ -43,7 +43,7 @@ const ModalBrew = () => {
 
         if (brewDataResponse.recipe_id) {
           const recipeResponse = await axios.get(
-            `https://brewtothefuture.azurewebsites.net/api/brew/recipe/id/${brewDataResponse.recipe_id}`,
+            `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/id/${brewDataResponse.recipe_id}`,
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,
@@ -144,7 +144,7 @@ const Welcome = () => {
     while (!success) {
       try {
         const response = await axios.post(
-          "https://brewtothefuture.azurewebsites.net/api/brew/recipe/current_brewing/step/complete",
+          "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/current_brewing/step/complete",
           {},
           {
             headers: {

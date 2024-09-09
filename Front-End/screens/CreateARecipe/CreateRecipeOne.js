@@ -55,7 +55,7 @@ const CreateRecipeOne = () => {
       const fetchMethods = async () => {
         try {
           const response = await axios.get(
-            "https://brewtothefuture.azurewebsites.net/api/brew/methods",
+            "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/methods",
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,
@@ -133,7 +133,7 @@ const CreateRecipeOne = () => {
         try {
           // Make the API request with the token in headers
           const response = await axios.get(
-            "https://brewtothefuture.azurewebsites.net/api/brew/styles",
+            "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/styles",
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,

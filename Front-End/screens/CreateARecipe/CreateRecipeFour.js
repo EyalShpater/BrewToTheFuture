@@ -100,7 +100,8 @@ const CreateRecipeFour = () => {
       yeast: route.params.yeastDetails,
     };
 
-    const url = "https://brewtothefuture.azurewebsites.net/api/brew/recipe/add";
+    const url =
+      "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/add";
 
     try {
       const response = await axios.post(url, recipeObj, {

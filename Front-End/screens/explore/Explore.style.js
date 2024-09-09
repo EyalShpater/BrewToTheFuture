@@ -142,6 +142,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: COLORS.primary,
   },
+  ratingTitle: {
+    fontSize: SIZES.medium,
+    fontFamily: FONT.bold,
+    marginBottom: 8,
+    textAlign: "left",
+    color: COLORS.primary,
+  },
   review: {
     marginBottom: 10,
   },
@@ -164,8 +171,25 @@ const styles = StyleSheet.create({
     borderColor: COLORS.primary,
     borderRadius: 10,
     paddingHorizontal: 10,
-    backgroundColor: COLORS.gray3,
+    backgroundColor: COLORS.white,
     textAlign: "center",
+  },
+  ratingInput: {
+    width: 200, // Set a specific width to make it narrower
+    flex: 1,
+    height: 30,
+    borderWidth: 1.5,
+    borderColor: COLORS.primary,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    backgroundColor: COLORS.white,
+    textAlign: "center",
+    alignItems: "center", // This ensures the text and input are aligned vertically
+  },
+  ratingRow: {
+    flexDirection: "row",
+    alignItems: "center", // This ensures the text and input are aligned vertically
+    justifyContent: "space-between", // This will adjust spacing if needed
   },
 });
 

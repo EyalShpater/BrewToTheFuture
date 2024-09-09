@@ -195,7 +195,7 @@ const CreateRecipeTwo = () => {
       const fetchFermentables = async () => {
         try {
           const response = await axios.get(
-            "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables",
+            "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/ingredients/fermentables",
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,
@@ -351,7 +351,7 @@ const CreateRecipeTwo = () => {
       const fetchHops = async () => {
         try {
           const response = await axios.get(
-            "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops",
+            "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/ingredients/hops",
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,
@@ -513,7 +513,7 @@ const CreateRecipeTwo = () => {
       const fetchYeasts = async () => {
         try {
           const response = await axios.get(
-            "https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts",
+            "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/ingredients/yeasts",
             {
               headers: {
                 Authorization: `Bearer ${ID_TOKEN}`,

@@ -14,7 +14,7 @@ import {
   TextInput,
 } from "react-native";
 import { ID_TOKEN } from "../../utils/idToken";
-import BasicRating from "../../components/rateStarts";
+import { COLORS } from "../../constants";
 
 const ExploreRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -24,14 +24,73 @@ const ExploreRecipes = () => {
   const [fermentablesNames, setFermentablesNames] = useState([]);
   const [hopsNames, setHopsNames] = useState([]);
   const [yeastsNames, setYeastsNames] = useState([]);
-  const [ratings, setRatings] = useState({});
+  const [rating, setRating] = useState(null);
   const [reviewText, setReviewText] = useState("");
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         "https://brewtothefuture.azurewebsites.net/api/brew/recipe/all",
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${ID_TOKEN}`,
+  //           },
+  //         }
+  //       );
+
+  //       if (response.data) {
+  //         const recipesData = response.data;
+
+  //         // Fetch ratings and reviews for each recipe
+  //         const ratingsPromises = recipesData.map(async (recipe) => {
+  //           try {
+  //             const ratingResponse = await axios.get(
+  //               `https://brewtothefuture.azurewebsites.net/api/brew/rate/${recipe.recipe_id}`,
+  //               {
+  //                 headers: {
+  //                   Authorization: `Bearer ${ID_TOKEN}`,
+  //                 },
+  //               }
+  //             );
+
+  //             const ratingsArray = ratingResponse.data;
+
+  //             // Calculate average rating
+  //             const totalRating = ratingsArray.reduce(
+  //               (acc, obj) => acc + obj.rating,
+  //               0
+  //             );
+  //             const averageRating =
+  //               ratingsArray.length > 0 ? totalRating / ratingsArray.length : 0;
+
+  //             return { ...recipe, averageRating, reviews: ratingsArray };
+  //           } catch (error) {
+  //             console.error("Error fetching ratings:", error);
+  //             return { ...recipe, averageRating: 0, reviews: [] };
+  //           }
+  //         });
+
+  //         const recipesWithRatings = await Promise.all(ratingsPromises);
+  //         setRecipes(recipesWithRatings);
+  //       } else {
+  //         console.error("No data available.");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://brewtothefuture.azurewebsites.net/api/brew/recipe/all",
+          "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/all",
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,
@@ -43,36 +102,49 @@ const ExploreRecipes = () => {
           const recipesData = response.data;
 
           // Fetch ratings and reviews for each recipe
-          const ratingsPromises = recipesData.map(async (recipe) => {
-            try {
-              const ratingResponse = await axios.get(
-                `https://brewtothefuture.azurewebsites.net/api/brew/rate/${recipe.recipe_id}`,
-                {
-                  headers: {
-                    Authorization: `Bearer ${ID_TOKEN}`,
-                  },
-                }
-              );
+          const fetchRatings = async () => {
+            const ratingsPromises = recipesData.map(async (recipe) => {
+              try {
+                const ratingResponse = await axios.get(
+                  `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/rate/${recipe.recipe_id}`,
+                  {
+                    headers: {
+                      Authorization: `Bearer ${ID_TOKEN}`,
+                    },
+                  }
+                );
 
-              const ratingsArray = ratingResponse.data;
+                const ratingsArray = ratingResponse.data;
 
-              // Calculate average rating
-              const totalRating = ratingsArray.reduce(
-                (acc, obj) => acc + obj.rating,
-                0
-              );
-              const averageRating =
-                ratingsArray.length > 0 ? totalRating / ratingsArray.length : 0;
+                // Calculate average rating
+                const totalRating = ratingsArray.reduce(
+                  (acc, obj) => acc + obj.rating,
+                  0
+                );
+                const averageRating =
+                  ratingsArray.length > 0
+                    ? totalRating / ratingsArray.length
+                    : 0;
 
-              return { ...recipe, averageRating, reviews: ratingsArray };
-            } catch (error) {
-              console.error("Error fetching ratings:", error);
-              return { ...recipe, averageRating: 0, reviews: [] };
-            }
-          });
+                return { ...recipe, averageRating, reviews: ratingsArray };
+              } catch (error) {
+                // console.error("Error fetching ratings:", error);
+                return { ...recipe, averageRating: 0, reviews: [] };
+              }
+            });
 
-          const recipesWithRatings = await Promise.all(ratingsPromises);
-          setRecipes(recipesWithRatings);
+            const recipesWithRatings = await Promise.all(ratingsPromises);
+            setRecipes(recipesWithRatings);
+          };
+
+          // Fetch ratings immediately
+          fetchRatings();
+
+          // Set interval to fetch ratings every 4 seconds
+          // const intervalId = setInterval(fetchRatings, 15000);
+
+          // Clear interval on component unmount
+          // return () => clearInterval(intervalId);
         } else {
           console.error("No data available.");
         }
@@ -90,7 +162,7 @@ const ExploreRecipes = () => {
     const namesPromises = fermentables.map((fermentable) =>
       axios
         .get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/fermentables/${fermentable.id}`,
+          `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/ingredients/fermentables/${fermentable.id}`,
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,
@@ -114,7 +186,7 @@ const ExploreRecipes = () => {
     const namesPromises = hops.map((hop) =>
       axios
         .get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/hops/${hop.id}`,
+          `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/ingredients/hops/${hop.id}`,
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,
@@ -138,7 +210,7 @@ const ExploreRecipes = () => {
     const namesPromises = yeasts.map((yeast) =>
       axios
         .get(
-          `https://brewtothefuture.azurewebsites.net/api/brew/ingredients/yeasts/${yeast.id}`,
+          `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/ingredients/yeasts/${yeast.id}`,
           {
             headers: {
               Authorization: `Bearer ${ID_TOKEN}`,
@@ -275,16 +347,11 @@ const ExploreRecipes = () => {
 
   const handleRatingChange = async (newValue, recipeId) => {
     try {
-      setRatings((prevRatings) => ({
-        ...prevRatings,
-        [recipeId]: newValue,
-      }));
+      setRating(newValue);
 
       const response = await axios.post(
-        `https://brewtothefuture.azurewebsites.net/api/brew/rate/rating/${recipeId}?rating=${newValue}`,
-        // {
-        //   rating: newValue,
-        // },
+        `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/rate/rating/${recipeId}?rating=${newValue}`,
+        {},
         {
           headers: {
             Authorization: `Bearer ${ID_TOKEN}`,
@@ -301,10 +368,7 @@ const ExploreRecipes = () => {
   const handleReviewSubmit = async (recipeId) => {
     try {
       const response = await axios.post(
-        `https://brewtothefuture.azurewebsites.net/api/brew/rate/review/${recipeId}?review=${reviewText}`,
-        // {
-        //   review: reviewText, // Review inputted by the user
-        // },
+        `http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/rate/review/${recipeId}?review=${reviewText}`,
         {},
         {
           headers: {
@@ -366,9 +430,19 @@ const ExploreRecipes = () => {
                 </Text>
                 <Text style={styles.touchOrder}>Touch to see more details</Text>
               </TouchableOpacity>
-              <BasicRating
-                defaultValue={0} // default value from the state
-                onChange={(newValue) => handleRatingChange(newValue, recipe.id)}
+              <View style={styles.ratingRow}>
+                <Text style={styles.ratingTitle}>Rate the recipe (1-5): </Text>
+                <TextInput
+                  style={styles.ratingInput}
+                  placeholder="rate"
+                  placeholderTextColor={COLORS.date}
+                  value={rating}
+                  onChangeText={setRating}
+                />
+              </View>
+              <Button
+                title="Submit Rating"
+                onPress={() => handleRatingChange(rating, recipe.recipe_id)}
               />
 
               {recipe.reviews && recipe.reviews.length > 0 ? (
@@ -376,9 +450,6 @@ const ExploreRecipes = () => {
                   <Text style={styles.reviewsTitle}>Reviews:</Text>
                   {recipe.reviews.map((review, reviewIndex) => (
                     <View key={reviewIndex} style={styles.review}>
-                      <Text style={styles.reviewRating}>
-                        Rating: {review.rating}
-                      </Text>
                       <Text style={styles.reviewComment}>
                         Review: {review.review || "No review"}
                       </Text>
@@ -398,7 +469,8 @@ const ExploreRecipes = () => {
               <Text style={styles.reviewsTitle}>Add a review:</Text>
               <TextInput
                 style={styles.input}
-                placeholder="Write your review"
+                placeholder="Write your review here"
+                placeholderTextColor={COLORS.date}
                 value={reviewText}
                 onChangeText={setReviewText}
               />

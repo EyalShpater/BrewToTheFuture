@@ -37,7 +37,7 @@ const HomeStack = () => {
     const fetchUserId = async () => {
       try {
         const response = await axios.get(
-          "https://brewtothefuture.azurewebsites.net/user/details",
+          "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/user/details",
           {
             headers: {
               "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const HomeStack = () => {
     const pollNotifications = async () => {
       try {
         const response = await fetch(
-          "https://brewtothefuture.azurewebsites.net/api/notification",
+          "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/notification",
           {
             method: "GET",
             headers: {
