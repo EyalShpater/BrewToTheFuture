@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import {
   SafeAreaView,
   View,
@@ -151,10 +151,8 @@ const CreateRecipeOne = () => {
 
   const getStyle = () => {
     useEffect(() => {
-      // Define the async function
       const fetchStyles = async () => {
         try {
-          // Make the API request with the token in headers
           const response = await axios.get(
             "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/styles",
             {
@@ -348,7 +346,7 @@ const CreateRecipeOne = () => {
           {getFinalGravity()}
           {getColor()}
           {getBatchSize()}
-          {/* Next Page Button */}
+
           <TouchableOpacity
             onPress={() => handleNavigation("CreateRecipeTwo")}
             style={styles.nextPageButton}

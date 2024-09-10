@@ -25,23 +25,6 @@ const CreateRecipeFour = () => {
     },
   ]);
 
-  // const {
-  //   userId,
-  //   recipeName,
-  //   method,
-  //   style,
-  //   abv,
-  //   ibu,
-  //   originalGravity,
-  //   finalGravity,
-  //   color,
-  //   batchSizeLiter,
-  //   fermentableDetails,
-  //   hopsDetails,
-  //   yeastDetails,
-  //   steps,
-  // } = route.params;
-
   const renderNotifications = () => {
     return notifications.map((notification, index) => (
       <View key={index} style={styles.stepContainer}>
@@ -99,7 +82,6 @@ const CreateRecipeFour = () => {
       hops: route.params.hopsDetails,
       yeast: route.params.yeastDetails,
     };
-    console.log(recipeObj.method);
 
     const url =
       "http://ec2-16-171-28-128.eu-north-1.compute.amazonaws.com:8080/api/brew/recipe/add";
@@ -114,10 +96,8 @@ const CreateRecipeFour = () => {
 
       if (response.status == 200) {
         console.log("Recipe created successfully!");
-        console.log(response.data);
       } else {
         console.error(`Error: ${response.status}`);
-        console.error(response.data, error.message);
       }
     } catch (error) {
       console.error("Error:", error, error.message);

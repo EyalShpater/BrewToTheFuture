@@ -61,7 +61,7 @@ const Register = () => {
   };
 
   const handleNavigateToSignIn = () => {
-    navigation.navigate("SignIn"); // Navigate to Sign In screen
+    navigation.navigate("SignIn");
   };
 
   return (

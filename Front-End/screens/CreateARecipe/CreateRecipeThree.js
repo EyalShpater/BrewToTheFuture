@@ -28,22 +28,6 @@ const CreateRecipeThree = () => {
   ]);
   const [notifySwitches, setNotifySwitches] = useState(step.map(() => false));
 
-  // const {
-  //   userId,
-  //   recipeName,
-  //   method,
-  //   style,
-  //   abv,
-  //   ibu,
-  //   originalGravity,
-  //   finalGravity,
-  //   color,
-  //   batchSizeLiter,
-  //   fermentableDetails,
-  //   yeastDetails,
-  //   hopsDetails,
-  // } = route.params;
-
   const renderSteps = () => {
     return step.map((step) => (
       <View key={step.step_id} style={styles.stepContainer}>
@@ -188,12 +172,10 @@ const CreateRecipeThree = () => {
 
           {renderSteps()}
 
-          {/* Next Step Button */}
           <TouchableOpacity onPress={addStep} style={styles.AddStepButton}>
             <Text style={styles.AddStepButtonText}>+Add Step</Text>
           </TouchableOpacity>
 
-          {/* Next Page Button */}
           <View style={{ marginVertical: 80 }} />
           <TouchableOpacity
             onPress={() => handleNavigation("CreateRecipeFour")}

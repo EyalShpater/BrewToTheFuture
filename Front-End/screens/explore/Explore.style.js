@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   ratingInput: {
-    width: 200, // Set a specific width to make it narrower
+    width: 200,
     flex: 1,
     height: 30,
     borderWidth: 1.5,

@@ -27,65 +27,6 @@ const ExploreRecipes = () => {
   const [rating, setRating] = useState(null);
   const [reviewText, setReviewText] = useState("");
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         "https://brewtothefuture.azurewebsites.net/api/brew/recipe/all",
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${ID_TOKEN}`,
-  //           },
-  //         }
-  //       );
-
-  //       if (response.data) {
-  //         const recipesData = response.data;
-
-  //         // Fetch ratings and reviews for each recipe
-  //         const ratingsPromises = recipesData.map(async (recipe) => {
-  //           try {
-  //             const ratingResponse = await axios.get(
-  //               `https://brewtothefuture.azurewebsites.net/api/brew/rate/${recipe.recipe_id}`,
-  //               {
-  //                 headers: {
-  //                   Authorization: `Bearer ${ID_TOKEN}`,
-  //                 },
-  //               }
-  //             );
-
-  //             const ratingsArray = ratingResponse.data;
-
-  //             // Calculate average rating
-  //             const totalRating = ratingsArray.reduce(
-  //               (acc, obj) => acc + obj.rating,
-  //               0
-  //             );
-  //             const averageRating =
-  //               ratingsArray.length > 0 ? totalRating / ratingsArray.length : 0;
-
-  //             return { ...recipe, averageRating, reviews: ratingsArray };
-  //           } catch (error) {
-  //             console.error("Error fetching ratings:", error);
-  //             return { ...recipe, averageRating: 0, reviews: [] };
-  //           }
-  //         });
-
-  //         const recipesWithRatings = await Promise.all(ratingsPromises);
-  //         setRecipes(recipesWithRatings);
-  //       } else {
-  //         console.error("No data available.");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -101,7 +42,6 @@ const ExploreRecipes = () => {
         if (response.data) {
           const recipesData = response.data;
 
-          // Fetch ratings and reviews for each recipe
           const fetchRatings = async () => {
             const ratingsPromises = recipesData.map(async (recipe) => {
               try {
@@ -116,7 +56,6 @@ const ExploreRecipes = () => {
 
                 const ratingsArray = ratingResponse.data;
 
-                // Calculate average rating
                 const totalRating = ratingsArray.reduce(
                   (acc, obj) => acc + obj.rating,
                   0
@@ -128,7 +67,7 @@ const ExploreRecipes = () => {
 
                 return { ...recipe, averageRating, reviews: ratingsArray };
               } catch (error) {
-                // console.error("Error fetching ratings:", error);
+                console.log("Error fetching ratings:", error);
                 return { ...recipe, averageRating: 0, reviews: [] };
               }
             });
@@ -137,13 +76,10 @@ const ExploreRecipes = () => {
             setRecipes(recipesWithRatings);
           };
 
-          // Fetch ratings immediately
           fetchRatings();
 
-          // Set interval to fetch ratings every 4 seconds
           const intervalId = setInterval(fetchRatings, 15000);
 
-          // Clear interval on component unmount
           return () => clearInterval(intervalId);
         } else {
           console.error("No data available.");
@@ -378,12 +314,7 @@ const ExploreRecipes = () => {
         }
       );
       console.log("Review submitted successfully:", response.data);
-
-      // Optionally clear the input after submission
       setReviewText("");
-
-      // Update the recipe with new review after successful submission
-      // Optionally refetch or update the reviews for the recipe.
     } catch (error) {
       console.error("Error submitting review:", error);
     }

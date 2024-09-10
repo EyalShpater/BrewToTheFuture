@@ -27,12 +27,12 @@ const CreateRecipeTwo = () => {
     {
       id: 0,
       amount_kg: 0,
-      type: null, // Added type property
+      type: null,
     },
   ]);
   const [fermentablesOptions, setFermentablesOptions] = useState(null);
   const [fermentableTypePickerIndex, setFermentableTypePickerIndex] =
-    useState(null); // Added to keep track of which index to update
+    useState(null);
 
   const [isFermentablesTypePickerVisible, setIsFermentablesTypePickerVisible] =
     useState(false);
@@ -45,7 +45,7 @@ const CreateRecipeTwo = () => {
       id: 0,
       amount_g: 0,
       time_minutes: 0,
-      type: null, // Added type property
+      type: null,
     },
   ]);
   const [hopsOptions, setHopsOptions] = useState(null);
@@ -59,29 +59,16 @@ const CreateRecipeTwo = () => {
     {
       id: 0,
       temperature_celsius: 0,
-      type: null, // Added type property
+      type: null,
     },
   ]);
   const [yeastOptions, setYeastOptions] = useState(null);
-  const [yeastTypePickerIndex, setYeastTypePickerIndex] = useState(null); // Added to keep track of which index to update
+  const [yeastTypePickerIndex, setYeastTypePickerIndex] = useState(null);
   const [isYeastTypePickerVisible, setIsYeastTypePickerVisible] =
     useState(false);
 
   const navigation = useNavigation();
   const route = useRoute();
-
-  // const {
-  //   userId,
-  //   recipeName,
-  //   method,
-  //   style,
-  //   abv,
-  //   ibu,
-  //   originalGravity,
-  //   finalGravity,
-  //   color,
-  //   batchSizeLiter,
-  // } = route.params;
 
   const handleFermentablesPickerSelect = (value) => {
     setFermentablesAmount(value);
@@ -90,7 +77,7 @@ const CreateRecipeTwo = () => {
       Array.from({ length: value }, () => ({
         id: 0,
         amount_kg: 0,
-        type: null, // Added type property
+        type: null,
       }))
     );
   };
@@ -103,7 +90,7 @@ const CreateRecipeTwo = () => {
         id: 0,
         amount_g: 0,
         time_minutes: 0,
-        type: null, // Added type property
+        type: null,
       }))
     );
   };
@@ -115,7 +102,7 @@ const CreateRecipeTwo = () => {
       Array.from({ length: value }, () => ({
         id: 0,
         temperature_celsius: 0,
-        type: null, // Added type property
+        type: null,
       }))
     );
   };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./SavedRecipes.style";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import {
   SafeAreaView,
@@ -22,8 +22,6 @@ const SavedRecipes = () => {
   const [fermentablesNames, setFermentablesNames] = useState([]);
   const [hopsNames, setHopsNames] = useState([]);
   const [yeastsNames, setYeastsNames] = useState([]);
-  // const route = useRoute();
-  //const { userId } = route.params;
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -118,7 +116,7 @@ const SavedRecipes = () => {
   };
 
   const openModal = (recipe) => {
-    setLoading(true); // Set loading to true while fetching data
+    setLoading(true);
     Promise.all([
       fetchFermentableNames(recipe.fermentables),
       fetchHopsNames(recipe.hops),
@@ -126,11 +124,11 @@ const SavedRecipes = () => {
     ])
       .then(() => {
         setSelectedRecipe(recipe);
-        setLoading(false); // Set loading to false once data is fetched
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching ingredient names:", error);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false);
       });
   };
 
@@ -297,7 +295,7 @@ const SavedRecipes = () => {
       ) : (
         <FlatList
           data={recipes}
-          keyExtractor={(item, index) => index.toString()} // Use index as a fallback
+          keyExtractor={(item, index) => index.toString()}
           ListHeaderComponent={
             <>
               <Text
@@ -360,7 +358,7 @@ const SavedRecipes = () => {
                 <Text style={styles.modalTitle}>Recipe Details:</Text>
                 <FlatList
                   data={getRecipeDetails(selectedRecipe)}
-                  keyExtractor={(item, index) => index.toString()} // Use index as a fallback
+                  keyExtractor={(item, index) => index.toString()}
                   renderItem={renderRecipeDetail}
                 />
                 <Button title="Close" onPress={closeModal} />

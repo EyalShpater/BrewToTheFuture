@@ -65,7 +65,7 @@ const Statistics = () => {
           console.error("No temperature data available.");
         }
       } catch (error) {
-        console.error("Error fetching temperature data:", error);
+        console.log("Error fetching temperature data:", error);
       }
     };
 

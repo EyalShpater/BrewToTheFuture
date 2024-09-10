@@ -154,10 +154,8 @@ const Brew = () => {
 
       if (response.status === 200) {
         console.log("Brewing stopped successfully:", response.data);
-        //Alert.alert("Success", "Brewing has been stopped.");
         navigation.navigate("Welcome");
       } else {
-        // Handle unexpected status codes
         console.log("Unexpected response status:", response.status);
         Alert.alert("Error", "Failed to stop brewing. Please try again.");
       }

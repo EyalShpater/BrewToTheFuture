@@ -54,14 +54,14 @@ const ModalBrew = () => {
           setRecipeData(recipeResponse.data);
         }
       } catch (error) {
-        //console.error("Error fetching brew or recipe data:", error);
+        console.log("Error fetching brew or recipe data:", error);
       } finally {
         setLoading(false);
       }
     };
 
     fetchBrewData();
-    const interval = setInterval(fetchBrewData, 100);
+    const interval = setInterval(fetchBrewData, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -160,8 +160,7 @@ const Welcome = () => {
           console.log(`Received status code ${response.status}. Retrying...`);
         }
       } catch (error) {
-        //console.log("Error completing the current step:", error);
-        // Optionally, you can add a delay here before retrying
+        console.log("Error completing the current step:", error);
         await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for 2 second before retrying
       }
     }
@@ -170,7 +169,7 @@ const Welcome = () => {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello Adi</Text>
+        <Text style={styles.userName}>Hello</Text>
         <Text style={styles.welcomeMessage}>
           Let's start exploring your next beer adventure!
         </Text>
