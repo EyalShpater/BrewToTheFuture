@@ -169,7 +169,7 @@ const Welcome = () => {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello</Text>
+        <Text style={styles.userName}>Welcome!</Text>
         <Text style={styles.welcomeMessage}>
           Let's start exploring your next beer adventure!
         </Text>

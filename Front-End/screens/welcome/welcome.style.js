@@ -112,10 +112,9 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: 10,
   },
-
   notificationContainer: {
     backgroundColor: COLORS.beige,
-    width: "90%", // Adjust as needed
+    width: "90%",
     padding: 10,
     borderRadius: 20,
     margin: 20,
@@ -153,7 +152,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     alignItems: "center",
     width: "90%",
-    minHeight: 150, // Set a minimum height if needed
+    minHeight: 150,
     marginBottom: 10,
   },
   brewingSessionTitle: {
@@ -175,8 +174,8 @@ const styles = StyleSheet.create({
   noSessionText: {
     fontFamily: FONT.medium,
     fontSize: SIZES.medium,
-    color: COLORS.primary, // Text color
-    textAlign: "center", // Center the text within the text container
+    color: COLORS.primary,
+    textAlign: "center",
   },
 });
 
