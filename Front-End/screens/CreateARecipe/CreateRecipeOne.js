@@ -18,7 +18,7 @@ import { Picker } from "@react-native-picker/picker";
 import { ID_TOKEN } from "../../utils/idToken.js";
 
 const CreateRecipeOne = () => {
-  const [userId, setUserId] = useState(null);
+  const [userId, setUserId] = useState("");
   const [recipeName, setRecipeName] = useState("");
   const [method, setMethod] = useState("");
   const [methodsData, setMethodsData] = useState([]);
@@ -46,8 +46,10 @@ const CreateRecipeOne = () => {
             },
           }
         );
-
-        setUserId(response.data);
+        if (response.status == 200) {
+          setUserId(response.data);
+          console.log(response.data);
+        }
       } catch (error) {
         console.error("Error fetching userId:", error);
       }
