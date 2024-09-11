@@ -34,40 +34,40 @@ Brew To The Future is a revolutionary smart home brewing app designed to help yo
 - **Expo CLI** for mobile development
 
 ### Clone the Repository
-\`\`\`bash
+```bash
 git clone https://github.com/EyalShpater/BrewToTheFuture.git
 cd BrewToTheFuture
-\`\`\`
+```
 
 ### Backend Setup
 1. Install Java dependencies:
-   \`\`\`bash
+   ```console
    ./mvnw install
-   \`\`\`
+   ```
 2. Configure PostgreSQL and OAuth2 in `application.properties`:
-   \`\`\`properties
+   ```properties
    spring.datasource.url=jdbc:postgresql://<your-db-url>:5432/brewdb
    spring.datasource.username=<your-username>
    spring.datasource.password=<your-password>
 
    spring.security.oauth2.client.registration.google.client-id=<your-google-client-id>
    spring.security.oauth2.client.registration.google.client-secret=<your-google-client-password>
-   \`\`\`
+   ```
 3. Run the Spring Boot application:
-   \`\`\`bash
+   ```bash
    ./mvnw spring-boot:run
-   \`\`\`
+   ```
 
 
 ### Frontend Setup
 1. Install dependencies:
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 2. Start the Expo development server:
-   \`\`\`bash
+   ```bash
    expo start
-   \`\`\`
+   ```
 
 ## Usage
 
