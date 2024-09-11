@@ -80,5 +80,6 @@ cd BrewToTheFuture
 
 ## Video
 
-<iframe src="https://drive.google.com/file/d/1VVzBh5H1ukcRONT7yy5z9QfygVTjguHJ/preview" width="640" height="480" allow="autoplay"></iframe>
+[![Video Thumbnail](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://drive.google.com/file/d/1VVzBh5H1ukcRONT7yy5z9QfygVTjguHJ/preview)
+
 
