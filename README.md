@@ -78,8 +78,12 @@ cd BrewToTheFuture
 5. **Watch Statistics**: View detailed statistics for every brew to refine your process and improve future batches.
 6. **Enjoy**: Once your brew is complete, it's time to relax and enjoy your homemade beer!
 
-## Video
+## Brewing Process Using The App
 
-[![Video Thumbnail](https://img.youtube.com/vi/1VVzBh5H1ukcRONT7yy5z9QfygVTjguHJ/0.jpg)](https://drive.google.com/file/d/1VVzBh5H1ukcRONT7yy5z9QfygVTjguHJ/preview)
+https://github.com/user-attachments/assets/e673a92b-01fe-43c1-9822-61e081719b5c
 
 
+
+## App Promo
+
+https://github.com/user-attachments/assets/650e722f-4142-41eb-a28c-219c980e1428
