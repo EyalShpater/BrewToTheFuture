@@ -40,6 +40,8 @@ cd BrewToTheFuture
 ```
 
 ### Backend Setup
+
+**Option 1:**
 1. Install Java dependencies:
    ```console
    ./mvnw install
@@ -58,7 +60,33 @@ cd BrewToTheFuture
    ./mvnw spring-boot:run
    ```
 
+**Option 2:**
+1. **Pull the Docker Image**
 
+   Open a terminal and pull the Docker image from Docker Hub using the following command:
+
+   ```bash
+   docker pull shpater1234/brew-app
+
+2. **Run the Docker Container**
+
+   Start a Docker container from the image, specifying port 8080 to be exposed. Run the following command:
+
+   ```bash
+   docker run -d -p 8080:8080 shpater1234/brew-app
+   
+> [!NOTE]
+>   -d: Runs the container in detached mode (in the background).
+>
+>   -p: 8080:8080: Maps port 8080 of the container to port 8080 on your host machine.
+
+
+> [!TIP]
+> To ensure the server is running correctly, you can check the server's health by navigating to:
+> [Health Check Endpoint](http://localhost:8080/health).
+> You should receive a random dad joke in response. This endpoint is a fun way to verify that the server is up and operational.
+
+   
 ### Frontend Setup
 1. Install dependencies:
    ```bash
