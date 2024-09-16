@@ -97,6 +97,38 @@ cd BrewToTheFuture
    expo start
    ```
 
+### Embedded System Setup
+
+The embedded system is responsible for controlling the brewing hardware through the Raspberry Pi. Follow these steps to set up the embedded system:
+
+1. **Clone the Repository on the Raspberry Pi**:
+   - Open a terminal on your Raspberry Pi.
+   - Clone the Brew To The Future repository:
+     ```bash
+     git clone https://github.com/EyalShpater/BrewToTheFuture.git
+     ```
+   - Navigate to the embedded system directory:
+     ```bash
+     cd BrewToTheFuture/embedded_system
+     ```
+     
+2. **Configure the GPIO Pins**:
+   - Connect the temperature sensors, heating elements, and other hardware components to the Raspberry Pi as specified in the circuit diagram.
+   - **[Circuit Image Here]** 
+
+3. **Start the Embedded System**:
+   - Execute the `main.py` script to start the embedded system:
+     ```bash
+     python3 main.py
+     ```
+   - The script will initialize the sensors, start the PID controller, and manage the brewing process according to the recipe.
+
+4. **Monitor the Brewing Process**:
+   - The embedded system will communicate with the Brew To The Future app, providing real-time updates on the brewing process.
+   - You can monitor the temperature, control the brewing stages, and receive notifications directly on your mobile device.
+
+> _Ensure that all hardware connections are secure and the circuit is correctly set up before powering on the Raspberry Pi to avoid any mishaps._
+
 ## Usage
 
 1. **Create an Account**: Use Google OAuth2 to log in.
