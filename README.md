@@ -114,7 +114,8 @@ The embedded system is responsible for controlling the brewing hardware through 
      
 2. **Configure the GPIO Pins**:
    - Connect the temperature sensors, heating elements, and other hardware components to the Raspberry Pi as specified in the circuit diagram.
-   - **[Circuit Image Here]** 
+   - **![Circuit Image](https://github.com/EyalShpater/BrewToTheFuture/blob/main/Embedded/Brewing_Module/brewing_circuit.png?raw=true)
+** 
 
 3. **Start the Embedded System**:
    - Execute the `main.py` script to start the embedded system:
