@@ -86,6 +86,14 @@ cd BrewToTheFuture
 > [Health Check Endpoint](http://localhost:8080/health).
 > You should receive a random dad joke in response. This endpoint is a fun way to verify that the server is up and operational.
 
+> [!TIP]
+> To initialize the database with data, use the following API endpoint:
+> ```bash
+> GET /api/init/load_data
+> ```
+> This will load the initial data into the system's database. Ensure the server is running and properly configured before calling this endpoint.
+
+
    
 ### Frontend Setup
 1. Install dependencies:
